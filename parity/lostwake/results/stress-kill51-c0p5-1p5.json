@@ -1,0 +1,782 @@
+{
+ "tag": "stress-kill51-c0p5-1p5",
+ "label": "stress",
+ "mode": "kill",
+ "seed": 51,
+ "N": 50,
+ "chaos": [
+  0.5,
+  1.5
+ ],
+ "settle_s": 90,
+ "restarts": [
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 0.26,
+   "t": 0.65,
+   "t_started": 1
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 2.76,
+   "t": 1.78,
+   "t_started": 4.65
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 0.24,
+   "t": 5.81,
+   "t_started": 6.16
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 2.6,
+   "t": 7.51,
+   "t_started": 10.19
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 1.3,
+   "t": 10.86,
+   "t_started": 12.3
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 2.79,
+   "t": 12.97,
+   "t_started": 15.94
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 0.37,
+   "t": 17.01,
+   "t_started": 17.51
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 1.06,
+   "t": 18.7,
+   "t_started": 20.09
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 0.44,
+   "t": 21.48,
+   "t_started": 22.17
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 2.13,
+   "t": 23.45,
+   "t_started": 25.71
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 0.33,
+   "t": 26.83,
+   "t_started": 27.27
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 1.74,
+   "t": 28.32,
+   "t_started": 30.14
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 0.18,
+   "t": 30.65,
+   "t_started": 30.96
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 1.02,
+   "t": 32.13,
+   "t_started": 33.66
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 1.32,
+   "t": 34.2,
+   "t_started": 35.67
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 2.63,
+   "t": 36.92,
+   "t_started": 39.63
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 0.45,
+   "t": 40.5,
+   "t_started": 41.07
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 0.23,
+   "t": 41.89,
+   "t_started": 42.25
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 1.33,
+   "t": 43.01,
+   "t_started": 44.45
+  },
+  {
+   "who": "a-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 2.18,
+   "t": 45.06,
+   "t_started": 47.35
+  },
+  {
+   "who": "b-stress-kill51-c0p5-1p5",
+   "mode": "kill",
+   "down_s": 1.13,
+   "t": 48.28,
+   "t_started": 49.49
+  }
+ ],
+ "messages": [
+  {
+   "t_send": 0.15,
+   "i": 0,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 0",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 0.68,
+   "i": 1,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 1",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 1.4,
+   "i": 2,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 2",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 2.37,
+   "i": 3,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 3",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 3.65,
+   "i": 4,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 4 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 4.48,
+   "i": 5,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 5",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 5.99,
+   "i": 6,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 6",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 6.67,
+   "i": 7,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 7",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 7.53,
+   "i": 8,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 8",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 8.53,
+   "i": 9,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 9 thanks",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 9.77,
+   "i": 10,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 10",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 10.63,
+   "i": 11,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 11",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 11.75,
+   "i": 12,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 12",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 13.36,
+   "i": 13,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 13",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 14.52,
+   "i": 14,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 14 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 15.13,
+   "i": 15,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 15",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 16.49,
+   "i": 16,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 16",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 17.43,
+   "i": 17,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 17",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 18.37,
+   "i": 18,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 18",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 19.25,
+   "i": 19,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 19 thanks",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 20.26,
+   "i": 20,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 20",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 21.39,
+   "i": 21,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 21",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 22.35,
+   "i": 22,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 22",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 23.25,
+   "i": 23,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 23",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 24.71,
+   "i": 24,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 24 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 25.35,
+   "i": 25,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 25",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 26.63,
+   "i": 26,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 26",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 27.73,
+   "i": 27,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 27",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 28.77,
+   "i": 28,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 28",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 29.49,
+   "i": 29,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 29 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 29.97,
+   "i": 30,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 30",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 31.28,
+   "i": 31,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 31",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 32.05,
+   "i": 32,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 32",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 32.7,
+   "i": 33,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 33",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 33.86,
+   "i": 34,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 34 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 34.74,
+   "i": 35,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 35",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 35.74,
+   "i": 36,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 36",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 36.72,
+   "i": 37,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 37",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 37.96,
+   "i": 38,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 38",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 39.21,
+   "i": 39,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 39 thanks",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 39.77,
+   "i": 40,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 40",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 41.1,
+   "i": 41,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 41",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 42.42,
+   "i": 42,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 42",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 42.87,
+   "i": 43,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 43",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 43.9,
+   "i": 44,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 44 thanks",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  },
+  {
+   "t_send": 44.9,
+   "i": 45,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 45",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 45.99,
+   "i": 46,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 46",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 47.07,
+   "i": 47,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 47",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 47.66,
+   "i": 48,
+   "to": "b-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 48",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": true
+  },
+  {
+   "t_send": 48.88,
+   "i": 49,
+   "to": "a-stress-kill51-c0p5-1p5",
+   "body": "lw stress-kill51-c0p5-1p5 msg 49 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": true
+  }
+ ],
+ "summary": {
+  "sent": 50,
+  "in_log": 50,
+  "consumed": 50,
+  "never_woken": 0,
+  "claimed_not_finished": 0,
+  "sent_while_dispatcher_down": 15,
+  "never_woken_while_down": 0,
+  "never_woken_while_up": 0,
+  "restarts": 21,
+  "sender_saw_success": 50,
+  "duplicate_replies": 0,
+  "receipts_done": 50,
+  "outcomes": {
+   "replied": 40,
+   "no-reply": 10
+  }
+ },
+ "stub_calls": 0
+}

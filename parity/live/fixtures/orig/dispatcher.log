@@ -1,0 +1,221 @@
+2026-09-02T18:02:31Z [dispatcher] step: type=message source=chat
+2026-09-02T18:02:31Z [dispatcher]   dispatch -> responder (active=0)
+2026-09-02T18:02:31Z [dispatcher] step: type=reply_claim source=responder
+2026-09-02T18:03:18Z [dispatcher] step: type=message source=chat
+2026-09-02T18:03:18Z [dispatcher]   pending -> responder (type=message, queued=1)
+2026-09-02T18:03:18Z [dispatcher]   fire pending -> responder (type=message, active=0)
+2026-09-02T18:03:18Z [dispatcher] step: type=observation source=responder
+2026-09-02T18:03:18Z [dispatcher]   dispatch -> monolith (active=1)
+2026-09-02T18:03:35Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:03:35Z [dispatcher] step: type=prompt source=
+2026-09-02T18:03:41Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:03:41Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:04:51Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:04:51Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:04:59Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:04:59Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:06Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:05:06Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:09Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:05:09Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:12Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:05:12Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:15Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:05:15Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:18Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:05:18Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:18Z [dispatcher] step: type=error source=monolith
+2026-09-02T18:05:19Z [dispatcher]   scheduled wake -> monolith (due 1s ago)
+2026-09-02T18:05:22Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:05:22Z [dispatcher] step: type=prompt source=
+2026-09-02T18:05:24Z [dispatcher] step: type=observation source=monolith
+2026-09-02T18:05:24Z [dispatcher]   skip monolith (self-trigger)
+2026-09-02T18:05:25Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:05:25Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:25Z [dispatcher] step: type=final source=
+2026-09-02T18:05:26Z [dispatcher]   scheduled wake -> monolith (due 1s ago)
+2026-09-02T18:05:28Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:05:29Z [dispatcher] step: type=prompt source=
+2026-09-02T18:05:41Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:05:41Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:46Z [dispatcher] step: type=message source=chat
+2026-09-02T18:05:46Z [dispatcher]   dispatch -> responder (active=1)
+2026-09-02T18:05:46Z [dispatcher] step: type=reply_claim source=responder
+2026-09-02T18:05:48Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:05:48Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:05:49Z [dispatcher] step: type=message source=chat
+2026-09-02T18:05:49Z [dispatcher]   pending -> responder (type=message, queued=1)
+2026-09-02T18:05:49Z [dispatcher]   fire pending -> responder (type=message, active=1)
+2026-09-02T18:05:49Z [dispatcher] step: type=observation source=responder
+2026-09-02T18:05:49Z [dispatcher]   pending -> monolith (type=observation, coalesced)
+2026-09-02T18:06:04Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:06:04Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:06:08Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:06:09Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:06:46Z [dispatcher] step: type=observation source=monolith
+2026-09-02T18:06:46Z [dispatcher]   skip monolith (self-trigger)
+2026-09-02T18:06:47Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:06:47Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:06:52Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:06:52Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:06:52Z [dispatcher] step: type=final source=
+2026-09-02T18:06:53Z [dispatcher]   fire pending -> monolith (type=observation, active=0)
+2026-09-02T18:07:03Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:07:03Z [dispatcher] step: type=prompt source=
+2026-09-02T18:07:31Z [dispatcher] step: type=observation source=monolith
+2026-09-02T18:07:31Z [dispatcher]   skip monolith (self-trigger)
+2026-09-02T18:07:32Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:07:32Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:07:32Z [dispatcher] step: type=final source=
+2026-09-02T18:07:33Z [dispatcher]   scheduled wake -> monolith (due 1s ago)
+2026-09-02T18:07:37Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:07:37Z [dispatcher] step: type=prompt source=
+2026-09-02T18:08:10Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:08:10Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:08:27Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:08:27Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:08:31Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:08:31Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:08:36Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:08:37Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:08:37Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:08:37Z [dispatcher] step: type=final source=
+2026-09-02T18:08:38Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:08:43Z [dispatcher]   scheduled wake -> monolith (due 0s ago)
+2026-09-02T18:08:46Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:08:46Z [dispatcher] step: type=prompt source=
+2026-09-02T18:08:56Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:08:56Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:09:07Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:09:08Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:09:11Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:09:12Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:09:19Z [dispatcher] step: type=message source=chat
+2026-09-02T18:09:19Z [dispatcher]   dispatch -> responder (active=1)
+2026-09-02T18:09:19Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:09:19Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:09:23Z [dispatcher] step: type=observation source=monolith
+2026-09-02T18:09:23Z [dispatcher]   skip monolith (self-trigger)
+2026-09-02T18:09:24Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:09:24Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:09:25Z [dispatcher] step: type=final source=
+2026-09-02T18:09:26Z [dispatcher]   scheduled wake -> monolith (due 1s ago)
+2026-09-02T18:09:39Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:09:40Z [dispatcher] step: type=prompt source=
+2026-09-02T18:09:43Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:09:43Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:09:59Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:09:59Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:09:59Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:09:59Z [dispatcher] step: type=final source=
+2026-09-02T18:10:00Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:10:05Z [dispatcher]   scheduled wake -> monolith (due 0s ago)
+2026-09-02T18:10:06Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:10:07Z [dispatcher] step: type=prompt source=
+2026-09-02T18:10:18Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:10:18Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:10:21Z [dispatcher] step: type=message source=chat
+2026-09-02T18:10:21Z [dispatcher]   dispatch -> responder (active=1)
+2026-09-02T18:10:21Z [dispatcher] step: type=reply_claim source=responder
+2026-09-02T18:10:22Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:10:22Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:10:29Z [dispatcher] step: type=message source=chat
+2026-09-02T18:10:29Z [dispatcher]   pending -> responder (type=message, queued=1)
+2026-09-02T18:10:29Z [dispatcher] step: type=observation source=monolith
+2026-09-02T18:10:29Z [dispatcher]   skip monolith (self-trigger)
+2026-09-02T18:10:30Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:10:30Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:10:32Z [dispatcher] step: type=observation source=responder
+2026-09-02T18:10:32Z [dispatcher]   pending -> monolith (type=observation, coalesced)
+2026-09-02T18:10:33Z [dispatcher]   fire pending -> responder (type=message, active=1)
+2026-09-02T18:10:33Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:10:33Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:11:09Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:11:09Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:11:39Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:11:39Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:11:44Z [dispatcher] step: type=observation source=monolith
+2026-09-02T18:11:44Z [dispatcher]   skip monolith (self-trigger)
+2026-09-02T18:11:44Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:11:45Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:11:45Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:11:45Z [dispatcher] step: type=final source=
+2026-09-02T18:11:46Z [dispatcher]   fire pending -> monolith (type=observation, active=0)
+2026-09-02T18:11:55Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:11:55Z [dispatcher] step: type=prompt source=
+2026-09-02T18:11:59Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:11:59Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:12:02Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:12:02Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:12:02Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:12:02Z [dispatcher] step: type=final source=
+2026-09-02T18:12:03Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:12:04Z [dispatcher]   scheduled wake -> monolith (due 1s ago)
+2026-09-02T18:12:09Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:12:09Z [dispatcher] step: type=prompt source=
+2026-09-02T18:12:14Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:12:14Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:12:19Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:12:19Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:12:22Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:12:22Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:12:22Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:12:22Z [dispatcher] step: type=final source=
+2026-09-02T18:12:23Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:12:28Z [dispatcher]   scheduled wake -> monolith (due 0s ago)
+2026-09-02T18:12:31Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:12:31Z [dispatcher] step: type=prompt source=
+2026-09-02T18:12:37Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:12:37Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:12:43Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:12:43Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:12:43Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:12:43Z [dispatcher] step: type=final source=
+2026-09-02T18:12:44Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:12:54Z [dispatcher]   scheduled wake -> monolith (due 0s ago)
+2026-09-02T18:12:57Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:12:57Z [dispatcher] step: type=prompt source=
+2026-09-02T18:13:02Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:13:02Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:13:04Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:13:04Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:13:04Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:13:05Z [dispatcher] step: type=final source=
+2026-09-02T18:13:05Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:13:25Z [dispatcher]   scheduled wake -> monolith (due 0s ago)
+2026-09-02T18:13:28Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:13:28Z [dispatcher] step: type=prompt source=
+2026-09-02T18:13:32Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:13:32Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:13:47Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:13:48Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:13:55Z [dispatcher] step: type=thought source=monolith
+2026-09-02T18:13:55Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:13:55Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:13:56Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:13:56Z [dispatcher] step: type=final source=
+2026-09-02T18:14:36Z [dispatcher]   scheduled wake -> monolith (due 0s ago)
+2026-09-02T18:14:43Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:14:44Z [dispatcher] step: type=prompt source=
+2026-09-02T18:14:46Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:14:47Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:14:52Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:14:52Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:14:57Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:14:57Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:15:01Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:15:01Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:15:01Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:15:01Z [dispatcher] step: type=final source=
+2026-09-02T18:15:02Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:16:23Z [dispatcher]   scheduled wake -> monolith (due 0s ago)
+2026-09-02T18:16:27Z [dispatcher] step: type=shellm-run source=
+2026-09-02T18:16:27Z [dispatcher] step: type=prompt source=
+2026-09-02T18:16:35Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:16:35Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:16:39Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:16:39Z [dispatcher] step: type=reasoning source=
+2026-09-02T18:16:39Z [dispatcher] step: type=shell-output source=
+2026-09-02T18:16:39Z [dispatcher] step: type=final source=
+2026-09-02T18:16:40Z [dispatcher] step: type=idle source=monolith
+2026-09-02T18:17:11Z [dispatcher] caught SIGTERM from a deliberate stop — exiting clean

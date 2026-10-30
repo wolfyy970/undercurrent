@@ -1,0 +1,16 @@
+Undercurrent web UI
+==================
+
+web/viewer/ is derived from the Headlong project:
+  https://github.com/laude-institute/headlong  (web/viewer)
+  Copyright the Headlong authors.
+  Licensed under the Apache License, Version 2.0 (see web/LICENSE).
+
+The vendored React viewer (app code, routes, components, client-side models,
+styling) is unmodified except:
+  - viewer/vite.config.ts  : added a dev-server /api proxy to the TS data layer
+  - viewer/package.json    : npm-based scripts
+
+web/server/ is new code written for the Undercurrent port. Each module documents
+the upstream Python module it ports from headlong/web/src/headlong_web/*.py
+(also Apache-2.0).

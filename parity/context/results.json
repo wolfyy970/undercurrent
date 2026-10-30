@@ -1,0 +1,4104 @@
+{
+  "bash": "<HEADLONG_ROOT>/bin/context",
+  "core": {
+    "total": 126,
+    "parity": 126
+  },
+  "deviations": {
+    "total": 11,
+    "matchingDocumentedShape": 11
+  },
+  "exitOk": true,
+  "results": [
+    {
+      "group": "core",
+      "name": "basic-roles",
+      "argv": [
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt,shell-output,feedback"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"do the thing\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"let me think\\n\\n```bash\\nls -la\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"file1\\nfile2\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"done\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"do the thing\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"let me think\\n\\n```bash\\nls -la\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"file1\\nfile2\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"done\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "single-cmd-bare",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "cmd-thought-sorted",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"thinking\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"thinking\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "cmd-thought-other-labeled",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"thinking\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"thinking\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-served-by-not-rendered",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"thinking\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"thinking\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-unknown-field-not-rendered",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"thinking\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"thinking\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-thought-only-no-bare-shortcut",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"just thinking\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"just thinking\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-cmd-only-fenced",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-content-then-cmd",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"older name for the thought\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"older name for the thought\\n\\n```bash\\nls -la\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-thought-content-cmd-order",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"T\\n\\nC\\n\\n```bash\\nls\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"T\\n\\nC\\n\\n```bash\\nls\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-content-only",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"only content\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"only content\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-no-renderable-fields",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-empty-thought-null-cmd",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"kept\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"kept\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "reasoning-thought-truncated-per-field",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning",
+        "--prompt-limit",
+        "64"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\n[... truncated: 300 bytes total. read with: traj show r1 --full]\\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\n\\n```bash\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\\n[... truncated: 300 bytes total. read with: traj show r1 --full]\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\n[... truncated: 300 bytes total. read with: traj show r1 --full]\\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\n\\n```bash\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\\n[... truncated: 300 bytes total. read with: traj show r1 --full]\\nyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\\n```\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "non-reasoning-served-by-is-meta",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"AAA\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"AAA\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "multifield-labeled",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[alpha]\\nAAA\\n\\n[beta]\\nBBB\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[alpha]\\nAAA\\n\\n[beta]\\nBBB\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "null-field-forces-labeled",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[a]\\nonly-a\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[a]\\nonly-a\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "multifield-empty-string",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[b]\\nreal\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[b]\\nreal\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "field-sort-order",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[ABC]\\nA\\n\\n[Num1]\\nn\\n\\n[Zebra]\\nZ\\n\\n[_under]\\nu\\n\\n[apple]\\na\\n\\n[banana]\\nb\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[ABC]\\nA\\n\\n[Num1]\\nn\\n\\n[Zebra]\\nZ\\n\\n[_under]\\nu\\n\\n[apple]\\na\\n\\n[banana]\\nb\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "unknown-type-default-user",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"obs text\\n---\\nidling\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"obs text\\n---\\nidling\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "role-precedence-excl-wins",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "dup",
+        "--user-types",
+        "dup",
+        "--exclude-types",
+        "dup"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "role-precedence-asst-over-user",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "dup",
+        "--user-types",
+        "dup"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "exclude-user-plus-appended",
+      "argv": [
+        "--head",
+        "4",
+        "--tail",
+        "0",
+        "--exclude-types",
+        "reasoning",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"kept\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"kept\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "same-role-merge",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"first\\n---\\nsecond\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"first\\n---\\nsecond\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "empty-render-adjacency-merge",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0",
+        "--user-types",
+        "prompt,shell-output"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"u1\\n---\\nu2\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"u1\\n---\\nu2\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "meta-suffix-keys",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"R\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"R\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "field-named-like-meta",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"keep\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"keep\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "object-field-pp",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"{\\n  \\\"z\\\": 1,\\n  \\\"a\\\": [\\n    1,\\n    2\\n  ],\\n  \\\"s\\\": \\\"hi\\\\nthere\\\",\\n  \\\"nested\\\": {\\n    \\\"x\\\": true,\\n    \\\"y\\\": null\\n  }\\n}\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"{\\n  \\\"z\\\": 1,\\n  \\\"a\\\": [\\n    1,\\n    2\\n  ],\\n  \\\"s\\\": \\\"hi\\\\nthere\\\",\\n  \\\"nested\\\": {\\n    \\\"x\\\": true,\\n    \\\"y\\\": null\\n  }\\n}\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "array-field-pp",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[\\n  \\\"a\\\",\\n  \\\"b\\\\nc\\\",\\n  42,\\n  true,\\n  null,\\n  {\\n    \\\"k\\\": \\\"v\\\"\\n  }\\n]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[\\n  \\\"a\\\",\\n  \\\"b\\\\nc\\\",\\n  42,\\n  true,\\n  null,\\n  {\\n    \\\"k\\\": \\\"v\\\"\\n  }\\n]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "scalar-fields",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[flt]\\n3.14\\n\\n[num]\\n42\\n\\n[str]\\ns\\n\\n[tf]\\ntrue\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[flt]\\n3.14\\n\\n[num]\\n42\\n\\n[str]\\ns\\n\\n[tf]\\ntrue\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "empty-object-field",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[data]\\n{}\\n\\n[other]\\nx\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[data]\\n{}\\n\\n[other]\\nx\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "empty-array-field",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[data]\\n[]\\n\\n[other]\\nx\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[data]\\n[]\\n\\n[other]\\nx\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "escaping-torture",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"q\\\"b\\\\c\\tTAB /slash  日本 café mid\\nline2\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"q\\\"b\\\\c\\tTAB /slash  日本 café mid\\nline2\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "control-chars-below-0x20",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"a\\u0001|\\u0007|\\b|\\t|\\u000b|\\f|\\r|\\u001b|\\u001fz\\nmid\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"a\\u0001|\\u0007|\\b|\\t|\\u000b|\\f|\\r|\\u001b|\\u001fz\\nmid\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "high-and-c1-chars",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"|| | | |é|日\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"|| | | |é|日\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "control-char-del-0x7f",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"del\\u007fhere\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"del\\u007fhere\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "del-0x7f-in-object-field",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"{\\n  \\\"s\\\": \\\"x\\\\u007fy\\\"\\n}\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"{\\n  \\\"s\\\": \\\"x\\\\u007fy\\\"\\n}\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trailing-spaces-preserved",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"keep spaces   \"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"keep spaces   \"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trailing-tab-preserved",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"hello\\ttab\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"hello\\ttab\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "whitespace-only-content-dropped",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"   \\n---\\nreal\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"   \\n---\\nreal\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "stepid-number",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "stepid-zero",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "stepid-empty-dropped",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"y\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"y\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "stepid-missing-dropped",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"y\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"y\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "null-line-dropped",
+      "argv": [
+        "--head",
+        "5",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "malformed-json-line-dropped",
+      "argv": [
+        "--head",
+        "5",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"a\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"c\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"a\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"c\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "fork-child-string",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Forked child: child-abc]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Forked child: child-abc]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "fork-child-object",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Forked child: {\\n  \\\"id\\\": \\\"x\\\",\\n  \\\"n\\\": 1\\n}]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Forked child: {\\n  \\\"id\\\": \\\"x\\\",\\n  \\\"n\\\": 1\\n}]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "merge-from-branch",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from br-1: merged text]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from br-1: merged text]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "merge-from-traj",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from tr-2]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from tr-2]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "merge-from-branch-null-fallback",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from tr-fallback: c]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from tr-fallback: c]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "merge-from-branch-false-fallback",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from tr-fallback]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from tr-fallback]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "merge-no-content",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from br-1]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[Merged from br-1]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "elision-gap",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "2",
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[3 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"four\\n---\\nfive\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[3 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"four\\n---\\nfive\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "elision-style-none",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--elision-style",
+        "none",
+        "--assistant-types",
+        "reasoning,final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"five\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"five\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "elision-style-bogus-shows-markers",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--elision-style",
+        "wat",
+        "--assistant-types",
+        "reasoning,final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[3 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"d\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[3 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"d\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "elision-leading-head0",
+      "argv": [
+        "--head",
+        "0",
+        "--tail",
+        "2",
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[3 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"three\\n---\\nfour\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[3 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"three\\n---\\nfour\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "elision-between-assistants-no-merge",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--assistant-types",
+        "reasoning,final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"first\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"last\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"first\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"last\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "exclude-skip-arith",
+      "argv": [
+        "--head",
+        "6",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"a\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"b\\n---\\nc\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"a\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"b\\n---\\nc\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "elision-overcount-unread-middle",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "1",
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\\n---\\n[4 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"last\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\\n---\\n[4 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"last\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "all-fed-excluded-trailing-elision",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0",
+        "--exclude-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "boundary-total-eq-headtail",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "2",
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"two\\n---\\nfour\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"two\\n---\\nfour\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "boundary-total-plus1",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "2",
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\\n---\\n[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"three\\n---\\nfour\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\\n---\\n[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"three\\n---\\nfour\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "head-larger-than-file",
+      "argv": [
+        "--head",
+        "999",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"two\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"two\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "no-final-newline",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"no newline\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"no newline\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "no-final-newline-large-branch",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"no newline\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"no newline\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "crlf-lines",
+      "argv": [
+        "--head",
+        "3",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"two\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"two\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "empty-file",
+      "argv": [],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "only-trajectory-row",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "0"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "pin-middle",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--pin",
+        "pinned-step-id",
+        "--assistant-types",
+        "reasoning,final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"PINME\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"five\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"PINME\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"five\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "pin-large-unread-middle",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--pin",
+        "pinme",
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"PINNED\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"four\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"PINNED\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"four\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "pin-over-50-cap",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--pin",
+        "dup",
+        "--assistant-types",
+        "reasoning,final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"line 0\\n---\\nline 1\\n---\\nline 2\\n---\\nline 3\\n---\\nline 4\\n---\\nline 5\\n---\\nline 6\\n---\\nline 7\\n---\\nline 8\\n---\\nline 9\\n---\\nline 10\\n---\\nline 11\\n---\\nline 12\\n---\\nline 13\\n---\\nline 14\\n---\\nline 15\\n---\\nline 16\\n---\\nline 17\\n---\\nline 18\\n---\\nline 19\\n---\\nline 20\\n---\\nline 21\\n---\\nline 22\\n---\\nline 23\\n---\\nline 24\\n---\\nline 25\\n---\\nline 26\\n---\\nline 27\\n---\\nline 28\\n---\\nline 29\\n---\\nline 30\\n---\\nline 31\\n---\\nline 32\\n---\\nline 33\\n---\\nline 34\\n---\\nline 35\\n---\\nline 36\\n---\\nline 37\\n---\\nline 38\\n---\\nline 39\\n---\\nline 40\\n---\\nline 41\\n---\\nline 42\\n---\\nline 43\\n---\\nline 44\\n---\\nline 45\\n---\\nline 46\\n---\\nline 47\\n---\\nline 48\\n---\\nline 49\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[10 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"end\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"line 0\\n---\\nline 1\\n---\\nline 2\\n---\\nline 3\\n---\\nline 4\\n---\\nline 5\\n---\\nline 6\\n---\\nline 7\\n---\\nline 8\\n---\\nline 9\\n---\\nline 10\\n---\\nline 11\\n---\\nline 12\\n---\\nline 13\\n---\\nline 14\\n---\\nline 15\\n---\\nline 16\\n---\\nline 17\\n---\\nline 18\\n---\\nline 19\\n---\\nline 20\\n---\\nline 21\\n---\\nline 22\\n---\\nline 23\\n---\\nline 24\\n---\\nline 25\\n---\\nline 26\\n---\\nline 27\\n---\\nline 28\\n---\\nline 29\\n---\\nline 30\\n---\\nline 31\\n---\\nline 32\\n---\\nline 33\\n---\\nline 34\\n---\\nline 35\\n---\\nline 36\\n---\\nline 37\\n---\\nline 38\\n---\\nline 39\\n---\\nline 40\\n---\\nline 41\\n---\\nline 42\\n---\\nline 43\\n---\\nline 44\\n---\\nline 45\\n---\\nline 46\\n---\\nline 47\\n---\\nline 48\\n---\\nline 49\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[10 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"end\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "multi-pin",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--pin",
+        "pa",
+        "--pin",
+        "pb",
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"AAA\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"BBB\\n---\\nfour\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"AAA\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"BBB\\n---\\nfour\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "pin-excluded-never-kept",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "1",
+        "--pin",
+        "sr1",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"four\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"four\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trunc-boundary-eq",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--prompt-limit",
+        "10",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"abcdefghij\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"abcdefghij\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trunc-boundary-minus1",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--prompt-limit",
+        "9",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"abcd\\n[... truncated: 10 bytes total. read with: traj show g1 --full]\\nghij\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"abcd\\n[... truncated: 10 bytes total. read with: traj show g1 --full]\\nghij\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trunc-limit-1",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--prompt-limit",
+        "1",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"[... truncated: 10 bytes total. read with: traj show g1 --full]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"[... truncated: 10 bytes total. read with: traj show g1 --full]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trunc-limit-0",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--prompt-limit",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"[... truncated: 10 bytes total. read with: traj show g1 --full]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"[... truncated: 10 bytes total. read with: traj show g1 --full]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trunc-limit-2",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--prompt-limit",
+        "2",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"a\\n[... truncated: 10 bytes total. read with: traj show g1 --full]\\nj\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"a\\n[... truncated: 10 bytes total. read with: traj show g1 --full]\\nj\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trunc-multibyte-split",
+      "argv": [
+        "--prompt-limit",
+        "40",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"café 日本語日\\n[... truncated: 370 bytes total. read with: traj show t1 --full]\\n本語日本語 END\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"café 日本語日\\n[... truncated: 370 bytes total. read with: traj show t1 --full]\\n本語日本語 END\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trunc-multibyte-half1",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--prompt-limit",
+        "3",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"\\n[... truncated: 18 bytes total. read with: traj show g1 --full]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"\\n[... truncated: 18 bytes total. read with: traj show g1 --full]\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "trunc-in-labeled-block",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--prompt-limit",
+        "12",
+        "--user-types",
+        "custom"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[alpha]\\nAAAAAA\\n[... truncated: 40 bytes total. read with: traj show c1 --full]\\nAAAAAA\\n\\n[beta]\\nBBBBBB\\n[... truncated: 40 bytes total. read with: traj show c1 --full]\\nBBBBBB\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[alpha]\\nAAAAAA\\n[... truncated: 40 bytes total. read with: traj show c1 --full]\\nAAAAAA\\n\\n[beta]\\nBBBBBB\\n[... truncated: 40 bytes total. read with: traj show c1 --full]\\nBBBBBB\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "blob-stdout",
+      "argv": [
+        "--user-types",
+        "shell-output"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"FULL BLOB CONTENT\\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"FULL BLOB CONTENT\\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "blob-missing-file-inline-stays",
+      "argv": [
+        "--user-types",
+        "shell-output"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"inline-stays\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"inline-stays\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "blob-stderr",
+      "argv": [
+        "--user-types",
+        "shell-output"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"ERRLOG\\nline2\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"ERRLOG\\nline2\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "blob-both-stdout-stderr",
+      "argv": [
+        "--user-types",
+        "shell-output"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[stderr]\\nERR\\n\\n[stdout]\\nOUT\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[stderr]\\nERR\\n\\n[stdout]\\nOUT\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "blob-ref-nonstring-ignored",
+      "argv": [
+        "--user-types",
+        "shell-output"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"keep\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"keep\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "inline-stdout-trailing-nl-rtrim",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "shell-output"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"line1\\nline2\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"line1\\nline2\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "maxbytes-fits",
+      "argv": [
+        "--max-bytes",
+        "9999",
+        "--head",
+        "1",
+        "--tail",
+        "3",
+        "--assistant-types",
+        "reasoning,final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\\n---\\nBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\\n---\\nBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "maxbytes-binary-search",
+      "argv": [
+        "--max-bytes",
+        "220",
+        "--prompt-limit",
+        "500",
+        "--head",
+        "1",
+        "--tail",
+        "3",
+        "--assistant-types",
+        "reasoning,final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "maxbytes-hardtrunc",
+      "argv": [
+        "--max-bytes",
+        "30",
+        "--prompt-limit",
+        "500",
+        "--assistant-types",
+        "reasoning,final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "maxbytes-hardtrunc-multibyte",
+      "argv": [
+        "--max-bytes",
+        "35",
+        "--prompt-limit",
+        "500",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    ",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    ",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "maxbytes-exact-1",
+      "argv": [
+        "--max-bytes",
+        "1",
+        "--prompt-limit",
+        "500",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-exact-path",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "aaaaaaaa-root/trajectory.jsonl",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ok\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ok\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-dir-based",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "myid",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ok\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ok\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-uuid-hex-prefix-glob",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "bcbcbcbc-1111-2222-3333-444444444444",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"hi\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"bye\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"hi\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"bye\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-nonuuid-glob",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "bcbcbcbc",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ok\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ok\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-nested-dir",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "deadbeef",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"nested\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"nested\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-trajdir-trailing-slash",
+      "argv": [
+        "--traj_dir",
+        "./trajdir/",
+        "aaaaaaaa-1111-2222-3333-444444444444",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ok\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ok\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-env-vars",
+      "argv": [
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"hi\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"bye\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"hi\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"bye\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-optdir-beats-env",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "aaaaaaaa-1111-2222-3333-444444444444",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"optwin\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"optwin\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "resolve-positional-ignored-env-wins",
+      "argv": [
+        "zzzznomatch",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"envwin\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"envwin\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "err-unknown-option",
+      "argv": [
+        "--bogus"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "context: error: unknown option: --bogus\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: unknown option: --bogus\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "core",
+      "name": "err-extra-arg",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "aaaaaaaa-1111-2222-3333-444444444444",
+        "EXTRA"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "context: error: unexpected argument: EXTRA\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: unexpected argument: EXTRA\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "core",
+      "name": "err-cannot-resolve-optdir",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "deadbeef-1111-2222-3333-444444444444"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "context: error: cannot resolve traj ID 'deadbeef-1111-2222-3333-444444444444' in './trajdir'\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: cannot resolve traj ID 'deadbeef-1111-2222-3333-444444444444' in './trajdir'\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "core",
+      "name": "err-cannot-resolve-env",
+      "argv": [],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "context: error: cannot resolve TRAJ_ID 'deadbeef-1111-2222-3333-444444444444' in TRAJ_DIR './trajdir'\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: cannot resolve TRAJ_ID 'deadbeef-1111-2222-3333-444444444444' in TRAJ_DIR './trajdir'\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "core",
+      "name": "err-no-traj-specified",
+      "argv": [],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "context: error: No trajectory specified. Use --traj_dir DIR <ID>, or set TRAJ_DIR + TRAJ_ID env vars.\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: No trajectory specified. Use --traj_dir DIR <ID>, or set TRAJ_DIR + TRAJ_ID env vars.\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "core",
+      "name": "err-trajdir-only-no-env",
+      "argv": [
+        "--traj_dir",
+        "./trajdir"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "context: error: No trajectory specified. Use --traj_dir DIR <ID>, or set TRAJ_DIR + TRAJ_ID env vars.\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: No trajectory specified. Use --traj_dir DIR <ID>, or set TRAJ_DIR + TRAJ_ID env vars.\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "core",
+      "name": "err-positional-only-no-env",
+      "argv": [
+        "aaaaaaaa-1111-2222-3333-444444444444"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "context: error: No trajectory specified. Use --traj_dir DIR <ID>, or set TRAJ_DIR + TRAJ_ID env vars.\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: No trajectory specified. Use --traj_dir DIR <ID>, or set TRAJ_DIR + TRAJ_ID env vars.\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "core",
+      "name": "err-env-trajdir-empty",
+      "argv": [],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "context: error: No trajectory specified. Use --traj_dir DIR <ID>, or set TRAJ_DIR + TRAJ_ID env vars.\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: No trajectory specified. Use --traj_dir DIR <ID>, or set TRAJ_DIR + TRAJ_ID env vars.\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "core",
+      "name": "help-short",
+      "argv": [
+        "-h"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "Usage: context [options]\n\nReads a trajectory and outputs a JSON messages array to stdout.\n\nTrajectory targeting:\n  --traj_dir DIR        Trajectory directory.\n  <ID>                  Trajectory ID (UUID or hex prefix, positional).\n                        Falls back to $TRAJ_DIR + $TRAJ_ID env vars.\n\nRole assignment:\n  --assistant-types LIST  Step types that become {\"role\":\"assistant\"}.\n  --user-types LIST       Step types that become {\"role\":\"user\"}.\n  --exclude-types LIST    Step types to drop entirely.\n  Unrecognized types (not in any list) default to \"user\" role.\n\nStep selection:\n  --head N              Keep first N steps. Default: 1.\n  --tail N              Keep last N steps. Default: 50.\n  --tail-block B        Move the tail window's start only in steps of B rows,\n                        so it holds N to N+B-1 rows and the rendered prefix\n                        changes once per B appended rows instead of on every\n                        call (keeps provider prompt caches warm). Default: 1.\n  --pin <step_id>       Always include this step. Repeatable.\n  --run RUN_ID          Keep only steps whose run_id is RUN_ID (pins always\n                        stay). Steps of other runs never render and never\n                        count as elided; a gap inside the run renders as\n                        \"[earlier steps elided]\" with no count.\n\nPer-step content:\n  --prompt-limit BYTES  Per-step field truncation for large values. Default: 2048.\n  --full-types LIST     Step types whose fields are never truncated, e.g.\n                        \"prompt\": instructions arrive whole or not at all (a\n                        cut prompt leaves the model a stub pointing at its\n                        own instructions on disk).\n  --block-limit BYTES   Truncation limit for rows in the newest --tail-block\n                        block(s) of the file; older rows use --prompt-limit.\n                        A row's block never changes, so a row is rewritten\n                        once, when the newest row crosses into the next\n                        block, which is also when the window start moves.\n                        Default: same as --prompt-limit.\n  --whole-blocks W      How many newest blocks render at --block-limit\n                        (with --tail-block 1: the newest W rows). Default: 1.\n\nElision:\n  --elision-style S     none|count. Default: count.\n\nBudget:\n  --max-bytes BYTES     Cap total output. Default: unset.\n\nOutput:\n  A JSON array: [{\"role\":\"user\",\"content\":\"...\"},{\"role\":\"assistant\",\"content\":\"...\"},...]\n  Consecutive messages with the same role are merged (Anthropic API requires alternation).\n\nEnvironment:\n  TRAJ_DIR + TRAJ_ID    Default trajectory if no flags given.\n\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "Usage: context [options]\n\nReads a trajectory and outputs a JSON messages array to stdout.\n\nTrajectory targeting:\n  --traj_dir DIR        Trajectory directory.\n  <ID>                  Trajectory ID (UUID or hex prefix, positional).\n                        Falls back to $TRAJ_DIR + $TRAJ_ID env vars.\n\nRole assignment:\n  --assistant-types LIST  Step types that become {\"role\":\"assistant\"}.\n  --user-types LIST       Step types that become {\"role\":\"user\"}.\n  --exclude-types LIST    Step types to drop entirely.\n  Unrecognized types (not in any list) default to \"user\" role.\n\nStep selection:\n  --head N              Keep first N steps. Default: 1.\n  --tail N              Keep last N steps. Default: 50.\n  --tail-block B        Move the tail window's start only in steps of B rows,\n                        so it holds N to N+B-1 rows and the rendered prefix\n                        changes once per B appended rows instead of on every\n                        call (keeps provider prompt caches warm). Default: 1.\n  --pin <step_id>       Always include this step. Repeatable.\n  --run RUN_ID          Keep only steps whose run_id is RUN_ID (pins always\n                        stay). Steps of other runs never render and never\n                        count as elided; a gap inside the run renders as\n                        \"[earlier steps elided]\" with no count.\n\nPer-step content:\n  --prompt-limit BYTES  Per-step field truncation for large values. Default: 2048.\n  --full-types LIST     Step types whose fields are never truncated, e.g.\n                        \"prompt\": instructions arrive whole or not at all (a\n                        cut prompt leaves the model a stub pointing at its\n                        own instructions on disk).\n  --block-limit BYTES   Truncation limit for rows in the newest --tail-block\n                        block(s) of the file; older rows use --prompt-limit.\n                        A row's block never changes, so a row is rewritten\n                        once, when the newest row crosses into the next\n                        block, which is also when the window start moves.\n                        Default: same as --prompt-limit.\n  --whole-blocks W      How many newest blocks render at --block-limit\n                        (with --tail-block 1: the newest W rows). Default: 1.\n\nElision:\n  --elision-style S     none|count. Default: count.\n\nBudget:\n  --max-bytes BYTES     Cap total output. Default: unset.\n\nOutput:\n  A JSON array: [{\"role\":\"user\",\"content\":\"...\"},{\"role\":\"assistant\",\"content\":\"...\"},...]\n  Consecutive messages with the same role are merged (Anthropic API requires alternation).\n\nEnvironment:\n  TRAJ_DIR + TRAJ_ID    Default trajectory if no flags given.\n\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "help-long",
+      "argv": [
+        "--help"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "Usage: context [options]\n\nReads a trajectory and outputs a JSON messages array to stdout.\n\nTrajectory targeting:\n  --traj_dir DIR        Trajectory directory.\n  <ID>                  Trajectory ID (UUID or hex prefix, positional).\n                        Falls back to $TRAJ_DIR + $TRAJ_ID env vars.\n\nRole assignment:\n  --assistant-types LIST  Step types that become {\"role\":\"assistant\"}.\n  --user-types LIST       Step types that become {\"role\":\"user\"}.\n  --exclude-types LIST    Step types to drop entirely.\n  Unrecognized types (not in any list) default to \"user\" role.\n\nStep selection:\n  --head N              Keep first N steps. Default: 1.\n  --tail N              Keep last N steps. Default: 50.\n  --tail-block B        Move the tail window's start only in steps of B rows,\n                        so it holds N to N+B-1 rows and the rendered prefix\n                        changes once per B appended rows instead of on every\n                        call (keeps provider prompt caches warm). Default: 1.\n  --pin <step_id>       Always include this step. Repeatable.\n  --run RUN_ID          Keep only steps whose run_id is RUN_ID (pins always\n                        stay). Steps of other runs never render and never\n                        count as elided; a gap inside the run renders as\n                        \"[earlier steps elided]\" with no count.\n\nPer-step content:\n  --prompt-limit BYTES  Per-step field truncation for large values. Default: 2048.\n  --full-types LIST     Step types whose fields are never truncated, e.g.\n                        \"prompt\": instructions arrive whole or not at all (a\n                        cut prompt leaves the model a stub pointing at its\n                        own instructions on disk).\n  --block-limit BYTES   Truncation limit for rows in the newest --tail-block\n                        block(s) of the file; older rows use --prompt-limit.\n                        A row's block never changes, so a row is rewritten\n                        once, when the newest row crosses into the next\n                        block, which is also when the window start moves.\n                        Default: same as --prompt-limit.\n  --whole-blocks W      How many newest blocks render at --block-limit\n                        (with --tail-block 1: the newest W rows). Default: 1.\n\nElision:\n  --elision-style S     none|count. Default: count.\n\nBudget:\n  --max-bytes BYTES     Cap total output. Default: unset.\n\nOutput:\n  A JSON array: [{\"role\":\"user\",\"content\":\"...\"},{\"role\":\"assistant\",\"content\":\"...\"},...]\n  Consecutive messages with the same role are merged (Anthropic API requires alternation).\n\nEnvironment:\n  TRAJ_DIR + TRAJ_ID    Default trajectory if no flags given.\n\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "Usage: context [options]\n\nReads a trajectory and outputs a JSON messages array to stdout.\n\nTrajectory targeting:\n  --traj_dir DIR        Trajectory directory.\n  <ID>                  Trajectory ID (UUID or hex prefix, positional).\n                        Falls back to $TRAJ_DIR + $TRAJ_ID env vars.\n\nRole assignment:\n  --assistant-types LIST  Step types that become {\"role\":\"assistant\"}.\n  --user-types LIST       Step types that become {\"role\":\"user\"}.\n  --exclude-types LIST    Step types to drop entirely.\n  Unrecognized types (not in any list) default to \"user\" role.\n\nStep selection:\n  --head N              Keep first N steps. Default: 1.\n  --tail N              Keep last N steps. Default: 50.\n  --tail-block B        Move the tail window's start only in steps of B rows,\n                        so it holds N to N+B-1 rows and the rendered prefix\n                        changes once per B appended rows instead of on every\n                        call (keeps provider prompt caches warm). Default: 1.\n  --pin <step_id>       Always include this step. Repeatable.\n  --run RUN_ID          Keep only steps whose run_id is RUN_ID (pins always\n                        stay). Steps of other runs never render and never\n                        count as elided; a gap inside the run renders as\n                        \"[earlier steps elided]\" with no count.\n\nPer-step content:\n  --prompt-limit BYTES  Per-step field truncation for large values. Default: 2048.\n  --full-types LIST     Step types whose fields are never truncated, e.g.\n                        \"prompt\": instructions arrive whole or not at all (a\n                        cut prompt leaves the model a stub pointing at its\n                        own instructions on disk).\n  --block-limit BYTES   Truncation limit for rows in the newest --tail-block\n                        block(s) of the file; older rows use --prompt-limit.\n                        A row's block never changes, so a row is rewritten\n                        once, when the newest row crosses into the next\n                        block, which is also when the window start moves.\n                        Default: same as --prompt-limit.\n  --whole-blocks W      How many newest blocks render at --block-limit\n                        (with --tail-block 1: the newest W rows). Default: 1.\n\nElision:\n  --elision-style S     none|count. Default: count.\n\nBudget:\n  --max-bytes BYTES     Cap total output. Default: unset.\n\nOutput:\n  A JSON array: [{\"role\":\"user\",\"content\":\"...\"},{\"role\":\"assistant\",\"content\":\"...\"},...]\n  Consecutive messages with the same role are merged (Anthropic API requires alternation).\n\nEnvironment:\n  TRAJ_DIR + TRAJ_ID    Default trajectory if no flags given.\n\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "help-after-positional",
+      "argv": [
+        "aaaaaaaa-1111-2222-3333-444444444444",
+        "-h"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "Usage: context [options]\n\nReads a trajectory and outputs a JSON messages array to stdout.\n\nTrajectory targeting:\n  --traj_dir DIR        Trajectory directory.\n  <ID>                  Trajectory ID (UUID or hex prefix, positional).\n                        Falls back to $TRAJ_DIR + $TRAJ_ID env vars.\n\nRole assignment:\n  --assistant-types LIST  Step types that become {\"role\":\"assistant\"}.\n  --user-types LIST       Step types that become {\"role\":\"user\"}.\n  --exclude-types LIST    Step types to drop entirely.\n  Unrecognized types (not in any list) default to \"user\" role.\n\nStep selection:\n  --head N              Keep first N steps. Default: 1.\n  --tail N              Keep last N steps. Default: 50.\n  --tail-block B        Move the tail window's start only in steps of B rows,\n                        so it holds N to N+B-1 rows and the rendered prefix\n                        changes once per B appended rows instead of on every\n                        call (keeps provider prompt caches warm). Default: 1.\n  --pin <step_id>       Always include this step. Repeatable.\n  --run RUN_ID          Keep only steps whose run_id is RUN_ID (pins always\n                        stay). Steps of other runs never render and never\n                        count as elided; a gap inside the run renders as\n                        \"[earlier steps elided]\" with no count.\n\nPer-step content:\n  --prompt-limit BYTES  Per-step field truncation for large values. Default: 2048.\n  --full-types LIST     Step types whose fields are never truncated, e.g.\n                        \"prompt\": instructions arrive whole or not at all (a\n                        cut prompt leaves the model a stub pointing at its\n                        own instructions on disk).\n  --block-limit BYTES   Truncation limit for rows in the newest --tail-block\n                        block(s) of the file; older rows use --prompt-limit.\n                        A row's block never changes, so a row is rewritten\n                        once, when the newest row crosses into the next\n                        block, which is also when the window start moves.\n                        Default: same as --prompt-limit.\n  --whole-blocks W      How many newest blocks render at --block-limit\n                        (with --tail-block 1: the newest W rows). Default: 1.\n\nElision:\n  --elision-style S     none|count. Default: count.\n\nBudget:\n  --max-bytes BYTES     Cap total output. Default: unset.\n\nOutput:\n  A JSON array: [{\"role\":\"user\",\"content\":\"...\"},{\"role\":\"assistant\",\"content\":\"...\"},...]\n  Consecutive messages with the same role are merged (Anthropic API requires alternation).\n\nEnvironment:\n  TRAJ_DIR + TRAJ_ID    Default trajectory if no flags given.\n\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "Usage: context [options]\n\nReads a trajectory and outputs a JSON messages array to stdout.\n\nTrajectory targeting:\n  --traj_dir DIR        Trajectory directory.\n  <ID>                  Trajectory ID (UUID or hex prefix, positional).\n                        Falls back to $TRAJ_DIR + $TRAJ_ID env vars.\n\nRole assignment:\n  --assistant-types LIST  Step types that become {\"role\":\"assistant\"}.\n  --user-types LIST       Step types that become {\"role\":\"user\"}.\n  --exclude-types LIST    Step types to drop entirely.\n  Unrecognized types (not in any list) default to \"user\" role.\n\nStep selection:\n  --head N              Keep first N steps. Default: 1.\n  --tail N              Keep last N steps. Default: 50.\n  --tail-block B        Move the tail window's start only in steps of B rows,\n                        so it holds N to N+B-1 rows and the rendered prefix\n                        changes once per B appended rows instead of on every\n                        call (keeps provider prompt caches warm). Default: 1.\n  --pin <step_id>       Always include this step. Repeatable.\n  --run RUN_ID          Keep only steps whose run_id is RUN_ID (pins always\n                        stay). Steps of other runs never render and never\n                        count as elided; a gap inside the run renders as\n                        \"[earlier steps elided]\" with no count.\n\nPer-step content:\n  --prompt-limit BYTES  Per-step field truncation for large values. Default: 2048.\n  --full-types LIST     Step types whose fields are never truncated, e.g.\n                        \"prompt\": instructions arrive whole or not at all (a\n                        cut prompt leaves the model a stub pointing at its\n                        own instructions on disk).\n  --block-limit BYTES   Truncation limit for rows in the newest --tail-block\n                        block(s) of the file; older rows use --prompt-limit.\n                        A row's block never changes, so a row is rewritten\n                        once, when the newest row crosses into the next\n                        block, which is also when the window start moves.\n                        Default: same as --prompt-limit.\n  --whole-blocks W      How many newest blocks render at --block-limit\n                        (with --tail-block 1: the newest W rows). Default: 1.\n\nElision:\n  --elision-style S     none|count. Default: count.\n\nBudget:\n  --max-bytes BYTES     Cap total output. Default: unset.\n\nOutput:\n  A JSON array: [{\"role\":\"user\",\"content\":\"...\"},{\"role\":\"assistant\",\"content\":\"...\"},...]\n  Consecutive messages with the same role are merged (Anthropic API requires alternation).\n\nEnvironment:\n  TRAJ_DIR + TRAJ_ID    Default trajectory if no flags given.\n\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "env-ctx-head-tail",
+      "argv": [
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\\n---\\n[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"four\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"one\\n---\\n[2 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"four\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "env-prompt-limit",
+      "argv": [
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ab\\n[... truncated: 10 bytes total. read with: traj show g1 --full]\\nij\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ab\\n[... truncated: 10 bytes total. read with: traj show g1 --full]\\nij\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "monolith-realistic-large",
+      "argv": [
+        "--assistant-types",
+        "reasoning,final",
+        "--user-types",
+        "prompt,shell-output,feedback",
+        "--exclude-types",
+        "shellm-run,run-summary"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[18 steps elided]\\n---\\noutput 7\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 8\\n\\n```bash\\necho 8\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 8\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 9\\n\\n```bash\\necho 9\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 9\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 10\\n\\n```bash\\necho 10\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 10\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 11\\n\\n```bash\\necho 11\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 11\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 12\\n\\n```bash\\necho 12\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 12\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 13\\n\\n```bash\\necho 13\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 13\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 14\\n\\n```bash\\necho 14\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 14\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 15\\n\\n```bash\\necho 15\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 15\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 16\\n\\n```bash\\necho 16\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 16\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 17\\n\\n```bash\\necho 17\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 17\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 18\\n\\n```bash\\necho 18\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 18\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 19\\n\\n```bash\\necho 19\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 19\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 20\\n\\n```bash\\necho 20\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 20\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 21\\n\\n```bash\\necho 21\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 21\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 22\\n\\n```bash\\necho 22\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 22\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 23\\n\\n```bash\\necho 23\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 23\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 24\\n\\n```bash\\necho 24\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 24\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 25\\n\\n```bash\\necho 25\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 25\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 26\\n\\n```bash\\necho 26\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 26\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 27\\n\\n```bash\\necho 27\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 27\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 28\\n\\n```bash\\necho 28\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 28\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 29\\n\\n```bash\\necho 29\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 29\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"final answer\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[18 steps elided]\\n---\\noutput 7\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 8\\n\\n```bash\\necho 8\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 8\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 9\\n\\n```bash\\necho 9\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 9\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 10\\n\\n```bash\\necho 10\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 10\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 11\\n\\n```bash\\necho 11\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 11\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 12\\n\\n```bash\\necho 12\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 12\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 13\\n\\n```bash\\necho 13\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 13\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 14\\n\\n```bash\\necho 14\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 14\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 15\\n\\n```bash\\necho 15\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 15\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 16\\n\\n```bash\\necho 16\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 16\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 17\\n\\n```bash\\necho 17\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 17\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 18\\n\\n```bash\\necho 18\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 18\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 19\\n\\n```bash\\necho 19\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 19\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 20\\n\\n```bash\\necho 20\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 20\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 21\\n\\n```bash\\necho 21\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 21\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 22\\n\\n```bash\\necho 22\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 22\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 23\\n\\n```bash\\necho 23\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 23\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 24\\n\\n```bash\\necho 24\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 24\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 25\\n\\n```bash\\necho 25\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 25\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 26\\n\\n```bash\\necho 26\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 26\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 27\\n\\n```bash\\necho 27\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 27\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 28\\n\\n```bash\\necho 28\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 28\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"reasoning 29\\n\\n```bash\\necho 29\\n```\"\n  },\n  {\n    \"role\": \"user\",\n    \"content\": \"output 29\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"final answer\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "is-meta-bookkeeping-hidden",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"t\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"t\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "is-meta-bookkeeping-hidden-source-url",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"Do the thing.\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"Do the thing.\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "full-types-prompt-never-truncated",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--user-types",
+        "prompt",
+        "--prompt-limit",
+        "50",
+        "--full-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "run-scope-drops-other-runs-no-count",
+      "argv": [
+        "--head",
+        "0",
+        "--tail",
+        "3",
+        "--run",
+        "run-B",
+        "--assistant-types",
+        "final",
+        "--user-types",
+        "prompt"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"mine\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"mine\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "run-scope-gap-inside-run-no-count",
+      "argv": [
+        "--head",
+        "1",
+        "--tail",
+        "2",
+        "--run",
+        "run-X",
+        "--assistant-types",
+        "reasoning"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"t8\\n---\\nt9\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"t8\\n---\\nt9\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "tail-block-window-does-not-slide",
+      "argv": [
+        "--head",
+        "0",
+        "--tail",
+        "2",
+        "--tail-block",
+        "5",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[10 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"c9\\n---\\nc10\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[10 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"c9\\n---\\nc10\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "tail-block-env-default",
+      "argv": [
+        "--head",
+        "0",
+        "--tail",
+        "2",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[10 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"c9\\n---\\nc10\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[10 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"c9\\n---\\nc10\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "block-limit-newest-row-whole",
+      "argv": [
+        "--head",
+        "0",
+        "--tail",
+        "2",
+        "--prompt-limit",
+        "50",
+        "--block-limit",
+        "5000",
+        "--whole-blocks",
+        "1",
+        "--user-types",
+        "prompt",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\\n---\\nWWWWWWWWWWWWWWWWWWWWWWWWW\\n[... truncated: 400 bytes total. read with: traj show p1 --full]\\nWWWWWWWWWWWWWWWWWWWWWWWWW\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\\n---\\nWWWWWWWWWWWWWWWWWWWWWWWWW\\n[... truncated: 400 bytes total. read with: traj show p1 --full]\\nWWWWWWWWWWWWWWWWWWWWWWWWW\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "block-limit-defaults-to-prompt-limit-when-unset",
+      "argv": [
+        "--head",
+        "0",
+        "--tail",
+        "1",
+        "--prompt-limit",
+        "50",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"WWWWWWWWWWWWWWWWWWWWWWWWW\\n[... truncated: 400 bytes total. read with: traj show f1 --full]\\nWWWWWWWWWWWWWWWWWWWWWWWWW\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"WWWWWWWWWWWWWWWWWWWWWWWWW\\n[... truncated: 400 bytes total. read with: traj show f1 --full]\\nWWWWWWWWWWWWWWWWWWWWWWWWW\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "core",
+      "name": "block-limit-max-bytes-search-collapses-band",
+      "argv": [
+        "--head",
+        "0",
+        "--tail",
+        "2",
+        "--prompt-limit",
+        "50",
+        "--block-limit",
+        "5000",
+        "--whole-blocks",
+        "1",
+        "--user-types",
+        "prompt",
+        "--assistant-types",
+        "final",
+        "--max-bytes",
+        "300"
+      ],
+      "parity": true,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\\n---\\nQQQQQQQQQ\\n[... truncated: 2000 bytes total. read with: traj show p1 --full]\\nQQQQQQQQQ\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"QQQQQQQQQ\\n[... truncated: 2000 bytes total. read with: traj show f1 --full]\\nQQQQQQQQQ\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"user\",\n    \"content\": \"[1 steps elided]\\n---\\nQQQQQQQQQ\\n[... truncated: 2000 bytes total. read with: traj show p1 --full]\\nQQQQQQQQQ\"\n  },\n  {\n    \"role\": \"assistant\",\n    \"content\": \"QQQQQQQQQ\\n[... truncated: 2000 bytes total. read with: traj show f1 --full]\\nQQQQQQQQQ\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "misuse-head-no-value",
+      "kind": "stderr-wording (deviation #1)",
+      "argv": [
+        "--head"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/context: line 104: 2: --head requires N\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: --head requires N\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "misuse-assistant-types-empty",
+      "kind": "stderr-wording (deviation #1)",
+      "argv": [
+        "--assistant-types",
+        ""
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/context: line 113: 2: --assistant-types requires LIST\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: --assistant-types requires LIST\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "misuse-traj_dir-no-value",
+      "kind": "stderr-wording (deviation #1)",
+      "argv": [
+        "--traj_dir"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/context: line 118: 2: --traj_dir requires DIR\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: --traj_dir requires DIR\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "misuse-prompt-limit-no-value",
+      "kind": "stderr-wording (deviation #1)",
+      "argv": [
+        "--prompt-limit"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/context: line 108: 2: --prompt-limit requires BYTES\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "context: error: --prompt-limit requires BYTES\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "nonobject-number-line",
+      "kind": "bash-aborts on non-object line (deviation #3)",
+      "argv": [
+        "--head",
+        "5",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": false,
+        "stderr": false,
+        "status": false,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "jq: error (at <stdin>:4): Cannot index number with string \"step_id\"\n",
+        "status": 5
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"before\\n---\\nafter\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "nonobject-array-line",
+      "kind": "bash-aborts on non-object line (deviation #3)",
+      "argv": [
+        "--head",
+        "5",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": false,
+        "stderr": false,
+        "status": false,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "jq: error (at <stdin>:3): Cannot index array with string \"step_id\"\n",
+        "status": 5
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "nonobject-string-line",
+      "kind": "bash-aborts on non-object line (deviation #3)",
+      "argv": [
+        "--head",
+        "5",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": false,
+        "stderr": false,
+        "status": false,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "jq: error (at <stdin>:3): Cannot index string with string \"step_id\"\n",
+        "status": 5
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "nonobject-true-line",
+      "kind": "bash-aborts on non-object line (deviation #3)",
+      "argv": [
+        "--head",
+        "5",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": false,
+        "stderr": false,
+        "status": false,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "jq: error (at <stdin>:3): Cannot index boolean with string \"step_id\"\n",
+        "status": 5
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "multi-dir-hexprefix-tiebreak",
+      "kind": "find|head-1 vs DFS tie-break (deviation #2, filesystem-order dependent)",
+      "argv": [
+        "--traj_dir",
+        "./trajdir",
+        "abcd1234",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": false,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"BETA\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"ALPHA\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "maxbytes-zero-platform",
+      "kind": "head -c 0 platform/degenerate (undocumented; harmless on Linux target)",
+      "argv": [
+        "--max-bytes",
+        "0",
+        "--prompt-limit",
+        "500",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": false,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "head: illegal byte count -- 0\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "[budget exceeded: trajectory too dense]",
+        "status": 0
+      }
+    },
+    {
+      "group": "deviation",
+      "name": "stepid-false-microdivergence",
+      "kind": "// vs ?? on step_id:false (undocumented; absurd input)",
+      "argv": [
+        "--head",
+        "2",
+        "--tail",
+        "0",
+        "--assistant-types",
+        "final"
+      ],
+      "parity": false,
+      "ok": true,
+      "cmp": {
+        "stdout": false,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[]",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "[\n  {\n    \"role\": \"assistant\",\n    \"content\": \"x\"\n  }\n]",
+        "stderr": "",
+        "status": 0
+      }
+    }
+  ]
+}

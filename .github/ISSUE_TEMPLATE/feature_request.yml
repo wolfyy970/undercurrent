@@ -1,0 +1,16 @@
+name: Feature request
+description: Suggest a change or addition
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes: {label: The problem, description: "What are you trying to do that Undercurrent does not support?"}
+    validations: {required: true}
+  - type: textarea
+    id: proposal
+    attributes: {label: Proposed change}
+  - type: dropdown
+    id: upstream
+    attributes:
+      label: Does upstream Headlong have this?
+      options: ["Yes (port gap: consider the parity-gap template)", "No (a port extension)", "Not sure"]

@@ -1,0 +1,407 @@
+{
+  "total": 17,
+  "passed": 17,
+  "rate": "100.0",
+  "results": [
+    {
+      "group": "zero",
+      "name": "existing-empty-dir",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "No identities.\n",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "No identities.\n",
+        "status": 0
+      }
+    },
+    {
+      "group": "zero",
+      "name": "missing-dir",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "No identities.\n",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "No identities.\n",
+        "status": 0
+      }
+    },
+    {
+      "group": "zero",
+      "name": "only-dangling-default-symlink",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "No identities.\n",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "No identities.\n",
+        "status": 0
+      }
+    },
+    {
+      "group": "one",
+      "name": "no-default-set",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "one",
+      "name": "default-set",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "* alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "* alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "one",
+      "name": "default-set-show-dir",
+      "argv": [
+        "list",
+        "-a"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "* alice                2026-01-02T03:04:05  <ROOT>/ids/alice\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "* alice                2026-01-02T03:04:05  <ROOT>/ids/alice\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "three",
+      "name": "mixed-dates-started-fallback-stray-dir-default",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-02T03:04:05\n* bob                  2025-12-31T23:59:59\n  carol                2024-06-01T00:00:00\n  strayvisible         \n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-02T03:04:05\n* bob                  2025-12-31T23:59:59\n  carol                2024-06-01T00:00:00\n  strayvisible         \n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "three",
+      "name": "mixed-dates-started-fallback-stray-dir-default--show-dir",
+      "argv": [
+        "list",
+        "-a"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-02T03:04:05  <ROOT>/ids/alice\n* bob                  2025-12-31T23:59:59  <ROOT>/ids/bob\n  carol                2024-06-01T00:00:00  <ROOT>/ids/carol\n  strayvisible           <ROOT>/ids/strayvisible\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-02T03:04:05  <ROOT>/ids/alice\n* bob                  2025-12-31T23:59:59  <ROOT>/ids/bob\n  carol                2024-06-01T00:00:00  <ROOT>/ids/carol\n  strayvisible           <ROOT>/ids/strayvisible\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "three",
+      "name": "--all-long-flag-same-as--a",
+      "argv": [
+        "list",
+        "--all"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-02T03:04:05  <ROOT>/ids/alice\n* bob                  2025-12-31T23:59:59  <ROOT>/ids/bob\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-02T03:04:05  <ROOT>/ids/alice\n* bob                  2025-12-31T23:59:59  <ROOT>/ids/bob\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "quirks",
+      "name": "plain-file-excluded",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-01T00:00:00\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-01T00:00:00\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "quirks",
+      "name": "symlink-to-dir-included-lexical-path-not-realpath",
+      "argv": [
+        "list",
+        "-a"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  linkdir                <ROOT>/ids/linkdir\n  other                  <ROOT>/ids/other\n  realdir              2026-02-02T02:02:02  <ROOT>/ids/realdir\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  linkdir                <ROOT>/ids/linkdir\n  other                  <ROOT>/ids/other\n  realdir              2026-02-02T02:02:02  <ROOT>/ids/realdir\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "quirks",
+      "name": "dangling-symlink-excluded",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-01T00:00:00\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-01T00:00:00\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "quirks",
+      "name": "case-insensitive-primary-ordering",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alpha                2026-01-01T00:00:00\n  Bravo                2026-01-01T00:00:00\n  mike                 2026-01-01T00:00:00\n  zeta                 2026-01-01T00:00:00\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alpha                2026-01-01T00:00:00\n  Bravo                2026-01-01T00:00:00\n  mike                 2026-01-01T00:00:00\n  zeta                 2026-01-01T00:00:00\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "quirks",
+      "name": "long-name-no-truncation",
+      "argv": [
+        "list"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  this-is-a-very-long-identity-name 2026-03-03T03:03:03\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  this-is-a-very-long-identity-name 2026-03-03T03:03:03\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "argv-edge-cases",
+      "name": "extra-positional-ignored",
+      "argv": [
+        "list",
+        "foo",
+        "bar"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "argv-edge-cases",
+      "name": "unknown-flag-stops-parsing-silently",
+      "argv": [
+        "list",
+        "-x"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "argv-edge-cases",
+      "name": "-a-after-positional-not-reparsed",
+      "argv": [
+        "list",
+        "foo",
+        "-a"
+      ],
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "  alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "  alice                2026-01-02T03:04:05\n",
+        "stderr": "",
+        "status": 0
+      }
+    }
+  ]
+}

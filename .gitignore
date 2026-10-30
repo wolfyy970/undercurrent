@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+build/
+.react-router/
+
+# local runtime data (identity/trajectory dirs the engine or viewer read)
+.identities/
+
+# logs / OS
+*.log
+.DS_Store
+
+# live side-by-side fixtures are tracked even though *.log is ignored
+!parity/live/fixtures/**/*.log
+
+# local scratch, env files and coverage
+/run/
+.env
+.env.*
+!.env.example
+coverage/
+*.tsbuildinfo
+.vscode/
+.idea/

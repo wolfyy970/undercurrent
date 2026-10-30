@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"],
+    "lib": ["ES2023"],
+    // control.ts (added for the control-plane lane) imports the engine's
+    // src/{identity,identity-env,thinkersctl,chat}.ts directly, which
+    // transitively import ../src/trajCore.mjs — a plain-ESM primitives module
+    // with a sibling trajCore.d.ts. Bundler resolution only swaps a .mjs
+    // specifier for a same-stem .d.ts when allowJs is on (matches the root
+    // tsconfig, which already sets this for the same reason).
+    "allowJs": true
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}

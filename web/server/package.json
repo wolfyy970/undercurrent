@@ -1,0 +1,18 @@
+{
+  "name": "undercurrent-web-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Thin, dependency-free TypeScript data layer that reads the trajectory/rollups/memory files the Undercurrent engine writes and serves them as the /api the vendored React viewer expects.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "node src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}

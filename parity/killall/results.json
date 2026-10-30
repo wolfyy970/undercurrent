@@ -1,0 +1,176 @@
+{
+  "total": 7,
+  "passed": 7,
+  "rate": "100.0",
+  "results": [
+    {
+      "group": "help",
+      "name": "help-short",
+      "argv": [
+        "-h"
+      ],
+      "kind": "exact",
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Usage: headlong-killall [-n|--dry-run] [--web]\n\n  -n, --dry-run   List what would be killed, kill nothing\n  --web           Also kill the headlong-web dash\n  -h, --help      Show this help\n",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Usage: headlong-killall [-n|--dry-run] [--web]\n\n  -n, --dry-run   List what would be killed, kill nothing\n  --web           Also kill the headlong-web dash\n  -h, --help      Show this help\n",
+        "status": 0
+      }
+    },
+    {
+      "group": "help",
+      "name": "help-long",
+      "argv": [
+        "--help"
+      ],
+      "kind": "exact",
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Usage: headlong-killall [-n|--dry-run] [--web]\n\n  -n, --dry-run   List what would be killed, kill nothing\n  --web           Also kill the headlong-web dash\n  -h, --help      Show this help\n",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Usage: headlong-killall [-n|--dry-run] [--web]\n\n  -n, --dry-run   List what would be killed, kill nothing\n  --web           Also kill the headlong-web dash\n  -h, --help      Show this help\n",
+        "status": 0
+      }
+    },
+    {
+      "group": "usage-error",
+      "name": "unknown-option",
+      "argv": [
+        "--bogus"
+      ],
+      "kind": "exact",
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Unknown option: --bogus\nUsage: headlong-killall [-n|--dry-run] [--web]\n\n  -n, --dry-run   List what would be killed, kill nothing\n  --web           Also kill the headlong-web dash\n  -h, --help      Show this help\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Unknown option: --bogus\nUsage: headlong-killall [-n|--dry-run] [--web]\n\n  -n, --dry-run   List what would be killed, kill nothing\n  --web           Also kill the headlong-web dash\n  -h, --help      Show this help\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "usage-error",
+      "name": "unknown-option-short",
+      "argv": [
+        "-x"
+      ],
+      "kind": "exact",
+      "pass": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Unknown option: -x\nUsage: headlong-killall [-n|--dry-run] [--web]\n\n  -n, --dry-run   List what would be killed, kill nothing\n  --web           Also kill the headlong-web dash\n  -h, --help      Show this help\n",
+        "status": 1
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Unknown option: -x\nUsage: headlong-killall [-n|--dry-run] [--web]\n\n  -n, --dry-run   List what would be killed, kill nothing\n  --web           Also kill the headlong-web dash\n  -h, --help      Show this help\n",
+        "status": 1
+      }
+    },
+    {
+      "group": "dry-run",
+      "name": "plain-dry-run",
+      "argv": [
+        "--dry-run"
+      ],
+      "kind": "structural",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "trailingMarker": true,
+        "stderrEmpty": true
+      },
+      "bash": {
+        "stdout": "No matching processes found.\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n(dry run — nothing was killed)\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "Would kill 22 process(es):\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n(dry run — nothing was killed)\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "dry-run",
+      "name": "short-flag-dry-run",
+      "argv": [
+        "-n"
+      ],
+      "kind": "structural",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "trailingMarker": true,
+        "stderrEmpty": true
+      },
+      "bash": {
+        "stdout": "No matching processes found.\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n(dry run — nothing was killed)\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "Would kill 20 process(es):\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n(dry run — nothing was killed)\n",
+        "stderr": "",
+        "status": 0
+      }
+    },
+    {
+      "group": "dry-run",
+      "name": "dry-run-with-web",
+      "argv": [
+        "--dry-run",
+        "--web"
+      ],
+      "kind": "structural",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "trailingMarker": true,
+        "stderrEmpty": true
+      },
+      "bash": {
+        "stdout": "No matching processes found.\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n(dry run — nothing was killed)\n",
+        "stderr": "",
+        "status": 0
+      },
+      "ts": {
+        "stdout": "Would kill 22 process(es):\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n<redacted: live process listing line, non-deterministic — see file header>\n(dry run — nothing was killed)\n",
+        "stderr": "",
+        "status": 0
+      }
+    }
+  ]
+}

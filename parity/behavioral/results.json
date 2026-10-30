@@ -1,0 +1,410 @@
+{
+  "upstreamPin": "2e39a3f",
+  "checks": [
+    {
+      "name": "both sides ran both wakes (exit 0)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "model calls per wake identical on both sides (same recorded replies)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "replay: every request had a recording (no misses)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 1 (fresh wake): system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 1 (fresh wake): message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 1 (fresh wake): request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 1 (fresh wake): task message EXACT text identical (timestamps/ids/runtime+workspace lines masked; blank lines included; identity text unmasked)",
+      "status": "DEVIATION",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 1 (fresh wake): task message structure (anchor lines) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 2: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 2: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 2: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 3: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 3: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 1, call 3: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 1 (fresh wake): system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 1 (fresh wake): message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 1 (fresh wake): request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 1 (fresh wake): task message EXACT text identical (timestamps/ids/runtime+workspace lines masked; blank lines included; identity text unmasked)",
+      "status": "DEVIATION",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 1 (fresh wake): task message structure (anchor lines) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 2: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 2: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 2: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 3: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 3: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 3: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 4: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 4: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 4: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 5: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 5: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 2, call 5: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 1 (fresh wake): system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 1 (fresh wake): message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 1 (fresh wake): request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 1 (fresh wake): task message EXACT text identical (timestamps/ids/runtime+workspace lines masked; blank lines included; identity text unmasked)",
+      "status": "DEVIATION",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 1 (fresh wake): task message structure (anchor lines) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 2: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 2: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 2: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 3: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 3: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 3: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 4: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 4: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 4: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 5: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 5: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 5: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 6: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 6: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 6: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 7: system prompt text identical (normalized)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 7: message roles/count identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake 3, call 7: request flags identical (model, stream, stream_options, max_tokens, no reasoning)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "second wake's first request is exactly [system, user] on both (B5)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "shellm-run headers: model/effort/wake/launched_by/resumed/max_tokens and `--context-scope run` match",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "trajectory step type sequence identical (seed + both wakes)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "responder/structured: both sides ran (exit 0) and made the same number of model calls",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "responder/structured: request body #1 EXACT (model, max_tokens, stream, response_format/schema, every message incl. identity text; time/ids masked)",
+      "status": "DEVIATION",
+      "detail": ""
+    },
+    {
+      "name": "responder/structured: request body #2 EXACT (model, max_tokens, stream, response_format/schema, every message incl. identity text; time/ids masked)",
+      "status": "DEVIATION",
+      "detail": ""
+    },
+    {
+      "name": "responder/structured: appended step types and FIELD SETS identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "responder/text: both sides ran (exit 0) and made the same number of model calls",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "responder/text: request body #1 EXACT (model, max_tokens, stream, response_format/schema, every message incl. identity text; time/ids masked)",
+      "status": "DEVIATION",
+      "detail": ""
+    },
+    {
+      "name": "responder/text: appended step types and FIELD SETS identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env probe ran on both sides",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: IDENTITY_DIR (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: IDENTITY_NAME (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: MEM_DIR (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: SKILLS_DIR (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: SKILLS_KERNEL_DIR (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: TRAJ_DIR (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: TRAJ_ID (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: THINKERS_DIR (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: SHELLM_HOME (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: CHATRC (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: THINK_MODEL (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "wake shell env: THINK_CONTEXT_TAIL (path relative to the identity dir) identical",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "reasoning/final step FIELD SETS identical (incl. think_tok, cache_tok, served_by) for every model call",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "reasoning/final usage VALUES identical (in_tok, out_tok, think_tok, cache_tok, served_by)",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "reasoning/final thought and cmd VALUES identical for every model call",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "name": "`focus` command: absent in upstream bin/ and in the port (so the identity text must not advertise it)",
+      "status": "PARITY",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+ "upstreamPin": "2e39a3f",
+ "cut": {
+  "bytes": 1061,
+  "sha256": "28d6d5fe67c268c0becfa101fe93e6066fb7d92826c065d9f84bc3770b79ba70"
+ },
+ "checks": [
+  {
+   "name": "parser/object",
+   "status": "PARITY",
+   "upstream": "valid {\"title\":\"t\",\"summary\":\"s\",\"themes\":[\"x\"],\"notable_steps\":[]}",
+   "port": "valid {\"title\":\"t\",\"summary\":\"s\",\"themes\":[\"x\"],\"notable_steps\":[]}"
+  },
+  {
+   "name": "parser/badjson",
+   "status": "PARITY",
+   "upstream": "invalid (rc 1)",
+   "port": "invalid"
+  },
+  {
+   "name": "parser/empty",
+   "status": "PARITY",
+   "upstream": "invalid (rc 1)",
+   "port": "invalid"
+  },
+  {
+   "name": "parser/whitespace-only",
+   "status": "PARITY",
+   "upstream": "invalid (rc 1)",
+   "port": "invalid"
+  },
+  {
+   "name": "parser/fenced",
+   "status": "PARITY",
+   "upstream": "valid {\"title\":\"t\",\"summary\":\"s\",\"themes\":[\"x\"],\"notable_steps\":[]}",
+   "port": "valid {\"title\":\"t\",\"summary\":\"s\",\"themes\":[\"x\"],\"notable_steps\":[]}"
+  },
+  {
+   "name": "parser/fenced-chatter",
+   "status": "PARITY",
+   "upstream": "invalid (rc 1)",
+   "port": "invalid"
+  },
+  {
+   "name": "parser/null",
+   "status": "PARITY",
+   "upstream": "invalid (rc 1)",
+   "port": "invalid"
+  },
+  {
+   "name": "parser/false",
+   "status": "PARITY",
+   "upstream": "invalid (rc 1)",
+   "port": "invalid"
+  },
+  {
+   "name": "parser/array",
+   "status": "PARITY",
+   "upstream": "valid [1,2,3]",
+   "port": "valid [1,2,3]"
+  },
+  {
+   "name": "parser/string",
+   "status": "PARITY",
+   "upstream": "valid \"just a string\"",
+   "port": "valid \"just a string\""
+  },
+  {
+   "name": "parser/number",
+   "status": "PARITY",
+   "upstream": "valid 42",
+   "port": "valid 42"
+  },
+  {
+   "name": "parser/numlit-episodes",
+   "status": "PARITY",
+   "upstream": "valid {\"arc\":\"a\",\"themes\":[{\"name\":\"t\",\"description\":\"d\",\"episodes\":[1.0,2,99999999999999999999],\"key_steps\":[]}]}",
+   "port": "valid {\"arc\":\"a\",\"themes\":[{\"name\":\"t\",\"description\":\"d\",\"episodes\":[1.0,2,99999999999999999999],\"key_steps\":[]}]}"
+  },
+  {
+   "name": "parser/unicode-and-del",
+   "status": "PARITY",
+   "upstream": "valid {\"title\":\"café \\u007f  \",\"summary\":\"s\",\"themes\":[\"t\"],\"notable_steps\":[]}",
+   "port": "valid {\"title\":\"café \\u007f  \",\"summary\":\"s\",\"themes\":[\"t\"],\"notable_steps\":[]}"
+  },
+  {
+   "name": "parser/notable-steps-string",
+   "status": "PARITY",
+   "upstream": "valid {\"title\":\"x\",\"summary\":\"y\",\"themes\":[],\"notable_steps\":\"oops\"}",
+   "port": "valid {\"title\":\"x\",\"summary\":\"y\",\"themes\":[],\"notable_steps\":\"oops\"}"
+  },
+  {
+   "name": "parser/themes-object",
+   "status": "PARITY",
+   "upstream": "valid {\"title\":\"x\",\"summary\":\"y\",\"themes\":{\"a\":1,\"b\":2},\"notable_steps\":[]}",
+   "port": "valid {\"title\":\"x\",\"summary\":\"y\",\"themes\":{\"a\":1,\"b\":2},\"notable_steps\":[]}"
+  },
+  {
+   "name": "parser/step-ids-numbers",
+   "status": "PARITY",
+   "upstream": "valid {\"summary\":\"s\",\"themes\":[],\"step_ids\":[1,2]}",
+   "port": "valid {\"summary\":\"s\",\"themes\":[],\"step_ids\":[1,2]}"
+  },
+  {
+   "name": "parser/two-values",
+   "status": "PARITY",
+   "upstream": "valid {\"a\":1}\n{\"b\":2}",
+   "port": "valid {\"a\":1}\n{\"b\":2}"
+  },
+  {
+   "name": "parser/trailing-garbage",
+   "status": "PARITY",
+   "upstream": "invalid (rc 1)",
+   "port": "invalid"
+  }
+ ]
+}

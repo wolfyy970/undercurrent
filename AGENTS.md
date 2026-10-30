@@ -1,0 +1,1 @@
+Instructions for coding agents working on this repository: read [`CLAUDE.md`](./CLAUDE.md) (porting method, oracle, definition of done and test rules) and [`CONTRIBUTING.md`](./CONTRIBUTING.md) (disclosure, CI gates and the evidence a pull request needs). Disclose in the pull request that an agent wrote it.

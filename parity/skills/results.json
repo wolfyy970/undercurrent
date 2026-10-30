@@ -1,0 +1,4087 @@
+{
+  "total": 95,
+  "parity": 87,
+  "rate": "91.6",
+  "effRate": "100.0",
+  "results": [
+    {
+      "group": "global",
+      "name": "version",
+      "argv": [
+        "--version"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "skills 0.1.0\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "skills 0.1.0\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "skills 0.1.0\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "skills 0.1.0\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "global",
+      "name": "help-short",
+      "argv": [
+        "-h"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "skills — list, show, and render the skills the mind can use\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list [--all] [--format=prompt]     List skills; --all includes unmet requirements\n  skills show <name> [--requires]           Print a skill's SKILL.md, or its parsed requirements\n  skills list-json                          List skills as JSON\n  skills prompt                             Print the skills section of the system prompt\n\nInstalling, searching, checking, init, promote, kernel and remotes are in\nheadlong-skills (tools/). `skills <one of those>` forwards to it when it is\non PATH.\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n  By default `skills list` only shows skills whose requirements are met.\n\nExecutable blocks:\n  A ```bash block in SKILL.md that starts with `#| eval: true` runs when the\n  skill is shown or rendered into the prompt; `#| echo`, `#| stdout` and\n  `#| stderr` (true/false) control what of it appears. Blocks without\n  `#| eval: true` pass through unchanged.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  NO_COLOR                Disable color output\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "skills — list, show, and render the skills the mind can use\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list [--all] [--format=prompt]     List skills; --all includes unmet requirements\n  skills show <name> [--requires]           Print a skill's SKILL.md, or its parsed requirements\n  skills list-json                          List skills as JSON\n  skills prompt                             Print the skills section of the system prompt\n\nInstalling, searching, checking, init, promote, kernel and remotes are in\nheadlong-skills (tools/). `skills <one of those>` forwards to it when it is\non PATH.\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n  By default `skills list` only shows skills whose requirements are met.\n\nExecutable blocks:\n  A ```bash block in SKILL.md that starts with `#| eval: true` runs when the\n  skill is shown or rendered into the prompt; `#| echo`, `#| stdout` and\n  `#| stderr` (true/false) control what of it appears. Blocks without\n  `#| eval: true` pass through unchanged.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  NO_COLOR                Disable color output\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "skills — list, show, and render the skills the mind can use\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list [--all] [--format=prompt]     List skills; --all includes unmet requirements\n  skills show <name> [--requires]           Print a skill's SKILL.md, or its parsed requirements\n  skills list-json                          List skills as JSON\n  skills prompt                             Print the skills section of the system prompt\n\nInstalling, searching, checking, init, promote, kernel and remotes are in\nheadlong-skills (tools/). `skills <one of those>` forwards to it when it is\non PATH.\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n  By default `skills list` only shows skills whose requirements are met.\n\nExecutable blocks:\n  A ```bash block in SKILL.md that starts with `#| eval: true` runs when the\n  skill is shown or rendered into the prompt; `#| echo`, `#| stdout` and\n  `#| stderr` (true/false) control what of it appears. Blocks without\n  `#| eval: true` pass through unchanged.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  NO_COLOR                Disable color output\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "skills — list, show, and render the skills the mind can use\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list [--all] [--format=prompt]     List skills; --all includes unmet requirements\n  skills show <name> [--requires]           Print a skill's SKILL.md, or its parsed requirements\n  skills list-json                          List skills as JSON\n  skills prompt                             Print the skills section of the system prompt\n\nInstalling, searching, checking, init, promote, kernel and remotes are in\nheadlong-skills (tools/). `skills <one of those>` forwards to it when it is\non PATH.\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n  By default `skills list` only shows skills whose requirements are met.\n\nExecutable blocks:\n  A ```bash block in SKILL.md that starts with `#| eval: true` runs when the\n  skill is shown or rendered into the prompt; `#| echo`, `#| stdout` and\n  `#| stderr` (true/false) control what of it appears. Blocks without\n  `#| eval: true` pass through unchanged.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  NO_COLOR                Disable color output\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "global",
+      "name": "help-long",
+      "argv": [
+        "--help"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "skills — list, show, and render the skills the mind can use\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list [--all] [--format=prompt]     List skills; --all includes unmet requirements\n  skills show <name> [--requires]           Print a skill's SKILL.md, or its parsed requirements\n  skills list-json                          List skills as JSON\n  skills prompt                             Print the skills section of the system prompt\n\nInstalling, searching, checking, init, promote, kernel and remotes are in\nheadlong-skills (tools/). `skills <one of those>` forwards to it when it is\non PATH.\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n  By default `skills list` only shows skills whose requirements are met.\n\nExecutable blocks:\n  A ```bash block in SKILL.md that starts with `#| eval: true` runs when the\n  skill is shown or rendered into the prompt; `#| echo`, `#| stdout` and\n  `#| stderr` (true/false) control what of it appears. Blocks without\n  `#| eval: true` pass through unchanged.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  NO_COLOR                Disable color output\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "skills — list, show, and render the skills the mind can use\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list [--all] [--format=prompt]     List skills; --all includes unmet requirements\n  skills show <name> [--requires]           Print a skill's SKILL.md, or its parsed requirements\n  skills list-json                          List skills as JSON\n  skills prompt                             Print the skills section of the system prompt\n\nInstalling, searching, checking, init, promote, kernel and remotes are in\nheadlong-skills (tools/). `skills <one of those>` forwards to it when it is\non PATH.\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n  By default `skills list` only shows skills whose requirements are met.\n\nExecutable blocks:\n  A ```bash block in SKILL.md that starts with `#| eval: true` runs when the\n  skill is shown or rendered into the prompt; `#| echo`, `#| stdout` and\n  `#| stderr` (true/false) control what of it appears. Blocks without\n  `#| eval: true` pass through unchanged.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  NO_COLOR                Disable color output\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "skills — list, show, and render the skills the mind can use\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list [--all] [--format=prompt]     List skills; --all includes unmet requirements\n  skills show <name> [--requires]           Print a skill's SKILL.md, or its parsed requirements\n  skills list-json                          List skills as JSON\n  skills prompt                             Print the skills section of the system prompt\n\nInstalling, searching, checking, init, promote, kernel and remotes are in\nheadlong-skills (tools/). `skills <one of those>` forwards to it when it is\non PATH.\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n  By default `skills list` only shows skills whose requirements are met.\n\nExecutable blocks:\n  A ```bash block in SKILL.md that starts with `#| eval: true` runs when the\n  skill is shown or rendered into the prompt; `#| echo`, `#| stdout` and\n  `#| stderr` (true/false) control what of it appears. Blocks without\n  `#| eval: true` pass through unchanged.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  NO_COLOR                Disable color output\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "skills — list, show, and render the skills the mind can use\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list [--all] [--format=prompt]     List skills; --all includes unmet requirements\n  skills show <name> [--requires]           Print a skill's SKILL.md, or its parsed requirements\n  skills list-json                          List skills as JSON\n  skills prompt                             Print the skills section of the system prompt\n\nInstalling, searching, checking, init, promote, kernel and remotes are in\nheadlong-skills (tools/). `skills <one of those>` forwards to it when it is\non PATH.\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n  By default `skills list` only shows skills whose requirements are met.\n\nExecutable blocks:\n  A ```bash block in SKILL.md that starts with `#| eval: true` runs when the\n  skill is shown or rendered into the prompt; `#| echo`, `#| stdout` and\n  `#| stderr` (true/false) control what of it appears. Blocks without\n  `#| eval: true` pass through unchanged.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  NO_COLOR                Disable color output\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "global",
+      "name": "no-args-empty-store",
+      "argv": [],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "No skills installed.\n  Run headlong-skills init to create one, or skills <query> to search.\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "No skills installed.\n  Run headlong-skills init to create one, or skills <query> to search.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "No skills installed.\n  Run headlong-skills init to create one, or skills <query> to search.\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "No skills installed.\n  Run headlong-skills init to create one, or skills <query> to search.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "global",
+      "name": "unknown-option",
+      "argv": [
+        "--bogus"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Unknown option: --bogus (try skills --help)\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Unknown option: --bogus (try skills --help)\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Unknown option: --bogus (try skills --help)\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Unknown option: --bogus (try skills --help)\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "global",
+      "name": "dir-missing-value",
+      "argv": [
+        "--dir"
+      ],
+      "note": "DELIBERATE DEVIATION (resolved). The flag-parse loop is now wrapped in a try that routes req()'s SkillsError through fail(): clean `skills: error: --dir requires a path`, rc 1, empty stdout, on-disk state unchanged. Matches Bash on exit code + stdout + state; DEVIATES only on stderr wording — Bash's `${2:?}` shell-builtin prints `bin/skills: line N: 2: --dir requires a path` with an absolute script path + Bash line number, which is brittle and irreproducible from TS and worse than the port's uniform error form. Prior port defect (uncaught Node stack trace from the flag loop, outside the dispatch try) is fixed. Documented in PARITY.md. Affects all req()-guarded flags: --dir/--remotes/--format/--name/--description.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": false,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/skills: line 582: 2: --dir requires a path\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "<HEADLONG_ROOT>/bin/skills: line 582: 2: --dir requires a path\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: --dir requires a path\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: --dir requires a path\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "global",
+      "name": "format-missing-value",
+      "argv": [
+        "--format"
+      ],
+      "note": "Same DELIBERATE DEVIATION (resolved) as dir-missing-value: `--format` with no value → clean `skills: error: --format requires a value` (rc 1, empty stdout, state unchanged); deviates only on stderr wording vs Bash's `${2:?}` builtin text. Documented in PARITY.md.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": false,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/skills: line 584: 2: --format requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "<HEADLONG_ROOT>/bin/skills: line 584: 2: --format requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: --format requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: --format requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "empty-required",
+      "name": "dir-empty-value",
+      "argv": [
+        "--dir",
+        "",
+        "list"
+      ],
+      "note": "M1: `--dir ''` — Bash `${2:?}` fires on EMPTY too. Port's req() now rejects '' (was silently accepted). Both rc 1, empty stdout, state unchanged; deviates only on stderr wording.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": false,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/skills: line 582: 2: --dir requires a path\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "<HEADLONG_ROOT>/bin/skills: line 582: 2: --dir requires a path\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: --dir requires a path\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: --dir requires a path\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "empty-required",
+      "name": "format-empty-value",
+      "argv": [
+        "--format",
+        "",
+        "list"
+      ],
+      "note": "M1: `--format ''` — both rc 1, empty stdout, state unchanged; stderr wording only.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": false,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/skills: line 584: 2: --format requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "<HEADLONG_ROOT>/bin/skills: line 584: 2: --format requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: --format requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: --format requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "empty-required",
+      "name": "remotes-empty-value",
+      "argv": [
+        "--remotes",
+        "",
+        "list"
+      ],
+      "note": "M1: `--remotes ''` — both rc 1, empty stdout, state unchanged; stderr wording only.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": false,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/../tools/headlong-skills: line 842: 2: --remotes requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "<HEADLONG_ROOT>/bin/../tools/headlong-skills: line 842: 2: --remotes requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: --remotes requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: --remotes requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "empty-required",
+      "name": "init-name-desc-empty",
+      "argv": [
+        "init",
+        "--name",
+        "n",
+        "--description",
+        ""
+      ],
+      "note": "M1: `init --name n --description ''` — Bash dies rc 1 (no scaffold); port now dies rc 1 (no scaffold). Same on-disk state; stderr wording only.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": false,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/../tools/headlong-skills: line 870: 2: --description requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "<HEADLONG_ROOT>/bin/../tools/headlong-skills: line 870: 2: --description requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: --description requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: --description requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "empty-required",
+      "name": "init-desc-empty",
+      "argv": [
+        "init",
+        "myskill",
+        "--description",
+        ""
+      ],
+      "note": "M1: `init myskill --description ''` — Bash dies rc 1 (no scaffold); port now dies rc 1 (no scaffold). Same on-disk state; stderr wording only.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": false,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "<HEADLONG_ROOT>/bin/../tools/headlong-skills: line 870: 2: --description requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "<HEADLONG_ROOT>/bin/../tools/headlong-skills: line 870: 2: --description requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: --description requires a value\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: --description requires a value\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "basic-eligible",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  aa                   short desc                                                   [project]\n    .skills/aa\n",
+        "stderr": "",
+        "state": "FILE .skills/aa/SKILL.md\n---\nname: aa\ndescription: short desc\n---\n\n# aa\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  aa                   short desc                                                   [project]\n    .skills/aa\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/aa/SKILL.md\n---\nname: aa\ndescription: short desc\n---\n\n# aa\n"
+        }
+      },
+      "ts": {
+        "stdout": "  aa                   short desc                                                   [project]\n    .skills/aa\n",
+        "stderr": "",
+        "state": "FILE .skills/aa/SKILL.md\n---\nname: aa\ndescription: short desc\n---\n\n# aa\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  aa                   short desc                                                   [project]\n    .skills/aa\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/aa/SKILL.md\n---\nname: aa\ndescription: short desc\n---\n\n# aa\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "multiple-sorted",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  aa                   ay                                                           [project]\n    .skills/aa\n  bb                   bee                                                          [project]\n    .skills/bb\n",
+        "stderr": "",
+        "state": "FILE .skills/aa/SKILL.md\n---\nname: aa\ndescription: ay\n---\n\n# aa\n\n----\nFILE .skills/bb/SKILL.md\n---\nname: bb\ndescription: bee\n---\n\n# bb\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  aa                   ay                                                           [project]\n    .skills/aa\n  bb                   bee                                                          [project]\n    .skills/bb\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/aa/SKILL.md\n---\nname: aa\ndescription: ay\n---\n\n# aa\n\n----\nFILE .skills/bb/SKILL.md\n---\nname: bb\ndescription: bee\n---\n\n# bb\n"
+        }
+      },
+      "ts": {
+        "stdout": "  aa                   ay                                                           [project]\n    .skills/aa\n  bb                   bee                                                          [project]\n    .skills/bb\n",
+        "stderr": "",
+        "state": "FILE .skills/aa/SKILL.md\n---\nname: aa\ndescription: ay\n---\n\n# aa\n\n----\nFILE .skills/bb/SKILL.md\n---\nname: bb\ndescription: bee\n---\n\n# bb\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  aa                   ay                                                           [project]\n    .skills/aa\n  bb                   bee                                                          [project]\n    .skills/bb\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/aa/SKILL.md\n---\nname: aa\ndescription: ay\n---\n\n# aa\n\n----\nFILE .skills/bb/SKILL.md\n---\nname: bb\ndescription: bee\n---\n\n# bb\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "desc-truncate-61",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  t                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx... [project]\n    .skills/t\n",
+        "stderr": "",
+        "state": "FILE .skills/t/SKILL.md\n---\nname: t\ndescription: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n---\n\n# t\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  t                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx... [project]\n    .skills/t\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/t/SKILL.md\n---\nname: t\ndescription: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n---\n\n# t\n"
+        }
+      },
+      "ts": {
+        "stdout": "  t                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx... [project]\n    .skills/t\n",
+        "stderr": "",
+        "state": "FILE .skills/t/SKILL.md\n---\nname: t\ndescription: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n---\n\n# t\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  t                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx... [project]\n    .skills/t\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/t/SKILL.md\n---\nname: t\ndescription: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n---\n\n# t\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "desc-emdash-bytepad",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  e                    a—b                                                        [project]\n    .skills/e\n",
+        "stderr": "",
+        "state": "FILE .skills/e/SKILL.md\n---\nname: e\ndescription: a—b\n---\n\n# e\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  e                    a—b                                                        [project]\n    .skills/e\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/e/SKILL.md\n---\nname: e\ndescription: a—b\n---\n\n# e\n"
+        }
+      },
+      "ts": {
+        "stdout": "  e                    a—b                                                        [project]\n    .skills/e\n",
+        "stderr": "",
+        "state": "FILE .skills/e/SKILL.md\n---\nname: e\ndescription: a—b\n---\n\n# e\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  e                    a—b                                                        [project]\n    .skills/e\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/e/SKILL.md\n---\nname: e\ndescription: a—b\n---\n\n# e\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "desc-multibyte-boundary",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  m                    café señor 日本語 memo about things and stuff and more zzz [project]\n    .skills/m\n",
+        "stderr": "",
+        "state": "FILE .skills/m/SKILL.md\n---\nname: m\ndescription: café señor 日本語 memo about things and stuff and more zzz\n---\n\n# m\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  m                    café señor 日本語 memo about things and stuff and more zzz [project]\n    .skills/m\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/m/SKILL.md\n---\nname: m\ndescription: café señor 日本語 memo about things and stuff and more zzz\n---\n\n# m\n"
+        }
+      },
+      "ts": {
+        "stdout": "  m                    café señor 日本語 memo about things and stuff and more zzz [project]\n    .skills/m\n",
+        "stderr": "",
+        "state": "FILE .skills/m/SKILL.md\n---\nname: m\ndescription: café señor 日本語 memo about things and stuff and more zzz\n---\n\n# m\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  m                    café señor 日本語 memo about things and stuff and more zzz [project]\n    .skills/m\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/m/SKILL.md\n---\nname: m\ndescription: café señor 日本語 memo about things and stuff and more zzz\n---\n\n# m\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "name-fallback-basename",
+      "argv": [
+        "list"
+      ],
+      "note": "REAL BASH CRASHES: `name=$(frontmatter_field …)` runs a `grep '^name:'` that finds nothing → exits 1 under `set -o pipefail`; `var=$(failing)` trips `set -e` → the whole subcommand aborts (rc=1, truncated output). The bash's own `[[ -z \"$name\" ]] && name=$(basename …)` fallback is DEAD CODE. The port's `frontmatterField()||base` reaches the intended basename fallback and lists the skill. Broad: affects list/list-json/prompt/search/install on any name-less skill.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  nn                   no name field                                                [project]\n    .skills/nn\n",
+        "stderr": "",
+        "state": "FILE .skills/nn/SKILL.md\n---\ndescription: no name field\n---\n\n# body\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  nn                   no name field                                                [project]\n    .skills/nn\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/nn/SKILL.md\n---\ndescription: no name field\n---\n\n# body\n"
+        }
+      },
+      "ts": {
+        "stdout": "  nn                   no name field                                                [project]\n    .skills/nn\n",
+        "stderr": "",
+        "state": "FILE .skills/nn/SKILL.md\n---\ndescription: no name field\n---\n\n# body\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  nn                   no name field                                                [project]\n    .skills/nn\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/nn/SKILL.md\n---\ndescription: no name field\n---\n\n# body\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "description-missing-crash",
+      "argv": [
+        "list"
+      ],
+      "note": "Same set-e crash for a MISSING `description:` field (`desc=$(grep '^description:')` fails). Real bash aborts rc=1; port renders an empty description.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  nd                                                                                [project]\n    .skills/nd\n",
+        "stderr": "",
+        "state": "FILE .skills/nd/SKILL.md\n---\nname: nd\n---\n\n# body\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  nd                                                                                [project]\n    .skills/nd\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/nd/SKILL.md\n---\nname: nd\n---\n\n# body\n"
+        }
+      },
+      "ts": {
+        "stdout": "  nd                                                                                [project]\n    .skills/nd\n",
+        "stderr": "",
+        "state": "FILE .skills/nd/SKILL.md\n---\nname: nd\n---\n\n# body\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  nd                                                                                [project]\n    .skills/nd\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/nd/SKILL.md\n---\nname: nd\n---\n\n# body\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "empty-desc",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  d                                                                                 [project]\n    .skills/d\n",
+        "stderr": "",
+        "state": "FILE .skills/d/SKILL.md\n---\nname: d\ndescription:\n---\n\n# d\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  d                                                                                 [project]\n    .skills/d\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/d/SKILL.md\n---\nname: d\ndescription:\n---\n\n# d\n"
+        }
+      },
+      "ts": {
+        "stdout": "  d                                                                                 [project]\n    .skills/d\n",
+        "stderr": "",
+        "state": "FILE .skills/d/SKILL.md\n---\nname: d\ndescription:\n---\n\n# d\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  d                                                                                 [project]\n    .skills/d\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/d/SKILL.md\n---\nname: d\ndescription:\n---\n\n# d\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "ineligible-skipped-footer",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  ok                   fine                                                         [project]\n    .skills/ok\n\nSkipped (missing requirements)\n  bad                  needs env                                                    [project] (missing: MISSING_ENV_XYZ)\n    .skills/bad\n",
+        "stderr": "",
+        "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  ok                   fine                                                         [project]\n    .skills/ok\n\nSkipped (missing requirements)\n  bad                  needs env                                                    [project] (missing: MISSING_ENV_XYZ)\n    .skills/bad\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n"
+        }
+      },
+      "ts": {
+        "stdout": "  ok                   fine                                                         [project]\n    .skills/ok\n\nSkipped (missing requirements)\n  bad                  needs env                                                    [project] (missing: MISSING_ENV_XYZ)\n    .skills/bad\n",
+        "stderr": "",
+        "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  ok                   fine                                                         [project]\n    .skills/ok\n\nSkipped (missing requirements)\n  bad                  needs env                                                    [project] (missing: MISSING_ENV_XYZ)\n    .skills/bad\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "all-inline-ineligible",
+      "argv": [
+        "list",
+        "--all"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  bad                  needs env                                                    [project] (missing: MISSING_ENV_XYZ)\n    .skills/bad\n  ok                   fine                                                         [project]\n    .skills/ok\n",
+        "stderr": "",
+        "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  bad                  needs env                                                    [project] (missing: MISSING_ENV_XYZ)\n    .skills/bad\n  ok                   fine                                                         [project]\n    .skills/ok\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n"
+        }
+      },
+      "ts": {
+        "stdout": "  bad                  needs env                                                    [project] (missing: MISSING_ENV_XYZ)\n    .skills/bad\n  ok                   fine                                                         [project]\n    .skills/ok\n",
+        "stderr": "",
+        "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  bad                  needs env                                                    [project] (missing: MISSING_ENV_XYZ)\n    .skills/bad\n  ok                   fine                                                         [project]\n    .skills/ok\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "format-prompt-eq",
+      "argv": [
+        "list",
+        "--format=prompt"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "- ok: fine\n",
+        "stderr": "",
+        "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n",
+        "status": 0,
+        "raw": {
+          "stdout": "- ok: fine\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n"
+        }
+      },
+      "ts": {
+        "stdout": "- ok: fine\n",
+        "stderr": "",
+        "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n",
+        "status": 0,
+        "raw": {
+          "stdout": "- ok: fine\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/bad/SKILL.md\n---\nname: bad\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# bad\n\n----\nFILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "format-prompt-space",
+      "argv": [
+        "list",
+        "--format",
+        "prompt"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "- ok: fine\n",
+        "stderr": "",
+        "state": "FILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n",
+        "status": 0,
+        "raw": {
+          "stdout": "- ok: fine\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n"
+        }
+      },
+      "ts": {
+        "stdout": "- ok: fine\n",
+        "stderr": "",
+        "state": "FILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n",
+        "status": 0,
+        "raw": {
+          "stdout": "- ok: fine\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ok/SKILL.md\n---\nname: ok\ndescription: fine\n---\n\n# ok\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "conflict-dedup-warn",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  shared               from project                                                 [project]\n    .skills/a\n",
+        "stderr": "⚠ skill shared found in multiple locations:\n    .skills/a\n    ./kernel/b\n  Using the first one. Remove one copy to resolve.\n",
+        "state": "FILE .skills/a/SKILL.md\n---\nname: shared\ndescription: from project\n---\n\n# shared\n\n----\nFILE kernel/b/SKILL.md\n---\nname: shared\ndescription: from kernel\n---\n\n# shared\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  shared               from project                                                 [project]\n    .skills/a\n",
+          "stderr": "⚠ skill shared found in multiple locations:\n    .skills/a\n    ./kernel/b\n  Using the first one. Remove one copy to resolve.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/a/SKILL.md\n---\nname: shared\ndescription: from project\n---\n\n# shared\n\n----\nFILE kernel/b/SKILL.md\n---\nname: shared\ndescription: from kernel\n---\n\n# shared\n"
+        }
+      },
+      "ts": {
+        "stdout": "  shared               from project                                                 [project]\n    .skills/a\n",
+        "stderr": "⚠ skill shared found in multiple locations:\n    .skills/a\n    ./kernel/b\n  Using the first one. Remove one copy to resolve.\n",
+        "state": "FILE .skills/a/SKILL.md\n---\nname: shared\ndescription: from project\n---\n\n# shared\n\n----\nFILE kernel/b/SKILL.md\n---\nname: shared\ndescription: from kernel\n---\n\n# shared\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  shared               from project                                                 [project]\n    .skills/a\n",
+          "stderr": "⚠ skill shared found in multiple locations:\n    .skills/a\n    ./kernel/b\n  Using the first one. Remove one copy to resolve.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/a/SKILL.md\n---\nname: shared\ndescription: from project\n---\n\n# shared\n\n----\nFILE kernel/b/SKILL.md\n---\nname: shared\ndescription: from kernel\n---\n\n# shared\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "remotes-available-filtered",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  dup                  installed already                                            [project]\n    .skills/dup\n",
+        "stderr": "",
+        "state": "FILE .skills/dup/SKILL.md\n---\nname: dup\ndescription: installed already\n---\n\n# dup\n\n----\nFILE remotesrc/dup/SKILL.md\n---\nname: dup\ndescription: remote dup\n---\n\n# dup\n\n----\nFILE remotesrc/fresh/SKILL.md\n---\nname: fresh\ndescription: available remote\n---\n\n# fresh\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  dup                  installed already                                            [project]\n    .skills/dup\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/dup/SKILL.md\n---\nname: dup\ndescription: installed already\n---\n\n# dup\n\n----\nFILE remotesrc/dup/SKILL.md\n---\nname: dup\ndescription: remote dup\n---\n\n# dup\n\n----\nFILE remotesrc/fresh/SKILL.md\n---\nname: fresh\ndescription: available remote\n---\n\n# fresh\n"
+        }
+      },
+      "ts": {
+        "stdout": "  dup                  installed already                                            [project]\n    .skills/dup\n",
+        "stderr": "",
+        "state": "FILE .skills/dup/SKILL.md\n---\nname: dup\ndescription: installed already\n---\n\n# dup\n\n----\nFILE remotesrc/dup/SKILL.md\n---\nname: dup\ndescription: remote dup\n---\n\n# dup\n\n----\nFILE remotesrc/fresh/SKILL.md\n---\nname: fresh\ndescription: available remote\n---\n\n# fresh\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  dup                  installed already                                            [project]\n    .skills/dup\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/dup/SKILL.md\n---\nname: dup\ndescription: installed already\n---\n\n# dup\n\n----\nFILE remotesrc/dup/SKILL.md\n---\nname: dup\ndescription: remote dup\n---\n\n# dup\n\n----\nFILE remotesrc/fresh/SKILL.md\n---\nname: fresh\ndescription: available remote\n---\n\n# fresh\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "dir-flag-local-label",
+      "argv": [
+        "--dir",
+        "./mylib",
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  z                    in mylib                                                     [local]\n    ./mylib/z\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>\n----\nFILE mylib/z/SKILL.md\n---\nname: z\ndescription: in mylib\n---\n\n# z\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  z                    in mylib                                                     [local]\n    ./mylib/z\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE mylib/z/SKILL.md\n---\nname: z\ndescription: in mylib\n---\n\n# z\n"
+        }
+      },
+      "ts": {
+        "stdout": "  z                    in mylib                                                     [local]\n    ./mylib/z\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>\n----\nFILE mylib/z/SKILL.md\n---\nname: z\ndescription: in mylib\n---\n\n# z\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  z                    in mylib                                                     [local]\n    ./mylib/z\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE mylib/z/SKILL.md\n---\nname: z\ndescription: in mylib\n---\n\n# z\n"
+        }
+      }
+    },
+    {
+      "group": "list",
+      "name": "requirement-bins-met",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  j                    needs jq                                                     [project]\n    .skills/j\n",
+        "stderr": "",
+        "state": "FILE .skills/j/SKILL.md\n---\nname: j\ndescription: needs jq\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\"]\n---\n\n# j\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  j                    needs jq                                                     [project]\n    .skills/j\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/j/SKILL.md\n---\nname: j\ndescription: needs jq\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\"]\n---\n\n# j\n"
+        }
+      },
+      "ts": {
+        "stdout": "  j                    needs jq                                                     [project]\n    .skills/j\n",
+        "stderr": "",
+        "state": "FILE .skills/j/SKILL.md\n---\nname: j\ndescription: needs jq\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\"]\n---\n\n# j\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  j                    needs jq                                                     [project]\n    .skills/j\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/j/SKILL.md\n---\nname: j\ndescription: needs jq\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\"]\n---\n\n# j\n"
+        }
+      }
+    },
+    {
+      "group": "list-json",
+      "name": "two-skills-comma-boundary",
+      "argv": [
+        "list-json"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[{\n  \"name\": \"one\",\n  \"description\": \"first\",\n  \"instructions\": \"\\n# one\\n\\nbody one\"\n}\n,{\n  \"name\": \"two\",\n  \"description\": \"second\",\n  \"instructions\": \"\\n# two\\n\\nbody two\"\n}\n]\n",
+        "stderr": "",
+        "state": "FILE .skills/one/SKILL.md\n---\nname: one\ndescription: first\n---\n\n# one\n\nbody one\n\n----\nFILE .skills/two/SKILL.md\n---\nname: two\ndescription: second\n---\n\n# two\n\nbody two\n",
+        "status": 0,
+        "raw": {
+          "stdout": "[{\n  \"name\": \"one\",\n  \"description\": \"first\",\n  \"instructions\": \"\\n# one\\n\\nbody one\"\n}\n,{\n  \"name\": \"two\",\n  \"description\": \"second\",\n  \"instructions\": \"\\n# two\\n\\nbody two\"\n}\n]\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/one/SKILL.md\n---\nname: one\ndescription: first\n---\n\n# one\n\nbody one\n\n----\nFILE .skills/two/SKILL.md\n---\nname: two\ndescription: second\n---\n\n# two\n\nbody two\n"
+        }
+      },
+      "ts": {
+        "stdout": "[{\n  \"name\": \"one\",\n  \"description\": \"first\",\n  \"instructions\": \"\\n# one\\n\\nbody one\"\n}\n,{\n  \"name\": \"two\",\n  \"description\": \"second\",\n  \"instructions\": \"\\n# two\\n\\nbody two\"\n}\n]\n",
+        "stderr": "",
+        "state": "FILE .skills/one/SKILL.md\n---\nname: one\ndescription: first\n---\n\n# one\n\nbody one\n\n----\nFILE .skills/two/SKILL.md\n---\nname: two\ndescription: second\n---\n\n# two\n\nbody two\n",
+        "status": 0,
+        "raw": {
+          "stdout": "[{\n  \"name\": \"one\",\n  \"description\": \"first\",\n  \"instructions\": \"\\n# one\\n\\nbody one\"\n}\n,{\n  \"name\": \"two\",\n  \"description\": \"second\",\n  \"instructions\": \"\\n# two\\n\\nbody two\"\n}\n]\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/one/SKILL.md\n---\nname: one\ndescription: first\n---\n\n# one\n\nbody one\n\n----\nFILE .skills/two/SKILL.md\n---\nname: two\ndescription: second\n---\n\n# two\n\nbody two\n"
+        }
+      }
+    },
+    {
+      "group": "list-json",
+      "name": "empty",
+      "argv": [
+        "list-json"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "[]\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "[]\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "list-json",
+      "name": "special-chars-escaping",
+      "argv": [
+        "list-json"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "[{\n  \"name\": \"s\",\n  \"description\": \"has \\\"quote\\\" and — dash\",\n  \"instructions\": \"\\nline1\\twith tab\\nquote \\\" and \\\\ backslash — em\"\n}\n]\n",
+        "stderr": "",
+        "state": "FILE .skills/s/SKILL.md\n---\nname: s\ndescription: has \"quote\" and — dash\n---\n\nline1\twith tab\nquote \" and \\ backslash — em\n",
+        "status": 0,
+        "raw": {
+          "stdout": "[{\n  \"name\": \"s\",\n  \"description\": \"has \\\"quote\\\" and — dash\",\n  \"instructions\": \"\\nline1\\twith tab\\nquote \\\" and \\\\ backslash — em\"\n}\n]\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/s/SKILL.md\n---\nname: s\ndescription: has \"quote\" and — dash\n---\n\nline1\twith tab\nquote \" and \\ backslash — em\n"
+        }
+      },
+      "ts": {
+        "stdout": "[{\n  \"name\": \"s\",\n  \"description\": \"has \\\"quote\\\" and — dash\",\n  \"instructions\": \"\\nline1\\twith tab\\nquote \\\" and \\\\ backslash — em\"\n}\n]\n",
+        "stderr": "",
+        "state": "FILE .skills/s/SKILL.md\n---\nname: s\ndescription: has \"quote\" and — dash\n---\n\nline1\twith tab\nquote \" and \\ backslash — em\n",
+        "status": 0,
+        "raw": {
+          "stdout": "[{\n  \"name\": \"s\",\n  \"description\": \"has \\\"quote\\\" and — dash\",\n  \"instructions\": \"\\nline1\\twith tab\\nquote \\\" and \\\\ backslash — em\"\n}\n]\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/s/SKILL.md\n---\nname: s\ndescription: has \"quote\" and — dash\n---\n\nline1\twith tab\nquote \" and \\ backslash — em\n"
+        }
+      }
+    },
+    {
+      "group": "search",
+      "name": "local-match-bare-query",
+      "argv": [
+        "needle"
+      ],
+      "note": "Bare query dispatches to search; local Installed match. Remote configured (non-matching) so the Available section is deterministic and does NOT hit the GitHub fallback (isolates local-match from the ★-stars bug).",
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "Installed\n  needle               findable thing\n\nAvailable\n  No remote matches.\n",
+        "stderr": "",
+        "state": "FILE .skills/needle/SKILL.md\n---\nname: needle\ndescription: findable thing\n---\n\n# needle\n\n----\nFILE remotesrc/other/SKILL.md\n---\nname: other\ndescription: unrelated remote\n---\n\n# other\n",
+        "status": 0,
+        "raw": {
+          "stdout": "Installed\n  needle               findable thing\n\nAvailable\n  No remote matches.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/needle/SKILL.md\n---\nname: needle\ndescription: findable thing\n---\n\n# needle\n\n----\nFILE remotesrc/other/SKILL.md\n---\nname: other\ndescription: unrelated remote\n---\n\n# other\n"
+        }
+      },
+      "ts": {
+        "stdout": "Installed\n  needle               findable thing\n\nAvailable\n  No remote matches.\n",
+        "stderr": "",
+        "state": "FILE .skills/needle/SKILL.md\n---\nname: needle\ndescription: findable thing\n---\n\n# needle\n\n----\nFILE remotesrc/other/SKILL.md\n---\nname: other\ndescription: unrelated remote\n---\n\n# other\n",
+        "status": 0,
+        "raw": {
+          "stdout": "Installed\n  needle               findable thing\n\nAvailable\n  No remote matches.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/needle/SKILL.md\n---\nname: needle\ndescription: findable thing\n---\n\n# needle\n\n----\nFILE remotesrc/other/SKILL.md\n---\nname: other\ndescription: unrelated remote\n---\n\n# other\n"
+        }
+      }
+    },
+    {
+      "group": "search",
+      "name": "no-local-match-with-remote",
+      "argv": [
+        "zzznope"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "Installed\n  No local matches.\n\nAvailable\n  No remote matches.\n",
+        "stderr": "",
+        "state": "FILE .skills/needle/SKILL.md\n---\nname: needle\ndescription: findable thing\n---\n\n# needle\n\n----\nFILE remotesrc/rem/SKILL.md\n---\nname: rem\ndescription: a remote one\n---\n\n# rem\n",
+        "status": 0,
+        "raw": {
+          "stdout": "Installed\n  No local matches.\n\nAvailable\n  No remote matches.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/needle/SKILL.md\n---\nname: needle\ndescription: findable thing\n---\n\n# needle\n\n----\nFILE remotesrc/rem/SKILL.md\n---\nname: rem\ndescription: a remote one\n---\n\n# rem\n"
+        }
+      },
+      "ts": {
+        "stdout": "Installed\n  No local matches.\n\nAvailable\n  No remote matches.\n",
+        "stderr": "",
+        "state": "FILE .skills/needle/SKILL.md\n---\nname: needle\ndescription: findable thing\n---\n\n# needle\n\n----\nFILE remotesrc/rem/SKILL.md\n---\nname: rem\ndescription: a remote one\n---\n\n# rem\n",
+        "status": 0,
+        "raw": {
+          "stdout": "Installed\n  No local matches.\n\nAvailable\n  No remote matches.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/needle/SKILL.md\n---\nname: needle\ndescription: findable thing\n---\n\n# needle\n\n----\nFILE remotesrc/rem/SKILL.md\n---\nname: rem\ndescription: a remote one\n---\n\n# rem\n"
+        }
+      }
+    },
+    {
+      "group": "search",
+      "name": "remote-match",
+      "argv": [
+        "remote"
+      ],
+      "note": "'remote' is a subcommand, so this must go through bare-query search NOT dispatch — probes query==subcommand-name. (Actually dispatches to remote list.)",
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  [local] ./remotesrc\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>\n----\nFILE remotesrc/remoteskill/SKILL.md\n---\nname: remoteskill\ndescription: a remote thing\n---\n\n# remoteskill\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  [local] ./remotesrc\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE remotesrc/remoteskill/SKILL.md\n---\nname: remoteskill\ndescription: a remote thing\n---\n\n# remoteskill\n"
+        }
+      },
+      "ts": {
+        "stdout": "  [local] ./remotesrc\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>\n----\nFILE remotesrc/remoteskill/SKILL.md\n---\nname: remoteskill\ndescription: a remote thing\n---\n\n# remoteskill\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  [local] ./remotesrc\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE remotesrc/remoteskill/SKILL.md\n---\nname: remoteskill\ndescription: a remote thing\n---\n\n# remoteskill\n"
+        }
+      }
+    },
+    {
+      "group": "search",
+      "name": "regex-metachar-grep-vs-includes",
+      "argv": [
+        "b.r"
+      ],
+      "note": "FIXED (parity fix): bash `grep -qi \"$query\"` treats the query as a REGEX; the port now uses a case-insensitive RegExp (grepMatch) instead of String.includes. 'b.r' matches 'bar' — now byte-identical. Kept as a hard-parity scenario so a regression re-fails the oracle.",
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "Installed\n  bar                  a bar skill\n\nAvailable\n  No remote matches.\n",
+        "stderr": "⚠ Remote path not found: ./remotesrc\n",
+        "state": "FILE .skills/bar/SKILL.md\n---\nname: bar\ndescription: a bar skill\n---\n\n# bar\n",
+        "status": 0,
+        "raw": {
+          "stdout": "Installed\n  bar                  a bar skill\n\nAvailable\n  No remote matches.\n",
+          "stderr": "⚠ Remote path not found: ./remotesrc\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/bar/SKILL.md\n---\nname: bar\ndescription: a bar skill\n---\n\n# bar\n"
+        }
+      },
+      "ts": {
+        "stdout": "Installed\n  bar                  a bar skill\n\nAvailable\n  No remote matches.\n",
+        "stderr": "⚠ Remote path not found: ./remotesrc\n",
+        "state": "FILE .skills/bar/SKILL.md\n---\nname: bar\ndescription: a bar skill\n---\n\n# bar\n",
+        "status": 0,
+        "raw": {
+          "stdout": "Installed\n  bar                  a bar skill\n\nAvailable\n  No remote matches.\n",
+          "stderr": "⚠ Remote path not found: ./remotesrc\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/bar/SKILL.md\n---\nname: bar\ndescription: a bar skill\n---\n\n# bar\n"
+        }
+      }
+    },
+    {
+      "group": "search",
+      "name": "github-fallback-stubbed-curl",
+      "argv": [
+        "anything"
+      ],
+      "note": "FIXED (parity fix): GitHub fallback now prints stars as '★ N' (searchGitHub restored the '★ ' prefix, matching bin/skills:695,698). Now byte-identical; kept as a hard-parity guard.",
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "Installed\n  No local matches.\n\nAvailable\n  owner/repo-one                 a github skill                                     ★ 42\n  owner/repo-two                 —                                                ★ 7\n",
+        "stderr": "    https://github.com/owner/repo-one\n    https://github.com/owner/repo-two\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "Installed\n  No local matches.\n\nAvailable\n  owner/repo-one                 a github skill                                     ★ 42\n  owner/repo-two                 —                                                ★ 7\n",
+          "stderr": "    https://github.com/owner/repo-one\n    https://github.com/owner/repo-two\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "Installed\n  No local matches.\n\nAvailable\n  owner/repo-one                 a github skill                                     ★ 42\n  owner/repo-two                 —                                                ★ 7\n",
+        "stderr": "    https://github.com/owner/repo-one\n    https://github.com/owner/repo-two\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "Installed\n  No local matches.\n\nAvailable\n  owner/repo-one                 a github skill                                     ★ 42\n  owner/repo-two                 —                                                ★ 7\n",
+          "stderr": "    https://github.com/owner/repo-one\n    https://github.com/owner/repo-two\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "search",
+      "name": "no-query",
+      "argv": [
+        "search"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: search requires a query\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: search requires a query\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: search requires a query\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: search requires a query\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "plain-body",
+      "argv": [
+        "show",
+        "sk"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "---\nname: sk\ndescription: a skill\n---\n\n# sk\n\nDo the thing.\n",
+        "stderr": "",
+        "state": "FILE .skills/sk/SKILL.md\n---\nname: sk\ndescription: a skill\n---\n\n# sk\n\nDo the thing.\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: sk\ndescription: a skill\n---\n\n# sk\n\nDo the thing.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/sk/SKILL.md\n---\nname: sk\ndescription: a skill\n---\n\n# sk\n\nDo the thing.\n"
+        }
+      },
+      "ts": {
+        "stdout": "---\nname: sk\ndescription: a skill\n---\n\n# sk\n\nDo the thing.\n",
+        "stderr": "",
+        "state": "FILE .skills/sk/SKILL.md\n---\nname: sk\ndescription: a skill\n---\n\n# sk\n\nDo the thing.\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: sk\ndescription: a skill\n---\n\n# sk\n\nDo the thing.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/sk/SKILL.md\n---\nname: sk\ndescription: a skill\n---\n\n# sk\n\nDo the thing.\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "eval-block",
+      "argv": [
+        "show",
+        "ev"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "---\nname: ev\ndescription: evals\n---\n\nBefore.\n\nran-at-render\n\nAfter.\n",
+        "stderr": "",
+        "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\nBefore.\n\n```bash\n#| eval: true\necho ran-at-render\n```\n\nAfter.\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: ev\ndescription: evals\n---\n\nBefore.\n\nran-at-render\n\nAfter.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\nBefore.\n\n```bash\n#| eval: true\necho ran-at-render\n```\n\nAfter.\n"
+        }
+      },
+      "ts": {
+        "stdout": "---\nname: ev\ndescription: evals\n---\n\nBefore.\n\nran-at-render\n\nAfter.\n",
+        "stderr": "",
+        "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\nBefore.\n\n```bash\n#| eval: true\necho ran-at-render\n```\n\nAfter.\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: ev\ndescription: evals\n---\n\nBefore.\n\nran-at-render\n\nAfter.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\nBefore.\n\n```bash\n#| eval: true\necho ran-at-render\n```\n\nAfter.\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "eval-echo-source",
+      "argv": [
+        "show",
+        "ev"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "---\nname: ev\ndescription: evals\n---\n\n```bash\necho shown\n```\nshown\n",
+        "stderr": "",
+        "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\n#| echo: true\necho shown\n```\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: ev\ndescription: evals\n---\n\n```bash\necho shown\n```\nshown\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\n#| echo: true\necho shown\n```\n"
+        }
+      },
+      "ts": {
+        "stdout": "---\nname: ev\ndescription: evals\n---\n\n```bash\necho shown\n```\nshown\n",
+        "stderr": "",
+        "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\n#| echo: true\necho shown\n```\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: ev\ndescription: evals\n---\n\n```bash\necho shown\n```\nshown\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\n#| echo: true\necho shown\n```\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "eval-stdout-false",
+      "argv": [
+        "show",
+        "ev"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "---\nname: ev\ndescription: evals\n---\n\n",
+        "stderr": "",
+        "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\n#| stdout: false\necho nope\n```\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: ev\ndescription: evals\n---\n\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\n#| stdout: false\necho nope\n```\n"
+        }
+      },
+      "ts": {
+        "stdout": "---\nname: ev\ndescription: evals\n---\n\n",
+        "stderr": "",
+        "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\n#| stdout: false\necho nope\n```\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: ev\ndescription: evals\n---\n\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\n#| stdout: false\necho nope\n```\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "eval-stderr-capture",
+      "argv": [
+        "show",
+        "ev"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "---\nname: ev\ndescription: evals\n---\n\nout\nerr\n",
+        "stderr": "",
+        "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\necho out; echo err 1>&2\n```\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: ev\ndescription: evals\n---\n\nout\nerr\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\necho out; echo err 1>&2\n```\n"
+        }
+      },
+      "ts": {
+        "stdout": "---\nname: ev\ndescription: evals\n---\n\nout\nerr\n",
+        "stderr": "",
+        "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\necho out; echo err 1>&2\n```\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: ev\ndescription: evals\n---\n\nout\nerr\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/ev/SKILL.md\n---\nname: ev\ndescription: evals\n---\n\n```bash\n#| eval: true\necho out; echo err 1>&2\n```\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "plain-bash-block-untouched",
+      "argv": [
+        "show",
+        "pb"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "---\nname: pb\ndescription: plain\n---\n\n```bash\nls -la\n```\n",
+        "stderr": "",
+        "state": "FILE .skills/pb/SKILL.md\n---\nname: pb\ndescription: plain\n---\n\n```bash\nls -la\n```\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: pb\ndescription: plain\n---\n\n```bash\nls -la\n```\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/pb/SKILL.md\n---\nname: pb\ndescription: plain\n---\n\n```bash\nls -la\n```\n"
+        }
+      },
+      "ts": {
+        "stdout": "---\nname: pb\ndescription: plain\n---\n\n```bash\nls -la\n```\n",
+        "stderr": "",
+        "state": "FILE .skills/pb/SKILL.md\n---\nname: pb\ndescription: plain\n---\n\n```bash\nls -la\n```\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: pb\ndescription: plain\n---\n\n```bash\nls -la\n```\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/pb/SKILL.md\n---\nname: pb\ndescription: plain\n---\n\n```bash\nls -la\n```\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "requires-json",
+      "argv": [
+        "show",
+        "r",
+        "--requires"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "{\n  \"requires\": {\n    \"env\": [],\n    \"bins\": [\n      \"curl\",\n      \"jq\"\n    ],\n    \"anyBins\": [],\n    \"os\": []\n  }\n}\n",
+        "stderr": "",
+        "state": "FILE .skills/r/SKILL.md\n---\nname: r\ndescription: needs\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"curl\", \"jq\"]\n---\n\n# r\n",
+        "status": 0,
+        "raw": {
+          "stdout": "{\n  \"requires\": {\n    \"env\": [],\n    \"bins\": [\n      \"curl\",\n      \"jq\"\n    ],\n    \"anyBins\": [],\n    \"os\": []\n  }\n}\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/r/SKILL.md\n---\nname: r\ndescription: needs\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"curl\", \"jq\"]\n---\n\n# r\n"
+        }
+      },
+      "ts": {
+        "stdout": "{\n  \"requires\": {\n    \"env\": [],\n    \"bins\": [\n      \"curl\",\n      \"jq\"\n    ],\n    \"anyBins\": [],\n    \"os\": []\n  }\n}\n",
+        "stderr": "",
+        "state": "FILE .skills/r/SKILL.md\n---\nname: r\ndescription: needs\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"curl\", \"jq\"]\n---\n\n# r\n",
+        "status": 0,
+        "raw": {
+          "stdout": "{\n  \"requires\": {\n    \"env\": [],\n    \"bins\": [\n      \"curl\",\n      \"jq\"\n    ],\n    \"anyBins\": [],\n    \"os\": []\n  }\n}\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/r/SKILL.md\n---\nname: r\ndescription: needs\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"curl\", \"jq\"]\n---\n\n# r\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "requires-inline-json",
+      "argv": [
+        "show",
+        "r",
+        "--requires"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "{\n  \"requires\": {\n    \"anyBins\": [\n      \"gh\",\n      \"hub\"\n    ]\n  }\n}\n",
+        "stderr": "",
+        "state": "FILE .skills/r/SKILL.md\n---\nname: r\ndescription: d\nmetadata: {\"shelllm\": {\"requires\": {\"anyBins\": [\"gh\",\"hub\"]}}}\n---\n\n#r\n",
+        "status": 0,
+        "raw": {
+          "stdout": "{\n  \"requires\": {\n    \"anyBins\": [\n      \"gh\",\n      \"hub\"\n    ]\n  }\n}\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/r/SKILL.md\n---\nname: r\ndescription: d\nmetadata: {\"shelllm\": {\"requires\": {\"anyBins\": [\"gh\",\"hub\"]}}}\n---\n\n#r\n"
+        }
+      },
+      "ts": {
+        "stdout": "{\n  \"requires\": {\n    \"anyBins\": [\n      \"gh\",\n      \"hub\"\n    ]\n  }\n}\n",
+        "stderr": "",
+        "state": "FILE .skills/r/SKILL.md\n---\nname: r\ndescription: d\nmetadata: {\"shelllm\": {\"requires\": {\"anyBins\": [\"gh\",\"hub\"]}}}\n---\n\n#r\n",
+        "status": 0,
+        "raw": {
+          "stdout": "{\n  \"requires\": {\n    \"anyBins\": [\n      \"gh\",\n      \"hub\"\n    ]\n  }\n}\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/r/SKILL.md\n---\nname: r\ndescription: d\nmetadata: {\"shelllm\": {\"requires\": {\"anyBins\": [\"gh\",\"hub\"]}}}\n---\n\n#r\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "requires-none",
+      "argv": [
+        "show",
+        "n",
+        "--requires"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "No requirements declared.\n",
+        "stderr": "",
+        "state": "FILE .skills/n/SKILL.md\n---\nname: n\ndescription: no reqs\n---\n\n# n\n",
+        "status": 0,
+        "raw": {
+          "stdout": "No requirements declared.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/n/SKILL.md\n---\nname: n\ndescription: no reqs\n---\n\n# n\n"
+        }
+      },
+      "ts": {
+        "stdout": "No requirements declared.\n",
+        "stderr": "",
+        "state": "FILE .skills/n/SKILL.md\n---\nname: n\ndescription: no reqs\n---\n\n# n\n",
+        "status": 0,
+        "raw": {
+          "stdout": "No requirements declared.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/n/SKILL.md\n---\nname: n\ndescription: no reqs\n---\n\n# n\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "not-found",
+      "argv": [
+        "show",
+        "ghost"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Skill not found: ghost\n",
+        "state": "FILE .skills/sk/SKILL.md\n---\nname: sk\ndescription: x\n---\n\n# sk\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill not found: ghost\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/sk/SKILL.md\n---\nname: sk\ndescription: x\n---\n\n# sk\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Skill not found: ghost\n",
+        "state": "FILE .skills/sk/SKILL.md\n---\nname: sk\ndescription: x\n---\n\n# sk\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill not found: ghost\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/sk/SKILL.md\n---\nname: sk\ndescription: x\n---\n\n# sk\n"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "no-arg",
+      "argv": [
+        "show"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: show requires a skill name\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: show requires a skill name\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: show requires a skill name\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: show requires a skill name\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "show",
+      "name": "find-by-frontmatter-name",
+      "argv": [
+        "show",
+        "realname"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "---\nname: realname\ndescription: found via frontmatter name\n---\n\n# realname\n",
+        "stderr": "",
+        "state": "FILE .skills/dirname/SKILL.md\n---\nname: realname\ndescription: found via frontmatter name\n---\n\n# realname\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: realname\ndescription: found via frontmatter name\n---\n\n# realname\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/dirname/SKILL.md\n---\nname: realname\ndescription: found via frontmatter name\n---\n\n# realname\n"
+        }
+      },
+      "ts": {
+        "stdout": "---\nname: realname\ndescription: found via frontmatter name\n---\n\n# realname\n",
+        "stderr": "",
+        "state": "FILE .skills/dirname/SKILL.md\n---\nname: realname\ndescription: found via frontmatter name\n---\n\n# realname\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: realname\ndescription: found via frontmatter name\n---\n\n# realname\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/dirname/SKILL.md\n---\nname: realname\ndescription: found via frontmatter name\n---\n\n# realname\n"
+        }
+      }
+    },
+    {
+      "group": "check",
+      "name": "none",
+      "argv": [
+        "check",
+        "n"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "No requirements declared.\n",
+        "stderr": "",
+        "state": "FILE .skills/n/SKILL.md\n---\nname: n\ndescription: no reqs\n---\n\n# n\n",
+        "status": 0,
+        "raw": {
+          "stdout": "No requirements declared.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/n/SKILL.md\n---\nname: n\ndescription: no reqs\n---\n\n# n\n"
+        }
+      },
+      "ts": {
+        "stdout": "No requirements declared.\n",
+        "stderr": "",
+        "state": "FILE .skills/n/SKILL.md\n---\nname: n\ndescription: no reqs\n---\n\n# n\n",
+        "status": 0,
+        "raw": {
+          "stdout": "No requirements declared.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/n/SKILL.md\n---\nname: n\ndescription: no reqs\n---\n\n# n\n"
+        }
+      }
+    },
+    {
+      "group": "check",
+      "name": "unmet-env",
+      "argv": [
+        "check",
+        "x"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "MISS  env  MISSING_ENV_XYZ\n",
+        "stderr": "",
+        "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: d\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# x\n",
+        "status": 1,
+        "raw": {
+          "stdout": "MISS  env  MISSING_ENV_XYZ\n",
+          "stderr": "",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: d\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# x\n"
+        }
+      },
+      "ts": {
+        "stdout": "MISS  env  MISSING_ENV_XYZ\n",
+        "stderr": "",
+        "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: d\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# x\n",
+        "status": 1,
+        "raw": {
+          "stdout": "MISS  env  MISSING_ENV_XYZ\n",
+          "stderr": "",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: d\nmetadata:\n  shelllm:\n    requires:\n      env: [\"MISSING_ENV_XYZ\"]\n---\n\n# x\n"
+        }
+      }
+    },
+    {
+      "group": "check",
+      "name": "mixed-all-met",
+      "argv": [
+        "check",
+        "x"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "OK    env  PRESENT_ENV_XYZ\nOK    bin  jq\nOK    bin  jq (any)\nMISS  bin  nonexistent_bin_xyz (any)\nOK    os   darwin\n",
+        "stderr": "",
+        "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: d\nmetadata:\n  shelllm:\n    requires:\n      env: [\"PRESENT_ENV_XYZ\"]\n      bins: [\"jq\"]\n      anyBins: [\"jq\", \"nonexistent_bin_xyz\"]\n      os: [\"darwin\", \"linux\"]\n---\n\n#x\n",
+        "status": 0,
+        "raw": {
+          "stdout": "OK    env  PRESENT_ENV_XYZ\nOK    bin  jq\nOK    bin  jq (any)\nMISS  bin  nonexistent_bin_xyz (any)\nOK    os   darwin\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: d\nmetadata:\n  shelllm:\n    requires:\n      env: [\"PRESENT_ENV_XYZ\"]\n      bins: [\"jq\"]\n      anyBins: [\"jq\", \"nonexistent_bin_xyz\"]\n      os: [\"darwin\", \"linux\"]\n---\n\n#x\n"
+        }
+      },
+      "ts": {
+        "stdout": "OK    env  PRESENT_ENV_XYZ\nOK    bin  jq\nOK    bin  jq (any)\nMISS  bin  nonexistent_bin_xyz (any)\nOK    os   darwin\n",
+        "stderr": "",
+        "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: d\nmetadata:\n  shelllm:\n    requires:\n      env: [\"PRESENT_ENV_XYZ\"]\n      bins: [\"jq\"]\n      anyBins: [\"jq\", \"nonexistent_bin_xyz\"]\n      os: [\"darwin\", \"linux\"]\n---\n\n#x\n",
+        "status": 0,
+        "raw": {
+          "stdout": "OK    env  PRESENT_ENV_XYZ\nOK    bin  jq\nOK    bin  jq (any)\nMISS  bin  nonexistent_bin_xyz (any)\nOK    os   darwin\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: d\nmetadata:\n  shelllm:\n    requires:\n      env: [\"PRESENT_ENV_XYZ\"]\n      bins: [\"jq\"]\n      anyBins: [\"jq\", \"nonexistent_bin_xyz\"]\n      os: [\"darwin\", \"linux\"]\n---\n\n#x\n"
+        }
+      }
+    },
+    {
+      "group": "check",
+      "name": "not-found",
+      "argv": [
+        "check",
+        "ghost"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Skill not found: ghost\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill not found: ghost\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Skill not found: ghost\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill not found: ghost\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "init",
+      "name": "flags-name-desc",
+      "argv": [
+        "init",
+        "newskill",
+        "--description",
+        "does things"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "▶ Created skill scaffold: ./.skills/newskill/\n  SKILL.md\n  scripts/\n  references/\n  assets/\n",
+        "state": "FILE .skills/newskill/SKILL.md\n---\nname: newskill\ndescription: does things\n---\n\n# newskill\n\n## Instructions\n\n<!-- Describe what this skill does and how an LLM should use it. -->\n\n----\nFILE .skills/newskill/assets/\n<dir>\n----\nFILE .skills/newskill/references/\n<dir>\n----\nFILE .skills/newskill/scripts/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Created skill scaffold: ./.skills/newskill/\n  SKILL.md\n  scripts/\n  references/\n  assets/\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/newskill/SKILL.md\n---\nname: newskill\ndescription: does things\n---\n\n# newskill\n\n## Instructions\n\n<!-- Describe what this skill does and how an LLM should use it. -->\n\n----\nFILE .skills/newskill/assets/\n<dir>\n----\nFILE .skills/newskill/references/\n<dir>\n----\nFILE .skills/newskill/scripts/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "▶ Created skill scaffold: ./.skills/newskill/\n  SKILL.md\n  scripts/\n  references/\n  assets/\n",
+        "state": "FILE .skills/newskill/SKILL.md\n---\nname: newskill\ndescription: does things\n---\n\n# newskill\n\n## Instructions\n\n<!-- Describe what this skill does and how an LLM should use it. -->\n\n----\nFILE .skills/newskill/assets/\n<dir>\n----\nFILE .skills/newskill/references/\n<dir>\n----\nFILE .skills/newskill/scripts/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Created skill scaffold: ./.skills/newskill/\n  SKILL.md\n  scripts/\n  references/\n  assets/\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/newskill/SKILL.md\n---\nname: newskill\ndescription: does things\n---\n\n# newskill\n\n## Instructions\n\n<!-- Describe what this skill does and how an LLM should use it. -->\n\n----\nFILE .skills/newskill/assets/\n<dir>\n----\nFILE .skills/newskill/references/\n<dir>\n----\nFILE .skills/newskill/scripts/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "init",
+      "name": "project-flag",
+      "argv": [
+        "init",
+        "proj",
+        "--description",
+        "p",
+        "--project"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "▶ Created skill scaffold: .skills/proj/\n  SKILL.md\n  scripts/\n  references/\n  assets/\n",
+        "state": "FILE .skills/proj/SKILL.md\n---\nname: proj\ndescription: p\n---\n\n# proj\n\n## Instructions\n\n<!-- Describe what this skill does and how an LLM should use it. -->\n\n----\nFILE .skills/proj/assets/\n<dir>\n----\nFILE .skills/proj/references/\n<dir>\n----\nFILE .skills/proj/scripts/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Created skill scaffold: .skills/proj/\n  SKILL.md\n  scripts/\n  references/\n  assets/\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/proj/SKILL.md\n---\nname: proj\ndescription: p\n---\n\n# proj\n\n## Instructions\n\n<!-- Describe what this skill does and how an LLM should use it. -->\n\n----\nFILE .skills/proj/assets/\n<dir>\n----\nFILE .skills/proj/references/\n<dir>\n----\nFILE .skills/proj/scripts/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "▶ Created skill scaffold: .skills/proj/\n  SKILL.md\n  scripts/\n  references/\n  assets/\n",
+        "state": "FILE .skills/proj/SKILL.md\n---\nname: proj\ndescription: p\n---\n\n# proj\n\n## Instructions\n\n<!-- Describe what this skill does and how an LLM should use it. -->\n\n----\nFILE .skills/proj/assets/\n<dir>\n----\nFILE .skills/proj/references/\n<dir>\n----\nFILE .skills/proj/scripts/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Created skill scaffold: .skills/proj/\n  SKILL.md\n  scripts/\n  references/\n  assets/\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/proj/SKILL.md\n---\nname: proj\ndescription: p\n---\n\n# proj\n\n## Instructions\n\n<!-- Describe what this skill does and how an LLM should use it. -->\n\n----\nFILE .skills/proj/assets/\n<dir>\n----\nFILE .skills/proj/references/\n<dir>\n----\nFILE .skills/proj/scripts/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "init",
+      "name": "refuses-existing",
+      "argv": [
+        "init",
+        "dup"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Directory already exists: ./.skills/dup\n",
+        "state": "FILE .skills/dup/SKILL.md\n---\nname: dup\ndescription: x\n---\n\n# dup\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Directory already exists: ./.skills/dup\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/dup/SKILL.md\n---\nname: dup\ndescription: x\n---\n\n# dup\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Directory already exists: ./.skills/dup\n",
+        "state": "FILE .skills/dup/SKILL.md\n---\nname: dup\ndescription: x\n---\n\n# dup\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Directory already exists: ./.skills/dup\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/dup/SKILL.md\n---\nname: dup\ndescription: x\n---\n\n# dup\n"
+        }
+      }
+    },
+    {
+      "group": "init",
+      "name": "stdin-name-no-flag",
+      "argv": [
+        "init"
+      ],
+      "note": "FIXED (parity fix): bash only reads name/desc from stdin when `-t 0` (a TTY); piped stdin is IGNORED → bash dies 'Name is required'. actionInit no longer consumes ctx.stdin, so a name-less non-interactive init dies 'Name is required' — now byte-identical on stdout/stderr/exit/on-disk. Kept as a hard-parity guard.",
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Name is required\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Name is required\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Name is required\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Name is required\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "init",
+      "name": "no-name-empty-stdin",
+      "argv": [
+        "init"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Name is required\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Name is required\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Name is required\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Name is required\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "install",
+      "name": "local-basic",
+      "argv": [
+        "install",
+        "./srcpkg"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "▶ Installed: installed\n  an installed one\n",
+        "state": "FILE .skills/installed/SKILL.md\n---\nname: installed\ndescription: an installed one\n---\n\n# installed\n\nbody\n\n----\nFILE srcpkg/SKILL.md\n---\nname: installed\ndescription: an installed one\n---\n\n# installed\n\nbody\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Installed: installed\n  an installed one\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/installed/SKILL.md\n---\nname: installed\ndescription: an installed one\n---\n\n# installed\n\nbody\n\n----\nFILE srcpkg/SKILL.md\n---\nname: installed\ndescription: an installed one\n---\n\n# installed\n\nbody\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "▶ Installed: installed\n  an installed one\n",
+        "state": "FILE .skills/installed/SKILL.md\n---\nname: installed\ndescription: an installed one\n---\n\n# installed\n\nbody\n\n----\nFILE srcpkg/SKILL.md\n---\nname: installed\ndescription: an installed one\n---\n\n# installed\n\nbody\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Installed: installed\n  an installed one\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/installed/SKILL.md\n---\nname: installed\ndescription: an installed one\n---\n\n# installed\n\nbody\n\n----\nFILE srcpkg/SKILL.md\n---\nname: installed\ndescription: an installed one\n---\n\n# installed\n\nbody\n"
+        }
+      }
+    },
+    {
+      "group": "install",
+      "name": "already-installed",
+      "argv": [
+        "install",
+        "./srcpkg"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Skill 'installed' already installed at: ./.skills/installed\n",
+        "state": "FILE .skills/installed/SKILL.md\n---\nname: installed\ndescription: one\n---\n\n# installed\n\n----\nFILE srcpkg/SKILL.md\n---\nname: installed\ndescription: one\n---\n\n# installed\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill 'installed' already installed at: ./.skills/installed\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/installed/SKILL.md\n---\nname: installed\ndescription: one\n---\n\n# installed\n\n----\nFILE srcpkg/SKILL.md\n---\nname: installed\ndescription: one\n---\n\n# installed\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Skill 'installed' already installed at: ./.skills/installed\n",
+        "state": "FILE .skills/installed/SKILL.md\n---\nname: installed\ndescription: one\n---\n\n# installed\n\n----\nFILE srcpkg/SKILL.md\n---\nname: installed\ndescription: one\n---\n\n# installed\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill 'installed' already installed at: ./.skills/installed\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/installed/SKILL.md\n---\nname: installed\ndescription: one\n---\n\n# installed\n\n----\nFILE srcpkg/SKILL.md\n---\nname: installed\ndescription: one\n---\n\n# installed\n"
+        }
+      }
+    },
+    {
+      "group": "install",
+      "name": "no-skillmd",
+      "argv": [
+        "install",
+        "./emptysrc"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: No SKILL.md found in: ./emptysrc\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE emptysrc/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: No SKILL.md found in: ./emptysrc\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE emptysrc/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: No SKILL.md found in: ./emptysrc\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE emptysrc/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: No SKILL.md found in: ./emptysrc\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE emptysrc/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "install",
+      "name": "env-req-empty-var-quirk",
+      "argv": [
+        "install",
+        "./srcpkg"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "\nThis skill requires environment variables:\n  TOKEN_A  (not set)\n\nSet these in your shell environment, e.g.:\n  export =\"...\"\n\nOr use your preferred secrets manager:\n  export =$(op read \"op://Personal/withenv/api_key\")\n  export =$(pass show withenv/api_key)\n",
+        "stderr": "▶ Installed: withenv\n  needs env\n",
+        "state": "FILE .skills/withenv/SKILL.md\n---\nname: withenv\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"TOKEN_A\"]\n---\n\n# withenv\n\n----\nFILE srcpkg/SKILL.md\n---\nname: withenv\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"TOKEN_A\"]\n---\n\n# withenv\n",
+        "status": 0,
+        "raw": {
+          "stdout": "\nThis skill requires environment variables:\n  TOKEN_A  (not set)\n\nSet these in your shell environment, e.g.:\n  export =\"...\"\n\nOr use your preferred secrets manager:\n  export =$(op read \"op://Personal/withenv/api_key\")\n  export =$(pass show withenv/api_key)\n",
+          "stderr": "▶ Installed: withenv\n  needs env\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/withenv/SKILL.md\n---\nname: withenv\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"TOKEN_A\"]\n---\n\n# withenv\n\n----\nFILE srcpkg/SKILL.md\n---\nname: withenv\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"TOKEN_A\"]\n---\n\n# withenv\n"
+        }
+      },
+      "ts": {
+        "stdout": "\nThis skill requires environment variables:\n  TOKEN_A  (not set)\n\nSet these in your shell environment, e.g.:\n  export =\"...\"\n\nOr use your preferred secrets manager:\n  export =$(op read \"op://Personal/withenv/api_key\")\n  export =$(pass show withenv/api_key)\n",
+        "stderr": "▶ Installed: withenv\n  needs env\n",
+        "state": "FILE .skills/withenv/SKILL.md\n---\nname: withenv\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"TOKEN_A\"]\n---\n\n# withenv\n\n----\nFILE srcpkg/SKILL.md\n---\nname: withenv\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"TOKEN_A\"]\n---\n\n# withenv\n",
+        "status": 0,
+        "raw": {
+          "stdout": "\nThis skill requires environment variables:\n  TOKEN_A  (not set)\n\nSet these in your shell environment, e.g.:\n  export =\"...\"\n\nOr use your preferred secrets manager:\n  export =$(op read \"op://Personal/withenv/api_key\")\n  export =$(pass show withenv/api_key)\n",
+          "stderr": "▶ Installed: withenv\n  needs env\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/withenv/SKILL.md\n---\nname: withenv\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"TOKEN_A\"]\n---\n\n# withenv\n\n----\nFILE srcpkg/SKILL.md\n---\nname: withenv\ndescription: needs env\nmetadata:\n  shelllm:\n    requires:\n      env: [\"TOKEN_A\"]\n---\n\n# withenv\n"
+        }
+      }
+    },
+    {
+      "group": "install",
+      "name": "bins-req",
+      "argv": [
+        "install",
+        "./srcpkg"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "\nRequired binaries:\n  jq (installed)\n  nonexistent_bin_xyz (not found)\n",
+        "stderr": "▶ Installed: withbins\n  needs bins\n",
+        "state": "FILE .skills/withbins/SKILL.md\n---\nname: withbins\ndescription: needs bins\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\", \"nonexistent_bin_xyz\"]\n---\n\n# withbins\n\n----\nFILE srcpkg/SKILL.md\n---\nname: withbins\ndescription: needs bins\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\", \"nonexistent_bin_xyz\"]\n---\n\n# withbins\n",
+        "status": 0,
+        "raw": {
+          "stdout": "\nRequired binaries:\n  jq (installed)\n  nonexistent_bin_xyz (not found)\n",
+          "stderr": "▶ Installed: withbins\n  needs bins\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/withbins/SKILL.md\n---\nname: withbins\ndescription: needs bins\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\", \"nonexistent_bin_xyz\"]\n---\n\n# withbins\n\n----\nFILE srcpkg/SKILL.md\n---\nname: withbins\ndescription: needs bins\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\", \"nonexistent_bin_xyz\"]\n---\n\n# withbins\n"
+        }
+      },
+      "ts": {
+        "stdout": "\nRequired binaries:\n  jq (installed)\n  nonexistent_bin_xyz (not found)\n",
+        "stderr": "▶ Installed: withbins\n  needs bins\n",
+        "state": "FILE .skills/withbins/SKILL.md\n---\nname: withbins\ndescription: needs bins\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\", \"nonexistent_bin_xyz\"]\n---\n\n# withbins\n\n----\nFILE srcpkg/SKILL.md\n---\nname: withbins\ndescription: needs bins\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\", \"nonexistent_bin_xyz\"]\n---\n\n# withbins\n",
+        "status": 0,
+        "raw": {
+          "stdout": "\nRequired binaries:\n  jq (installed)\n  nonexistent_bin_xyz (not found)\n",
+          "stderr": "▶ Installed: withbins\n  needs bins\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/withbins/SKILL.md\n---\nname: withbins\ndescription: needs bins\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\", \"nonexistent_bin_xyz\"]\n---\n\n# withbins\n\n----\nFILE srcpkg/SKILL.md\n---\nname: withbins\ndescription: needs bins\nmetadata:\n  shelllm:\n    requires:\n      bins: [\"jq\", \"nonexistent_bin_xyz\"]\n---\n\n# withbins\n"
+        }
+      }
+    },
+    {
+      "group": "install",
+      "name": "invalid-source-no-remotes",
+      "argv": [
+        "install",
+        "not a real source"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Invalid source: not a real source (expected name, owner/repo, URL, or local path)\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Invalid source: not a real source (expected name, owner/repo, URL, or local path)\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Invalid source: not a real source (expected name, owner/repo, URL, or local path)\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Invalid source: not a real source (expected name, owner/repo, URL, or local path)\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "install",
+      "name": "project-flag",
+      "argv": [
+        "install",
+        "./srcpkg",
+        "--project"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "▶ Installed: pk\n  proj install\n",
+        "state": "FILE .skills/pk/SKILL.md\n---\nname: pk\ndescription: proj install\n---\n\n# pk\n\n----\nFILE srcpkg/SKILL.md\n---\nname: pk\ndescription: proj install\n---\n\n# pk\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Installed: pk\n  proj install\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/pk/SKILL.md\n---\nname: pk\ndescription: proj install\n---\n\n# pk\n\n----\nFILE srcpkg/SKILL.md\n---\nname: pk\ndescription: proj install\n---\n\n# pk\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "▶ Installed: pk\n  proj install\n",
+        "state": "FILE .skills/pk/SKILL.md\n---\nname: pk\ndescription: proj install\n---\n\n# pk\n\n----\nFILE srcpkg/SKILL.md\n---\nname: pk\ndescription: proj install\n---\n\n# pk\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Installed: pk\n  proj install\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/pk/SKILL.md\n---\nname: pk\ndescription: proj install\n---\n\n# pk\n\n----\nFILE srcpkg/SKILL.md\n---\nname: pk\ndescription: proj install\n---\n\n# pk\n"
+        }
+      }
+    },
+    {
+      "group": "remove",
+      "name": "force",
+      "argv": [
+        "remove",
+        "gone",
+        "--force"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "▶ Removed: gone\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Removed: gone\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "▶ Removed: gone\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Removed: gone\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "remove",
+      "name": "stdin-yes",
+      "argv": [
+        "remove",
+        "gone"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Remove skill 'gone' from .skills/gone? [y/N] ▶ Removed: gone\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Remove skill 'gone' from .skills/gone? [y/N] ▶ Removed: gone\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Remove skill 'gone' from .skills/gone? [y/N] ▶ Removed: gone\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Remove skill 'gone' from .skills/gone? [y/N] ▶ Removed: gone\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "remove",
+      "name": "stdin-no-cancel",
+      "argv": [
+        "remove",
+        "gone"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Remove skill 'gone' from .skills/gone? [y/N] Cancelled.\n",
+        "state": "FILE .skills/gone/SKILL.md\n---\nname: gone\ndescription: x\n---\n\n# gone\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Remove skill 'gone' from .skills/gone? [y/N] Cancelled.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/gone/SKILL.md\n---\nname: gone\ndescription: x\n---\n\n# gone\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Remove skill 'gone' from .skills/gone? [y/N] Cancelled.\n",
+        "state": "FILE .skills/gone/SKILL.md\n---\nname: gone\ndescription: x\n---\n\n# gone\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Remove skill 'gone' from .skills/gone? [y/N] Cancelled.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/gone/SKILL.md\n---\nname: gone\ndescription: x\n---\n\n# gone\n"
+        }
+      }
+    },
+    {
+      "group": "remove",
+      "name": "empty-stdin-cancel",
+      "argv": [
+        "remove",
+        "gone"
+      ],
+      "note": "REAL BASH CRASHES: with empty/EOF stdin, `read -r reply` returns non-zero → `set -e` aborts (rc=1) BEFORE the `|| { echo Cancelled; }` runs, so no 'Cancelled.' and the skill is NOT removed. The port treats EOF as an empty (non-Y) reply → prints 'Cancelled.' rc=0. Same on-disk result (kept), but stderr+exit diverge.",
+      "expect": "deviation",
+      "bug": false,
+      "identical": false,
+      "cmp": {
+        "stdout": true,
+        "stderr": false,
+        "status": false,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Remove skill 'gone' from .skills/gone? [y/N] ",
+        "state": "FILE .skills/gone/SKILL.md\n---\nname: gone\ndescription: x\n---\n\n# gone\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "Remove skill 'gone' from .skills/gone? [y/N] ",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/gone/SKILL.md\n---\nname: gone\ndescription: x\n---\n\n# gone\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Remove skill 'gone' from .skills/gone? [y/N] Cancelled.\n",
+        "state": "FILE .skills/gone/SKILL.md\n---\nname: gone\ndescription: x\n---\n\n# gone\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Remove skill 'gone' from .skills/gone? [y/N] Cancelled.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/gone/SKILL.md\n---\nname: gone\ndescription: x\n---\n\n# gone\n"
+        }
+      }
+    },
+    {
+      "group": "remove",
+      "name": "not-found",
+      "argv": [
+        "remove",
+        "ghost"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Skill not found: ghost\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill not found: ghost\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Skill not found: ghost\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill not found: ghost\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "remove",
+      "name": "no-arg",
+      "argv": [
+        "remove"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: remove requires a skill name\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: remove requires a skill name\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: remove requires a skill name\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: remove requires a skill name\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "promote",
+      "name": "no-kernel-configured",
+      "argv": [
+        "promote",
+        "x"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: No kernel directory configured (set SKILLS_KERNEL_DIR)\n",
+        "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: y\n---\n\n# x\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: No kernel directory configured (set SKILLS_KERNEL_DIR)\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: y\n---\n\n# x\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: No kernel directory configured (set SKILLS_KERNEL_DIR)\n",
+        "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: y\n---\n\n# x\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: No kernel directory configured (set SKILLS_KERNEL_DIR)\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/x/SKILL.md\n---\nname: x\ndescription: y\n---\n\n# x\n"
+        }
+      }
+    },
+    {
+      "group": "promote",
+      "name": "basic",
+      "argv": [
+        "promote",
+        "x"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "\n",
+        "stderr": "▶ Promoted x to kernel\nKernel total: ~11 / 8000 token budget\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/x/SKILL.md\n---\nname: x\ndescription: to promote\n---\n\n# x\n",
+        "status": 0,
+        "raw": {
+          "stdout": "\n",
+          "stderr": "▶ Promoted x to kernel\nKernel total: ~11 / 8000 token budget\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/x/SKILL.md\n---\nname: x\ndescription: to promote\n---\n\n# x\n"
+        }
+      },
+      "ts": {
+        "stdout": "\n",
+        "stderr": "▶ Promoted x to kernel\nKernel total: ~11 / 8000 token budget\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/x/SKILL.md\n---\nname: x\ndescription: to promote\n---\n\n# x\n",
+        "status": 0,
+        "raw": {
+          "stdout": "\n",
+          "stderr": "▶ Promoted x to kernel\nKernel total: ~11 / 8000 token budget\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/x/SKILL.md\n---\nname: x\ndescription: to promote\n---\n\n# x\n"
+        }
+      }
+    },
+    {
+      "group": "promote",
+      "name": "already-in-kernel",
+      "argv": [
+        "promote",
+        "x"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Skill 'x' is already in the kernel\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/x/SKILL.md\n---\nname: x\ndescription: already\n---\n\n# x\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill 'x' is already in the kernel\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/x/SKILL.md\n---\nname: x\ndescription: already\n---\n\n# x\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Skill 'x' is already in the kernel\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/x/SKILL.md\n---\nname: x\ndescription: already\n---\n\n# x\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill 'x' is already in the kernel\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/x/SKILL.md\n---\nname: x\ndescription: already\n---\n\n# x\n"
+        }
+      }
+    },
+    {
+      "group": "promote",
+      "name": "not-in-skills",
+      "argv": [
+        "promote",
+        "ghost"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Skill 'ghost' not found in skills directory\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill 'ghost' not found in skills directory\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Skill 'ghost' not found in skills directory\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Skill 'ghost' not found in skills directory\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "name": "no-dir-configured",
+      "argv": [
+        "kernel"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "No kernel directory configured (set SKILLS_KERNEL_DIR).\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "No kernel directory configured (set SKILLS_KERNEL_DIR).\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "No kernel directory configured (set SKILLS_KERNEL_DIR).\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "No kernel directory configured (set SKILLS_KERNEL_DIR).\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "name": "with-skills",
+      "argv": [
+        "kernel"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Kernel skills (loaded on every turn)\n  k1                   ~17 tokens\nTotal: ~17 / 8000 token budget\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/k1/SKILL.md\n---\nname: k1\ndescription: kernel one\n---\n\n# k1\n\nsome body text here\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Kernel skills (loaded on every turn)\n  k1                   ~17 tokens\nTotal: ~17 / 8000 token budget\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/k1/SKILL.md\n---\nname: k1\ndescription: kernel one\n---\n\n# k1\n\nsome body text here\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Kernel skills (loaded on every turn)\n  k1                   ~17 tokens\nTotal: ~17 / 8000 token budget\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/k1/SKILL.md\n---\nname: k1\ndescription: kernel one\n---\n\n# k1\n\nsome body text here\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Kernel skills (loaded on every turn)\n  k1                   ~17 tokens\nTotal: ~17 / 8000 token budget\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/k1/SKILL.md\n---\nname: k1\ndescription: kernel one\n---\n\n# k1\n\nsome body text here\n"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "name": "empty-dir",
+      "argv": [
+        "kernel"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Kernel skills (loaded on every turn)\n  (empty)\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Kernel skills (loaded on every turn)\n  (empty)\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Kernel skills (loaded on every turn)\n  (empty)\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Kernel skills (loaded on every turn)\n  (empty)\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "kernel",
+      "name": "exceeds-budget",
+      "argv": [
+        "kernel"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Kernel skills (loaded on every turn)\n  k1                   ~52 tokens\nTotal: ~52 / 1 token budget\n⚠ Kernel exceeds token budget by ~51 tokens\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/k1/SKILL.md\n---\nname: k1\ndescription: kernel one\n---\n\n# k1\n\npadding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding \n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Kernel skills (loaded on every turn)\n  k1                   ~52 tokens\nTotal: ~52 / 1 token budget\n⚠ Kernel exceeds token budget by ~51 tokens\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/k1/SKILL.md\n---\nname: k1\ndescription: kernel one\n---\n\n# k1\n\npadding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding \n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Kernel skills (loaded on every turn)\n  k1                   ~52 tokens\nTotal: ~52 / 1 token budget\n⚠ Kernel exceeds token budget by ~51 tokens\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE kernel/k1/SKILL.md\n---\nname: k1\ndescription: kernel one\n---\n\n# k1\n\npadding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding \n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "Kernel skills (loaded on every turn)\n  k1                   ~52 tokens\nTotal: ~52 / 1 token budget\n⚠ Kernel exceeds token budget by ~51 tokens\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE kernel/k1/SKILL.md\n---\nname: k1\ndescription: kernel one\n---\n\n# k1\n\npadding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding \n"
+        }
+      }
+    },
+    {
+      "group": "remote",
+      "name": "list-none",
+      "argv": [
+        "remote"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "No remotes configured.\n  Run skills remote add <url|path> to add one.\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "No remotes configured.\n  Run skills remote add <url|path> to add one.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "No remotes configured.\n  Run skills remote add <url|path> to add one.\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "No remotes configured.\n  Run skills remote add <url|path> to add one.\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "remote",
+      "name": "add-local-writes-skillsrc",
+      "argv": [
+        "remote",
+        "add",
+        "/local/one"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "▶ Added remote: /local/one\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\n# .skillsrc — per-repo configuration for `skills`\nSKILLS_REMOTES=\"/local/one\"\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Added remote: /local/one\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\n# .skillsrc — per-repo configuration for `skills`\nSKILLS_REMOTES=\"/local/one\"\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "▶ Added remote: /local/one\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\n# .skillsrc — per-repo configuration for `skills`\nSKILLS_REMOTES=\"/local/one\"\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Added remote: /local/one\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\n# .skillsrc — per-repo configuration for `skills`\nSKILLS_REMOTES=\"/local/one\"\n"
+        }
+      }
+    },
+    {
+      "group": "remote",
+      "name": "add-duplicate",
+      "argv": [
+        "remote",
+        "add",
+        "/local/one"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "⚠ Remote already configured: /local/one\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/local/one\"\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "⚠ Remote already configured: /local/one\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/local/one\"\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "⚠ Remote already configured: /local/one\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/local/one\"\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "⚠ Remote already configured: /local/one\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/local/one\"\n"
+        }
+      }
+    },
+    {
+      "group": "remote",
+      "name": "list-git-and-local-labels",
+      "argv": [
+        "remote"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  [git]   https://github.com/foo/bar\n  [local] /local/two\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"https://github.com/foo/bar, /local/two\"\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  [git]   https://github.com/foo/bar\n  [local] /local/two\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"https://github.com/foo/bar, /local/two\"\n"
+        }
+      },
+      "ts": {
+        "stdout": "  [git]   https://github.com/foo/bar\n  [local] /local/two\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"https://github.com/foo/bar, /local/two\"\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  [git]   https://github.com/foo/bar\n  [local] /local/two\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"https://github.com/foo/bar, /local/two\"\n"
+        }
+      }
+    },
+    {
+      "group": "remote",
+      "name": "remove-entry",
+      "argv": [
+        "remote",
+        "remove",
+        "/a"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "▶ Removed remote: /a\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/b\"\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Removed remote: /a\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/b\"\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "▶ Removed remote: /a\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/b\"\n",
+        "status": 0,
+        "raw": {
+          "stdout": "",
+          "stderr": "▶ Removed remote: /a\n",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/b\"\n"
+        }
+      }
+    },
+    {
+      "group": "remote",
+      "name": "remove-not-found",
+      "argv": [
+        "remote",
+        "remove",
+        "/nope"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Remote not found: /nope\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/a\"\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Remote not found: /nope\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/a\"\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Remote not found: /nope\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/a\"\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Remote not found: /nope\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skillsrc\nSKILLS_REMOTES=\"/a\"\n"
+        }
+      }
+    },
+    {
+      "group": "remote",
+      "name": "unknown-subcommand",
+      "argv": [
+        "remote",
+        "frobnicate"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "skills: error: Unknown remote subcommand: frobnicate (try: list, add, remove)\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Unknown remote subcommand: frobnicate (try: list, add, remove)\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "skills: error: Unknown remote subcommand: frobnicate (try: list, add, remove)\n",
+        "state": "FILE .skills/\n<dir>",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "skills: error: Unknown remote subcommand: frobnicate (try: list, add, remove)\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "remote",
+      "name": "add-git-clone-fails",
+      "argv": [
+        "remote",
+        "add",
+        "https://github.com/foo/bar.git"
+      ],
+      "note": "stubbed git fails → set -e aborts before 'Added remote'; .skillsrc still written first.",
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "",
+        "stderr": "Cloning https://github.com/foo/bar.git...\n⚠ Failed to clone remote: https://github.com/foo/bar.git\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skills-remotes/\n<dir>\n----\nFILE .skillsrc\n# .skillsrc — per-repo configuration for `skills`\nSKILLS_REMOTES=\"https://github.com/foo/bar.git\"\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "Cloning https://github.com/foo/bar.git...\n⚠ Failed to clone remote: https://github.com/foo/bar.git\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skills-remotes/\n<dir>\n----\nFILE .skillsrc\n# .skillsrc — per-repo configuration for `skills`\nSKILLS_REMOTES=\"https://github.com/foo/bar.git\"\n"
+        }
+      },
+      "ts": {
+        "stdout": "",
+        "stderr": "Cloning https://github.com/foo/bar.git...\n⚠ Failed to clone remote: https://github.com/foo/bar.git\n",
+        "state": "FILE .skills/\n<dir>\n----\nFILE .skills-remotes/\n<dir>\n----\nFILE .skillsrc\n# .skillsrc — per-repo configuration for `skills`\nSKILLS_REMOTES=\"https://github.com/foo/bar.git\"\n",
+        "status": 1,
+        "raw": {
+          "stdout": "",
+          "stderr": "Cloning https://github.com/foo/bar.git...\n⚠ Failed to clone remote: https://github.com/foo/bar.git\n",
+          "status": 1,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>\n----\nFILE .skills-remotes/\n<dir>\n----\nFILE .skillsrc\n# .skillsrc — per-repo configuration for `skills`\nSKILLS_REMOTES=\"https://github.com/foo/bar.git\"\n"
+        }
+      }
+    },
+    {
+      "group": "prompt",
+      "name": "basic",
+      "argv": [
+        "prompt"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - foo: a foo skill\n",
+        "stderr": "",
+        "state": "FILE .skills/foo/SKILL.md\n---\nname: foo\ndescription: a foo skill\n---\n\n# foo\n",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - foo: a foo skill\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/foo/SKILL.md\n---\nname: foo\ndescription: a foo skill\n---\n\n# foo\n"
+        }
+      },
+      "ts": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - foo: a foo skill\n",
+        "stderr": "",
+        "state": "FILE .skills/foo/SKILL.md\n---\nname: foo\ndescription: a foo skill\n---\n\n# foo\n",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - foo: a foo skill\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/foo/SKILL.md\n---\nname: foo\ndescription: a foo skill\n---\n\n# foo\n"
+        }
+      }
+    },
+    {
+      "group": "prompt",
+      "name": "empty-no-skills",
+      "argv": [
+        "prompt"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  (none installed)\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  (none installed)\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  (none installed)\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  (none installed)\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "prompt",
+      "name": "multi-range-summary-quirk",
+      "argv": [
+        "prompt"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - author: authoring\n",
+        "stderr": "",
+        "state": "FILE .skills/author/SKILL.md\n---\nname: author\ndescription: authoring\n---\n\n# author\n\nExample:\n\n---\nname: example-child\ndescription: a child\n---\n\ndone\n",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - author: authoring\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/author/SKILL.md\n---\nname: author\ndescription: authoring\n---\n\n# author\n\nExample:\n\n---\nname: example-child\ndescription: a child\n---\n\ndone\n"
+        }
+      },
+      "ts": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - author: authoring\n",
+        "stderr": "",
+        "state": "FILE .skills/author/SKILL.md\n---\nname: author\ndescription: authoring\n---\n\n# author\n\nExample:\n\n---\nname: example-child\ndescription: a child\n---\n\ndone\n",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - author: authoring\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/author/SKILL.md\n---\nname: author\ndescription: authoring\n---\n\n# author\n\nExample:\n\n---\nname: example-child\ndescription: a child\n---\n\ndone\n"
+        }
+      }
+    },
+    {
+      "group": "prompt",
+      "name": "with-kernel-body",
+      "argv": [
+        "prompt"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - kk: kernel skill\n  - foo: a foo skill\n",
+        "stderr": "",
+        "state": "FILE .skills/foo/SKILL.md\n---\nname: foo\ndescription: a foo skill\n---\n\n# foo\n\n----\nFILE kernel/kk/SKILL.md\n---\nname: kk\ndescription: kernel skill\n---\n\n# kk\n\nKernel instructions body.\n",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - kk: kernel skill\n  - foo: a foo skill\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/foo/SKILL.md\n---\nname: foo\ndescription: a foo skill\n---\n\n# foo\n\n----\nFILE kernel/kk/SKILL.md\n---\nname: kk\ndescription: kernel skill\n---\n\n# kk\n\nKernel instructions body.\n"
+        }
+      },
+      "ts": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - kk: kernel skill\n  - foo: a foo skill\n",
+        "stderr": "",
+        "state": "FILE .skills/foo/SKILL.md\n---\nname: foo\ndescription: a foo skill\n---\n\n# foo\n\n----\nFILE kernel/kk/SKILL.md\n---\nname: kk\ndescription: kernel skill\n---\n\n# kk\n\nKernel instructions body.\n",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - kk: kernel skill\n  - foo: a foo skill\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/foo/SKILL.md\n---\nname: foo\ndescription: a foo skill\n---\n\n# foo\n\n----\nFILE kernel/kk/SKILL.md\n---\nname: kk\ndescription: kernel skill\n---\n\n# kk\n\nKernel instructions body.\n"
+        }
+      }
+    },
+    {
+      "group": "split",
+      "name": "manager-list-standalone",
+      "argv": [
+        "list"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "  greet                Say hello politely                                           [project]\n    .skills/greet\n",
+        "stderr": "",
+        "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  greet                Say hello politely                                           [project]\n    .skills/greet\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n"
+        }
+      },
+      "ts": {
+        "stdout": "  greet                Say hello politely                                           [project]\n    .skills/greet\n",
+        "stderr": "",
+        "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n",
+        "status": 0,
+        "raw": {
+          "stdout": "  greet                Say hello politely                                           [project]\n    .skills/greet\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n"
+        }
+      }
+    },
+    {
+      "group": "split",
+      "name": "manager-help-advertises-install",
+      "argv": [
+        "--help"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "headlong-skills — the skills package manager (search, install, check, remotes)\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list                               List installed skills (eligible only)\n  skills list --all                         List all skills, including ineligible\n  skills list --format=prompt               List eligible skills in prompt format\n  skills search <query>                     Search installed + remote skills\n  skills install <name|owner/repo|url|path> Install a skill\n  skills remove <name>                      Remove an installed skill\n  skills show <name>                        Print a skill's full SKILL.md\n  skills show <name> --requires             Show parsed requirements only\n  skills check <name>                       Check if a skill's requirements are met\n  skills init [name]                        Scaffold a new skill in current dir\n  skills list-json                          List skills as JSON (for programmatic use)\n  skills promote <name>                     Move a skill into the kernel (the identity's built-in set; listed, never inlined)\n  skills kernel                             Show kernel skills with token counts\n  skills prompt                             Print skills system prompt (for LLM context)\n  skills remote                             List configured remotes\n  skills remote add <url|path>              Add a skill remote\n  skills remote remove <url|path>           Remove a skill remote\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  --remotes REMOTES  Comma-separated list of remote skill sources\n  --project          Target project-level .skills/ instead of local\n  --force            Skip confirmation prompts\n  --name NAME        Skill name (for init)\n  --description DESC Skill description (for init)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n\n  By default, `skills list` only shows skills whose requirements are met.\n  Use `skills check <name>` to diagnose specific requirements.\n\nExecutable blocks:\n  Bash code blocks in SKILL.md can be executed at render time using\n  Quarto-inspired directives. Add directives as #| comments at the\n  top of a ```bash fenced block:\n\n    ```bash\n    #| eval: true\n    echo \"runs at render time\"\n    ```\n\n  Directives:\n    #| eval: true/false     Execute the block (default: false)\n    #| echo: true/false     Show source code in output (default: false)\n    #| stdout: true/false   Include stdout in output (default: true)\n    #| stderr: true/false   Include stderr in output (default: true)\n\n  Blocks without `#| eval: true` pass through unchanged (current behavior).\n  Evaluated blocks are processed by `skills show` and `skills prompt`.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_REMOTES          Remote skill sources (comma-separated)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  SKILLS_KERNEL_TOKEN_BUDGET  Token budget for kernel (default: 8000)\n  NO_COLOR                Disable color output\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "headlong-skills — the skills package manager (search, install, check, remotes)\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list                               List installed skills (eligible only)\n  skills list --all                         List all skills, including ineligible\n  skills list --format=prompt               List eligible skills in prompt format\n  skills search <query>                     Search installed + remote skills\n  skills install <name|owner/repo|url|path> Install a skill\n  skills remove <name>                      Remove an installed skill\n  skills show <name>                        Print a skill's full SKILL.md\n  skills show <name> --requires             Show parsed requirements only\n  skills check <name>                       Check if a skill's requirements are met\n  skills init [name]                        Scaffold a new skill in current dir\n  skills list-json                          List skills as JSON (for programmatic use)\n  skills promote <name>                     Move a skill into the kernel (the identity's built-in set; listed, never inlined)\n  skills kernel                             Show kernel skills with token counts\n  skills prompt                             Print skills system prompt (for LLM context)\n  skills remote                             List configured remotes\n  skills remote add <url|path>              Add a skill remote\n  skills remote remove <url|path>           Remove a skill remote\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  --remotes REMOTES  Comma-separated list of remote skill sources\n  --project          Target project-level .skills/ instead of local\n  --force            Skip confirmation prompts\n  --name NAME        Skill name (for init)\n  --description DESC Skill description (for init)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n\n  By default, `skills list` only shows skills whose requirements are met.\n  Use `skills check <name>` to diagnose specific requirements.\n\nExecutable blocks:\n  Bash code blocks in SKILL.md can be executed at render time using\n  Quarto-inspired directives. Add directives as #| comments at the\n  top of a ```bash fenced block:\n\n    ```bash\n    #| eval: true\n    echo \"runs at render time\"\n    ```\n\n  Directives:\n    #| eval: true/false     Execute the block (default: false)\n    #| echo: true/false     Show source code in output (default: false)\n    #| stdout: true/false   Include stdout in output (default: true)\n    #| stderr: true/false   Include stderr in output (default: true)\n\n  Blocks without `#| eval: true` pass through unchanged (current behavior).\n  Evaluated blocks are processed by `skills show` and `skills prompt`.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_REMOTES          Remote skill sources (comma-separated)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  SKILLS_KERNEL_TOKEN_BUDGET  Token budget for kernel (default: 8000)\n  NO_COLOR                Disable color output\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      },
+      "ts": {
+        "stdout": "headlong-skills — the skills package manager (search, install, check, remotes)\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list                               List installed skills (eligible only)\n  skills list --all                         List all skills, including ineligible\n  skills list --format=prompt               List eligible skills in prompt format\n  skills search <query>                     Search installed + remote skills\n  skills install <name|owner/repo|url|path> Install a skill\n  skills remove <name>                      Remove an installed skill\n  skills show <name>                        Print a skill's full SKILL.md\n  skills show <name> --requires             Show parsed requirements only\n  skills check <name>                       Check if a skill's requirements are met\n  skills init [name]                        Scaffold a new skill in current dir\n  skills list-json                          List skills as JSON (for programmatic use)\n  skills promote <name>                     Move a skill into the kernel (the identity's built-in set; listed, never inlined)\n  skills kernel                             Show kernel skills with token counts\n  skills prompt                             Print skills system prompt (for LLM context)\n  skills remote                             List configured remotes\n  skills remote add <url|path>              Add a skill remote\n  skills remote remove <url|path>           Remove a skill remote\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  --remotes REMOTES  Comma-separated list of remote skill sources\n  --project          Target project-level .skills/ instead of local\n  --force            Skip confirmation prompts\n  --name NAME        Skill name (for init)\n  --description DESC Skill description (for init)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n\n  By default, `skills list` only shows skills whose requirements are met.\n  Use `skills check <name>` to diagnose specific requirements.\n\nExecutable blocks:\n  Bash code blocks in SKILL.md can be executed at render time using\n  Quarto-inspired directives. Add directives as #| comments at the\n  top of a ```bash fenced block:\n\n    ```bash\n    #| eval: true\n    echo \"runs at render time\"\n    ```\n\n  Directives:\n    #| eval: true/false     Execute the block (default: false)\n    #| echo: true/false     Show source code in output (default: false)\n    #| stdout: true/false   Include stdout in output (default: true)\n    #| stderr: true/false   Include stderr in output (default: true)\n\n  Blocks without `#| eval: true` pass through unchanged (current behavior).\n  Evaluated blocks are processed by `skills show` and `skills prompt`.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_REMOTES          Remote skill sources (comma-separated)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  SKILLS_KERNEL_TOKEN_BUDGET  Token budget for kernel (default: 8000)\n  NO_COLOR                Disable color output\n",
+        "stderr": "",
+        "state": "FILE .skills/\n<dir>",
+        "status": 0,
+        "raw": {
+          "stdout": "headlong-skills — the skills package manager (search, install, check, remotes)\n\nUsage:\n  skills                                    List installed skills (eligible only)\n  skills list                               List installed skills (eligible only)\n  skills list --all                         List all skills, including ineligible\n  skills list --format=prompt               List eligible skills in prompt format\n  skills search <query>                     Search installed + remote skills\n  skills install <name|owner/repo|url|path> Install a skill\n  skills remove <name>                      Remove an installed skill\n  skills show <name>                        Print a skill's full SKILL.md\n  skills show <name> --requires             Show parsed requirements only\n  skills check <name>                       Check if a skill's requirements are met\n  skills init [name]                        Scaffold a new skill in current dir\n  skills list-json                          List skills as JSON (for programmatic use)\n  skills promote <name>                     Move a skill into the kernel (the identity's built-in set; listed, never inlined)\n  skills kernel                             Show kernel skills with token counts\n  skills prompt                             Print skills system prompt (for LLM context)\n  skills remote                             List configured remotes\n  skills remote add <url|path>              Add a skill remote\n  skills remote remove <url|path>           Remove a skill remote\n\nOptions:\n  -a, --all          List all skills including those with unmet requirements\n  --format FORMAT    Output format: default or \"prompt\" (compact, for system prompts)\n  --requires         Show parsed requirements (with skills show)\n  --dir DIR          Use DIR as the skills directory (default: ./.skills)\n  --remotes REMOTES  Comma-separated list of remote skill sources\n  --project          Target project-level .skills/ instead of local\n  --force            Skip confirmation prompts\n  --name NAME        Skill name (for init)\n  --description DESC Skill description (for init)\n  -v, --verbose      Verbose/debug mode\n  -h, --help         Show help\n  --version          Show version\n\nRequirements:\n  Skills can declare requirements in SKILL.md frontmatter under metadata.shelllm:\n    requires:\n      env: [\"VAR1\", \"VAR2\"]       All env vars must be set\n      bins: [\"curl\", \"jq\"]        All binaries must exist on PATH\n      anyBins: [\"gh\", \"hub\"]      At least one must exist on PATH\n      os: [\"darwin\", \"linux\"]     Current OS must be in list\n\n  By default, `skills list` only shows skills whose requirements are met.\n  Use `skills check <name>` to diagnose specific requirements.\n\nExecutable blocks:\n  Bash code blocks in SKILL.md can be executed at render time using\n  Quarto-inspired directives. Add directives as #| comments at the\n  top of a ```bash fenced block:\n\n    ```bash\n    #| eval: true\n    echo \"runs at render time\"\n    ```\n\n  Directives:\n    #| eval: true/false     Execute the block (default: false)\n    #| echo: true/false     Show source code in output (default: false)\n    #| stdout: true/false   Include stdout in output (default: true)\n    #| stderr: true/false   Include stderr in output (default: true)\n\n  Blocks without `#| eval: true` pass through unchanged (current behavior).\n  Evaluated blocks are processed by `skills show` and `skills prompt`.\n\nEnvironment:\n  SKILLS_DIR              Override skills directory (default: ./.skills)\n  SKILLSRC                Override .skillsrc location (default: ./.skillsrc)\n  SKILLS_REMOTES          Remote skill sources (comma-separated)\n  SKILLS_KERNEL_DIR       Kernel directory (always-loaded skills)\n  SKILLS_KERNEL_TOKEN_BUDGET  Token budget for kernel (default: 8000)\n  NO_COLOR                Disable color output\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/\n<dir>"
+        }
+      }
+    },
+    {
+      "group": "split",
+      "name": "manager-show-standalone",
+      "argv": [
+        "show",
+        "greet"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n\nSay hello.\n",
+        "stderr": "",
+        "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n\nSay hello.\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n\nSay hello.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n\nSay hello.\n"
+        }
+      },
+      "ts": {
+        "stdout": "---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n\nSay hello.\n",
+        "stderr": "",
+        "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n\nSay hello.\n",
+        "status": 0,
+        "raw": {
+          "stdout": "---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n\nSay hello.\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n\nSay hello.\n"
+        }
+      }
+    },
+    {
+      "group": "split",
+      "name": "manager-prompt-standalone",
+      "argv": [
+        "prompt"
+      ],
+      "expect": "parity",
+      "bug": false,
+      "identical": true,
+      "cmp": {
+        "stdout": true,
+        "stderr": true,
+        "status": true,
+        "state": true
+      },
+      "bash": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - greet: Say hello politely\n",
+        "stderr": "",
+        "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - greet: Say hello politely\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n"
+        }
+      },
+      "ts": {
+        "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - greet: Say hello politely\n",
+        "stderr": "",
+        "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n",
+        "status": 0,
+        "raw": {
+          "stdout": "## Skills\nPlaybooks I load only when a task calls for one: `skills show <name>` prints it, `skills` lists them, `skills init <name>` starts a new one and `skills install <owner/repo>` fetches one. Nothing below is in my context until I ask for it.\n  - greet: Say hello politely\n",
+          "stderr": "",
+          "status": 0,
+          "signal": null,
+          "state": "FILE .skills/greet/SKILL.md\n---\nname: greet\ndescription: Say hello politely\n---\n\n# greet\n"
+        }
+      }
+    }
+  ]
+}

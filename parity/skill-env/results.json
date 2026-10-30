@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-10-27T15:47:49.009Z",
+  "status": "RAN",
+  "pass": 9,
+  "total": 9,
+  "scenarios": [
+    {
+      "id": "collect/mixed-frontmatter-forms",
+      "kind": "collect_skill_vars",
+      "bash": "OBSIDIAN_VAULT\n",
+      "port": "OBSIDIAN_VAULT\n",
+      "bashStderr": "",
+      "pass": true
+    },
+    {
+      "id": "collect/duplicate-across-skills-dedupe",
+      "kind": "collect_skill_vars",
+      "bash": "ONLY_ONE\nONLY_TWO\nSHARED_VAR\n",
+      "port": "ONLY_ONE\nONLY_TWO\nSHARED_VAR\n",
+      "bashStderr": "",
+      "pass": true
+    },
+    {
+      "id": "collect/no-kernel-no-skills",
+      "kind": "collect_skill_vars",
+      "bash": "",
+      "port": "",
+      "bashStderr": "",
+      "pass": true
+    },
+    {
+      "id": "collect/explicit-skills-kernel-dir-override",
+      "kind": "collect_skill_vars",
+      "bash": "GOALS_VAR\n",
+      "port": "GOALS_VAR\n",
+      "bashStderr": "",
+      "pass": true
+    },
+    {
+      "id": "mounts/mixed-dir-and-non-dir",
+      "kind": "_compute_var_mounts",
+      "bash": "<TMP>/skill-env-parity-brStdN/mount-a\n",
+      "port": "<TMP>/skill-env-parity-brStdN/mount-a\n",
+      "bashStderr": "",
+      "pass": true
+    },
+    {
+      "id": "mounts/two-directories-sorted",
+      "kind": "_compute_var_mounts",
+      "bash": "<TMP>/skill-env-parity-brStdN/mount-a\n<TMP>/skill-env-parity-brStdN/mount-b\n",
+      "port": "<TMP>/skill-env-parity-brStdN/mount-a\n<TMP>/skill-env-parity-brStdN/mount-b\n",
+      "bashStderr": "",
+      "pass": true
+    },
+    {
+      "id": "mounts/duplicate-directory-not-deduped",
+      "kind": "_compute_var_mounts",
+      "bash": "<TMP>/skill-env-parity-brStdN/mount-a\n<TMP>/skill-env-parity-brStdN/mount-a\n",
+      "port": "<TMP>/skill-env-parity-brStdN/mount-a\n<TMP>/skill-env-parity-brStdN/mount-a\n",
+      "bashStderr": "",
+      "pass": true
+    },
+    {
+      "id": "mounts/empty",
+      "kind": "_compute_var_mounts",
+      "bash": "",
+      "port": "",
+      "bashStderr": "",
+      "pass": true
+    },
+    {
+      "id": "mounts/bare-name-no-equals",
+      "kind": "_compute_var_mounts",
+      "bash": "",
+      "port": "",
+      "bashStderr": "",
+      "pass": true
+    }
+  ]
+}

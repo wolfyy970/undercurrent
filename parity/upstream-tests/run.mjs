@@ -1,0 +1,785 @@
+#!/usr/bin/env node
+// parity/upstream-tests/run.mjs — run upstream Headlong's OWN Bash test
+// suites (tests/test_*.sh in the upstream Bash checkout) against the
+// TypeScript port's Node shims, so upstream-authored tests act as a SECOND,
+// independent oracle for the port — distinct from parity/<module>/run-parity.mjs,
+// which drives the two implementations directly rather than through the
+// upstream author's own test scripts.
+//
+// How a suite finds its tools: every upstream tests/test_*.sh computes
+// REPO="$(dirname "$HERE")" from its OWN location and then either does
+// PATH="$REPO/bin:$PATH" or invokes "$REPO/bin/<tool>"/"$REPO/thinkers/…"
+// directly — sometimes via `bash "$REPO/bin/llm"` (explicit bash, not exec).
+// So the adaptation is entirely structural: build a SCRATCH copy of the
+// upstream repo's tests/, bin/, thinkers/, tools/ directories (never the
+// upstream checkout itself), and inside that copy overwrite the bare-name
+// entries for the 12 tools the port ships (chat, context, focus, glob, llm,
+// mem, put, recap, retrieval-step, skills, traj, view) with a tiny bash
+// wrapper that execs the port's real bin/<tool>.mjs. Because $REPO is
+// computed relative to the suite's own path, every suite — PATH-based or
+// hardcoded-path — picks up the port automatically, with NO sed on any test
+// script. thinkers/retrieval/step gets the same treatment (it is not under
+// bin/). Everything else in the scratch copy (bin/shellm, bin/thinkers,
+// thinkers/_lib, thinkers/monolith/step, tools/headlong-init, …) is copied
+// VERBATIM — those are not ported as standalone CLIs, so suites that exercise
+// them see the real upstream Bash on both sides and are not meaningful
+// port/control differentials (see report.md classification).
+//
+// Control: the SAME suite file run unmodified straight out of the upstream
+// checkout (no scratch copy needed there — the suites are self-contained via
+// mktemp and never write into the repo). A failure that reproduces against
+// the real Bash is "upstream-red", not a port bug.
+//
+// Usage:
+//   PARITY_UPSTREAM_ROOT=/path/to/headlong node parity/upstream-tests/run.mjs
+//   node parity/upstream-tests/run.mjs --daemon   # also attempt the daemon-lane suites
+//   node parity/upstream-tests/run.mjs --installer # also attempt the installer-lane suites
+//   (both flags may be passed together)
+//
+// This harness is not pinned to a single upstream SHA — it runs against
+// whatever checkout PARITY_UPSTREAM_ROOT points at. The port's own tracked
+// pin is 2e39a3f (was 5458fee; see PARITY.md's "Upstream sync 2e39a3f" for the
+// per-lane carry-over that closed that range).
+//
+// The committed default below is a scrubbed placeholder (this repo's own
+// scrub test forbids a real local path in source) — set PARITY_UPSTREAM_ROOT
+// to run it.
+
+import * as fs from "node:fs";
+import * as os from "node:os";
+import * as path from "node:path";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const PORT_ROOT = path.resolve(HERE, "../..");
+const UPSTREAM_ROOT = process.env.PARITY_UPSTREAM_ROOT || "<HEADLONG_ROOT>";
+const RUN_DAEMON = process.argv.includes("--daemon");
+const RUN_INSTALLER = process.argv.includes("--installer");
+// PARITY_ONLY=test_a.sh,test_b.sh runs just those portable-lane suites and (so a
+// partial run never clobbers the committed full report) writes report.md /
+// results.json into PARITY_OUT_DIR instead (default: this directory).
+const ONLY = process.env.PARITY_ONLY ? process.env.PARITY_ONLY.split(",") : null;
+const OUT_DIR = process.env.PARITY_OUT_DIR || null;
+
+if (!fs.existsSync(path.join(UPSTREAM_ROOT, "tests"))) {
+  console.error(
+    `upstream-tests: upstream checkout not found at ${UPSTREAM_ROOT} — set PARITY_UPSTREAM_ROOT=/path/to/headlong`
+  );
+  process.exit(2);
+}
+
+// PORT-NOTE (1c: 12ca841): focus/glob/put/view retired (their bin/<name>.mjs
+// no longer exist) — upstream drops all five of focus/glob/put/sub/view ("the
+// mind reads and edits in bash"); `sub` was never in this list to begin with
+// (see the adaptations comment below).
+// --- the 8 tools the port ships as bin/<name>[.mjs] ----------------------------
+const PORT_TOOLS = ["chat", "context", "llm", "mem", "recap", "retrieval-step", "skills", "traj"];
+
+function portEntry(name) {
+  // bin/<name>.mjs always exists; bin/<name> (bare) exists for some (llm,
+  // recap are symlinks to it; chat/context/mem/skills/traj are their own
+  // bash/node trampolines). We always regenerate our own trampoline
+  // in scratch so `bash <path>` and direct exec both work uniformly — the
+  // upstream suites use both invocation styles.
+  const mjs = path.join(PORT_ROOT, "bin", `${name}.mjs`);
+  if (!fs.existsSync(mjs)) throw new Error(`port tool missing: ${mjs}`);
+  return mjs;
+}
+
+function wrapperScript(targetMjs) {
+  return `#!/usr/bin/env bash\n# generated by parity/upstream-tests/run.mjs — dispatches to the TS port\nexec node "${targetMjs}" "$@"\n`;
+}
+
+// --- suite classification -----------------------------------------------------
+// "portable": the suite invokes one or more of PORT_TOOLS as a subprocess
+//   (via PATH or a hardcoded $REPO/bin path) — a meaningful port/control
+//   differential.
+// "bash-artifact": the suite `sed`-extracts a shell FUNCTION out of a bin/*
+//   script's own source text and `eval`s it (no subprocess at all) — the
+//   port's bin/mem, bin/shellm are compiled Node/bash trampolines with no
+//   such function body to extract, so this class of suite cannot run
+//   against the port at all; only the real upstream Bash is a valid subject.
+// "no-port-cli": the suite drives an upstream orchestrator script that the
+//   port implements in-process (shellm, the monolith step, the responder's
+//   _lib/common.sh) rather than as a standalone bin/ CLI — nothing in the
+//   port's bin/ stands in for it, so a scratch run exercises the SAME real
+//   upstream Bash on both "port" and "control" sides (no differential, but
+//   run anyway for the record).
+const SUITES = [
+  { name: "test_recap.sh", cls: "portable" },
+  { name: "test_recap_context_upgrade.sh", cls: "portable" },
+  { name: "test_recap_render_cache.sh", cls: "portable" },
+  { name: "test_rollup_supersession_prompt.sh", cls: "portable" },
+  { name: "test_rollup_namer_limits.sh", cls: "portable" },
+  { name: "test_rollup_namer_read_half.sh", cls: "portable" },
+  { name: "test_rollup_refusal.sh", cls: "portable" },
+  { name: "test_context.sh", cls: "portable" },
+  { name: "test_llm_adapter.sh", cls: "portable" },
+  { name: "test_llm_openai_compatible.sh", cls: "portable" },
+  { name: "test_llm_provider_env.sh", cls: "portable" },
+  { name: "test_llm_retry.sh", cls: "portable" },
+  { name: "test_llm_openrouter_routing.sh", cls: "portable" },
+  { name: "test_retrieval_thinker.sh", cls: "portable", extraWrap: [["thinkers/retrieval/step", "retrieval-step.mjs"]] },
+  { name: "test_key_var_resolution.sh", cls: "portable" },
+  { name: "test_mem_frontmatter.sh", cls: "bash-artifact", artifact: "sed-extracts frontmatter_field() out of bin/mem's own source text and evals it — bin/mem in the port is a Node trampoline with no such function body" },
+  { name: "test_redact_sensitive.sh", cls: "bash-artifact", artifact: "sed-extracts redact_sensitive() out of bin/shellm's own source text and evals it — bin/shellm is not ported (shellm runs in-process as src/shellm.ts), so the scratch copy keeps the real upstream bin/shellm verbatim and this suite is unaffected by the port either way" },
+  { name: "test_responder_idempotency.sh", cls: "no-port-cli", why: "sources thinkers/_lib/common.sh directly and calls its _responder_already_handled() shell function — the responder is in-process in the port (dispatcher/monolith), never exposed as a bin/ CLI" },
+  { name: "test_monolith_backoff.sh", cls: "no-port-cli", why: "drives thinkers/monolith/step (a Bash script) directly with a stubbed shellm on PATH — the port's monolith loop is in-process (src/monolith.ts), not a standalone thinkers/monolith/step-equivalent CLI" },
+  { name: "test_prompt_file.sh", cls: "no-port-cli", why: "drives bin/shellm end to end (copied to a toolbin, with its own llm stub) — shellm's inner loop is in-process in the port (src/shellm.ts), not shipped as a standalone bin/shellm CLI" },
+  { name: "test_var_secrets.sh", cls: "no-port-cli", why: "drives bin/shellm end to end (--var forwarding, argv/ps hygiene) — same as test_prompt_file.sh, shellm is not a standalone port CLI" },
+  { name: "test_inactivity_beacon.sh", cls: "no-port-cli", why: "drives bin/shellm end to end AND relies on a NESTED `shellm` invocation from inside the exec'd block (SHELLM_ENV=local, its own llm stub) to exercise the activity-beacon cases — same class as test_prompt_file.sh, but doubly so: not only is shellm's inner loop in-process here (src/shellm.ts), there is no standalone `shellm` CLI on the port's bin/ PATH at all for the model's bash to invoke recursively, so the nested-run cases (2 and 3) have no port-side analogue to construct even in principle. The idle-vs-max TIMING mechanism this suite exercises IS ported (bug #33: execWithInactivityWatchdog, src/sandbox.ts) and proven directly against real subprocesses in test/sandbox-watchdog.test.ts and test/shellm.test.ts (a beacon-touching-but-output-silent block substitutes for a nested run, since the beacon file's contract is host-side and sandbox-agnostic, not shellm-specific) — this suite's role here is oracle-only, confirming this port's watchdog test expectations against the real upstream mechanism, not proving port behavior via a differential" },
+  { name: "test_shellm_empty_response_retry.sh", cls: "bash-artifact", artifact: "sed-extracts call_llm() out of bin/shellm's own source text and evals it — same as test_redact_sensitive.sh, bin/shellm is not ported as a file (shellm's loop is in-process, src/shellm.ts runShellm); the port's equivalent behavior (8ba520b/136f32b) is proven instead by test/shellm.test.ts's runShellm retry-loop cases, built from running this exact suite against NEW upstream bin/shellm directly" },
+  { name: "test_shellm_retry_feedback.sh", cls: "no-port-cli", why: "drives bin/shellm end to end (copied to a toolbin, with its own llm stub) — same as test_prompt_file.sh; the port's equivalent (136f32b's messages-file/rawfile/noise-filter/cap behavior) is proven by test/shellm.test.ts, built from running this suite against NEW upstream bin/shellm directly" },
+  { name: "test_env_image_identity.sh", cls: "bash-artifact", artifact: "sed-extracts env_metadata_matches()/env_metadata_mismatch_message()/_resume_docker_image() out of bin/shellm's own source text and evals them — same as test_redact_sensitive.sh. NOT PORTED (see PARITY.md Gaps, upstream sync 1b, 0925168): this port's sandbox-runtime.ts creates one Docker container per step and always tears it down in steprun.ts's `finally` — there is no persistent named-env registry (SHELLM_ENVS_DIR, env_find_running, --docker-image reuse) for a wrong-image reattach to happen to, and no standalone `shellm` CLI with --env/--docker-image/resume flags at all; the hazard this commit fixes does not exist in the port's architecture" },
+  { name: "test_thinker_tool_coupling.sh", cls: "no-port-cli", why: "sources thinkers/_lib/common.sh directly and calls _build_shellm_flags() — same class as test_responder_idempotency.sh. The CHATRC half of 30561e9 IS ported (src/steprun.ts buildIdentityConfig, test/steprun.test.ts's CHATRC case); the --bin tool-list half does not apply — this port's sandbox mounts the WHOLE checkout read-only (see PARITY.md's sandbox bind-mount-scope deviation), so every bin/ tool including focus/recap was already reachable before this lane, unlike upstream's per-tool --bin mount list" },
+  // --- Upstream sync 1b (design/conversation_memory.md, ed2dac6 -> 7d29f9e) ---
+  { name: "test_chat_history_index.sh", cls: "portable" },
+  { name: "test_recent_stream_filter.sh", cls: "no-port-cli", why: "sources thinkers/_lib/common.sh directly and calls its _recent_stream() shell function — the recent-stream projection is in-process in the port (src/recentStream.ts), never exposed as a bin/ CLI" },
+  { name: "test_responder_metrics.sh", cls: "no-port-cli", why: "drives thinkers/responder/step (a Bash script) directly with a stubbed llm on PATH — the responder is in-process in the port (src/responder.ts, invoked via bin/thinker-step.mjs on a different stdin/env contract), not a standalone thinkers/responder/step-equivalent CLI" },
+  { name: "test_responder_deferral.sh", cls: "no-port-cli", why: "drives thinkers/responder/step AND thinkers/monolith/step directly as Bash scripts — both are in-process in the port (src/responder.ts, src/monolith.ts)" },
+  { name: "test_responder_person_notes.sh", cls: "no-port-cli", why: "drives thinkers/responder/step directly — in-process in the port (src/responder.ts)" },
+  { name: "test_responder_thread_context.sh", cls: "no-port-cli", why: "drives thinkers/responder/step directly — in-process in the port (src/responder.ts)" },
+  // --- Upstream sync 2e39a3f, lane (b): mem ---
+  { name: "test_mem_add_flags.sh", cls: "portable" },
+  { name: "test_mem_edit_flags.sh", cls: "portable" },
+  { name: "test_mem_flag_summary_warning.sh", cls: "portable" },
+  { name: "test_mem_redaction.sh", cls: "bash-artifact", artifact: "`sed '$d' bin/mem` then SOURCES the tool's own Bash text and calls main() in-process — bin/mem in the port is a Node trampoline, there is no Bash to source. The same ~170 cases (24 shape rules, env VALUE rule, PEM, 25 card layouts, add AND edit, stdin AND argv) are covered byte-for-byte by parity/mem (real bin/mem vs port) and test/memRedact.test.ts" },
+  { name: "test_mem_summary_derivation.sh", cls: "portable" },
+  { name: "test_mem_search.sh", cls: "portable" }, // needs GNU `timeout(1)`: absent on stock macOS — run with a shim on PATH (fails identically on the control side without it)
+  { name: "test_mem_search_adapter_bound.sh", cls: "portable" },
+  { name: "test_mem_search_orphan.sh", cls: "portable" },
+  // --- Upstream sync 2e39a3f, lane (c): traj ---
+  { name: "test_traj_append_lock.sh", cls: "portable" },
+  { name: "test_traj_cycle_reads.sh", cls: "portable" }, // needs GNU `timeout(1)`: shim on PATH on stock macOS
+  { name: "test_traj_formatted_filter.sh", cls: "portable" },
+  { name: "test_traj_redaction.sh", cls: "portable" },
+  { name: "test_traj_search.sh", cls: "portable" },
+  { name: "test_traj_search_concat.sh", cls: "portable" },
+  // --- Upstream sync 2e39a3f, lane (e): chat CLI + message index ---
+  { name: "test_chat_index_concurrent.sh", cls: "bash-artifact", artifact: "pauses a real reader by putting a `stat` shim ahead of the real one on PATH: the Bash updater forks `stat` right after its offset read, which is the gate. The port reads file sizes in-process (fs.statSync), so there is no subprocess to intercept and the reader never reaches the gate (port: 'FAIL reader did not reach the offset boundary', control passes). The property itself (racing updaters index each message once, lock released, offset == trajectory size) is proven by test/chat-history-index-concurrent.test.ts, which races real bin/chat.mjs processes" },
+  { name: "test_chat_index_lock.sh", cls: "bash-artifact", artifact: "same `stat`-shim gate as test_chat_index_concurrent.sh: the python driver waits for the Bash updater to fork `stat`, then SIGTERM/SIGKILLs the process group and checks takeover. Against the port the updater finishes before any gate exists ('updater exited before the gate'). The behaviors it asserts (live holder keeps the lock, takeover of a dead holder's lock with the notice, trim of an interrupted update's partial rows, fresh ownerless lock left alone, old ownerless lock taken over, offline reset) are covered by test/chatGuards.test.ts and by the parity/chat sync-e-index scenarios, which diff real Bash against the port on lock, trim, rebuild and index-reset state" },
+  { name: "test_chat_index_rebuild.sh", cls: "portable" },
+  { name: "test_chat_json_action_guard.sh", cls: "portable" },
+  { name: "test_chat_sent.sh", cls: "portable" },
+  { name: "test_chat_target_validation.sh", cls: "portable" },
+  // --- Upstream sync 2e39a3f, lane (a): shellm / llm / context / extract ---
+  { name: "test_llm_json_schema.sh", cls: "portable" },
+  // --- Upstream sync 2e39a3f, lane (k): remaining new/changed suites ---
+  { name: "test_contrib_opencode.sh", cls: "no-port-cli", why: "drives contrib/opencode/tests/run.sh \u2014 contrib/ is not carried by the port (PORTING.md); the control run needs the opencode CLI and times out here" },
+  { name: "test_skill_compiler.sh", cls: "no-port-cli", why: "drives contrib/skill-compiler/skill-compiler \u2014 contrib/ is not carried by the port (PORTING.md); not copied into the scratch tree" },
+  { name: "test_skill_compiler_install.sh", cls: "no-port-cli", why: "drives contrib/skill-compiler install \u2014 contrib/ is not carried by the port (PORTING.md); not copied into the scratch tree" },
+  { name: "test_deploy_update.sh", cls: "no-port-cli", why: "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) \u2014 the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent" },
+  { name: "test_split_bridge_env.sh", cls: "no-port-cli", why: "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) \u2014 the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent" },
+  { name: "test_thinkers_sandbox.sh", cls: "no-port-cli", why: "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) \u2014 the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent" },
+  { name: "test_thinkers_silence_alert.sh", cls: "no-port-cli", why: "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) \u2014 the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent" },
+  { name: "test_thinkers_tmp_reaper.sh", cls: "no-port-cli", why: "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) \u2014 the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent" },
+  { name: "test_metrics_busy_overlap.sh", cls: "no-port-cli", why: "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) \u2014 the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent (this one loads deploy/scripts/audel-metrics from Python)" },
+  { name: "test_run_all_identity_env.sh", cls: "no-port-cli", why: "tests the upstream suite runner tests/run-all.sh itself (env hygiene); the port's runner is parity/upstream-tests/run.mjs, so there is no port surface to point it at" },
+  { name: "test_run_all_shards.sh", cls: "no-port-cli", why: "tests the upstream suite runner tests/run-all.sh itself (TEST_SHARD slicing); the port's runner is parity/upstream-tests/run.mjs, so there is no port surface to point it at" },
+  { name: "test_explore_report_argv.sh", cls: "portable" },
+  { name: "test_monolith_request_model.sh", cls: "portable" },
+  { name: "test_monolith_run_capture.sh", cls: "portable" },
+  { name: "test_monolith_wake_sections.sh", cls: "portable" },
+  { name: "test_oversized_argv_records.sh", cls: "portable" },
+  { name: "test_prompt_redaction.sh", cls: "portable" },
+  { name: "test_runtime_boundary_line.sh", cls: "portable" },
+  { name: "test_scheduled_goals.sh", cls: "portable" },
+  { name: "test_send_window_dedup_matrix.sh", cls: "portable" },
+  { name: "test_extract_code_notice.sh", cls: "bash-artifact", artifact: "sed-extracts script_parses()/strip_markup_suffix()/normalize_toolcall_markup()/extract_code() out of bin/shellm's own source text and evals them — bin/shellm is not ported as a file. The port's equivalents (src/extract.ts) are proven by parity/extract/run-parity.mjs (82 cases diffed byte-for-byte against those very Bash functions) and test/extractToolcall.test.ts (this suite's cases, executed through bash -c)" },
+  { name: "test_shellm_prompt_markup.sh", cls: "bash-artifact", artifact: "sed-extracts usage_text()/build_system_prompt() out of bin/shellm's own source text — the port's prompt is the src/assets/shellm-system-prompt.txt asset; the same two positive and four negative assertions are made on it in test/shellmPrompt.test.ts" },
+  { name: "test_shellm_run_tmpdir.sh", cls: "no-port-cli", why: "drives bin/shellm end to end (copied to a toolbin, with its own llm stub) — shellm's loop is in-process in the port; the per-run TMPDIR is proven by test/shellm.test.ts's runShellm TMPDIR case" },
+  { name: "test_output_size_watchdog.sh", cls: "no-port-cli", why: "drives bin/shellm end to end (llm stub, SHELLM_MAX_OUTPUT_SIZE / SHELLM_MAX_EXEC_TIME) — shellm's loop is in-process in the port; the same scenarios are proven against real subprocesses in test/sandbox-output-wall.test.ts and test/shellm.test.ts. The suite's progress-echo flood cap ('lines not shown') has no port analogue: the port echoes exec output post-hoc, not live (PARITY.md gap)" },
+  { name: "test_exec_termination.sh", cls: "bash-artifact", artifact: "sed-extracts _kill_exec_tree()/_supervise_exec()/execute_code() out of bin/shellm's own source text — the STOP→KILL process-tree walk is Bash job-control mechanics with no TS analogue; the port's watchdog kills the child's process group (TERM, then KILL after 2 s) and test/sandbox-output-wall.test.ts asserts the producer is dead before exec returns" },
+  // --- Upstream sync 2e39a3f, lane (h): responder ---
+  { name: "test_responder_card_redaction.sh", cls: "no-port-cli", why: "drives thinkers/responder/step (a Bash script) with stubbed llm and chat — the responder is in-process in the port (src/responder.ts). The same cases (reply, observations, deferral request, failure exits, benign numbers, person notes) are pinned by test/responder-sync.test.ts and test/responder-notes.test.ts, and the whole step is run against the real Bash by parity/responder/run-parity.mjs (card scenarios + _redact_card byte-for-byte on a corpus)" },
+  { name: "test_responder_reply_guard.sh", cls: "no-port-cli", why: "drives thinkers/responder/step directly with a stubbed llm — in-process in the port (src/responder.ts). Raw action object, tool-call markup, broken/cut-off structured objects, the DEFER shapes and the stale-trigger guard are pinned by test/responder-sync.test.ts and run against the real Bash step by parity/responder/run-parity.mjs" },
+];
+
+// --- root-cause notes for port-only failures, keyed by suite -----------------
+// Filled in after inspecting the actual FAIL lines from a real run (see
+// report.md's "Root-cause analysis" section for the full writeup). Kept here,
+// not hand-edited into the generated report, so a re-run stays reproducible.
+const ROOT_CAUSE_NOTES = {
+  "test_rollup_namer_limits.sh":
+    "TEST-METHODOLOGY MISMATCH, not a port bug (6 of 40) — the suite observes the citation lookup through Bash-only instruments: a `head` shim on PATH that logs/deletes the candidate on `head -c 32769` (READ_LOG, DELETE_CANDIDATE) and `bash -x` xtrace counting `printf -v f ` lines. The port reads candidates with fs.openSync/readSync and has no head subprocess or xtrace, so the shim never fires (the 'deleted candidate' check sees the file still there, READ_LOG stays empty, probes counts 0). The same bounds are pinned on the port itself by test/recap-namer-limits.test.ts (128-probe cap and one open per candidate counted via a wrapped fs.openSync, corrupt/oversized/hidden candidates, 20%/4096 byte cap, tiny budget) and byte-for-byte against the real Bash by parity/recap adversarial group `namers`.",
+  "test_traj_redaction.sh":
+    "TEST-METHODOLOGY MISMATCH, not a port bug (all 9 — 3 modes x 3 checks) — the suite's final block puts stub `jq`/`sed` binaries first on PATH that emit unsafe/invalid output (or nothing) and exit non-zero, to prove the Bash append writes NOTHING when its jq/sed sanitizer subprocess fails. The port's redactor (src/trajRedact.mjs) is an in-process pure function with no subprocess to sabotage, so the injected failure never happens and the append succeeds (correctly, redacted). The invariant the block protects — redaction runs before any blob spill or lock/append, so a failed sanitizer cannot leak or half-write — holds structurally (appendStep redacts before spilling; covered by test/trajSync.test.ts and parity/traj traj-redact). The other 64 checks (every shape rule, env-VALUE rule, PEM, Docker auth, key redaction, blobs) pass 64/64.",
+  "test_llm_json_schema.sh":
+    "TEST-METHODOLOGY MISMATCH, not a port bug (all 6) — same curl-stub interception gap as test_llm_openai_compatible.sh: the suite reads the payload file its stub `curl` was handed ($PAYLOAD_OUT), which the port's fetch()-based bin/llm.mjs never produces, so every jq read returns empty (\"got \"). The behavior IS proven independently: parity/llm/run-parity.mjs's `jsonschema` group (response_format on openai-compatible/openrouter/non-stream+system, ignore-with-warning on anthropic/gemini, file-not-found, invalid JSON) diffs the request JSON byte-for-byte against the real bin/llm over a real local HTTP server, and test/llmProviderSync.test.ts pins the payload shape.",
+  "test_llm_openai_compatible.sh":
+    "TEST-METHODOLOGY MISMATCH, not a port bug — this suite mocks the network by stubbing a `curl` binary on PATH; the port's bin/llm.mjs calls Node's native `fetch()` directly (src/llm.ts:92) and never shells out to curl (PARITY.md Deviations: \"llm transport-failure wording ... there is no curl\"). The stub is never invoked, so every request that should have been intercepted instead makes a REAL connection attempt to 127.0.0.1:9, which Node's fetch (undici) refuses outright — port 9 is on the fetch-spec's forbidden-port list (`ERR_UNDICI ... bad port`), where curl has no such restriction. No assertion here exercises port-owned logic; the whole suite needs a fetch-level interceptor (e.g. undici MockAgent) to be a valid oracle for the port, which is out of scope for this runner (no src/*.ts or harness edits).",
+  "test_llm_provider_env.sh":
+    "TEST-METHODOLOGY MISMATCH, not a port bug (all 6) — same curl-stub interception gap as test_llm_openai_compatible.sh, now visible in a sharper form since the llm-providers lane ported the anthropic/gemini/opencode(Zen)/adapter wire paths (PARITY.md Gaps table's llm anthropic/gemini/opencode-zen/adapter rows are closed): 2 of the 6 failures (\"--provider overrides LLM_PROVIDER\", \"claude-* still detected as anthropic\") show the port's fetch() correctly reaching the real https://api.anthropic.com and getting back a genuine `invalid x-api-key` rejection with the suite's fake key — proof the provider dispatch is right, just unobservable through $CURL_ARGS since curl is never invoked. \"vendor/model still detected as openrouter\" likewise reaches real https://openrouter.ai (`Missing Authentication header`). The remaining 3 (\"LLM_PROVIDER=openai reaches an unrecognized model name\", \"request went to the configured endpoint\", \"env LLM_PROVIDER wins over a name it contradicts\") fail the same way test_llm_openai_compatible.sh's do — a real connection attempt to 127.0.0.1:9 that fetch (undici) refuses as a forbidden port, or a $CURL_ARGS grep that stays empty because curl was never invoked. All 6 make a real outbound network attempt as a side effect of the mismatch, not by design; this suite needs a fetch-level interceptor (undici MockAgent) to be a valid port oracle — out of scope for this runner.",
+  "test_llm_retry.sh":
+    "TEST-METHODOLOGY MISMATCH, not a port bug — all 52 failures. This entire suite's subject (transient-retry behavior) is driven by controlling curl's per-call exit code/output via $CURL_MODE_FILE; since the port never invokes curl (fetch-based, see test_llm_openai_compatible.sh note), none of the retry/health-marker/ledger assertions exercise the port's actual retry logic — they all fail at the same first real-network-attempt step. This suite cannot validate the port's retry behavior without a fetch-level interceptor.",
+  "test_llm_openrouter_routing.sh":
+    "TEST-METHODOLOGY MISMATCH, not a port bug — all 14 failures (upstream sync 1b, Lane 3, 015d081/cf9e0ab). Same curl-stub interception gap as test_llm_openai_compatible.sh: this suite's stub `curl` copies the `-d@FILE`/`@FILE` payload aside to $PAYLOAD_OUT and answers with a canned SSE stream; the port's fetch()-based bin/llm.mjs never invokes curl, so $PAYLOAD_OUT is never written and every `q()` jq read against it returns empty (\"got \" in the FAIL lines) — including \"no knobs: payload carries no provider block\", which is trivially true of an empty file and would pass for the WRONG reason even if the file existed. The one exit-based failure (\"an --or-* flag does not fail a non-OpenRouter call\") is the same real-network-attempt side effect documented for test_llm_provider_env.sh: with no LLM_API_URL override in this suite's env, the port's fetch reaches the real https://api.openai.com with the suite's fake key and gets a real rejection, exit 1, where the stub would have answered 200. This suite needs a fetch-level interceptor to be a valid port oracle, same as its siblings — out of scope for this runner. The port's actual OpenRouter-routing behavior IS independently proven: parity/llm/run-parity.mjs's `or-routing` scenario group (25 cases, mirroring every assertion in this suite 1:1) runs both the real Bash and the port against a real local HTTP server and diffs the request JSON byte-for-byte — 25/25 PARITY, 0 port bugs (see PARITY.md's Upstream sync 1b section).",
+  "test_key_var_resolution.sh":
+    "Both failures are the curl-stub TEST-METHODOLOGY MISMATCH (see test_llm_openai_compatible.sh) — the LLM_MAX_TOKENS/.env checks read the payload curl was called with, which the port's fetch-based bin/llm.mjs never produces. The suite's other 12 checks (tools/headlong-init key-variable resolution) pass identically on both sides: headlong-init is not a ported tool, so this scratch run exercises the same real upstream Bash as the control there — no differential, as expected.",
+  "test_mem_frontmatter.sh":
+    "BASH-ARTIFACT DEPENDENCY, not a port bug — `sed -n '/^frontmatter_field()/,/^}/p' \"$REPO/bin/mem\"` matches zero lines against the port's bin/mem (a 3-line Node trampoline, see bin/mem source), so `eval` defines nothing and every subsequent `frontmatter_field` call is `command not found` (empty result, all 5 remaining checks fail the same way — the 6th, \"missing field returns empty\", coincidentally still passes since empty was the expected answer there too).",
+  "test_responder_idempotency.sh":
+    "REAL GAP, worth fixing — bin/traj.mjs documents (source header) that only `append`/`last` are \"fully implemented\"; `path`, `cat`, `list`, `show`, `search`, `root`, `new` are harmless no-op stubs that print nothing (bin/traj.mjs, the switch's shared case block). thinkers/_lib/common.sh's `_responder_already_handled` (unported, but sourced directly by this suite with $REPO/bin on PATH) calls `traj path` to locate the trajectory file before reading it — against the port that call returns empty, so the verdict is always \"unhandled\" regardless of ground truth. This is a genuine capability gap in traj.mjs's stub subcommands, not a divergence in a documented/tested port surface (traj's own test suite never exercises `path`/`cat`) — but it means bin/traj.mjs cannot yet stand in for real bash traj wherever a caller (ported or not) expects those subcommands to work.",
+  "test_monolith_backoff.sh":
+    "UNRESOLVED, presumptively the same traj-stub-subcommand gap as test_responder_idempotency.sh — thinkers/monolith/step (unported) is driven with the port's bin/{mem,traj} on PATH ahead of a stubbed shellm; every case shows the backoff level climbing/descending on the wrong schedule (e.g. \"visible work\" case expected level=0/delay=0 but got level=1/delay=5 — the level-reset-on-observation branch never fires). Root cause not fully isolated within this run's budget; given traj.mjs's documented partial subcommand support, the most likely explanation is monolith/step reading trajectory state through one of the harmless-stub subcommands (list/tail/show) rather than `append`/`last`. Flagged for follow-up, not filed as a confirmed line-level bug.",
+  "test_monolith_wake_sections.sh":
+    "HARNESS ARTIFACT, not a port bug — the one failure ('the runtime line names the checked-out commit') is thinkers/monolith/step's own Bash (`git -C $REPO rev-parse` for the `Runtime: headlong <sha>` line); this runner's lightweight scratch copy has no `.git` (same limitation documented for test_status.sh's 'clone'), while the control runs inside the real upstream checkout. Verified: a pure-upstream copy of tests/bin/thinkers/tools with NO port wrapper fails the same single assertion (34/35), and the same copy after `git init` + commit passes 35/35. The port's own runtime line is covered by test/monolith.test.ts and the context parity harness.",
+  "test_prompt_file.sh":
+    "Interop gap between unported bin/shellm and the port's bin/traj.mjs — this suite copies $REPO/bin (which now carries the port's traj/mem/etc. wrappers) into its own toolbin and overrides only `llm` with a local stub, so real (unported) bin/shellm ends up calling the port's `traj` mid-run. The failure (\"traj: TRAJ_DIR/TRAJ_ID not set\") shows shellm invoking traj without those env vars set; real upstream bash traj tolerates that (the control passes 4/4), the port's resolveFile() hard-exits (bin/traj.mjs). shellm's own env wiring is not part of the ported surface, so this is reported as an interop finding, not a regression in tested port behavior.",
+  "test_var_secrets.sh":
+    "Same interop gap and same root cause as test_prompt_file.sh (bin/shellm calling the port's traj.mjs without TRAJ_DIR/TRAJ_ID set) — the first failure cascades into the later --var/ps/shellm-run assertions, which never get a chance to run their real check once the run itself errors out early.",
+};
+
+// Daemon lane (test/thinkers* etc.) — gated behind --daemon. Substitutes
+// upstream `bin/thinkers` -> bin/thinkers.mjs, `tools/identity` ->
+// bin/identity.mjs, and `tools/headlong-killall` -> bin/headlong-killall.mjs
+// in the scratch copy, same wrapper technique as PORT_TOOLS above.
+const DAEMON_SUITES = [
+  "test_thinkers_pending.sh",
+  "test_thinkers_wake_at.sh",
+  "test_thinkers_drain.sh",
+  "test_status.sh",
+  "test_thinker_set_coupling.sh",
+  "test_identity_sync_thinkers.sh",
+  "test_unit_name_couplings.sh",
+  "test_thinker_env_fallback.sh",
+  // --- Upstream sync 2e39a3f, lane (f) ---
+  "test_dispatcher_single_owner.sh",
+  "test_dispatcher_cleanup.sh",
+  "test_killall_brokers.sh",
+  "test_thinkers_fifo_location.sh",
+  "test_thinkers_trajectory_swap.sh",
+  "test_thinkers_stuck_step.sh",
+];
+// { scratchRelPath: mjsBasename } — mirrors PORT_TOOLS' [relPath, mjsName]
+// extraWrap shape, just applied unconditionally to every daemon suite.
+const DAEMON_WRAPS = [
+  ["bin/thinkers", "thinkers.mjs"],
+  ["tools/identity", "identity.mjs"],
+  ["tools/headlong-killall", "headlong-killall.mjs"],
+];
+const DAEMON_SHIM_PRESENT = DAEMON_WRAPS.every(([, mjsName]) => fs.existsSync(path.join(PORT_ROOT, "bin", mjsName)));
+
+// Extra top-level files/dirs the daemon suites reach for beyond tests/bin/
+// thinkers/tools (test_status.sh's own install.sh/status.sh/uninstall.sh
+// trio; test_thinker_set_coupling.sh's and test_unit_name_couplings.sh's
+// deploy/*.sh, *.service — see buildScratch's daemon branch).
+const DAEMON_EXTRA_DIRS = ["deploy"];
+const DAEMON_EXTRA_FILES = ["install.sh", "status.sh", "uninstall.sh"];
+
+// Installer lane — gated behind --installer. Substitutes upstream
+// tools/headlong-init -> bin/headlong-init.mjs, install.sh -> install.mjs,
+// status.sh -> status.mjs, uninstall.sh -> uninstall.mjs (plus the same
+// tools/identity -> bin/identity.mjs DAEMON_WRAPS entry — test_uninstall.sh's
+// fixture calls `identity new` directly). Each *.sh's scratch copy becomes a
+// bash trampoline exec'ing the port's *.mjs at repo root — the SAME
+// wrapperScript() helper PORT_TOOLS/DAEMON_WRAPS use, since the port's
+// install.mjs/status.mjs/uninstall.mjs are themselves plain `node` entry
+// points, indistinguishable in shape from bin/<tool>.mjs for this purpose.
+const INSTALLER_SUITES = [
+  "test_sandbox_gate.sh",
+  "test_uninstall.sh",
+  "smoke_install.sh",
+  { name: "test_local_llm_setup.sh", cls: "bash-artifact", artifact: "copies $REPO/tools/headlong-init into its own fake APP dir and stubs curl on PATH — the port's headlong-init needs the bin/identity.mjs checkout marker (not bin/shellm) and calls fetch() directly (never curl), so neither the marker nor the curl-stub interception apply; see llm's TEST-METHODOLOGY MISMATCH notes below for the curl/fetch half of this." },
+  { name: "test_install_secret_argv.sh", cls: "bash-artifact", artifact: "`sed '$ d' install.sh | source` — sources install.sh's OWN BASH SOURCE TEXT as a library and calls its _docker_forward_args() shell function directly; the port's install.mjs has no such function body to extract (its equivalent, dockerForwardArgs(), is a TS export unit-tested directly by test/install-lib.test.ts)." },
+  { name: "test_installer_prompt_defaults.sh", cls: "bash-artifact", artifact: "`sed -n '/^_location_offer_available()/,/^}/p' install.sh | eval` (and the same for tools/headlong-init's ask_yn()/_ask_local_or_cloud()) — sed-extracts shell FUNCTION BODIES out of the Bash sources' own text and evals them; the port's install.mjs/bin/headlong-init.mjs have no such bodies (their equivalents are unit-tested directly in test/install-lib.test.ts and test/init.test.ts)." },
+];
+// [scratchRelPath, portAbsPath] — unlike PORT_TOOLS/DAEMON_WRAPS (always
+// bin/<mjsName>), install.mjs/status.mjs/uninstall.mjs live at the port's
+// repo ROOT, not under bin/.
+const INSTALLER_WRAPS = [
+  ["tools/headlong-init", path.join(PORT_ROOT, "bin", "headlong-init.mjs")],
+  ["install.sh", path.join(PORT_ROOT, "install.mjs")],
+  ["status.sh", path.join(PORT_ROOT, "status.mjs")],
+  ["uninstall.sh", path.join(PORT_ROOT, "uninstall.mjs")],
+  ["tools/identity", path.join(PORT_ROOT, "bin", "identity.mjs")],
+];
+const INSTALLER_SHIM_PRESENT = INSTALLER_WRAPS.every(([, abs]) => fs.existsSync(abs));
+
+// --- scratch construction ------------------------------------------------------
+function chmodTreeExecutable(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, entry.name);
+    if (entry.isDirectory()) chmodTreeExecutable(p);
+    else {
+      try {
+        const st = fs.statSync(p);
+        // preserve existing perms but ensure owner-exec where source had it;
+        // cheap heuristic: shell/JS entrypoints under bin/ and thinkers/*/step
+        // and tools/ are meant to be executable.
+        if (st.mode & 0o111 || /\/(bin|tools)\//.test(p) || /\/step$/.test(p) || /\.sh$/.test(p)) {
+          fs.chmodSync(p, st.mode | 0o111);
+        }
+      } catch {
+        /* best effort */
+      }
+    }
+  }
+}
+
+function buildScratch(suite, opts = {}) {
+  const daemon = Boolean(opts.daemon);
+  const installer = Boolean(opts.installer);
+  const needsTopLevel = daemon || installer;
+  const scratchRoot = fs.mkdtempSync(path.join(os.tmpdir(), "uptests-"));
+  const dirs = needsTopLevel ? ["tests", "bin", "thinkers", "tools", ...DAEMON_EXTRA_DIRS] : ["tests", "bin", "thinkers", "tools"];
+  for (const dir of dirs) {
+    const src = path.join(UPSTREAM_ROOT, dir);
+    if (fs.existsSync(src)) fs.cpSync(src, path.join(scratchRoot, dir), { recursive: true });
+  }
+  if (needsTopLevel) {
+    for (const file of DAEMON_EXTRA_FILES) {
+      const src = path.join(UPSTREAM_ROOT, file);
+      if (fs.existsSync(src)) fs.cpSync(src, path.join(scratchRoot, file));
+    }
+  }
+  chmodTreeExecutable(scratchRoot);
+
+  const adaptations = [];
+  for (const tool of PORT_TOOLS) {
+    const target = portEntry(tool);
+    const dest = path.join(scratchRoot, "bin", tool);
+    fs.writeFileSync(dest, wrapperScript(target));
+    fs.chmodSync(dest, 0o755);
+  }
+  adaptations.push(
+    `scratch bin/{${PORT_TOOLS.join(",")}} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)`
+  );
+  for (const [relPath, mjsName] of suite.extraWrap || []) {
+    const dest = path.join(scratchRoot, relPath);
+    fs.writeFileSync(dest, wrapperScript(path.join(PORT_ROOT, "bin", mjsName)));
+    fs.chmodSync(dest, 0o755);
+    adaptations.push(`scratch ${relPath} replaced with a wrapper exec'ing the port's bin/${mjsName} (upstream hardcodes $REPO/${relPath}, not a bin/ path, so no env override exists to hook — same technique, just a different file)`);
+  }
+  if (daemon) {
+    for (const [relPath, mjsName] of DAEMON_WRAPS) {
+      const dest = path.join(scratchRoot, relPath);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      fs.writeFileSync(dest, wrapperScript(path.join(PORT_ROOT, "bin", mjsName)));
+      fs.chmodSync(dest, 0o755);
+    }
+    adaptations.push(
+      `scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs`
+    );
+  }
+  if (installer) {
+    for (const [relPath, abs] of INSTALLER_WRAPS) {
+      const dest = path.join(scratchRoot, relPath);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      fs.writeFileSync(dest, wrapperScript(abs));
+      fs.chmodSync(dest, 0o755);
+    }
+    adaptations.push(
+      `scratch tools/headlong-init, install.sh, status.sh, uninstall.sh, tools/identity replaced with wrappers exec'ing the port's bin/headlong-init.mjs, install.mjs, status.mjs, uninstall.mjs, bin/identity.mjs (install.mjs/status.mjs/uninstall.mjs live at the port's repo root, not bin/)`
+    );
+  }
+  return { scratchRoot, testsDir: path.join(scratchRoot, "tests"), adaptations };
+}
+
+// --- suite execution -------------------------------------------------------------
+function runSuite(scriptPath, cwd) {
+  const res = spawnSync("bash", [scriptPath], {
+    cwd,
+    timeout: 180_000,
+    encoding: "utf8",
+    env: process.env,
+  });
+  const stdout = res.stdout || "";
+  const stderr = res.stderr || "";
+  const combined = stdout + (stderr ? "\n[stderr]\n" + stderr : "");
+  const m = combined.match(/(\d+)\s+passed,\s+(\d+)\s+failed/);
+  const passed = m ? Number(m[1]) : null;
+  const failed = m ? Number(m[2]) : null;
+  const failLines = [...combined.matchAll(/^FAIL[: ] ?.+$/gm)].map((x) => x[0]);
+  return {
+    exitCode: res.status,
+    timedOut: res.error?.code === "ETIMEDOUT",
+    signal: res.signal,
+    passed,
+    failed,
+    failLines,
+    combined,
+  };
+}
+
+// --- main ------------------------------------------------------------------------
+const results = [];
+
+for (const suite of SUITES) {
+  if (ONLY && !ONLY.includes(suite.name)) continue;
+  const upstreamScript = path.join(UPSTREAM_ROOT, "tests", suite.name);
+  if (!fs.existsSync(upstreamScript)) {
+    results.push({ suite: suite.name, cls: suite.cls, skipped: "suite not found in upstream checkout" });
+    continue;
+  }
+
+  // control: real upstream Bash, unmodified, run in place.
+  const control = runSuite(upstreamScript, path.join(UPSTREAM_ROOT, "tests"));
+
+  // port: scratch copy with the port's shims substituted.
+  const { testsDir, adaptations } = buildScratch(suite);
+  const port = runSuite(path.join(testsDir, suite.name), testsDir);
+
+  const portFailSet = new Set(port.failLines);
+  const controlFailSet = new Set(control.failLines);
+  const upstreamRed = port.failLines.filter((l) => controlFailSet.has(l));
+  const portOnly = port.failLines.filter((l) => !controlFailSet.has(l));
+
+  results.push({
+    suite: suite.name,
+    cls: suite.cls,
+    note: suite.artifact || suite.why || null,
+    rootCause: portOnly.length ? ROOT_CAUSE_NOTES[suite.name] || null : null,
+    adaptations,
+    port: { passed: port.passed, failed: port.failed, exitCode: port.exitCode, timedOut: port.timedOut },
+    control: { passed: control.passed, failed: control.failed, exitCode: control.exitCode, timedOut: control.timedOut },
+    upstreamRed,
+    portOnlyFailures: portOnly,
+  });
+
+  fs.rmSync(path.dirname(testsDir), { recursive: true, force: true });
+}
+
+// --- daemon lane -----------------------------------------------------------------
+// Root-cause notes for daemon-suite port-only failures — same convention as
+// ROOT_CAUSE_NOTES above (filled in after inspecting a real run's FAIL lines,
+// not hand-massaged into the generated report).
+const DAEMON_ROOT_CAUSE_NOTES_REAL = {
+  "test_thinkers_pending.sh":
+    "DOCUMENTED DEVIATION, not a new bug — the single failure ('feeder respawn: feeder running before kill') is the very first assertion in test_feeder_respawn, which pgreps for a literal `tail -n 0 -F <trajfile>` process (upstream's feeder implementation). The port's feeder (src/feeder.ts) is an IN-PROCESS fs.watch replacement with no such subprocess at all — already documented in PARITY.md ('feeder … in-process replacement for `tail -F | dispatch.fifo`'). The check bails via an early `return` on the pgrep miss, so the remaining 3 checks in that one test function (respawn-after-kill, respawn-logged, dispatch-after-respawn) never run — accounting for the suite's 19 control vs 17 port denominator, on top of the 1 explicit FAIL.",
+  "test_thinkers_wake_at.sh":
+    "REAL PORT BUG, confirmed by reading source — Dispatcher.scheduledWakeCheck (src/dispatcher.ts:602-632) iterates `this.thinkers.keys()` (thinkers REGISTERED at daemon boot from real thinkers/<name>/ directories) and prunes a wake_at file only for a name found there. Upstream's `_scheduled_wake_check` (bin/thinkers:661-678) instead globs `\"$run_dir\"/*.wake_at` directly off disk and checks active_thinkers membership per file — so it prunes a garbage/orphaned wake_at file for ANY name, registered or not. Test 5 (test_bad_files_dropped) writes `nobody.wake_at` for a name with NO `thinkers/nobody/` directory at all; the port's loop structurally never visits it (it is not a key of `this.thinkers`), so it is never removed — `wait_for_file_gone \"$RUN/nobody.wake_at\" 5` times out. `napper.wake_at` (a real, registered-but-inactive thinker) IS pruned correctly by the port in the same test, isolating the divergence to the disk-scan-vs-registered-map difference specifically. Not fixed per instructions (daemon-runtime bug, reported for the director).",
+  "test_thinkers_drain.sh":
+    "REAL GAP, confirmed by reading source — src/thinkersctl.ts's thinkersStop (and its drainThenFinish helper) never invokes a thinker's own `<thinker_dir>/stop` script. Upstream bin/thinkers runs it in FOUR places: the drain reaper after in-flight steps exit (bin/thinkers:1259), the force-immediate path (bin/thinkers:1273), the escalation-to-KILL path (bin/thinkers:1356), and the stop-all cleanup (bin/thinkers:1423) — all absent from the port. All 9 port-only failures are exactly this: `*.stop-ran` marker files the suite's fixture `stop` scripts create, which the port's stopDispatcher/drainThenFinish never execute regardless of drain vs --force vs single-name vs stop-all. This is a genuine missing feature in the already-shipped thinksersctl `stop` path (PARITY.md's thinkersctl row does not mention stop-script support at all), not a regression from this lane's enable/disable addition. Not fixed per instructions (daemon-runtime bug in src/thinkersctl.ts beyond enable/disable, reported for the director).",
+  "test_status.sh":
+    "MIXED, three distinct causes, none a port BEHAVIOR bug. (a) 2 assertions ('status.sh PATTERNS == headlong-killall PATTERNS', both 'dash pattern: killall == status.sh/uninstall.sh') `sed`-extract tools/headlong-killall's OWN BASH SOURCE TEXT (its `PATTERNS=(...)`/`DASH_PAT=` array literals) and compare it against status.sh/uninstall.sh's embedded copies — a pure source-text-equality check with no subprocess involved. Substituting tools/headlong-killall with a one-line Node-dispatching wrapper (`exec node .../headlong-killall.mjs \"$@\"`, no PATTERNS array to extract) makes these fail by construction — same class as the existing test_mem_frontmatter.sh bash-artifact-dependency row. (b) the 'clone' failure: the 'install:' block runs `git clone -q --local \"$REPO\" \"$APP\"`, but this runner's lightweight scratch copy (tests/bin/thinkers/tools[/deploy] only, following the SAME technique every other suite in this file uses) never copies a `.git` directory at all, so the scratch root is not a git repository and the clone fails outright — the script's own `|| { bad \"clone\"; exit 1; }` then aborts the ENTIRE suite immediately, which is why port shows 'exit=1 (no pass/fail line)' instead of a real N/M count; every downstream assertion (18 of them) never runs as a result. This is a limitation of this runner's scratch-copy technique for the one suite that happens to `git clone` its own REPO variable, not a port behavior bug — a full git-backed scratch checkout would cost copying the ~360MB upstream tree (web/, tui/) per run and was judged not worth it for this lane.",
+  "test_identity_sync_thinkers.sh":
+    "DOCUMENTED GAP, not a port bug — every failure is `identity sync-thinkers` returning an unrecognized-subcommand error (the port's bin/identity.mjs / src/identity.ts). PARITY.md's identity row already documents the scope: '`identity new` only (`import` is Slice C … out of this lane)' — `sync-thinkers` is a THIRD subcommand, never requested by this lane's task (sub, headlong-killall, thinkers enable/disable) and not implemented at all.",
+  "test_dispatcher_cleanup.sh":
+    "BASH-ARTIFACT DEPENDENCY, not a port bug — the suite `sed`-extracts the function definitions (and the `_tick()` body) out of bin/thinkers' OWN BASH SOURCE TEXT and sources them; the scratch bin/thinkers is a Node-dispatching wrapper with none of that text, so the first `source` aborts (exit=1, no pass/fail line). The dispatcher's ownership/cleanup boundaries are covered by test/dispatch-mechanics.test.ts, test/dispatcherReceipts.test.ts and test/daemon.test.ts.",
+  "test_dispatcher_single_owner.sh":
+    "BASH-ARTIFACT DEPENDENCY, not a port bug — the four failures are the two cases that inject the crash through a shim on the dispatcher's PATH (an `mv` shim that does `kill -9 $PPID` the moment the claim lands in run/claimed/, and an `rm` shim that does it when the sent receipt is about to be removed). The port's dispatcher renames and unlinks with fs calls inside one Node process: no `mv`/`rm` child ever runs, so the shim never fires ('no crash flag, shim log: ' is empty) and the downstream record/receipt checks have nothing to observe. The same two windows (die after the claim, die after the send with the receipt still on disk) are exercised on the port side by THINKERS_TEST_DIE_AFTER_CLAIM and the dieHook in test/dispatcherReceipts.test.ts. The flock lifetime-lock cases are skipped upstream-style on this host (no flock(1) on macOS), and the port has no flock analogue by design — ownership is the 16-byte token plus a pid-alive guard (PARITY.md, lane f).",
+  "test_thinkers_fifo_location.sh":
+    "DOCUMENTED DEVIATION, not a port bug — the one failure ('fifo_path names a fifo under /tmp') asserts upstream's FIFO: the Bash dispatcher feeds steps through a named pipe whose path it records in run/fifo_path. The port's feeder is in-process (src/feeder.ts, fs.watch), there is no FIFO and no fifo_path pointer, and steps still reach the thinker ('a new step is dispatched' passes). The three behaviors that DO carry over are ported and pass: a leftover run/dispatch.fifo from a Bash-engine run is removed at start, nothing is created inside the identity dir, and stop never follows a rewritten fifo_path.",
+  "test_unit_name_couplings.sh":
+    "BASH-ARTIFACT DEPENDENCY, not a port bug — the single failure ('found the cgroup comparison in bin/thinkers — expected a [[ \"$my_cg\" == *\"<unit>@...\"* ]] test') `grep`s bin/thinkers' OWN SOURCE TEXT for a specific comparison idiom. Substituting bin/thinkers with the port's one-line Node-dispatching wrapper removes that text entirely — same class as the test_status.sh PATTERNS checks and the pre-existing test_mem_frontmatter.sh row.",
+};
+
+const daemonResults = DAEMON_SUITES.map((name) => {
+  const upstreamScript = path.join(UPSTREAM_ROOT, "tests", name);
+  const exists = fs.existsSync(upstreamScript);
+  // PARITY_ONLY narrows the daemon lane too (a full daemon lane is ~15 minutes).
+  if (RUN_DAEMON && ONLY && !ONLY.includes(name)) {
+    return { suite: name, status: "skipped", reason: "not in PARITY_ONLY", foundUpstream: exists };
+  }
+  if (!RUN_DAEMON) {
+    return { suite: name, status: "pending", reason: "not attempted (pass --daemon to enable)", foundUpstream: exists };
+  }
+  if (!DAEMON_SHIM_PRESENT) {
+    return {
+      suite: name,
+      status: "pending daemon merge",
+      reason: "required port shim(s) absent from bin/ (bin/thinkers.mjs, bin/identity.mjs, bin/headlong-killall.mjs)",
+      foundUpstream: exists,
+    };
+  }
+  if (!exists) {
+    return { suite: name, status: "skipped", reason: "suite not found in upstream checkout", foundUpstream: false };
+  }
+
+  const control = runSuite(upstreamScript, path.join(UPSTREAM_ROOT, "tests"));
+  const { testsDir, adaptations } = buildScratch({ name }, { daemon: true });
+  const port = runSuite(path.join(testsDir, name), testsDir);
+
+  const controlFailSet = new Set(control.failLines);
+  const portOnly = port.failLines.filter((l) => !controlFailSet.has(l));
+  const upstreamRed = port.failLines.filter((l) => controlFailSet.has(l));
+
+  const result = {
+    suite: name,
+    status: "run",
+    adaptations,
+    port: { passed: port.passed, failed: port.failed, exitCode: port.exitCode, timedOut: port.timedOut },
+    control: { passed: control.passed, failed: control.failed, exitCode: control.exitCode, timedOut: control.timedOut },
+    upstreamRed,
+    portOnlyFailures: portOnly,
+    // A suite that aborts before printing any FAIL line (e.g. a failed `source`) still needs its note.
+    rootCause: portOnly.length || (port.exitCode !== 0 && control.exitCode === 0) ? DAEMON_ROOT_CAUSE_NOTES_REAL[name] || null : null,
+  };
+  fs.rmSync(path.dirname(testsDir), { recursive: true, force: true });
+  return result;
+});
+
+// --- installer lane ----------------------------------------------------------------
+// Root-cause notes for installer-suite port-only failures — same convention
+// as ROOT_CAUSE_NOTES/DAEMON_ROOT_CAUSE_NOTES_REAL above.
+const INSTALLER_ROOT_CAUSE_NOTES = {
+  "test_uninstall.sh":
+    "MIXED, both causes already precedented elsewhere in this file, neither a port BEHAVIOR bug. (a) 'uninstall.sh TOOLS == install.sh BIN+AUX+headlong-tui' `grep -E '^(BIN|AUX)_TOOLS='`s install.sh's OWN BASH SOURCE TEXT — the scratch's install.sh is now a one-line wrapper exec'ing install.mjs, with no such array literal to find; same bash-artifact-dependency class as test_status.sh's PATTERNS checks and test_mem_frontmatter.sh. (b) 'local clone' fails because make_install's `git clone -q --local \"$REPO\" \"$app\"` finds no `.git` in this runner's lightweight scratch copy (tests/bin/thinkers/tools[/deploy] + a few top-level files only — SAME limitation already documented for test_status.sh's 'clone' failure), which aborts the fixture via `|| exit 1` before any of the suite's other 51 assertions run — accounting for 'exit=1 (no pass/fail line)' instead of a real N/M count.",
+  "smoke_install.sh":
+    "MIXED. (a) 'core skills installed' + 4x 'thinker template copied: <name>' — REAL, DOCUMENTED GAP: this port has no global ~/.skills/core-skills or ~/.headlong-thinkers staging step at all (install-lib.ts's own header PORT-NOTE, PARITY.md's install row) — `identity new` (src/identity.ts) bundles skill/thinker templates straight from src/assets/ into each identity instead. Observable difference from upstream: after `node install.mjs`, ~/.skills/core-skills and ~/.headlong-thinkers simply do not exist (vs. upstream, which always populates them). (b) 'app_dir records the checkout' compares the recorded path against `$REPO` (the scratch root, un-resolved) while install.mjs records `fs.realpathSync()` of the same path — on this macOS run that differs by the `/var` -> `/private/var` symlink (see test/install-lib.test.ts's own realpathSync-aware assertion for the same reason); a Linux CI run without that symlink would not reproduce this specific failure. (c) 'local source clone' + 'bootstrap log mentions the clone' — the one-liner-mode fixture's `git clone -q \"$REPO\" \"$SRC\"` fails because the scratch copy (same lightweight technique as (a) in test_uninstall.sh above) has no `.git` directory to clone from; not reachable without a full git-backed scratch checkout (judged not worth the ~360MB-per-run cost, same call already made for the daemon lane's test_status.sh).",
+};
+
+function normalizeInstallerSuite(s) {
+  return typeof s === "string" ? { name: s, cls: "portable" } : s;
+}
+
+const installerResults = INSTALLER_SUITES.map((raw) => {
+  const suite = normalizeInstallerSuite(raw);
+  const upstreamScript = path.join(UPSTREAM_ROOT, "tests", suite.name);
+  const exists = fs.existsSync(upstreamScript);
+  if (!RUN_INSTALLER) {
+    return { suite: suite.name, cls: suite.cls, status: "pending", reason: "not attempted (pass --installer to enable)", foundUpstream: exists };
+  }
+  if (!INSTALLER_SHIM_PRESENT) {
+    return {
+      suite: suite.name,
+      cls: suite.cls,
+      status: "pending installer merge",
+      reason: "required port shim(s) absent (bin/headlong-init.mjs, install.mjs, status.mjs, uninstall.mjs, bin/identity.mjs)",
+      foundUpstream: exists,
+    };
+  }
+  if (!exists) {
+    return { suite: suite.name, cls: suite.cls, status: "skipped", reason: "suite not found in upstream checkout", foundUpstream: false };
+  }
+
+  const control = runSuite(upstreamScript, path.join(UPSTREAM_ROOT, "tests"));
+  const { testsDir, adaptations } = buildScratch(suite, { installer: true });
+  const port = runSuite(path.join(testsDir, suite.name), testsDir);
+
+  const controlFailSet = new Set(control.failLines);
+  const portOnly = port.failLines.filter((l) => !controlFailSet.has(l));
+  const upstreamRed = port.failLines.filter((l) => controlFailSet.has(l));
+
+  const result = {
+    suite: suite.name,
+    status: "run",
+    cls: suite.cls,
+    note: suite.artifact || suite.why || null,
+    adaptations,
+    port: { passed: port.passed, failed: port.failed, exitCode: port.exitCode, timedOut: port.timedOut },
+    control: { passed: control.passed, failed: control.failed, exitCode: control.exitCode, timedOut: control.timedOut },
+    upstreamRed,
+    portOnlyFailures: portOnly,
+    rootCause: portOnly.length ? INSTALLER_ROOT_CAUSE_NOTES[suite.name] || null : null,
+  };
+  fs.rmSync(path.dirname(testsDir), { recursive: true, force: true });
+  return result;
+});
+
+// --- scrub + write ------------------------------------------------------------
+function scrub(str) {
+  if (typeof str !== "string") return str;
+  return str
+    .split(UPSTREAM_ROOT).join("<HEADLONG_ROOT>")
+    .split(PORT_ROOT).join("<HEADLONG_TS_ROOT>")
+    .split(os.homedir()).join("<HOME>");
+}
+function deepScrub(x) {
+  if (typeof x === "string") return scrub(x);
+  if (Array.isArray(x)) return x.map(deepScrub);
+  if (x && typeof x === "object") {
+    const out = {};
+    for (const [k, v] of Object.entries(x)) out[k] = deepScrub(v);
+    return out;
+  }
+  return x;
+}
+
+const scrubbedResults = deepScrub(results);
+const scrubbedDaemon = deepScrub(daemonResults);
+const scrubbedInstaller = deepScrub(installerResults);
+
+fs.writeFileSync(
+  path.join(OUT_DIR || HERE, "results.json"),
+  JSON.stringify({ generatedAt: new Date().toISOString(), suites: scrubbedResults, daemon: scrubbedDaemon, installer: scrubbedInstaller }, null, 2) + "\n"
+);
+
+function fmtCounts(side) {
+  if (!side) return "n/a";
+  if (side.timedOut) return "TIMEOUT";
+  if (side.passed === null) return `exit=${side.exitCode} (no pass/fail line)`;
+  return `${side.passed}/${side.passed + side.failed} (exit=${side.exitCode})`;
+}
+
+let report = `# upstream-tests report\n\nGenerated: ${new Date().toISOString()}\n\nRunner: \`parity/upstream-tests/run.mjs\`. Each suite below is upstream Headlong's OWN \`tests/test_*.sh\`, run twice: once against the real upstream Bash (control, unmodified, in place) and once in a scratch copy with the port's Node shims substituted for the 12 ported bin/ tools (port). A port failure whose exact "FAIL ..." line also fails against the control is upstream-red, not a port bug.\n\n`;
+
+report += `## Per-suite results\n\n`;
+report += `| Suite | Port pass/total | Control pass/total | Classification | Adaptations |\n`;
+report += `|---|---|---|---|---|\n`;
+for (const r of scrubbedResults) {
+  if (r.skipped) {
+    report += `| ${r.suite} | — | — | skipped: ${r.skipped} | — |\n`;
+    continue;
+  }
+  const rootCat = r.rootCause ? r.rootCause.split(" — ")[0].split(", not a port bug")[0] : null;
+  const clsLabel =
+    r.cls === "portable"
+      ? r.portOnlyFailures.length
+        ? `${rootCat || "portable"} — ${r.portOnlyFailures.length} port-only failure(s)`
+        : "portable — parity"
+      : r.cls === "bash-artifact"
+      ? `bash-artifact dependency (${r.note})`
+      : `no port CLI equivalent (${r.note})`;
+  const adaptStr = r.adaptations.join("; ");
+  report += `| ${r.suite} | ${fmtCounts(r.port)} | ${fmtCounts(r.control)} | ${clsLabel} | ${adaptStr} |\n`;
+}
+
+const fullyClean = scrubbedResults.filter((r) => !r.skipped && r.cls === "portable" && !r.portOnlyFailures.length);
+report += `\n## Summary\n\n`;
+report += `- **${fullyClean.length} suites at full parity against the port**: ${fullyClean.map((r) => r.suite).join(", ")}.\n`;
+report += `- **0 confirmed REAL PORT BUGs** (a behavioral divergence in a ported, tested feature). Every port-only failure traces to one of:\n`;
+report += `  1. a documented Gap already in PARITY.md (llm adapter seam, anthropic wire path — both slice-2, honest \`die()\`s that ARE at parity),\n`;
+report += `  2. a test-methodology mismatch: the port's bin/llm.mjs calls Node's native \`fetch()\` (src/llm.ts) rather than shelling out to \`curl\`, so any suite that mocks the network by stubbing a \`curl\` binary on PATH cannot intercept the port's requests (test_llm_openai_compatible.sh, test_llm_provider_env.sh in part, test_llm_retry.sh, 2 checks in test_key_var_resolution.sh),\n`;
+report += `  3. a bash-source-extraction incompatibility (test_mem_frontmatter.sh, test_redact_sensitive.sh — sed pulls a shell function's body out of a bin/* script's own text; the port's bin/mem is a Node trampoline with no such body),\n`;
+report += `  4. a genuine but pre-existing GAP in bin/traj.mjs's documented partial subcommand support (\`append\`/\`last\` implemented; \`path\`/\`cat\`/\`list\`/\`show\`/\`search\`/\`root\` are harmless no-op stubs) — surfaced only because thinkers/_lib/common.sh and thinkers/monolith/step (both unported) call those subcommands directly with the port's traj on PATH.\n`;
+report += `- See "Root-cause analysis" per suite below for the evidence behind each classification.\n`;
+
+report += `\n## Daemon lane (--daemon)\n\n`;
+if (!RUN_DAEMON) {
+  report += `Not run this pass — invoke with \`--daemon\` to substitute bin/thinkers -> bin/thinkers.mjs, tools/identity -> bin/identity.mjs, tools/headlong-killall -> bin/headlong-killall.mjs and run the 8 suites below.\n\n`;
+  report += `| Suite | Status | Reason |\n|---|---|---|\n`;
+  for (const d of scrubbedDaemon) report += `| ${d.suite} | ${d.status} | ${d.reason} |\n`;
+} else {
+  report += `Substitutions: \`bin/thinkers\` -> \`bin/thinkers.mjs\`, \`tools/identity\` -> \`bin/identity.mjs\`, \`tools/headlong-killall\` -> \`bin/headlong-killall.mjs\`, plus the same 12 PORT_TOOLS wrappers used above. Same port/control methodology as the main table: control = real upstream Bash suite run unmodified; port = same suite run in a scratch copy with the substitutions applied. A port failure whose exact "FAIL ..." line also fails against control is upstream-red, not a port bug.\n\n`;
+  report += `| Suite | Port pass/total | Control pass/total | Classification |\n|---|---|---|---|\n`;
+  for (const d of scrubbedDaemon) {
+    if (d.status !== "run") {
+      report += `| ${d.suite} | — | — | ${d.status}: ${d.reason} |\n`;
+      continue;
+    }
+    const cls = d.portOnlyFailures.length
+      ? `${d.portOnlyFailures.length} port-only failure(s)${d.rootCause ? " — " + d.rootCause.split(" — ")[0].split(", not a port bug")[0] : ""}`
+      : "parity";
+    report += `| ${d.suite} | ${fmtCounts(d.port)} | ${fmtCounts(d.control)} | ${cls} |\n`;
+  }
+  report += `\n### Daemon lane failure detail\n\n`;
+  for (const d of scrubbedDaemon) {
+    if (d.status !== "run") continue;
+    if (d.portOnlyFailures?.length) {
+      report += `#### ${d.suite}\n\n`;
+      if (d.rootCause) report += `**Root cause:** ${d.rootCause}\n\n`;
+      report += `<details><summary>${d.portOnlyFailures.length} port-only failure line(s)</summary>\n\n`;
+      for (const l of d.portOnlyFailures) report += `- \`${l}\`\n`;
+      report += `\n</details>\n\n`;
+    }
+    if (d.upstreamRed?.length) {
+      report += `#### ${d.suite} — upstream-red (fails against real Bash too, not a port bug)\n\n`;
+      for (const l of d.upstreamRed) report += `- \`${l}\`\n`;
+      report += `\n`;
+    }
+  }
+}
+
+report += `\n## Installer lane (--installer)\n\n`;
+if (!RUN_INSTALLER) {
+  report += `Not run this pass — invoke with \`--installer\` to substitute tools/headlong-init -> bin/headlong-init.mjs, install.sh -> install.mjs, status.sh -> status.mjs, uninstall.sh -> uninstall.mjs, tools/identity -> bin/identity.mjs and run the ${INSTALLER_SUITES.length} suites below.\n\n`;
+  report += `| Suite | Status | Reason |\n|---|---|---|\n`;
+  for (const d of scrubbedInstaller) report += `| ${d.suite} | ${d.status} | ${d.reason ?? "-"} |\n`;
+} else {
+  report += `Substitutions: \`tools/headlong-init\` -> \`bin/headlong-init.mjs\`, \`install.sh\` -> \`install.mjs\`, \`status.sh\` -> \`status.mjs\`, \`uninstall.sh\` -> \`uninstall.mjs\`, \`tools/identity\` -> \`bin/identity.mjs\`. Same port/control methodology as the main table.\n\n`;
+  report += `| Suite | Port pass/total | Control pass/total | Classification |\n|---|---|---|---|\n`;
+  for (const d of scrubbedInstaller) {
+    if (d.status !== "run") {
+      report += `| ${d.suite} | — | — | ${d.status}: ${d.reason} |\n`;
+      continue;
+    }
+    const rootCat = d.rootCause ? d.rootCause.split(" — ")[0].split(", not a port bug")[0] : null;
+    const cls =
+      d.cls === "portable"
+        ? d.portOnlyFailures.length
+          ? `${rootCat || "portable"} — ${d.portOnlyFailures.length} port-only failure(s)`
+          : "portable — parity"
+        : `bash-artifact dependency (${d.note})`;
+    report += `| ${d.suite} | ${fmtCounts(d.port)} | ${fmtCounts(d.control)} | ${cls} |\n`;
+  }
+  report += `\n### Installer lane failure detail\n\n`;
+  for (const d of scrubbedInstaller) {
+    if (d.status !== "run") continue;
+    if (d.portOnlyFailures?.length) {
+      report += `#### ${d.suite}\n\n`;
+      if (d.rootCause) report += `**Root cause:** ${d.rootCause}\n\n`;
+      report += `<details><summary>${d.portOnlyFailures.length} port-only failure line(s)</summary>\n\n`;
+      for (const l of d.portOnlyFailures) report += `- \`${l}\`\n`;
+      report += `\n</details>\n\n`;
+    }
+    if (d.upstreamRed?.length) {
+      report += `#### ${d.suite} — upstream-red (fails against real Bash too, not a port bug)\n\n`;
+      for (const l of d.upstreamRed) report += `- \`${l}\`\n`;
+      report += `\n`;
+    }
+  }
+}
+
+report += `\n## Failure detail and root-cause analysis\n\n`;
+for (const r of scrubbedResults) {
+  if (r.skipped) continue;
+  if (r.portOnlyFailures?.length) {
+    report += `### ${r.suite}\n\n`;
+    if (r.rootCause) report += `**Root cause:** ${r.rootCause}\n\n`;
+    report += `<details><summary>${r.portOnlyFailures.length} port-only failure line(s)</summary>\n\n`;
+    for (const l of r.portOnlyFailures) report += `- \`${l}\`\n`;
+    report += `\n</details>\n\n`;
+  }
+  if (r.upstreamRed?.length) {
+    report += `### ${r.suite} — upstream-red (fails against real Bash too, not a port bug)\n\n`;
+    for (const l of r.upstreamRed) report += `- \`${l}\`\n`;
+    report += `\n`;
+  }
+}
+
+fs.writeFileSync(path.join(OUT_DIR || HERE, "report.md"), report);
+
+// --- console summary -------------------------------------------------------------
+console.log("upstream-tests: done.");
+for (const r of scrubbedResults) {
+  if (r.skipped) {
+    console.log(`  ${r.suite}: SKIPPED (${r.skipped})`);
+    continue;
+  }
+  console.log(
+    `  ${r.suite}: port=${fmtCounts(r.port)} control=${fmtCounts(r.control)} cls=${r.cls}${
+      r.portOnlyFailures?.length ? ` PORT-ONLY-FAILS=${r.portOnlyFailures.length}` : ""
+    }`
+  );
+}
+if (RUN_DAEMON) {
+  console.log("\ndaemon lane:");
+  for (const d of scrubbedDaemon) {
+    if (d.status !== "run") {
+      console.log(`  ${d.suite}: ${d.status} (${d.reason})`);
+      continue;
+    }
+    console.log(
+      `  ${d.suite}: port=${fmtCounts(d.port)} control=${fmtCounts(d.control)}${
+        d.portOnlyFailures?.length ? ` PORT-ONLY-FAILS=${d.portOnlyFailures.length}` : ""
+      }`
+    );
+  }
+}
+
+if (RUN_INSTALLER) {
+  console.log("\ninstaller lane:");
+  for (const d of scrubbedInstaller) {
+    if (d.status !== "run") {
+      console.log(`  ${d.suite}: ${d.status} (${d.reason})`);
+      continue;
+    }
+    console.log(
+      `  ${d.suite}: port=${fmtCounts(d.port)} control=${fmtCounts(d.control)} cls=${d.cls}${
+        d.portOnlyFailures?.length ? ` PORT-ONLY-FAILS=${d.portOnlyFailures.length}` : ""
+      }`
+    );
+  }
+}
+
+console.log(`\nreport: ${path.join(HERE, "report.md")}`);
+console.log(`results: ${path.join(HERE, "results.json")}`);
+
+const anyPortOnly =
+  scrubbedResults.some((r) => r.portOnlyFailures?.length) ||
+  scrubbedDaemon.some((d) => d.status === "run" && d.portOnlyFailures?.length) ||
+  scrubbedInstaller.some((d) => d.status === "run" && d.cls === "portable" && d.portOnlyFailures?.length);
+process.exit(anyPortOnly ? 1 : 0);

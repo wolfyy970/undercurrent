@@ -1,0 +1,15 @@
+# gitleaks configuration: the default rules, plus an allowlist for the synthetic secrets that redaction tests and parity
+# harnesses feed in on purpose (fake keys, fake JWTs, a dummy PEM block) to prove they never reach a trajectory or a log.
+# None of them is a real credential. Add a path here only for a file whose secrets are fakes by design, and say why.
+title = "undercurrent"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Fake secrets used to test redaction (tests and parity harnesses)"
+paths = [
+  '''^parity/(chat|extract|prompt|responder|traj)/run-parity\.mjs$''',
+  '''^test/(memRedact|promptRedact|responderRedact|trajSync)\.test\.ts$''',
+  '''^web/server/test/controls-slice-c\.test\.ts$''',
+]

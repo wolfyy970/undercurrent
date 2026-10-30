@@ -1,0 +1,23 @@
+name: Bug report
+description: Something in Undercurrent is broken
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes: {label: What happened, description: "Include the command and its output."}
+    validations: {required: true}
+  - type: textarea
+    id: expected
+    attributes: {label: What you expected}
+    validations: {required: true}
+  - type: textarea
+    id: repro
+    attributes: {label: How to reproduce, description: "Commands, environment variables, a small identity or trajectory if you can."}
+  - type: input
+    id: version
+    attributes: {label: Undercurrent version or commit}
+  - type: input
+    id: runtime
+    attributes: {label: "Runtime and OS (e.g. Node 22.18 on Ubuntu 24.04, Bun 1.4.4 on macOS 15)"}
+  - type: markdown
+    attributes: {value: "Please remove API keys, tokens and personal paths before posting. Security problems: see SECURITY.md, not an issue."}

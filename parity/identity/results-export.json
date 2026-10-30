@@ -1,0 +1,133 @@
+{
+  "total": 7,
+  "passed": 7,
+  "rate": "100.0",
+  "results": [
+    {
+      "name": "single-identity-by-name",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "Exported 1 identity -> <TMP>/identity-export-parity-DOmZKe/bash.shellm.tgz\n",
+        "entryCount": 36
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "entryCount": 36
+      },
+      "diffs": [],
+      "manifestMatch": true
+    },
+    {
+      "name": "single-identity-by-path",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "Exported 1 identity -> <TMP>/identity-export-parity-a2JKp7/bash.shellm.tgz\n",
+        "entryCount": 36
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "entryCount": 36
+      },
+      "diffs": [],
+      "manifestMatch": true
+    },
+    {
+      "name": "soul-only",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "Exported 1 identity -> <TMP>/identity-export-parity-soaWTf/bash.shellm.tgz\n",
+        "entryCount": 33
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "entryCount": 33
+      },
+      "diffs": [],
+      "manifestMatch": true
+    },
+    {
+      "name": "slim-truncate-and-redact",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "Exported 1 identity -> <TMP>/identity-export-parity-bpfUMv/bash.shellm.tgz\n",
+        "entryCount": 36
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "entryCount": 36
+      },
+      "diffs": [],
+      "manifestMatch": true
+    },
+    {
+      "name": "slim-drops-content-b64",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "Exported 1 identity -> <TMP>/identity-export-parity-2ZrYan/bash.shellm.tgz\n",
+        "entryCount": 36
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "entryCount": 36
+      },
+      "diffs": [],
+      "manifestMatch": true
+    },
+    {
+      "name": "all-identities",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "Exported 2 identities -> <TMP>/identity-export-parity-0pYtoO/bash.shellm.tgz\n",
+        "entryCount": 69
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "entryCount": 69
+      },
+      "diffs": [],
+      "manifestMatch": true
+    },
+    {
+      "name": "default-identity-no-args",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "Exported 1 identity -> <TMP>/identity-export-parity-atGN25/bash.shellm.tgz\n",
+        "entryCount": 35
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "entryCount": 35
+      },
+      "diffs": [],
+      "manifestMatch": true
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+name: Parity gap
+description: Undercurrent behaves differently from upstream Headlong
+labels: [parity]
+body:
+  - type: input
+    id: tool
+    attributes: {label: Tool or area, description: "e.g. traj, chat, mem, llm, shellm, thinkers, installer, web"}
+    validations: {required: true}
+  - type: input
+    id: upstream
+    attributes: {label: Upstream commit compared against}
+    validations: {required: true}
+  - type: textarea
+    id: upstream_does
+    attributes: {label: What upstream does, description: "Command, output, exit code, files written."}
+    validations: {required: true}
+  - type: textarea
+    id: port_does
+    attributes: {label: What Undercurrent does}
+    validations: {required: true}
+  - type: textarea
+    id: notes
+    attributes: {label: Notes, description: "Is this already listed as a deviation in PARITY.md? Did a parity harness show it?"}

@@ -1,0 +1,10 @@
+#!/bin/sh
+":" //; exec "${HEADLONG_TS_RUNTIME:-$(command -v bun || command -v node)}" "$0" "$@"
+// bin/shellm — bare-name executable the sandbox PATH resolves when the model
+// runs `shellm …` in its bash action block. This is NODE, not Bash: the goal
+// is zero Bash in the harness. It is a one-line trampoline into the real entry
+// (bin/shellm.mjs), whose top-level runs runShellm and process.exit.
+//
+// Extensionless + `"type":"module"` in the repo's package.json makes Node treat
+// this as ESM, so the import resolves against this file's dir → ./shellm.mjs.
+import "./shellm.mjs";

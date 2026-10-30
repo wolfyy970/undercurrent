@@ -1,0 +1,150 @@
+{
+  "total": 12,
+  "diverged": 0,
+  "rows": [
+    {
+      "scenario": "unknown-command-line-2",
+      "same": true,
+      "upstream": {
+        "stdout": "one\nbash: line 3: no_such_cmd_q: command not found",
+        "exit": 127
+      },
+      "port": {
+        "stdout": "one\nbash: line 3: no_such_cmd_q: command not found",
+        "exit": 127
+      }
+    },
+    {
+      "scenario": "unknown-command-line-1",
+      "same": true,
+      "upstream": {
+        "stdout": "bash: line 2: no_such_cmd_q: command not found",
+        "exit": 127
+      },
+      "port": {
+        "stdout": "bash: line 2: no_such_cmd_q: command not found",
+        "exit": 127
+      }
+    },
+    {
+      "scenario": "unknown-command-line-5",
+      "same": true,
+      "upstream": {
+        "stdout": "a\nb\nc\nd\nbash: line 6: no_such_cmd_q: command not found",
+        "exit": 127
+      },
+      "port": {
+        "stdout": "a\nb\nc\nd\nbash: line 6: no_such_cmd_q: command not found",
+        "exit": 127
+      }
+    },
+    {
+      "scenario": "syntax-error-mid-script",
+      "same": true,
+      "upstream": {
+        "stdout": "one\ntwo\nbash: -c: line 4: syntax error near unexpected token `then'",
+        "exit": 2
+      },
+      "port": {
+        "stdout": "one\ntwo\nbash: -c: line 4: syntax error near unexpected token `then'",
+        "exit": 2
+      }
+    },
+    {
+      "scenario": "syntax-error-unexpected-token",
+      "same": true,
+      "upstream": {
+        "stdout": "one\nbash: -c: line 3: syntax error near unexpected token `)'",
+        "exit": 2
+      },
+      "port": {
+        "stdout": "one\nbash: -c: line 3: syntax error near unexpected token `)'",
+        "exit": 2
+      }
+    },
+    {
+      "scenario": "unterminated-if-eof",
+      "same": true,
+      "upstream": {
+        "stdout": "one\nbash: -c: line 12: syntax error: unexpected end of file",
+        "exit": 2
+      },
+      "port": {
+        "stdout": "one\nbash: -c: line 12: syntax error: unexpected end of file",
+        "exit": 2
+      }
+    },
+    {
+      "scenario": "unterminated-quote-eof",
+      "same": true,
+      "upstream": {
+        "stdout": "one\nbash: -c: line 9: unexpected EOF while looking for matching `''",
+        "exit": 2
+      },
+      "port": {
+        "stdout": "one\nbash: -c: line 9: unexpected EOF while looking for matching `''",
+        "exit": 2
+      }
+    },
+    {
+      "scenario": "lineno-printed",
+      "same": true,
+      "upstream": {
+        "stdout": "2\n4\n5",
+        "exit": 0
+      },
+      "port": {
+        "stdout": "2\n4\n5",
+        "exit": 0
+      }
+    },
+    {
+      "scenario": "heredoc-then-unknown",
+      "same": true,
+      "upstream": {
+        "stdout": "h1\nh2\nbash: line 6: no_such_cmd_q: command not found",
+        "exit": 127
+      },
+      "port": {
+        "stdout": "h1\nh2\nbash: line 6: no_such_cmd_q: command not found",
+        "exit": 127
+      }
+    },
+    {
+      "scenario": "function-body-error",
+      "same": true,
+      "upstream": {
+        "stdout": "start\nenvironment: line 3: no_such_cmd_q: command not found",
+        "exit": 127
+      },
+      "port": {
+        "stdout": "start\nenvironment: line 3: no_such_cmd_q: command not found",
+        "exit": 127
+      }
+    },
+    {
+      "scenario": "set-e-false-exit",
+      "same": true,
+      "upstream": {
+        "stdout": "one",
+        "exit": 1
+      },
+      "port": {
+        "stdout": "one",
+        "exit": 1
+      }
+    },
+    {
+      "scenario": "stderr-redirect-error-line",
+      "same": true,
+      "upstream": {
+        "stdout": "a\nls: cannot access '/definitely/not/here_q': No such file or directory",
+        "exit": 2
+      },
+      "port": {
+        "stdout": "a\nls: cannot access '/definitely/not/here_q': No such file or directory",
+        "exit": 2
+      }
+    }
+  ]
+}

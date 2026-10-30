@@ -1,0 +1,36 @@
+{
+  "total": 6,
+  "passed": 6,
+  "checks": [
+    {
+      "name": "PEM: python-generated key loads in node, identical pubkey",
+      "pass": true,
+      "detail": "py=BND4v2VOZk-au4xk... node=BND4v2VOZk-au4xk..."
+    },
+    {
+      "name": "PEM: node-generated key loads in python, identical pubkey",
+      "pass": true,
+      "detail": "py=BNhzn869vDei9J2M... node=BNhzn869vDei9J2M..."
+    },
+    {
+      "name": "VAPID JWT: node-signed token verifies with py_vapid.jwt.decode",
+      "pass": true,
+      "detail": "OK {\"aud\": \"https://push.example.com\", \"exp\": 9999999999, \"sub\": \"mailto:admin@example.com\"}"
+    },
+    {
+      "name": "VAPID JWT: python-signed (py_vapid) token verifies in node",
+      "pass": true,
+      "detail": "verified=true claims={\"aud\":\"https://push.example.com\",\"exp\":9999999999,\"sub\":\"mailto:admin@example.com\"}"
+    },
+    {
+      "name": "aes128gcm: node-encrypted payload decrypts with http_ece.decrypt",
+      "pass": true,
+      "detail": "decrypted=\"hello from node — interop proof 1\""
+    },
+    {
+      "name": "aes128gcm: http_ece-encrypted payload decrypts in node",
+      "pass": true,
+      "detail": "decrypted=\"hello from python — interop proof 2\""
+    }
+  ]
+}

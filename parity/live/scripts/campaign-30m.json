@@ -1,0 +1,31 @@
+[
+  {
+    "type": "message",
+    "atMinutes": 0,
+    "text": "Hi, I'm JO. Remember: my favourite colour is teal and I run a small design consultancy in the UK. Then, on your own over the next while, research and write me a short note (5 bullets) on what makes a good design-system changelog, and save it as a memory."
+  },
+  { "type": "message", "atMinutes": 2, "text": "Quick check — what's my favourite colour?" },
+  {
+    "type": "burst",
+    "atMinutes": 4,
+    "count": 3,
+    "overSeconds": 20,
+    "textTemplate": "Quick one #{n} — still there?"
+  },
+  { "type": "thinkers-stop", "atMinutes": 7 },
+  { "type": "thinkers-start", "atMinutes": 7.5 },
+  { "type": "dispatcher-sigterm", "atMinutes": 10 },
+  { "type": "thinkers-start", "atMinutes": 10.5 },
+  { "type": "step-sigkill", "atMinutes": 13 },
+  { "type": "docker-pause", "atMinutes": 15 },
+  { "type": "docker-unpause", "atMinutes": 15.5 },
+  { "type": "model-fault", "atMinutes": 17, "faultType": "429", "count": 2 },
+  { "type": "model-fault", "atMinutes": 18, "faultType": "500", "count": 3 },
+  { "type": "model-fault", "atMinutes": 19, "faultType": "truncated", "count": 2 },
+  { "type": "model-fault", "atMinutes": 20, "faultType": "stall", "count": 1 },
+  { "type": "dispatcher-sigkill", "atMinutes": 21 },
+  { "type": "thinkers-start", "atMinutes": 21.5 },
+  { "type": "second-identity", "atMinutes": 23, "name": "sxs2" },
+  { "type": "quiet", "atMinutes": 24, "minutes": 5 },
+  { "type": "message", "atMinutes": 29, "text": "Thanks for sticking with me — anything you've done on your own since we last spoke?" }
+]

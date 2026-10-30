@@ -1,0 +1,109 @@
+{
+  "total": 6,
+  "passed": 6,
+  "rate": "100.0",
+  "results": [
+    {
+      "name": "single-identity-default-name",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "alice\n",
+        "stderr": "Imported 1 identity: alice\n"
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "alice\n",
+        "stderr": "Imported 1 identity: alice\n"
+      },
+      "statusMatch": true,
+      "stdoutMatch": true,
+      "treeDiffs": []
+    },
+    {
+      "name": "single-identity-rename",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "renamed\n",
+        "stderr": "Imported 1 identity: renamed\n"
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "renamed\n",
+        "stderr": "Imported 1 identity: renamed\n"
+      },
+      "statusMatch": true,
+      "stdoutMatch": true,
+      "treeDiffs": []
+    },
+    {
+      "name": "multi-identity-all",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "alice\nbob\n",
+        "stderr": "Imported 2 identities: alice bob\n"
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "alice\nbob\n",
+        "stderr": "Imported 2 identities: alice bob\n"
+      },
+      "statusMatch": true,
+      "stdoutMatch": true,
+      "treeDiffs": []
+    },
+    {
+      "name": "soul-only-live-root-repair",
+      "pass": true,
+      "bash": {
+        "status": 0,
+        "stdout": "alice\n",
+        "stderr": "Imported 1 identity: alice\n"
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "alice\n",
+        "stderr": "Imported 1 identity: alice\n"
+      },
+      "statusMatch": true,
+      "stdoutMatch": true,
+      "treeDiffs": []
+    },
+    {
+      "name": "conflict-existing-identity",
+      "pass": true,
+      "bash": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "identity: error: import: identity already exists: alice (use --name or delete first)\n"
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "import: identity already exists: alice (use --name or delete first)\n"
+      },
+      "statusMatch": true,
+      "stdoutMatch": true,
+      "treeDiffs": []
+    },
+    {
+      "name": "not-a-gzip-archive",
+      "pass": true,
+      "bash": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "identity: error: import: not a .tgz archive: <TMP>/identity-import-parity-sNfueR/bogus.shellm.tgz\n"
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "import: not a .tgz archive: <TMP>/identity-import-parity-sNfueR/bogus.shellm.tgz\n"
+      },
+      "statusMatch": true,
+      "stdoutMatch": true,
+      "treeDiffs": []
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+Undercurrent
+============
+
+(Formerly developed under the working name headlong-ts.)
+
+This project is a TypeScript port of Headlong, the persistent-agent
+microharness by the Laude Institute:
+
+    https://github.com/laude-institute/headlong
+    Copyright the Headlong authors.
+    Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Undercurrent is a best-effort, LLM-assisted reimplementation of Headlong's
+deterministic behavior in TypeScript. It contains modifications from the
+original and is NOT affiliated with or endorsed by the Laude Institute.
+
+Provenance of the parts:
+
+  - src/, web/server/   New TypeScript code written for this port. Where a
+                        module ports a specific upstream unit, its header
+                        cites the source (e.g. bin/shellm, bin/traj,
+                        bin/thinkers, bin/mem, bin/skills, and the Python
+                        modules under web/src/headlong_web/).
+
+  - golden/, parity/    Behavioral oracle data captured by running the
+                        original Headlong (Apache-2.0), used for the
+                        differential tests described in PORTING.md. Demo
+                        trajectory content has been de-identified.
+
+  - web/viewer/         The original Headlong React viewer, vendored
+                        (Apache-2.0) and unmodified except for a dev-server
+                        proxy and npm scripts. See web/NOTICE and web/LICENSE
+                        for the viewer's own provenance.
+
+  - tui/                The original Headlong Rust terminal UI
+                        (`headlong-tui`), vendored (Apache-2.0) and
+                        unmodified. Per this port's Rust-stays-native rule,
+                        the TUI is not reimplemented in TypeScript; it is
+                        copied verbatim from headlong/tui and built with
+                        cargo, shelling out to this port's `traj`, `chat`,
+                        `thinkers`, `identity`, and `skills` CLIs on PATH.
+
+The original work is licensed under Apache-2.0; this port is likewise
+distributed under Apache-2.0 (see LICENSE).

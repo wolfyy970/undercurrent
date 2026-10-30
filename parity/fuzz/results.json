@@ -1,0 +1,794 @@
+{
+  "seedBase": 2,
+  "startedAt": "2026-09-06T18:59:59.649Z",
+  "tools": {
+    "chat": {
+      "tool": "chat",
+      "seed": 4083835749,
+      "elapsedS": "39.3",
+      "tally": {
+        "generated": 400,
+        "identical": 377,
+        "allowed": 23,
+        "diverge": 0,
+        "errors": 0
+      },
+      "findings": [],
+      "bashPath": "<HEADLONG_ROOT>/bin/chat"
+    },
+    "context": {
+      "tool": "context",
+      "seed": 642250210,
+      "elapsedS": "44.8",
+      "tally": {
+        "generated": 400,
+        "identical": 349,
+        "allowed": 49,
+        "diverge": 2,
+        "errors": 0
+      },
+      "findings": [
+        {
+          "file": "parity/fuzz/findings/context-1.md",
+          "group": "context",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/context-2.md",
+          "group": "context",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": false
+          }
+        }
+      ],
+      "bashPath": "<HEADLONG_ROOT>/bin/context"
+    },
+    "focus": {
+      "tool": "focus",
+      "seed": 209948125,
+      "elapsedS": "34.4",
+      "tally": {
+        "generated": 400,
+        "identical": 400,
+        "allowed": 0,
+        "diverge": 0,
+        "errors": 0
+      },
+      "findings": [],
+      "bashPath": "<HEADLONG_ROOT>/bin/focus"
+    },
+    "glob": {
+      "tool": "glob",
+      "seed": 1972191973,
+      "elapsedS": "101.1",
+      "tally": {
+        "generated": 400,
+        "identical": 384,
+        "allowed": 14,
+        "diverge": 2,
+        "errors": 0
+      },
+      "findings": [
+        {
+          "file": "parity/fuzz/findings/glob-1.md",
+          "group": "limit",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/glob-2.md",
+          "group": "none",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        }
+      ],
+      "bashPath": "<HEADLONG_ROOT>/bin/glob"
+    },
+    "identity": {
+      "tool": "identity",
+      "seed": 3773167109,
+      "elapsedS": "46.1",
+      "tally": {
+        "generated": 400,
+        "identical": 370,
+        "allowed": 0,
+        "diverge": 30,
+        "errors": 0
+      },
+      "findings": [
+        {
+          "file": "parity/fuzz/findings/identity-2.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-3.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-4.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-5.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-6.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-7.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-8.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-9.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-10.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-11.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-12.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-13.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-14.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-15.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-16.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-17.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-18.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-19.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-20.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-21.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-22.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-23.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-24.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-25.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-26.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-27.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-28.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-29.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-30.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/identity-31.md",
+          "group": "list",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false
+          }
+        }
+      ],
+      "bashPath": "<HEADLONG_ROOT>/tools/identity"
+    },
+    "killall": {
+      "tool": "killall",
+      "seed": 2823887230,
+      "elapsedS": "174.0",
+      "tally": {
+        "generated": 400,
+        "identical": 400,
+        "allowed": 0,
+        "diverge": 0,
+        "errors": 0
+      },
+      "findings": [],
+      "bashPath": "<HEADLONG_ROOT>/tools/headlong-killall"
+    },
+    "llm": {
+      "tool": "llm",
+      "seed": 3753365250,
+      "elapsedS": "70.6",
+      "tally": {
+        "generated": 400,
+        "identical": 259,
+        "allowed": 126,
+        "diverge": 15,
+        "errors": 0
+      },
+      "findings": [
+        {
+          "file": "parity/fuzz/findings/llm-4.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-5.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-6.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-7.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-8.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-9.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-10.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-11.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-12.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-13.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-14.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-15.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-16.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-17.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/llm-18.md",
+          "group": "closed-port",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true
+          }
+        }
+      ],
+      "bashPath": "<HEADLONG_ROOT>/bin/llm"
+    },
+    "mem": {
+      "tool": "mem",
+      "seed": 1322544184,
+      "elapsedS": "443.1",
+      "tally": {
+        "generated": 400,
+        "identical": 368,
+        "allowed": 32,
+        "diverge": 0,
+        "errors": 0
+      },
+      "findings": [],
+      "bashPath": "<HEADLONG_ROOT>/bin/mem"
+    },
+    "recap": {
+      "tool": "recap",
+      "seed": 4032813354,
+      "elapsedS": "342.0",
+      "tally": {
+        "generated": 400,
+        "identical": 390,
+        "allowed": 7,
+        "diverge": 3,
+        "errors": 0
+      },
+      "findings": [
+        {
+          "file": "parity/fuzz/findings/recap-1.md",
+          "group": "recap",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/recap-2.md",
+          "group": "recap",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/recap-3.md",
+          "group": "recap",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        }
+      ],
+      "bashPath": "<HEADLONG_ROOT>/bin/recap"
+    },
+    "retrieval": {
+      "tool": "retrieval",
+      "seed": 2945991233,
+      "elapsedS": "76.4",
+      "tally": {
+        "generated": 400,
+        "identical": 252,
+        "allowed": 144,
+        "diverge": 4,
+        "errors": 0
+      },
+      "findings": [
+        {
+          "file": "parity/fuzz/findings/retrieval-5.md",
+          "group": "retrieval",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": false,
+            "traj": true,
+            "index": true,
+            "seen": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/retrieval-6.md",
+          "group": "retrieval",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": false,
+            "traj": true,
+            "index": false,
+            "seen": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/retrieval-7.md",
+          "group": "retrieval",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": false,
+            "traj": true,
+            "index": true,
+            "seen": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/retrieval-8.md",
+          "group": "retrieval",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": false,
+            "traj": true,
+            "index": false,
+            "seen": true
+          }
+        }
+      ],
+      "bashPath": "<HEADLONG_ROOT>/thinkers/retrieval/step"
+    },
+    "skills": {
+      "tool": "skills",
+      "seed": 3003359985,
+      "elapsedS": "53.8",
+      "tally": {
+        "generated": 400,
+        "identical": 399,
+        "allowed": 0,
+        "diverge": 1,
+        "errors": 0
+      },
+      "findings": [
+        {
+          "file": "parity/fuzz/findings/skills-2.md",
+          "group": "list-json",
+          "cmp": {
+            "stdout": false,
+            "stderr": true,
+            "status": true,
+            "state": true
+          }
+        }
+      ],
+      "bashPath": "<HEADLONG_ROOT>/bin/skills"
+    },
+    "traj": {
+      "tool": "traj",
+      "seed": 2111378778,
+      "elapsedS": "40.4",
+      "tally": {
+        "generated": 400,
+        "identical": 384,
+        "allowed": 8,
+        "diverge": 8,
+        "errors": 0
+      },
+      "findings": [
+        {
+          "file": "parity/fuzz/findings/traj-3.md",
+          "group": "show",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false,
+            "state": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/traj-4.md",
+          "group": "fork",
+          "cmp": {
+            "stdout": true,
+            "stderr": true,
+            "status": true,
+            "state": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/traj-5.md",
+          "group": "search",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/traj-6.md",
+          "group": "fork",
+          "cmp": {
+            "stdout": false,
+            "stderr": false,
+            "status": false,
+            "state": false
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/traj-7.md",
+          "group": "search",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/traj-8.md",
+          "group": "last",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/traj-9.md",
+          "group": "search",
+          "cmp": {
+            "stdout": true,
+            "stderr": false,
+            "status": true,
+            "state": true
+          }
+        },
+        {
+          "file": "parity/fuzz/findings/traj-10.md",
+          "group": "tail",
+          "cmp": {
+            "stdout": false,
+            "stderr": true,
+            "status": true,
+            "state": true
+          }
+        }
+      ],
+      "bashPath": "<HEADLONG_ROOT>/bin/traj"
+    }
+  },
+  "finishedAt": "2026-09-06T19:00:40.032Z"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "message",
+    "atMinutes": 0,
+    "text": "Hi, I'm JO. Remember: my favourite colour is teal and I run a small design consultancy in the UK. Then, on your own over the next while, research and write me a short note (5 bullets) on what makes a good design-system changelog, and save it as a memory."
+  },
+  {
+    "type": "burst",
+    "atMinutes": 1.5,
+    "count": 3,
+    "overSeconds": 15,
+    "textTemplate": "Quick one #{n} — still there?"
+  },
+  { "type": "dispatcher-sigterm", "atMinutes": 3 },
+  { "type": "thinkers-start", "atMinutes": 3.3 },
+  { "type": "step-sigkill", "atMinutes": 5 },
+  { "type": "model-fault", "atMinutes": 6.5, "faultType": "500", "count": 3 },
+  { "type": "quiet", "atMinutes": 8, "minutes": 3 },
+  { "type": "message", "atMinutes": 11, "text": "Thanks for sticking with me — anything you've done on your own since we last spoke?" }
+]

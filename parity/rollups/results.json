@@ -1,0 +1,228 @@
+{
+  "generated_at": "2026-08-29T16:16:56.589Z",
+  "node": "v24.19.0",
+  "traj": "55fd5932-root",
+  "high_water_lines": 1188,
+  "proofs": {
+    "A_render": {
+      "pass": true,
+      "ts_rows": 252,
+      "ref_rows": 252,
+      "field_mismatches": 0,
+      "sample_mismatches": [],
+      "derived_filtered_count": 252
+    },
+    "B_plan": {
+      "pass": true,
+      "derived_n": 252,
+      "checks": [
+        {
+          "name": "t1 has 25 sealed blocks",
+          "ok": true,
+          "detail": "25"
+        },
+        {
+          "name": "t2 has 2 sealed blocks",
+          "ok": true,
+          "detail": "2"
+        },
+        {
+          "name": "buildPlan(252,0) block set == on-disk block set",
+          "ok": true,
+          "detail": "27 keys identical"
+        },
+        {
+          "name": "block set stable at full log (n=253)",
+          "ok": true,
+          "detail": "full=27 keys"
+        },
+        {
+          "name": "every filename encodes its own absolute [start,end) range",
+          "ok": true
+        },
+        {
+          "name": "every block n = end − start = F^tier",
+          "ok": true
+        },
+        {
+          "name": "every block's tier field matches its dir",
+          "ok": true
+        },
+        {
+          "name": "every block stamped prompt_version=2",
+          "ok": true
+        },
+        {
+          "name": "every block carries the sealed-block schema (non-empty step_ids)",
+          "ok": true
+        },
+        {
+          "name": "t1 tiles [0,250) contiguously",
+          "ok": true
+        },
+        {
+          "name": "t2 tiles [0,200) contiguously",
+          "ok": true
+        },
+        {
+          "name": "meta.json start_index is F-aligned",
+          "ok": true,
+          "detail": "start_index=0"
+        }
+      ]
+    },
+    "C_staircase": {
+      "pass": true,
+      "scenarios": [
+        {
+          "rawTail": 50,
+          "note": "clean t2 boundary (cut0=200)",
+          "pass": true,
+          "bash_exit": 0,
+          "bash_stderr": "",
+          "struct": {
+            "hasLife": true,
+            "segments": [
+              "t2[0,100)",
+              "t2[100,200)"
+            ],
+            "segment_ids_match": true,
+            "tailCount": 52,
+            "tailCount_match": true,
+            "tailIds_len": 52,
+            "tailIds_match": true
+          },
+          "full_text_identical": true,
+          "diff": null
+        },
+        {
+          "rawTail": 60,
+          "note": "staircase t2+9·t1 (cut0=190, tail=62)",
+          "pass": true,
+          "bash_exit": 0,
+          "bash_stderr": "",
+          "struct": {
+            "hasLife": true,
+            "segments": [
+              "t2[0,100)",
+              "t1[100,110)",
+              "t1[110,120)",
+              "t1[120,130)",
+              "t1[130,140)",
+              "t1[140,150)",
+              "t1[150,160)",
+              "t1[160,170)",
+              "t1[170,180)",
+              "t1[180,190)"
+            ],
+            "segment_ids_match": true,
+            "tailCount": 62,
+            "tailCount_match": true,
+            "tailIds_len": 62,
+            "tailIds_match": true
+          },
+          "full_text_identical": true,
+          "diff": null
+        },
+        {
+          "rawTail": 20,
+          "note": "mixed t2+t2+3·t1 (cut0=230)",
+          "pass": true,
+          "bash_exit": 0,
+          "bash_stderr": "",
+          "struct": {
+            "hasLife": true,
+            "segments": [
+              "t2[0,100)",
+              "t2[100,200)",
+              "t1[200,210)",
+              "t1[210,220)",
+              "t1[220,230)"
+            ],
+            "segment_ids_match": true,
+            "tailCount": 22,
+            "tailCount_match": true,
+            "tailIds_len": 22,
+            "tailIds_match": true
+          },
+          "full_text_identical": true,
+          "diff": null
+        },
+        {
+          "rawTail": 5,
+          "note": "explicit R below auto-floor (cut0=240)",
+          "pass": true,
+          "bash_exit": 0,
+          "bash_stderr": "",
+          "struct": {
+            "hasLife": true,
+            "segments": [
+              "t2[0,100)",
+              "t2[100,200)",
+              "t1[200,210)",
+              "t1[210,220)",
+              "t1[220,230)",
+              "t1[230,240)"
+            ],
+            "segment_ids_match": true,
+            "tailCount": 12,
+            "tailCount_match": true,
+            "tailIds_len": 12,
+            "tailIds_match": true
+          },
+          "full_text_identical": true,
+          "diff": null
+        },
+        {
+          "rawTail": 252,
+          "note": "R=n → all-raw, no life section (cut0=0)",
+          "pass": true,
+          "bash_exit": 0,
+          "bash_stderr": "",
+          "struct": {
+            "hasLife": false,
+            "segments": [],
+            "segment_ids_match": true,
+            "tailCount": 252,
+            "tailCount_match": true,
+            "tailIds_len": 252,
+            "tailIds_match": true
+          },
+          "full_text_identical": true,
+          "diff": null
+        },
+        {
+          "rawTail": "auto",
+          "note": "auto budget → R=20 via model window+cap",
+          "pass": true,
+          "bash_exit": 0,
+          "bash_stderr": "",
+          "struct": {
+            "hasLife": true,
+            "segments": [
+              "t2[0,100)",
+              "t2[100,200)",
+              "t1[200,210)",
+              "t1[210,220)",
+              "t1[220,230)"
+            ],
+            "segment_ids_match": true,
+            "tailCount": 22,
+            "tailCount_match": true,
+            "tailIds_len": 22,
+            "tailIds_match": true
+          },
+          "full_text_identical": true,
+          "diff": null
+        }
+      ]
+    }
+  },
+  "summary": {
+    "passed": 19,
+    "total": 19,
+    "pass_rate": "19/19",
+    "pass_pct": 100,
+    "all_pass": true
+  }
+}

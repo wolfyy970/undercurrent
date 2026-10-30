@@ -1,0 +1,8 @@
+{
+  "busy_thinkers": [],
+  "dispatcher_running": false,
+  "pending_total": 0,
+  "queued_messages": [],
+  "state": "asleep",
+  "steps_in_flight": 0
+}

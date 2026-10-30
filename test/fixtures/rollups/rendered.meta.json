@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "keep": "[\"thought\",\"action\",\"observation\",\"message\",\"feedback\",\"final\",\"shellm-run\",\"merge\"]",
+  "raw_lines": 1188,
+  "updated": "2026-08-28T12:57:20"
+}

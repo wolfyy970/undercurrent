@@ -1,0 +1,22 @@
+#!/bin/sh
+":" //; exec "${HEADLONG_TS_RUNTIME:-$(command -v bun || command -v node)}" "$0" "$@"
+// thinkers/retrieval/step — see thinkers/monolith/step for the pattern. Ships
+// installed but DISABLED (a sibling `disabled` marker) — "optional, ships off"
+// (SPEC-retrieval-thinker.md §1).
+import { spawnSync } from "node:child_process";
+import { existsSync } from "node:fs";
+import { delimiter, dirname } from "node:path";
+
+// HEADLONG_TS_HOME when set (dispatcher-run steps); otherwise the port's bin/ on PATH, which every wake shell
+// carries first (upstream's Bash steps run from any shell and need no such variable): `thinkers step <name>` by hand.
+const onPath = (process.env.PATH ?? "").split(delimiter).find((d) => d && existsSync(`${d}/thinker-step.mjs`));
+const home = process.env.HEADLONG_TS_HOME || (onPath ? dirname(onPath) : "");
+if (!home) {
+  process.stderr.write("thinkers/retrieval/step: HEADLONG_TS_HOME not set and no bin/thinker-step.mjs on PATH\n");
+  process.exit(1);
+}
+const r = spawnSync(process.execPath, [`${home}/bin/thinker-step.mjs`, "retrieval"], {
+  stdio: "inherit",
+  env: { ...process.env, HEADLONG_TS_HOME: home },
+});
+process.exit(r.status === null ? 1 : r.status);

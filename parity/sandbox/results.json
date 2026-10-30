@@ -1,0 +1,238 @@
+{
+  "generated_at": "2026-10-27T15:47:47.516Z",
+  "image": "ubuntu:latest",
+  "node": "v22.22.3",
+  "shape_check": {
+    "pass": true,
+    "checks": [
+      {
+        "name": "argv matches execute_code shape exactly",
+        "ok": true
+      },
+      {
+        "name": "secret VALUE never on the command line",
+        "ok": true
+      },
+      {
+        "name": "caller PATH dropped (not forwarded as a value)",
+        "ok": true
+      },
+      {
+        "name": "container PATH set explicitly",
+        "ok": true
+      },
+      {
+        "name": "HOME=<workdir> set",
+        "ok": true
+      },
+      {
+        "name": "-w <workdir> present",
+        "ok": true
+      },
+      {
+        "name": "command is bash -c <supervisor> _ <control dir>",
+        "ok": true
+      },
+      {
+        "name": "the wrapped code is NOT on argv (rides stdin, `docker exec -i`)",
+        "ok": true
+      },
+      {
+        "name": "bin/shellm execute_code reference tokens present",
+        "ok": true
+      }
+    ],
+    "argv": [
+      "exec",
+      "-i",
+      "-e",
+      "TRAJ_ID",
+      "-e",
+      "IDENTITY_NAME",
+      "-e",
+      "ANTHROPIC_API_KEY",
+      "-e",
+      "PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin",
+      "-e",
+      "HOME=/workspace/run",
+      "-w",
+      "/workspace/run",
+      "shellm-identity-abcd1234",
+      "bash",
+      "-c",
+      "<REMOTE_SUPERVISE_SCRIPT>",
+      "_",
+      "/tmp/shellm-exec.deadbeef"
+    ]
+  },
+  "differential": {
+    "status": "RAN",
+    "container": "6bcd976e418c8b78601a990b57574a471a76ad4da215cffc5bf5939b07133cb7",
+    "pass": 7,
+    "total": 7,
+    "scenarios": [
+      {
+        "id": "normal-output",
+        "compare": "exact",
+        "pass": true,
+        "note": "output \"hello world\\n\" exit 0",
+        "local": {
+          "output": "hello world\n",
+          "exit": 0,
+          "timedOut": false
+        },
+        "docker": {
+          "output": "hello world\n",
+          "exit": 0,
+          "timedOut": false
+        }
+      },
+      {
+        "id": "nonzero-exit",
+        "compare": "exact",
+        "pass": true,
+        "note": "output \"pre-fail\\n\" exit 42",
+        "local": {
+          "output": "pre-fail\n",
+          "exit": 42,
+          "timedOut": false
+        },
+        "docker": {
+          "output": "pre-fail\n",
+          "exit": 42,
+          "timedOut": false
+        }
+      },
+      {
+        "id": "stderr-mixed",
+        "compare": "multiset",
+        "pass": true,
+        "note": "same line-set [\"ERRLINE\",\"out1\",\"out2\"] (docker order local=\"out1\\nERRLINE\\nout2\\n\" docker=\"out1\\nout2\\nERRLINE\\n\")",
+        "local": {
+          "output": "out1\nERRLINE\nout2\n",
+          "exit": 0,
+          "timedOut": false
+        },
+        "docker": {
+          "output": "out1\nout2\nERRLINE\n",
+          "exit": 0,
+          "timedOut": false
+        }
+      },
+      {
+        "id": "env-use",
+        "compare": "exact",
+        "pass": true,
+        "note": "output \"mark=parity-77\\n\" exit 0",
+        "local": {
+          "output": "mark=parity-77\n",
+          "exit": 0,
+          "timedOut": false
+        },
+        "docker": {
+          "output": "mark=parity-77\n",
+          "exit": 0,
+          "timedOut": false
+        }
+      },
+      {
+        "id": "cwd-use",
+        "compare": "per-sandbox",
+        "pass": true,
+        "note": "each honored its own -w (local=\"<TMP>/sandbox-parity-local-wROUFe\\n\" docker=\"/parity-workdir\\n\")",
+        "local": {
+          "output": "<TMP>/sandbox-parity-local-wROUFe\n",
+          "exit": 0,
+          "timedOut": false
+        },
+        "docker": {
+          "output": "/parity-workdir\n",
+          "exit": 0,
+          "timedOut": false
+        }
+      },
+      {
+        "id": "timeout-kill",
+        "compare": "timeout",
+        "pass": true,
+        "note": "both timedOut, exit 124 (local=\"starting\\n\" docker=\"starting\\n\")",
+        "local": {
+          "output": "starting\n",
+          "exit": 124,
+          "timedOut": true,
+          "killReason": "max"
+        },
+        "docker": {
+          "output": "starting\n",
+          "exit": 124,
+          "timedOut": true,
+          "killReason": "max"
+        }
+      },
+      {
+        "id": "idle-kill",
+        "compare": "idle-timeout",
+        "pass": true,
+        "note": "both timedOut with killReason \"idle\" (local=idle docker=idle)",
+        "local": {
+          "output": "starting\n",
+          "exit": 124,
+          "timedOut": true,
+          "killReason": "idle"
+        },
+        "docker": {
+          "output": "starting\n",
+          "exit": 124,
+          "timedOut": true,
+          "killReason": "idle"
+        }
+      }
+    ]
+  },
+  "loopback_rewrite": {
+    "reference_check": {
+      "pass": true,
+      "checks": [
+        {
+          "name": "containerApiUrl matches _shellm_container_api_url on the rewrite matrix",
+          "ok": true
+        },
+        {
+          "name": "applyDockerApiUrlRewrite rewrites only in docker mode",
+          "ok": true
+        },
+        {
+          "name": "bin/shellm _shellm_container_api_url / --add-host reference tokens present",
+          "ok": true
+        }
+      ]
+    },
+    "differential": {
+      "status": "RAN",
+      "pass": true,
+      "checks": [
+        {
+          "name": "rewritten LLM_API_URL differs from the original loopback URL",
+          "ok": true
+        },
+        {
+          "name": "rewritten LLM_API_URL is host.docker.internal with the port preserved",
+          "ok": true
+        },
+        {
+          "name": "AFTER fix: curl reaches the real host listener (HTTP 200)",
+          "ok": true
+        },
+        {
+          "name": "host listener actually got hit",
+          "ok": true
+        },
+        {
+          "name": "BEFORE fix (unrewritten URL): curl does NOT connect from inside the container",
+          "ok": true
+        }
+      ]
+    }
+  },
+  "overall_pass": true
+}

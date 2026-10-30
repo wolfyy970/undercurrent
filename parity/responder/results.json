@@ -1,0 +1,519 @@
+{
+  "tally": {
+    "PARITY": 83,
+    "DIVERGE": 2
+  },
+  "total": 85,
+  "results": [
+    {
+      "layer": "redact-card",
+      "name": "card-spaced",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "card-dashed",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "card-bare-16",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "card-bare-15",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "card-glued",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "card-keyword-amex",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "card-keyword-the",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "cvv-forms",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "expiry-forms",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "benign",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "multiline",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "boundary-start",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "unicode",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "empty",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-card",
+      "name": "only-newlines",
+      "status": "PARITY",
+      "detail": "bash=\"\\n\\n\" ts=\"\\n\\n\""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "every-shape",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "sk-needs-edge",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "env-value",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "basic-auth-url",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "docker-auth",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "aws-secret",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "pem-complete",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "pem-two",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "pem-open",
+      "status": "DIVERGE",
+      "detail": "bash=\"before\\n\" ts=\"before\\n[redacted]\""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "pem-one-line",
+      "status": "DIVERGE",
+      "detail": "bash=\"\" ts=\"[redacted]\""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "pem-swallows-later-rules",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "card-too",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "plain",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "redact-keys",
+      "name": "trailing-newlines",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-no-reply",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-no-reply-leading-blank",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer-after-holding",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer-glued-before",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer-twice-glued",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer-bare",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer-mentioned-in-prose",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer-leading-blank",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-skills-tag",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-skills-tag-in-prose",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-leaked-chat-reply",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-raw-json-object",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-tool-markup",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-card-in-reply",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-card-in-defer",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-whitespace-only",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer-then-raw-object",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "text-defer-then-markup",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-reply",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-reply-fenced",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-no-reply",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-defer",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-defer-card",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-action-uppercase",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-unknown-action",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-plain-text",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-plain-text-defer",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-salvage-close-brace",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-salvage-noreply-in-string",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-cut-in-message",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-broken-json",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-raw-action-in-message",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "parser",
+      "name": "structured-empty-message",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "text-reply",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "text-with-history",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "text-card-trigger",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "text-card-noreply-excerpt",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "structured-schema-model",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "structured-gemini-model",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "structured-forced-on-text-model",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "structured-forced-off",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "stale-trigger",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "stale-trigger-disabled",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "stale-trigger-custom-age",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "stale-trigger-nonnumeric",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "self-message",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "structured-fallback-to-text",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "transport-timeout",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "transport-limits-env",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "transport-truncated",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "transport-empty",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "transport-http500",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "transport-structured-fallback-also-fails",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "transport-structured-timeout-no-retry",
+      "status": "PARITY",
+      "detail": ""
+    },
+    {
+      "layer": "step",
+      "name": "transport-structured-truncated-no-retry",
+      "status": "PARITY",
+      "detail": ""
+    }
+  ]
+}

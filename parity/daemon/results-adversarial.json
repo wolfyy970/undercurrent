@@ -1,0 +1,670 @@
+{
+ "total": 88,
+ "parity": 84,
+ "deviations": 4,
+ "diverge": 0,
+ "strayPids": [],
+ "results": [
+  {
+   "flow": "identity-new",
+   "name": "stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "identity-new",
+   "name": "stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "identity-new",
+   "name": "exit-code",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "identity-new",
+   "name": "layout-strict",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "identity-new",
+   "name": "no-activate",
+   "verdict": "DEVIATION",
+   "detail": {
+    "bashOnly": [
+     "echo-id/activate"
+    ],
+    "tsOnly": [],
+    "bothPresentDiffering": []
+   },
+   "dev": "no-activate"
+  },
+  {
+   "flow": "identity-new",
+   "name": "kernel-skills-copied",
+   "verdict": "DEVIATION",
+   "detail": {
+    "bashOnly": [
+     "echo-id/kernel/chat",
+     "echo-id/kernel/mem",
+     "echo-id/skills/googleworkspace",
+     "echo-id/skills/obsidian",
+     "echo-id/skills/shellm",
+     "echo-id/skills/skill-author",
+     "echo-id/skills/slack",
+     "echo-id/skills/telegram",
+     "echo-id/skills/web-research"
+    ],
+    "tsOnly": [
+     "echo-id/kernel/chat/SKILL.md",
+     "echo-id/kernel/mem/SKILL.md",
+     "echo-id/skills/googleworkspace/SKILL.md",
+     "echo-id/skills/obsidian/SKILL.md",
+     "echo-id/skills/shellm/SKILL.md",
+     "echo-id/skills/skill-author/SKILL.md",
+     "echo-id/skills/slack/SKILL.md",
+     "echo-id/skills/telegram/SKILL.md",
+     "echo-id/skills/web-research/SKILL.md"
+    ],
+    "bothPresentDiffering": []
+   },
+   "dev": "kernel-skills-copied"
+  },
+  {
+   "flow": "identity-new",
+   "name": "bash-omitted",
+   "verdict": "DEVIATION",
+   "detail": {
+    "bashOnly": [
+     "echo-id/thinkers/_lib/common.sh",
+     "echo-id/thinkers/retrieval/build-index.sh"
+    ],
+    "tsOnly": [],
+    "bothPresentDiffering": []
+   },
+   "dev": "bash-omitted"
+  },
+  {
+   "flow": "identity-new",
+   "name": "node-step-shim",
+   "verdict": "DEVIATION",
+   "detail": {
+    "bashOnly": [],
+    "tsOnly": [],
+    "bothPresentDiffering": [
+     "echo-id/thinkers/monolith/step",
+     "echo-id/thinkers/responder/step",
+     "echo-id/thinkers/retrieval/step"
+    ]
+   },
+   "dev": "node-step-shim"
+  },
+  {
+   "flow": "boot-named",
+   "name": "stderr-text",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "exit-code",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "pid-format",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "token-format",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "active-thinkers",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "sub-map",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "traj-files",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "pending-empty-after-settle",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "step-pids-empty-after-settle",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "boot-named",
+   "name": "echo-received-one-manual-trigger",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "bare-start",
+   "name": "pending-dir-empty-no-kick",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "bare-start",
+   "name": "echo-received-count",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "bare-start",
+   "name": "active-thinkers",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "chat-reactive",
+   "name": "chat-send-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "chat-reactive",
+   "name": "chat-send-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "chat-reactive",
+   "name": "dispatcher-log-line-shapes",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "scheduled-wake",
+   "name": "fired",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "scheduled-wake",
+   "name": "wake_at-removed",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "scheduled-wake",
+   "name": "log-has-scheduled-wake-line",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "stderr-text",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "exit-code",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "dispatcherPidGone",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "tokenGone",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "subMapGone",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "trajFilesGone",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "pendingGone",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "deliberateStopGone",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "stop-all-default",
+   "name": "lastSignalAbsent",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "plain-sigterm",
+   "name": "daemon-died",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "plain-sigterm",
+   "name": "last_signal-bytes",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "plain-sigterm",
+   "name": "pid-file-still-present",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "token-guard",
+   "name": "first-daemon-self-terminates",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "token-guard",
+   "name": "second-daemon-alive",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "token-guard",
+   "name": "distinct-pids",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_status-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_status-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_status-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_status-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_status-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_status-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_status-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_status-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_status-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_start-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_start-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_start-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_start-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_start-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_start-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_start-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_start-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_start-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_stop-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_stop-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_stop-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_stop-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_stop-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_stop-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_stop-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_stop-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_stop-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_list-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_list-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingThinkersDir_list-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_list-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_list-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "missingIdentityDir_list-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_list-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_list-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "identityDirOnly_list-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "unknown-thinker-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "unknown-thinker-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "disabled-thinker-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "disabled-thinker-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "stop-not-running-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "stop-not-running-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "status-text",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "step-stdout",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "step-stderr",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  },
+  {
+   "flow": "misuse",
+   "name": "step-exit",
+   "verdict": "PARITY",
+   "detail": null,
+   "dev": null
+  }
+ ]
+}

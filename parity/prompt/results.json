@@ -1,0 +1,142 @@
+[
+  {
+    "name": "plain-text-untouched",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "empty",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "every-shape",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "sk-needs-edge",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "env-value",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "env-value-in-json-record",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "card-spaced",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "card-dashed-amex-style",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "card-bare-16",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "card-bare-15",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "card-bare-glued-letters",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "card-label",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "card-label-the",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "card-17-digits-not-card",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "basic-auth-url",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "docker-auth-text",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "docker-auth-key-value",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "aws-secret",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "pem-complete-plain",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "pem-two-blocks",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "pem-open-plain",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "pem-open-then-begin",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "pem-inside-json-field",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "pem-open-inside-json-field",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "json-key-redacted",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "json-array-elements",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "json-untouched-line-verbatim",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "json-line-with-escapes",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "json-scalar-line",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "mixed-stream",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "trailing-newline",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "only-newlines",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "unicode-around-secret",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "slack-xoxp-long",
+    "verdict": "PARITY"
+  },
+  {
+    "name": "short-env-not-masked",
+    "verdict": "PARITY"
+  }
+]

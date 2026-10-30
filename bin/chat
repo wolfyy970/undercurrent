@@ -1,0 +1,11 @@
+#!/bin/sh
+":" //; exec "${HEADLONG_TS_RUNTIME:-$(command -v bun || command -v node)}" "$0" "$@"
+// bin/chat — Node entry point for the `chat` tool (NO bash).
+//
+// The port eliminates all Bash from the harness: the model still invokes
+// `chat …` from inside its bash action block, but the executable itself is
+// Node. This extensionless entry simply delegates to bin/chat.mjs (the real
+// process wiring around src/chat.ts) so there is a single source of truth and
+// `chat` resolves on PATH exactly as before. The former `exit 0` bash stub is
+// gone; message/reply/send-file/history are now really recorded on the stream.
+import "./chat.mjs";

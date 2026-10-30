@@ -1,0 +1,39 @@
+# prompt_redact differential
+
+35/35 PARITY
+
+- PARITY plain-text-untouched
+- PARITY empty
+- PARITY every-shape
+- PARITY sk-needs-edge
+- PARITY env-value
+- PARITY env-value-in-json-record
+- PARITY card-spaced
+- PARITY card-dashed-amex-style
+- PARITY card-bare-16
+- PARITY card-bare-15
+- PARITY card-bare-glued-letters
+- PARITY card-label
+- PARITY card-label-the
+- PARITY card-17-digits-not-card
+- PARITY basic-auth-url
+- PARITY docker-auth-text
+- PARITY docker-auth-key-value
+- PARITY aws-secret
+- PARITY pem-complete-plain
+- PARITY pem-two-blocks
+- PARITY pem-open-plain
+- PARITY pem-open-then-begin
+- PARITY pem-inside-json-field
+- PARITY pem-open-inside-json-field
+- PARITY json-key-redacted
+- PARITY json-array-elements
+- PARITY json-untouched-line-verbatim
+- PARITY json-line-with-escapes
+- PARITY json-scalar-line
+- PARITY mixed-stream
+- PARITY trailing-newline
+- PARITY only-newlines
+- PARITY unicode-around-secret
+- PARITY slack-xoxp-long
+- PARITY short-env-not-masked

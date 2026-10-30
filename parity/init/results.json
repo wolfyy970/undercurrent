@@ -1,0 +1,409 @@
+{
+  "generatedAt": "2026-10-29T22:52:24.133Z",
+  "total": 10,
+  "passed": 10,
+  "portBugs": 0,
+  "results": [
+    {
+      "name": "dry-run, docker ok",
+      "argv": [
+        "--dry-run"
+      ],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "ok"
+      },
+      "allow": [
+        "stdout wording differs cosmetically (phase text is this port's own copy of the header comment); both announce the sandbox and say dry-run"
+      ],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": "stdout matches /sandboxed in Docker/",
+          "pass": true
+        },
+        {
+          "label": "stdout matches /dry.run/i",
+          "pass": true
+        }
+      ],
+      "bash": {
+        "status": 0,
+        "stdout": "\n==> Docker found. Your agent's shell commands will run sandboxed in Docker.\n    dry-run: would set SHELLM_REQUIRE_DOCKER=1 in <TMP>/init-parity-Wog7Tg/bash/home/.headlong/.env\n    dry-run: would set HEADLONG_UNSANDBOXED=0 in <TMP>/init-parity-Wog7Tg/bash/home/.headlong/.env\n\n==> Dry run: stopping here. Nothing was written and nothing was started.\n",
+        "stderr": "",
+        "envFile": ""
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "\n==> Docker found. ada's shell commands will run sandboxed in Docker.\n    dry-run: would set SHELLM_REQUIRE_DOCKER=1 in <TMP>/init-parity-Wog7Tg/ts/home/.headlong/.env\n    dry-run: would set HEADLONG_UNSANDBOXED=0 in <TMP>/init-parity-Wog7Tg/ts/home/.headlong/.env\n\n==> Dry run: stopping here. Nothing was written and nothing was started.\n",
+        "stderr": "",
+        "envFile": ""
+      }
+    },
+    {
+      "name": "no docker, no consent, no tty",
+      "argv": [],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "missing",
+        "ANTHROPIC_API_KEY": "",
+        "OPENAI_API_KEY": "",
+        "GEMINI_API_KEY": "",
+        "OPENROUTER_API_KEY": "",
+        "OPENCODE_API_KEY": ""
+      },
+      "allow": [],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": "stderr matches /HEADLONG_UNSANDBOXED/",
+          "pass": true
+        },
+        {
+          "label": "neither side mentions /API key/i",
+          "pass": true
+        }
+      ],
+      "bash": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "headlong-init: error: no Docker daemon is reachable, so there is no sandbox for the agent's shell commands. Install and start Docker, or set HEADLONG_UNSANDBOXED=1 to accept the agent running directly on this machine.\n",
+        "envFile": ""
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "headlong-init: error: no Docker daemon is reachable, so there is no sandbox for the agent's shell commands. Install and start Docker, or set HEADLONG_UNSANDBOXED=1 to accept the agent running directly on this machine.\n",
+        "envFile": ""
+      }
+    },
+    {
+      "name": "no docker, HEADLONG_UNSANDBOXED=1 persists SHELLM_REQUIRE_DOCKER=0",
+      "argv": [],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "missing",
+        "HEADLONG_UNSANDBOXED": "1",
+        "ANTHROPIC_API_KEY": "",
+        "OPENAI_API_KEY": "",
+        "GEMINI_API_KEY": "",
+        "OPENROUTER_API_KEY": "",
+        "OPENCODE_API_KEY": ""
+      },
+      "allow": [],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": ".env SHELLM_REQUIRE_DOCKER",
+          "pass": true,
+          "bash": "0",
+          "ts": "0"
+        },
+        {
+          "label": ".env HEADLONG_UNSANDBOXED",
+          "pass": true,
+          "bash": "1",
+          "ts": "1"
+        },
+        {
+          "label": "stderr matches /directly on this machine/",
+          "pass": true
+        }
+      ],
+      "bash": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "Warning: no Docker sandbox (HEADLONG_UNSANDBOXED=1). The agent's shell commands run directly on this machine. Set HEADLONG_UNSANDBOXED=0 in <TMP>/init-parity-P0vXGF/bash/home/.headlong/.env and re-run headlong-init to turn the sandbox on.\nheadlong-init: error: no API key found. Set ANTHROPIC_API_KEY (or OPENAI/GEMINI/OPENROUTER/OPENCODE_API_KEY), or put it in <TMP>/init-parity-P0vXGF/bash/home/.headlong/.env\n",
+        "envFile": "HEADLONG_UNSANDBOXED='1'\nSHELLM_REQUIRE_DOCKER='0'"
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "Warning: no Docker sandbox (HEADLONG_UNSANDBOXED=1). The agent's shell commands run directly on this machine. Set HEADLONG_UNSANDBOXED=0 in <TMP>/init-parity-P0vXGF/ts/home/.headlong/.env and re-run headlong-init to turn the sandbox on.\nheadlong-init: error: no API key found. Set ANTHROPIC_API_KEY (or OPENAI/GEMINI/OPENROUTER/OPENCODE_API_KEY), or put it in <TMP>/init-parity-P0vXGF/ts/home/.headlong/.env\n",
+        "envFile": "HEADLONG_UNSANDBOXED='1'\nSHELLM_REQUIRE_DOCKER='0'"
+      }
+    },
+    {
+      "name": "docker up: persists SHELLM_REQUIRE_DOCKER=1",
+      "argv": [],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "ok",
+        "ANTHROPIC_API_KEY": "",
+        "OPENAI_API_KEY": "",
+        "GEMINI_API_KEY": "",
+        "OPENROUTER_API_KEY": "",
+        "OPENCODE_API_KEY": ""
+      },
+      "allow": [],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": ".env SHELLM_REQUIRE_DOCKER",
+          "pass": true,
+          "bash": "1",
+          "ts": "1"
+        },
+        {
+          "label": "stdout matches /sandboxed in Docker/",
+          "pass": true
+        }
+      ],
+      "bash": {
+        "status": 1,
+        "stdout": "\n==> Docker found. Your agent's shell commands will run sandboxed in Docker.\n",
+        "stderr": "headlong-init: error: no API key found. Set ANTHROPIC_API_KEY (or OPENAI/GEMINI/OPENROUTER/OPENCODE_API_KEY), or put it in <TMP>/init-parity-Wc7rlj/bash/home/.headlong/.env\n",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nSHELLM_REQUIRE_DOCKER='1'"
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "\n==> Docker found. ada's shell commands will run sandboxed in Docker.\n",
+        "stderr": "headlong-init: error: no API key found. Set ANTHROPIC_API_KEY (or OPENAI/GEMINI/OPENROUTER/OPENCODE_API_KEY), or put it in <TMP>/init-parity-Wc7rlj/ts/home/.headlong/.env\n",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nSHELLM_REQUIRE_DOCKER='1'"
+      }
+    },
+    {
+      "name": "menu-3 equivalent: HEADLONG_UNSANDBOXED=1 sticks even with docker up",
+      "argv": [],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "ok",
+        "HEADLONG_UNSANDBOXED": "1",
+        "ANTHROPIC_API_KEY": "",
+        "OPENAI_API_KEY": "",
+        "GEMINI_API_KEY": "",
+        "OPENROUTER_API_KEY": "",
+        "OPENCODE_API_KEY": ""
+      },
+      "allow": [],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": ".env SHELLM_REQUIRE_DOCKER",
+          "pass": true,
+          "bash": "0",
+          "ts": "0"
+        },
+        {
+          "label": ".env HEADLONG_UNSANDBOXED",
+          "pass": true,
+          "bash": "1",
+          "ts": "1"
+        }
+      ],
+      "bash": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "Warning: no Docker sandbox (HEADLONG_UNSANDBOXED=1). The agent's shell commands run directly on this machine. Set HEADLONG_UNSANDBOXED=0 in <TMP>/init-parity-s4gm9R/bash/home/.headlong/.env and re-run headlong-init to turn the sandbox on.\nheadlong-init: error: no API key found. Set ANTHROPIC_API_KEY (or OPENAI/GEMINI/OPENROUTER/OPENCODE_API_KEY), or put it in <TMP>/init-parity-s4gm9R/bash/home/.headlong/.env\n",
+        "envFile": "HEADLONG_UNSANDBOXED='1'\nSHELLM_REQUIRE_DOCKER='0'"
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "Warning: no Docker sandbox (HEADLONG_UNSANDBOXED=1). The agent's shell commands run directly on this machine. Set HEADLONG_UNSANDBOXED=0 in <TMP>/init-parity-s4gm9R/ts/home/.headlong/.env and re-run headlong-init to turn the sandbox on.\nheadlong-init: error: no API key found. Set ANTHROPIC_API_KEY (or OPENAI/GEMINI/OPENROUTER/OPENCODE_API_KEY), or put it in <TMP>/init-parity-s4gm9R/ts/home/.headlong/.env\n",
+        "envFile": "HEADLONG_UNSANDBOXED='1'\nSHELLM_REQUIRE_DOCKER='0'"
+      }
+    },
+    {
+      "name": "unknown option is an error",
+      "argv": [
+        "--bogus"
+      ],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "ok"
+      },
+      "allow": [],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        }
+      ],
+      "bash": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "headlong-init: error: unknown option: --bogus (try --help)\n",
+        "envFile": ""
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "",
+        "stderr": "headlong-init: error: unknown option: --bogus (try --help)\n",
+        "envFile": ""
+      }
+    },
+    {
+      "name": "local provider happy path",
+      "argv": [],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "ok",
+        "HEADLONG_PROVIDER": "local",
+        "HEADLONG_LOCAL_URL": "__SERVER__",
+        "HEADLONG_LOCAL_MODEL": "qwen3:8b"
+      },
+      "allow": [
+        "SHELLM_API_URL differs only in the fake server's port between the two independent scratch runs — compared for shape (ends in /v1/chat/completions), not exact string"
+      ],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": ".env LLM_PROVIDER",
+          "pass": true,
+          "bash": "openai-compatible",
+          "ts": "openai-compatible"
+        },
+        {
+          "label": ".env SHELLM_MODEL",
+          "pass": true,
+          "bash": "qwen3:8b",
+          "ts": "qwen3:8b"
+        },
+        {
+          "label": ".env SHELLM_API_URL suffix",
+          "pass": true,
+          "bash": "http://127.0.0.1:45681/local-provider-happy-path/bash/v1/chat/completions",
+          "ts": "http://127.0.0.1:45681/local-provider-happy-path/ts/v1/chat/completions"
+        }
+      ],
+      "bash": {
+        "status": 127,
+        "stdout": "\n==> Docker found. Your agent's shell commands will run sandboxed in Docker.\n\n==> Checking the LLM connection (model: qwen3:8b at http://127.0.0.1:45681/local-provider-happy-path/bash/v1)\n    OK — qwen3:8b answered.\n    Note: sandboxed agent code reaches this server through Docker's host\n    gateway, which can also reach other services bound to this machine's\n    loopback. See docs/install.md (local model server) for details.\n\n==> Creating identity 'ada'\n",
+        "stderr": "<HEADLONG_ROOT>/tools/headlong-init: line 1259: identity: command not found\n",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nLLM_PROVIDER='openai-compatible'\nSHELLM_API_URL='http://127.0.0.1:45681/local-provider-happy-path/bash/v1/chat/completions'\nSHELLM_MODEL='qwen3:8b'\nSHELLM_REQUIRE_DOCKER='1'"
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "\n==> Docker found. ada's shell commands will run sandboxed in Docker.\n\n==> Checking the LLM connection (model: qwen3:8b at http://127.0.0.1:45681/local-provider-happy-path/ts/v1)\n    OK — qwen3:8b answered.\n    Note: sandboxed agent code reaches this server through Docker's host\n    gateway, which can also reach other services bound to this machine's\n    loopback. See docs/install.md (local model server) for details.\n\n==> Identity 'ada' already exists — leaving it as is\n\n==> Skipping thinkers (HEADLONG_NO_THINKERS=1)\n\n==> Skipping the dash (HEADLONG_NO_DASH=1)\n\n────────────────────────────────────────────────────────\nada is running.\n────────────────────────────────────────────────────────\n\nWhat was installed\n  ~/.headlong                      state home: .env (your API key), logs/, status.json\n  <HEADLONG_TS_ROOT>             the Headlong-TS checkout\n  <HEADLONG_TS_ROOT>/.identities/ada ada: persona, memories, trajectory\n  <HEADLONG_TS_ROOT>/bin         the tools\n\nCommands\n  Watch their mind     persona ada dash\n  Chat with them       persona ada          (or one-shot: persona ada \"hello there\")\n  Pause / resume       persona ada stop  /  persona ada start\n  Something broken?    persona ada bugreport   (bundle to attach to a report)\n  Everything else      persona ada --help\n  Not on PATH yet?     <HEADLONG_TS_ROOT>/bin/persona ada\n  Read-only status     node status.mjs   (from the checkout)\n  Uninstall            node uninstall.mjs   (from the checkout)\n",
+        "stderr": "",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nLLM_PROVIDER='openai-compatible'\nSHELLM_API_URL='http://127.0.0.1:45681/local-provider-happy-path/ts/v1/chat/completions'\nSHELLM_MODEL='qwen3:8b'\nSHELLM_REQUIRE_DOCKER='1'"
+      }
+    },
+    {
+      "name": "local provider: malicious model id refused",
+      "argv": [],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "ok",
+        "HEADLONG_PROVIDER": "local",
+        "HEADLONG_LOCAL_URL": "__SERVER__"
+      },
+      "allow": [],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": ".env LLM_PROVIDER",
+          "pass": true
+        }
+      ],
+      "bash": {
+        "status": 1,
+        "stdout": "\n==> Docker found. Your agent's shell commands will run sandboxed in Docker.\n",
+        "stderr": "headlong-init: error: model id 'qwen3$(touch pwned)' contains characters headlong will not store (allowed: letters, digits, . _ : / @ -)\n",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nSHELLM_REQUIRE_DOCKER='1'"
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "\n==> Docker found. ada's shell commands will run sandboxed in Docker.\n",
+        "stderr": "headlong-init: error: model id 'qwen3$(touch pwned)' contains characters headlong will not store (allowed: letters, digits, . _ : / @ -)\n",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nSHELLM_REQUIRE_DOCKER='1'"
+      }
+    },
+    {
+      "name": "local provider: dead endpoint dies before writing anything",
+      "argv": [],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "ok",
+        "HEADLONG_PROVIDER": "local",
+        "HEADLONG_LOCAL_URL": "http://127.0.0.1:1/v1",
+        "HEADLONG_LOCAL_MODEL": "x"
+      },
+      "allow": [],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": ".env LLM_PROVIDER",
+          "pass": true
+        },
+        {
+          "label": "stderr matches /could not reach/",
+          "pass": true
+        }
+      ],
+      "bash": {
+        "status": 1,
+        "stdout": "\n==> Docker found. Your agent's shell commands will run sandboxed in Docker.\n",
+        "stderr": "headlong-init: error: local endpoint unreachable: could not reach http://127.0.0.1:1/v1. Start the server and re-run headlong-init.\n",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nSHELLM_REQUIRE_DOCKER='1'"
+      },
+      "ts": {
+        "status": 1,
+        "stdout": "\n==> Docker found. ada's shell commands will run sandboxed in Docker.\n",
+        "stderr": "headlong-init: error: local endpoint unreachable: could not reach http://127.0.0.1:1/v1. Start the server and re-run headlong-init.\n",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nSHELLM_REQUIRE_DOCKER='1'"
+      }
+    },
+    {
+      "name": "local provider: empty model list + explicit model still works",
+      "argv": [],
+      "env": {
+        "HEADLONG_FAKE_DOCKER": "ok",
+        "HEADLONG_PROVIDER": "local",
+        "HEADLONG_LOCAL_URL": "__SERVER__",
+        "HEADLONG_LOCAL_MODEL": "qwen3:8b"
+      },
+      "allow": [],
+      "pass": true,
+      "checks": [
+        {
+          "label": "exit code (both nonzero, or both zero, as expected)",
+          "pass": true
+        },
+        {
+          "label": ".env SHELLM_MODEL",
+          "pass": true,
+          "bash": "qwen3:8b",
+          "ts": "qwen3:8b"
+        }
+      ],
+      "bash": {
+        "status": 127,
+        "stdout": "\n==> Docker found. Your agent's shell commands will run sandboxed in Docker.\n\n==> Checking the LLM connection (model: qwen3:8b at http://127.0.0.1:45811/local-provider-empty-model-list-explicit-model-still-works/bash/v1)\n    OK — qwen3:8b answered.\n    Note: sandboxed agent code reaches this server through Docker's host\n    gateway, which can also reach other services bound to this machine's\n    loopback. See docs/install.md (local model server) for details.\n\n==> Creating identity 'ada'\n",
+        "stderr": "<HEADLONG_ROOT>/tools/headlong-init: line 1259: identity: command not found\n",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nLLM_PROVIDER='openai-compatible'\nSHELLM_API_URL='http://127.0.0.1:45811/local-provider-empty-model-list-explicit-model-still-works/bash/v1/chat/completions'\nSHELLM_MODEL='qwen3:8b'\nSHELLM_REQUIRE_DOCKER='1'"
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "\n==> Docker found. ada's shell commands will run sandboxed in Docker.\n\n==> Checking the LLM connection (model: qwen3:8b at http://127.0.0.1:45811/local-provider-empty-model-list-explicit-model-still-works/ts/v1)\n    OK — qwen3:8b answered.\n    Note: sandboxed agent code reaches this server through Docker's host\n    gateway, which can also reach other services bound to this machine's\n    loopback. See docs/install.md (local model server) for details.\n\n==> Identity 'ada' already exists — leaving it as is\n\n==> Skipping thinkers (HEADLONG_NO_THINKERS=1)\n\n==> Skipping the dash (HEADLONG_NO_DASH=1)\n\n────────────────────────────────────────────────────────\nada is running.\n────────────────────────────────────────────────────────\n\nWhat was installed\n  ~/.headlong                      state home: .env (your API key), logs/, status.json\n  <HEADLONG_TS_ROOT>             the Headlong-TS checkout\n  <HEADLONG_TS_ROOT>/.identities/ada ada: persona, memories, trajectory\n  <HEADLONG_TS_ROOT>/bin         the tools\n\nCommands\n  Watch their mind     persona ada dash\n  Chat with them       persona ada          (or one-shot: persona ada \"hello there\")\n  Pause / resume       persona ada stop  /  persona ada start\n  Something broken?    persona ada bugreport   (bundle to attach to a report)\n  Everything else      persona ada --help\n  Not on PATH yet?     <HEADLONG_TS_ROOT>/bin/persona ada\n  Read-only status     node status.mjs   (from the checkout)\n  Uninstall            node uninstall.mjs   (from the checkout)\n",
+        "stderr": "",
+        "envFile": "HEADLONG_UNSANDBOXED='0'\nLLM_PROVIDER='openai-compatible'\nSHELLM_API_URL='http://127.0.0.1:45811/local-provider-empty-model-list-explicit-model-still-works/ts/v1/chat/completions'\nSHELLM_MODEL='qwen3:8b'\nSHELLM_REQUIRE_DOCKER='1'"
+      }
+    }
+  ]
+}

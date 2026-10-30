@@ -1,0 +1,3067 @@
+{
+  "total": 36,
+  "passed": 36,
+  "rate": "100.0",
+  "results": [
+    {
+      "group": "handle",
+      "name": "admin-approve-flow-end-to-end",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"Dana\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "76",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"Dana (id 7) wants to talk — /approve 7 or /deny 7\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJEYW5hIChpZCA3KSB3YW50cyB0byB0YWxrIOKAlCAvYXBwcm92ZSA3IG9yIC9kZW55IDcifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "70",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":7,\"text\":\"You're approved — say hi and I'll pass it on.\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjo3LCJ0ZXh0IjoiWW91J3JlIGFwcHJvdmVkIOKAlCBzYXkgaGkgYW5kIEknbGwgcGFzcyBpdCBvbi4ifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "35",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved 7\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCA3In0="
+          }
+        ],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "109",
+              "content-type": "application/json"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) hello Audel\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgaGVsbG8gQXVkZWwiLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          }
+        ]
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"Dana\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "76"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"Dana (id 7) wants to talk — /approve 7 or /deny 7\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJEYW5hIChpZCA3KSB3YW50cyB0byB0YWxrIOKAlCAvYXBwcm92ZSA3IG9yIC9kZW55IDcifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "70"
+            },
+            "body": "{\"chat_id\":7,\"text\":\"You're approved — say hi and I'll pass it on.\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjo3LCJ0ZXh0IjoiWW91J3JlIGFwcHJvdmVkIOKAlCBzYXkgaGkgYW5kIEknbGwgcGFzcyBpdCBvbi4ifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "35"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved 7\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCA3In0="
+          }
+        ],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "109"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) hello Audel\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgaGVsbG8gQXVkZWwiLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          }
+        ]
+      }
+    },
+    {
+      "group": "handle",
+      "name": "stranger-silent-admin-prompted-once",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{},\"denied\":[],\"pending\":{\"7\":{\"label\":\"Dana\",\"last_notified\":\"<TS>\"}}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "76",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"Dana (id 7) wants to talk — /approve 7 or /deny 7\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJEYW5hIChpZCA3KSB3YW50cyB0byB0YWxrIOKAlCAvYXBwcm92ZSA3IG9yIC9kZW55IDcifQ=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{},\"denied\":[],\"pending\":{\"7\":{\"label\":\"Dana\",\"last_notified\":\"<TS>\"}}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "76"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"Dana (id 7) wants to talk — /approve 7 or /deny 7\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJEYW5hIChpZCA3KSB3YW50cyB0byB0YWxrIOKAlCAvYXBwcm92ZSA3IG9yIC9kZW55IDcifQ=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "handle",
+      "name": "group-message-dropped-and-left",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "dropping non-DM message in chat -100123; leaving\n",
+        "error": null,
+        "allowlist": null,
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/leaveChat",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "19",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":-100123}",
+            "bodyBase64": "eyJjaGF0X2lkIjotMTAwMTIzfQ=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": null,
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/leaveChat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "19"
+            },
+            "body": "{\"chat_id\":-100123}",
+            "bodyBase64": "eyJjaGF0X2lkIjotMTAwMTIzfQ=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "handle",
+      "name": "admin-list-deny-revoke",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{},\"denied\":[\"8\"],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "38",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved (0):\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCAoMCk6In0="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "70",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":9,\"text\":\"You're approved — say hi and I'll pass it on.\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjo5LCJ0ZXh0IjoiWW91J3JlIGFwcHJvdmVkIOKAlCBzYXkgaGkgYW5kIEknbGwgcGFzcyBpdCBvbi4ifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "35",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved 9\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCA5In0="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "46",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved (1):\\n  9  9\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCAoMSk6XG4gIDkgIDkifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "53",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"denied 8 (silenced for good)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJkZW5pZWQgOCAoc2lsZW5jZWQgZm9yIGdvb2QpIn0="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "34",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"revoked 9\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJyZXZva2VkIDkifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "49",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved (0):\\ndenied: 8\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCAoMCk6XG5kZW5pZWQ6IDgifQ=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{},\"denied\":[\"8\"],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "38"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved (0):\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCAoMCk6In0="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "70"
+            },
+            "body": "{\"chat_id\":9,\"text\":\"You're approved — say hi and I'll pass it on.\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjo5LCJ0ZXh0IjoiWW91J3JlIGFwcHJvdmVkIOKAlCBzYXkgaGkgYW5kIEknbGwgcGFzcyBpdCBvbi4ifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "35"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved 9\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCA5In0="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "46"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved (1):\\n  9  9\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCAoMSk6XG4gIDkgIDkifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "53"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"denied 8 (silenced for good)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJkZW5pZWQgOCAoc2lsZW5jZWQgZm9yIGdvb2QpIn0="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "34"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"revoked 9\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJyZXZva2VkIDkifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "49"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"approved (0):\\ndenied: 8\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJhcHByb3ZlZCAoMCk6XG5kZW5pZWQ6IDgifQ=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "handle",
+      "name": "media-and-bots-dropped",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"7\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"7\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "handle",
+      "name": "duplicate-message-id-dropped",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"7\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "103",
+              "content-type": "application/json"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) hello\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgaGVsbG8iLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          }
+        ]
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"7\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "103"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) hello\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgaGVsbG8iLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          }
+        ]
+      }
+    },
+    {
+      "group": "handle",
+      "name": "start-command",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"7\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "47",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":7,\"text\":\"Connected — just type.\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjo3LCJ0ZXh0IjoiQ29ubmVjdGVkIOKAlCBqdXN0IHR5cGUuIn0="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"7\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "47"
+            },
+            "body": "{\"chat_id\":7,\"text\":\"Connected — just type.\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjo3LCJ0ZXh0IjoiQ29ubmVjdGVkIOKAlCBqdXN0IHR5cGUuIn0="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "handle",
+      "name": "admin-approve-bad-target-usage-error",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": null,
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "58",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"usage: /approve <numeric user id>\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJ1c2FnZTogL2FwcHJvdmUgPG51bWVyaWMgdXNlciBpZD4ifQ=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": null,
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "58"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"usage: /approve <numeric user id>\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJ1c2FnZTogL2FwcHJvdmUgPG51bWVyaWMgdXNlciBpZD4ifQ=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "handle",
+      "name": "unicode-and-hostile-name-delivery",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"7\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "183",
+              "content-type": "application/json"
+            },
+            "body": "{\"content\":\"(Telegram: Eve (Slack: adminxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx — reply with: chat reply telegram-7-7) héllo 🚀 — 日本語\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBFdmUgKFNsYWNrOiBhZG1pbnh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4IOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgaMOpbGxvIPCfmoAg4oCUIOaXpeacrOiqniIsImZyb21fbmFtZSI6InRlbGVncmFtLTctNyJ9"
+          }
+        ]
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"7\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "183"
+            },
+            "body": "{\"content\":\"(Telegram: Eve (Slack: adminxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx — reply with: chat reply telegram-7-7) héllo 🚀 — 日本語\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBFdmUgKFNsYWNrOiBhZG1pbnh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4IOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgaMOpbGxvIPCfmoAg4oCUIOaXpeacrOiqniIsImZyb21fbmFtZSI6InRlbGVncmFtLTctNyJ9"
+          }
+        ]
+      }
+    },
+    {
+      "group": "run-poll",
+      "name": "poll-loop-basic-offset-advance",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{},\"denied\":[],\"pending\":{\"7\":{\"label\":\"Dana\",\"last_notified\":\"<TS>\"}}}",
+        "updateOffset": "5002",
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/getUpdates",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "55",
+              "content-type": "application/json"
+            },
+            "body": "{\"offset\":0,\"timeout\":50,\"allowed_updates\":[\"message\"]}",
+            "bodyBase64": "eyJvZmZzZXQiOjAsInRpbWVvdXQiOjUwLCJhbGxvd2VkX3VwZGF0ZXMiOlsibWVzc2FnZSJdfQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "76",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"Dana (id 7) wants to talk — /approve 7 or /deny 7\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJEYW5hIChpZCA3KSB3YW50cyB0byB0YWxrIOKAlCAvYXBwcm92ZSA3IG9yIC9kZW55IDcifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/getUpdates",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "58",
+              "content-type": "application/json"
+            },
+            "body": "{\"offset\":5002,\"timeout\":50,\"allowed_updates\":[\"message\"]}",
+            "bodyBase64": "eyJvZmZzZXQiOjUwMDIsInRpbWVvdXQiOjUwLCJhbGxvd2VkX3VwZGF0ZXMiOlsibWVzc2FnZSJdfQ=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{},\"denied\":[],\"pending\":{\"7\":{\"label\":\"Dana\",\"last_notified\":\"<TS>\"}}}",
+        "updateOffset": "5002",
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/getUpdates",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "55"
+            },
+            "body": "{\"offset\":0,\"timeout\":50,\"allowed_updates\":[\"message\"]}",
+            "bodyBase64": "eyJvZmZzZXQiOjAsInRpbWVvdXQiOjUwLCJhbGxvd2VkX3VwZGF0ZXMiOlsibWVzc2FnZSJdfQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "76"
+            },
+            "body": "{\"chat_id\":100,\"text\":\"Dana (id 7) wants to talk — /approve 7 or /deny 7\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxMDAsInRleHQiOiJEYW5hIChpZCA3KSB3YW50cyB0byB0YWxrIOKAlCAvYXBwcm92ZSA3IG9yIC9kZW55IDcifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/getUpdates",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "58"
+            },
+            "body": "{\"offset\":5002,\"timeout\":50,\"allowed_updates\":[\"message\"]}",
+            "bodyBase64": "eyJvZmZzZXQiOjUwMDIsInRpbWVvdXQiOjUwLCJhbGxvd2VkX3VwZGF0ZXMiOlsibWVzc2FnZSJdfQ=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "chat-sourced-reply-delivered",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "185 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"aaa\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "61",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"hello <b>world</b>\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiaGVsbG8gPGI+d29ybGQ8L2I+IiwicGFyc2VfbW9kZSI6IkhUTUwifQ=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "185 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"aaa\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "61"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"hello <b>world</b>\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiaGVsbG8gPGI+d29ybGQ8L2I+IiwicGFyc2VfbW9kZSI6IkhUTUwifQ=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "non-chat-source-dropped",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "dropping non-chat message step bbb (source='responder')\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "187 <TRAJ>",
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "187 <TRAJ>",
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "unapproved-recipient-dropped",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "dropping reply to unapproved user 2\n",
+        "error": null,
+        "allowlist": "{\"approved\":{},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "185 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-2-2: recipient is not on the Telegram allowlist\",\"reason\":\"recipient is not on the Telegram allowlist\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-2-2\",\"transport\":\"telegram\",\"trigger_step\":\"ccc\",\"type\":\"delivery\"}]",
+        "botRequests": [],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "185 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-2-2: recipient is not on the Telegram allowlist\",\"reason\":\"recipient is not on the Telegram allowlist\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-2-2\",\"transport\":\"telegram\",\"trigger_step\":\"ccc\",\"type\":\"delivery\"}]",
+        "botRequests": [],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "long-reply-chunked",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "4088 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"ddd\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "3945",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"para1\\n\\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoicGFyYTFcblxuYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWEiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "59",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"aaaaaaa\\n\\npara3\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYWFhYWFhYVxuXG5wYXJhMyIsInBhcnNlX21vZGUiOiJIVE1MIn0="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "4088 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"ddd\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "3945"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"para1\\n\\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoicGFyYTFcblxuYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWEiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "59"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"aaaaaaa\\n\\npara3\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYWFhYWFhYVxuXG5wYXJhMyIsInBhcnNlX21vZGUiOiJIVE1MIn0="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "html-send-fails-falls-back-to-plain",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "184 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"eee\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "57",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"bad html reply\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYmFkIGh0bWwgcmVwbHkiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "37",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"bad html reply\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYmFkIGh0bWwgcmVwbHkifQ=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "184 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"eee\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "57"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"bad html reply\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYmFkIGh0bWwgcmVwbHkiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "37"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"bad html reply\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYmFkIGh0bWwgcmVwbHkifQ=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "file-step-sent-as-document",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "198 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"note.txt\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-doc-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "265",
+              "content-type": "multipart/form-data; boundary=2dd626b6cd92ea766fafc91820c5d463"
+            },
+            "body": "--2dd626b6cd92ea766fafc91820c5d463\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--2dd626b6cd92ea766fafc91820c5d463\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: text/plain\r\n\r\nhi\r\n--2dd626b6cd92ea766fafc91820c5d463--\r\n",
+            "bodyBase64": "LS0yZGQ2MjZiNmNkOTJlYTc2NmZhZmM5MTgyMGM1ZDQ2Mw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLTJkZDYyNmI2Y2Q5MmVhNzY2ZmFmYzkxODIwYzVkNDYzDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluDQoNCmhpDQotLTJkZDYyNmI2Y2Q5MmVhNzY2ZmFmYzkxODIwYzVkNDYzLS0NCg=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "198 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"note.txt\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-doc-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-019979735198",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "279"
+            },
+            "body": "------formdata-undici-019979735198\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-019979735198\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: application/octet-stream\r\n\r\nhi\r\n------formdata-undici-019979735198--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTAxOTk3OTczNTE5OA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDE5OTc5NzM1MTk4DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCg0KaGkNCi0tLS0tLWZvcm1kYXRhLXVuZGljaS0wMTk5Nzk3MzUxOTgtLQ0K"
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "png-sent-as-photo",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "223 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"fig.png\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-png-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendPhoto",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "274",
+              "content-type": "multipart/form-data; boundary=d017934a51e37e9306dd7689b49408b7"
+            },
+            "body": "--d017934a51e37e9306dd7689b49408b7\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--d017934a51e37e9306dd7689b49408b7\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"fig.png\"\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\npngbytes\r\n--d017934a51e37e9306dd7689b49408b7--\r\n",
+            "bodyBase64": "LS1kMDE3OTM0YTUxZTM3ZTkzMDZkZDc2ODliNDk0MDhiNw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLWQwMTc5MzRhNTFlMzdlOTMwNmRkNzY4OWI0OTQwOGI3DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InBob3RvIjsgZmlsZW5hbWU9ImZpZy5wbmciDQpDb250ZW50LVR5cGU6IGltYWdlL3BuZw0KDQqJUE5HDQoaCnBuZ2J5dGVzDQotLWQwMTc5MzRhNTFlMzdlOTMwNmRkNzY4OWI0OTQwOGI3LS0NCg=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "223 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"fig.png\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-png-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendPhoto",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-084914885610",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "289"
+            },
+            "body": "------formdata-undici-084914885610\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-084914885610\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"fig.png\"\r\nContent-Type: application/octet-stream\r\n\r\n�PNG\r\n\u001a\npngbytes\r\n------formdata-undici-084914885610--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTA4NDkxNDg4NTYxMA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDg0OTE0ODg1NjEwDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InBob3RvIjsgZmlsZW5hbWU9ImZpZy5wbmciDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQqJUE5HDQoaCnBuZ2J5dGVzDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDg0OTE0ODg1NjEwLS0NCg=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "jpeg-sent-as-photo",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "216 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"shot.jpg\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-jpg-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendPhoto",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "272",
+              "content-type": "multipart/form-data; boundary=719e3cee2bdce22c029bd2b3f0a8174e"
+            },
+            "body": "--719e3cee2bdce22c029bd2b3f0a8174e\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--719e3cee2bdce22c029bd2b3f0a8174e\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"shot.jpg\"\r\nContent-Type: image/jpeg\r\n\r\n���jpegbytes\r\n--719e3cee2bdce22c029bd2b3f0a8174e--\r\n",
+            "bodyBase64": "LS03MTllM2NlZTJiZGNlMjJjMDI5YmQyYjNmMGE4MTc0ZQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLTcxOWUzY2VlMmJkY2UyMmMwMjliZDJiM2YwYTgxNzRlDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InBob3RvIjsgZmlsZW5hbWU9InNob3QuanBnIg0KQ29udGVudC1UeXBlOiBpbWFnZS9qcGVnDQoNCv/Y/2pwZWdieXRlcw0KLS03MTllM2NlZTJiZGNlMjJjMDI5YmQyYjNmMGE4MTc0ZS0tDQo="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "216 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"shot.jpg\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-jpg-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendPhoto",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-084227067929",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "286"
+            },
+            "body": "------formdata-undici-084227067929\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-084227067929\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"shot.jpg\"\r\nContent-Type: application/octet-stream\r\n\r\n���jpegbytes\r\n------formdata-undici-084227067929--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTA4NDIyNzA2NzkyOQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDg0MjI3MDY3OTI5DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InBob3RvIjsgZmlsZW5hbWU9InNob3QuanBnIg0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCg0K/9j/anBlZ2J5dGVzDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDg0MjI3MDY3OTI5LS0NCg=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "photo-send-failure-retries-as-document",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "229 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"fig.png\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-png-retry-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendPhoto",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "274",
+              "content-type": "multipart/form-data; boundary=512cec78a0b20e39fd57a43b90e6abc5"
+            },
+            "body": "--512cec78a0b20e39fd57a43b90e6abc5\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--512cec78a0b20e39fd57a43b90e6abc5\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"fig.png\"\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\npngbytes\r\n--512cec78a0b20e39fd57a43b90e6abc5--\r\n",
+            "bodyBase64": "LS01MTJjZWM3OGEwYjIwZTM5ZmQ1N2E0M2I5MGU2YWJjNQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLTUxMmNlYzc4YTBiMjBlMzlmZDU3YTQzYjkwZTZhYmM1DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InBob3RvIjsgZmlsZW5hbWU9ImZpZy5wbmciDQpDb250ZW50LVR5cGU6IGltYWdlL3BuZw0KDQqJUE5HDQoaCnBuZ2J5dGVzDQotLTUxMmNlYzc4YTBiMjBlMzlmZDU3YTQzYjkwZTZhYmM1LS0NCg=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "277",
+              "content-type": "multipart/form-data; boundary=e058756bba3680fd9bfbd608dff114dd"
+            },
+            "body": "--e058756bba3680fd9bfbd608dff114dd\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--e058756bba3680fd9bfbd608dff114dd\r\nContent-Disposition: form-data; name=\"document\"; filename=\"fig.png\"\r\nContent-Type: image/png\r\n\r\n�PNG\r\n\u001a\npngbytes\r\n--e058756bba3680fd9bfbd608dff114dd--\r\n",
+            "bodyBase64": "LS1lMDU4NzU2YmJhMzY4MGZkOWJmYmQ2MDhkZmYxMTRkZA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLWUwNTg3NTZiYmEzNjgwZmQ5YmZiZDYwOGRmZjExNGRkDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9ImZpZy5wbmciDQpDb250ZW50LVR5cGU6IGltYWdlL3BuZw0KDQqJUE5HDQoaCnBuZ2J5dGVzDQotLWUwNTg3NTZiYmEzNjgwZmQ5YmZiZDYwOGRmZjExNGRkLS0NCg=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "229 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"fig.png\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-png-retry-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendPhoto",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-016378814800",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "289"
+            },
+            "body": "------formdata-undici-016378814800\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-016378814800\r\nContent-Disposition: form-data; name=\"photo\"; filename=\"fig.png\"\r\nContent-Type: application/octet-stream\r\n\r\n�PNG\r\n\u001a\npngbytes\r\n------formdata-undici-016378814800--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTAxNjM3ODgxNDgwMA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDE2Mzc4ODE0ODAwDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InBob3RvIjsgZmlsZW5hbWU9ImZpZy5wbmciDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQqJUE5HDQoaCnBuZ2J5dGVzDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDE2Mzc4ODE0ODAwLS0NCg=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-011068089362",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "292"
+            },
+            "body": "------formdata-undici-011068089362\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-011068089362\r\nContent-Disposition: form-data; name=\"document\"; filename=\"fig.png\"\r\nContent-Type: application/octet-stream\r\n\r\n�PNG\r\n\u001a\npngbytes\r\n------formdata-undici-011068089362--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTAxMTA2ODA4OTM2Mg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDExMDY4MDg5MzYyDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9ImZpZy5wbmciDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL29jdGV0LXN0cmVhbQ0KDQqJUE5HDQoaCnBuZ2J5dGVzDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDExMDY4MDg5MzYyLS0NCg=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "file-send-failure-falls-back-to-notice",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "file send failed for telegram-1-1\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/outbound.py\", line 233, in _deliver\n    bot.send_document(conv.chat, data, name, caption=caption)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 90, in send_document\n    return self._call(\n           ~~~~~~~~~~^\n        \"sendDocument\",\n        ^^^^^^^^^^^^^^^\n        files={\"document\": (filename, content)},\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        **params,\n        ^^^^^^^^^\n    )\n    ^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 53, in _call\n    raise ApiError(f\"{method}: {payload.get('description', response.text)}\")\nheadlong_telegram.api.ApiError: sendDocument: upload rejected\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "199 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-1: ApiError: sendDocument: upload rejected\",\"filename\":\"note.txt\",\"reason\":\"ApiError: sendDocument: upload rejected\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-fail-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "265",
+              "content-type": "multipart/form-data; boundary=ed64f05f78efbbc2c4916d9321159af8"
+            },
+            "body": "--ed64f05f78efbbc2c4916d9321159af8\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--ed64f05f78efbbc2c4916d9321159af8\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: text/plain\r\n\r\nhi\r\n--ed64f05f78efbbc2c4916d9321159af8--\r\n",
+            "bodyBase64": "LS1lZDY0ZjA1Zjc4ZWZiYmMyYzQ5MTZkOTMyMTE1OWFmOA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLWVkNjRmMDVmNzhlZmJiYzJjNDkxNmQ5MzIxMTU5YWY4DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluDQoNCmhpDQotLWVkNjRmMDVmNzhlZmJiYzJjNDkxNmQ5MzIxMTU5YWY4LS0NCg=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "56",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"(failed to deliver file note.txt)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiKGZhaWxlZCB0byBkZWxpdmVyIGZpbGUgbm90ZS50eHQpIn0="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "199 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-1: ApiError: sendDocument: upload rejected\",\"filename\":\"note.txt\",\"reason\":\"ApiError: sendDocument: upload rejected\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-fail-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-035694286612",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "279"
+            },
+            "body": "------formdata-undici-035694286612\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-035694286612\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: application/octet-stream\r\n\r\nhi\r\n------formdata-undici-035694286612--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTAzNTY5NDI4NjYxMg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDM1Njk0Mjg2NjEyDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCg0KaGkNCi0tLS0tLWZvcm1kYXRhLXVuZGljaS0wMzU2OTQyODY2MTItLQ0K"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "56"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"(failed to deliver file note.txt)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiKGZhaWxlZCB0byBkZWxpdmVyIGZpbGUgbm90ZS50eHQpIn0="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "undecodable-content-b64-falls-back-to-notice",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "undecodable file payload for telegram-1-1 (note.txt)\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "241 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-1: undecodable file payload (note.txt)\",\"filename\":\"note.txt\",\"reason\":\"undecodable file payload (note.txt)\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-badb64-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "56",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"(failed to deliver file note.txt)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiKGZhaWxlZCB0byBkZWxpdmVyIGZpbGUgbm90ZS50eHQpIn0="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "241 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-1: undecodable file payload (note.txt)\",\"filename\":\"note.txt\",\"reason\":\"undecodable file payload (note.txt)\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-badb64-1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "56"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"(failed to deliver file note.txt)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiKGZhaWxlZCB0byBkZWxpdmVyIGZpbGUgbm90ZS50eHQpIn0="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "identical-file-steps-deduped",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "skipping duplicate file post to telegram-1-1\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "510 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"note.txt\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-dup-1\",\"type\":\"delivery\"},{\"content\":\"not sent to telegram-1-1: duplicate of a file sent within 5 minutes\",\"filename\":\"note.txt\",\"reason\":\"duplicate of a file sent within 5 minutes\",\"source\":\"telegram-bridge\",\"status\":\"skipped\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-dup-2\",\"type\":\"delivery\"},{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"note.txt\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-dup-3\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "273",
+              "content-type": "multipart/form-data; boundary=b958491c9f06584e2fed4820283d4cd8"
+            },
+            "body": "--b958491c9f06584e2fed4820283d4cd8\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--b958491c9f06584e2fed4820283d4cd8\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: text/plain\r\n\r\nsame-bytes\r\n--b958491c9f06584e2fed4820283d4cd8--\r\n",
+            "bodyBase64": "LS1iOTU4NDkxYzlmMDY1ODRlMmZlZDQ4MjAyODNkNGNkOA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLWI5NTg0OTFjOWYwNjU4NGUyZmVkNDgyMDI4M2Q0Y2Q4DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluDQoNCnNhbWUtYnl0ZXMNCi0tYjk1ODQ5MWM5ZjA2NTg0ZTJmZWQ0ODIwMjgzZDRjZDgtLQ0K"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "278",
+              "content-type": "multipart/form-data; boundary=a7dca9a84e11ae5990d86fd9cdfff617"
+            },
+            "body": "--a7dca9a84e11ae5990d86fd9cdfff617\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--a7dca9a84e11ae5990d86fd9cdfff617\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: text/plain\r\n\r\ndifferent-bytes\r\n--a7dca9a84e11ae5990d86fd9cdfff617--\r\n",
+            "bodyBase64": "LS1hN2RjYTlhODRlMTFhZTU5OTBkODZmZDljZGZmZjYxNw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLWE3ZGNhOWE4NGUxMWFlNTk5MGQ4NmZkOWNkZmZmNjE3DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluDQoNCmRpZmZlcmVudC1ieXRlcw0KLS1hN2RjYTlhODRlMTFhZTU5OTBkODZmZDljZGZmZjYxNy0tDQo="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "510 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"note.txt\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-dup-1\",\"type\":\"delivery\"},{\"content\":\"not sent to telegram-1-1: duplicate of a file sent within 5 minutes\",\"filename\":\"note.txt\",\"reason\":\"duplicate of a file sent within 5 minutes\",\"source\":\"telegram-bridge\",\"status\":\"skipped\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-dup-2\",\"type\":\"delivery\"},{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"note.txt\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-dup-3\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-056088177034",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "287"
+            },
+            "body": "------formdata-undici-056088177034\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-056088177034\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: application/octet-stream\r\n\r\nsame-bytes\r\n------formdata-undici-056088177034--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTA1NjA4ODE3NzAzNA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDU2MDg4MTc3MDM0DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCg0Kc2FtZS1ieXRlcw0KLS0tLS0tZm9ybWRhdGEtdW5kaWNpLTA1NjA4ODE3NzAzNC0tDQo="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-027548223387",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "292"
+            },
+            "body": "------formdata-undici-027548223387\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-027548223387\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: application/octet-stream\r\n\r\ndifferent-bytes\r\n------formdata-undici-027548223387--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTAyNzU0ODIyMzM4Nw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDI3NTQ4MjIzMzg3DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCg0KZGlmZmVyZW50LWJ5dGVzDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDI3NTQ4MjIzMzg3LS0NCg=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "group-chat-destination-dropped",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "dropping reply to group chat 99\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "185 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-99: group chats are not supported; DMs only\",\"reason\":\"group chats are not supported; DMs only\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-99\",\"transport\":\"telegram\",\"trigger_step\":\"f-group-1\",\"type\":\"delivery\"}]",
+        "botRequests": [],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "185 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-99: group chats are not supported; DMs only\",\"reason\":\"group chats are not supported; DMs only\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-99\",\"transport\":\"telegram\",\"trigger_step\":\"f-group-1\",\"type\":\"delivery\"}]",
+        "botRequests": [],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "slack-reaction-step-not-posted",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "324 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-react-2\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "54",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"later reply\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoibGF0ZXIgcmVwbHkiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "324 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f-react-2\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "54"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"later reply\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoibGF0ZXIgcmVwbHkiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "handle",
+      "name": "web-409-refusal-is-final-no-retry-no-error-post",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "chat POST refused for telegram-7-7: {\"detail\":{\"message\":\"refusing to send: this exact message already went\"}}\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"Dana\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "117",
+              "content-type": "application/json"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) this is a duplicate\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgdGhpcyBpcyBhIGR1cGxpY2F0ZSIsImZyb21fbmFtZSI6InRlbGVncmFtLTctNyJ9"
+          }
+        ]
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"Dana\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "117"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) this is a duplicate\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgdGhpcyBpcyBhIGR1cGxpY2F0ZSIsImZyb21fbmFtZSI6InRlbGVncmFtLTctNyJ9"
+          }
+        ]
+      }
+    },
+    {
+      "group": "handle",
+      "name": "web-503-still-retries-three-times-then-posts-error",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "chat POST failed (attempt 1/3)\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/inbound.py\", line 200, in _deliver\n    response.raise_for_status()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"<HEADLONG_ROOT>/telegram/.venv/lib/python3.13/site-packages/httpx/_models.py\", line 829, in raise_for_status\n    raise HTTPStatusError(message, request=request, response=self)\nhttpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'http://127.0.0.1:63208/api/identities/.identities~audel/chat'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503\nchat POST failed (attempt 2/3)\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/inbound.py\", line 200, in _deliver\n    response.raise_for_status()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"<HEADLONG_ROOT>/telegram/.venv/lib/python3.13/site-packages/httpx/_models.py\", line 829, in raise_for_status\n    raise HTTPStatusError(message, request=request, response=self)\nhttpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'http://127.0.0.1:63208/api/identities/.identities~audel/chat'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503\nchat POST failed (attempt 3/3)\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/inbound.py\", line 200, in _deliver\n    response.raise_for_status()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"<HEADLONG_ROOT>/telegram/.venv/lib/python3.13/site-packages/httpx/_models.py\", line 829, in raise_for_status\n    raise HTTPStatusError(message, request=request, response=self)\nhttpx.HTTPStatusError: Server error '503 Service Unavailable' for url 'http://127.0.0.1:63208/api/identities/.identities~audel/chat'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"Dana\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "102",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":7,\"text\":\"(bridge error: I couldn't reach my mind just now — please try again in a bit)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjo3LCJ0ZXh0IjoiKGJyaWRnZSBlcnJvcjogSSBjb3VsZG4ndCByZWFjaCBteSBtaW5kIGp1c3Qgbm93IOKAlCBwbGVhc2UgdHJ5IGFnYWluIGluIGEgYml0KSJ9"
+          }
+        ],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "106",
+              "content-type": "application/json"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) retry me\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgcmV0cnkgbWUiLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "106",
+              "content-type": "application/json"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) retry me\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgcmV0cnkgbWUiLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "106",
+              "content-type": "application/json"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) retry me\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgcmV0cnkgbWUiLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          }
+        ]
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"7\":\"Dana\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": null,
+        "notices": null,
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "102"
+            },
+            "body": "{\"chat_id\":7,\"text\":\"(bridge error: I couldn't reach my mind just now — please try again in a bit)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjo3LCJ0ZXh0IjoiKGJyaWRnZSBlcnJvcjogSSBjb3VsZG4ndCByZWFjaCBteSBtaW5kIGp1c3Qgbm93IOKAlCBwbGVhc2UgdHJ5IGFnYWluIGluIGEgYml0KSJ9"
+          }
+        ],
+        "webRequests": [
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "106"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) retry me\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgcmV0cnkgbWUiLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "106"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) retry me\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgcmV0cnkgbWUiLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/api/identities/.identities~audel/chat",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "106"
+            },
+            "body": "{\"content\":\"(Telegram: Dana — reply with: chat reply telegram-7-7) retry me\",\"from_name\":\"telegram-7-7\"}",
+            "bodyBase64": "eyJjb250ZW50IjoiKFRlbGVncmFtOiBEYW5hIOKAlCByZXBseSB3aXRoOiBjaGF0IHJlcGx5IHRlbGVncmFtLTctNykgcmV0cnkgbWUiLCJmcm9tX25hbWUiOiJ0ZWxlZ3JhbS03LTcifQ=="
+          }
+        ]
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "delivered-notice-names-step-and-chat",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "171 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "45",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"hi\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiaGkiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "171 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "45"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"hi\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiaGkiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "malformed-telegram-address-failed-notice",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "undeliverable address 'telegram-bogus' on step m1\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "172 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-bogus: unknown telegram address form; accepted: telegram-<user id>-<chat id>\",\"reason\":\"unknown telegram address form; accepted: telegram-<user id>-<chat id>\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-bogus\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"}]",
+        "botRequests": [],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "172 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-bogus: unknown telegram address form; accepted: telegram-<user id>-<chat id>\",\"reason\":\"unknown telegram address form; accepted: telegram-<user id>-<chat id>\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-bogus\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"}]",
+        "botRequests": [],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "other-transports-silently-skipped",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "272 <TRAJ>",
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "272 <TRAJ>",
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "duplicate-is-skipped-notice",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "skipping duplicate post to telegram-1-1\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "269 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"},{\"content\":\"not sent to telegram-1-1: duplicate of a message sent within 5 minutes\",\"reason\":\"duplicate of a message sent within 5 minutes\",\"source\":\"telegram-bridge\",\"status\":\"skipped\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m2\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "44",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"x\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoieCIsInBhcnNlX21vZGUiOiJIVE1MIn0="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "269 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"},{\"content\":\"not sent to telegram-1-1: duplicate of a message sent within 5 minutes\",\"reason\":\"duplicate of a message sent within 5 minutes\",\"source\":\"telegram-bridge\",\"status\":\"skipped\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m2\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "44"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"x\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoieCIsInBhcnNlX21vZGUiOiJIVE1MIn0="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "send-failure-html-and-plain-is-failed-notice",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "sendMessage failed for telegram-1-1\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/outbound.py\", line 264, in _deliver\n    bot.send_message(conv.chat, to_html(part), html=True)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 73, in send_message\n    self._call(\"sendMessage\", **params)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 53, in _call\n    raise ApiError(f\"{method}: {payload.get('description', response.text)}\")\nheadlong_telegram.api.ApiError: sendMessage: Bad Request: chat not found\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/outbound.py\", line 270, in _deliver\n    bot.send_message(conv.chat, part)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 73, in send_message\n    self._call(\"sendMessage\", **params)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 53, in _call\n    raise ApiError(f\"{method}: {payload.get('description', response.text)}\")\nheadlong_telegram.api.ApiError: sendMessage: Bad Request: chat not found\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "175 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-1: ApiError: sendMessage: Bad Request: chat not found\",\"reason\":\"ApiError: sendMessage: Bad Request: chat not found\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "49",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"doomed\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiZG9vbWVkIiwicGFyc2VfbW9kZSI6IkhUTUwifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "29",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"doomed\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiZG9vbWVkIn0="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "175 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-1: ApiError: sendMessage: Bad Request: chat not found\",\"reason\":\"ApiError: sendMessage: Bad Request: chat not found\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "49"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"doomed\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiZG9vbWVkIiwicGFyc2VfbW9kZSI6IkhUTUwifQ=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "29"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"doomed\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiZG9vbWVkIn0="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "partly-sent-failure-notice",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "sendMessage failed for telegram-1-1\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/outbound.py\", line 264, in _deliver\n    bot.send_message(conv.chat, to_html(part), html=True)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 73, in send_message\n    self._call(\"sendMessage\", **params)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 53, in _call\n    raise ApiError(f\"{method}: {payload.get('description', response.text)}\")\nheadlong_telegram.api.ApiError: sendMessage: Bad Request: second chunk\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/outbound.py\", line 270, in _deliver\n    bot.send_message(conv.chat, part)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 73, in send_message\n    self._call(\"sendMessage\", **params)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 53, in _call\n    raise ApiError(f\"{method}: {payload.get('description', response.text)}\")\nheadlong_telegram.api.ApiError: sendMessage: Bad Request: second chunk\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "4187 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"not delivered to telegram-1-1: partly sent, then ApiError: sendMessage: Bad Request: second chunk\",\"reason\":\"partly sent, then ApiError: sendMessage: Bad Request: second chunk\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "3945",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"para1\\n\\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoicGFyYTFcblxuYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWEiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "159",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\n\\npara3\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFcblxucGFyYTMiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "139",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\n\\npara3\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFcblxucGFyYTMifQ=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "4187 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"not delivered to telegram-1-1: partly sent, then ApiError: sendMessage: Bad Request: second chunk\",\"reason\":\"partly sent, then ApiError: sendMessage: Bad Request: second chunk\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"m1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "3945"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"para1\\n\\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoicGFyYTFcblxuYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWEiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "159"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\n\\npara3\",\"parse_mode\":\"HTML\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFcblxucGFyYTMiLCJwYXJzZV9tb2RlIjoiSFRNTCJ9"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "139"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\n\\npara3\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFcblxucGFyYTMifQ=="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "file-sent-delivered-notice-carries-filename",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "212 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"note.txt\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "265",
+              "content-type": "multipart/form-data; boundary=b61ee04ccf59e45f9b46f764893a29d7"
+            },
+            "body": "--b61ee04ccf59e45f9b46f764893a29d7\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--b61ee04ccf59e45f9b46f764893a29d7\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: text/plain\r\n\r\nhi\r\n--b61ee04ccf59e45f9b46f764893a29d7--\r\n",
+            "bodyBase64": "LS1iNjFlZTA0Y2NmNTllNDVmOWI0NmY3NjQ4OTNhMjlkNw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLWI2MWVlMDRjY2Y1OWU0NWY5YjQ2Zjc2NDg5M2EyOWQ3DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluDQoNCmhpDQotLWI2MWVlMDRjY2Y1OWU0NWY5YjQ2Zjc2NDg5M2EyOWQ3LS0NCg=="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "212 <TRAJ>",
+        "notices": "[{\"chat\":\"1\",\"content\":\"delivered to telegram-1-1\",\"filename\":\"note.txt\",\"source\":\"telegram-bridge\",\"status\":\"delivered\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-072800430411",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "279"
+            },
+            "body": "------formdata-undici-072800430411\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-072800430411\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: application/octet-stream\r\n\r\nhi\r\n------formdata-undici-072800430411--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTA3MjgwMDQzMDQxMQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDcyODAwNDMwNDExDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCg0KaGkNCi0tLS0tLWZvcm1kYXRhLXVuZGljaS0wNzI4MDA0MzA0MTEtLQ0K"
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "file-failure-notice-carries-reason-and-filename",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "file send failed for telegram-1-1\nTraceback (most recent call last):\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/outbound.py\", line 233, in _deliver\n    bot.send_document(conv.chat, data, name, caption=caption)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 90, in send_document\n    return self._call(\n           ~~~~~~~~~~^\n        \"sendDocument\",\n        ^^^^^^^^^^^^^^^\n        files={\"document\": (filename, content)},\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        **params,\n        ^^^^^^^^^\n    )\n    ^\n  File \"<HEADLONG_ROOT>/telegram/src/headlong_telegram/api.py\", line 53, in _call\n    raise ApiError(f\"{method}: {payload.get('description', response.text)}\")\nheadlong_telegram.api.ApiError: sendDocument: Request Entity Too Large\n",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "212 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-1: ApiError: sendDocument: Request Entity Too Large\",\"filename\":\"note.txt\",\"reason\":\"ApiError: sendDocument: Request Entity Too Large\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "265",
+              "content-type": "multipart/form-data; boundary=b6cb6ea900b034a12cf43de9b67f2a1e"
+            },
+            "body": "--b6cb6ea900b034a12cf43de9b67f2a1e\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n--b6cb6ea900b034a12cf43de9b67f2a1e\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: text/plain\r\n\r\nhi\r\n--b6cb6ea900b034a12cf43de9b67f2a1e--\r\n",
+            "bodyBase64": "LS1iNmNiNmVhOTAwYjAzNGExMmNmNDNkZTliNjdmMmExZQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLWI2Y2I2ZWE5MDBiMDM0YTEyY2Y0M2RlOWI2N2YyYTFlDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluDQoNCmhpDQotLWI2Y2I2ZWE5MDBiMDM0YTEyY2Y0M2RlOWI2N2YyYTFlLS0NCg=="
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "api.telegram.org",
+              "accept": "*/*",
+              "accept-encoding": "gzip, deflate",
+              "connection": "keep-alive",
+              "user-agent": "python-httpx/0.28.1",
+              "content-length": "56",
+              "content-type": "application/json"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"(failed to deliver file note.txt)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiKGZhaWxlZCB0byBkZWxpdmVyIGZpbGUgbm90ZS50eHQpIn0="
+          }
+        ],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "212 <TRAJ>",
+        "notices": "[{\"content\":\"not delivered to telegram-1-1: ApiError: sendDocument: Request Entity Too Large\",\"filename\":\"note.txt\",\"reason\":\"ApiError: sendDocument: Request Entity Too Large\",\"source\":\"telegram-bridge\",\"status\":\"failed\",\"to\":\"telegram-1-1\",\"transport\":\"telegram\",\"trigger_step\":\"f1\",\"type\":\"delivery\"}]",
+        "botRequests": [
+          {
+            "method": "POST",
+            "path": "/bott:test/sendDocument",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "multipart/form-data; boundary=----formdata-undici-049381829857",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "279"
+            },
+            "body": "------formdata-undici-049381829857\r\nContent-Disposition: form-data; name=\"chat_id\"\r\n\r\n1\r\n------formdata-undici-049381829857\r\nContent-Disposition: form-data; name=\"document\"; filename=\"note.txt\"\r\nContent-Type: application/octet-stream\r\n\r\nhi\r\n------formdata-undici-049381829857--\r\n",
+            "bodyBase64": "LS0tLS0tZm9ybWRhdGEtdW5kaWNpLTA0OTM4MTgyOTg1Nw0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJjaGF0X2lkIg0KDQoxDQotLS0tLS1mb3JtZGF0YS11bmRpY2ktMDQ5MzgxODI5ODU3DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImRvY3VtZW50IjsgZmlsZW5hbWU9Im5vdGUudHh0Ig0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9vY3RldC1zdHJlYW0NCg0KaGkNCi0tLS0tLWZvcm1kYXRhLXVuZGljaS0wNDkzODE4Mjk4NTctLQ0K"
+          },
+          {
+            "method": "POST",
+            "path": "/bott:test/sendMessage",
+            "headers": {
+              "host": "127.0.0.1:63208",
+              "connection": "keep-alive",
+              "content-type": "application/json",
+              "accept": "*/*",
+              "accept-language": "*",
+              "sec-fetch-mode": "cors",
+              "user-agent": "node",
+              "accept-encoding": "gzip, deflate",
+              "content-length": "56"
+            },
+            "body": "{\"chat_id\":1,\"text\":\"(failed to deliver file note.txt)\"}",
+            "bodyBase64": "eyJjaGF0X2lkIjoxLCJ0ZXh0IjoiKGZhaWxlZCB0byBkZWxpdmVyIGZpbGUgbm90ZS50eHQpIn0="
+          }
+        ],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "cursor-of-another-trajectory-starts-at-eof",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "2 <SANDBOX>/some/other/trajectory.jsonl",
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "2 <SANDBOX>/some/other/trajectory.jsonl",
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      }
+    },
+    {
+      "group": "outbound",
+      "name": "cursor-beyond-the-file-starts-at-eof",
+      "pass": true,
+      "cmp": {
+        "status": true,
+        "botRequests": true,
+        "webRequests": true,
+        "allowlist": true,
+        "updateOffset": true,
+        "cursor": true,
+        "notices": true
+      },
+      "py": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "999999",
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      },
+      "ts": {
+        "status": 0,
+        "stdout": "",
+        "stderr": "",
+        "error": null,
+        "allowlist": "{\"approved\":{\"1\":\"1\"},\"denied\":[],\"pending\":{}}",
+        "updateOffset": null,
+        "cursor": "999999",
+        "notices": null,
+        "botRequests": [],
+        "webRequests": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+ "tag": "base-kill22",
+ "label": "base",
+ "mode": "kill",
+ "seed": 22,
+ "N": 50,
+ "chaos": [
+  1,
+  4
+ ],
+ "settle_s": 30,
+ "restarts": [
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 1.09,
+   "t": 2.87,
+   "t_started": 4.71
+  },
+  {
+   "who": "b-base-kill22",
+   "mode": "kill",
+   "down_s": 0.05,
+   "t": 7.05,
+   "t_started": 8.27
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 1.49,
+   "t": 9.6,
+   "t_started": 11.84
+  },
+  {
+   "who": "b-base-kill22",
+   "mode": "kill",
+   "down_s": 2,
+   "t": 14.5,
+   "t_started": 17.24
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 0.01,
+   "t": 18.55,
+   "t_started": 19.23
+  },
+  {
+   "who": "b-base-kill22",
+   "mode": "kill",
+   "down_s": 1.39,
+   "t": 20.37,
+   "t_started": 23.5
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 0.89,
+   "t": 25.29,
+   "t_started": 27.14
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 0.97,
+   "t": 29.02,
+   "t_started": 30.75
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 0.16,
+   "t": 32.12,
+   "t_started": 32.89
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 1.58,
+   "t": 35.75,
+   "t_started": 38.55
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 2.01,
+   "t": 40.16,
+   "t_started": 42.7
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 1.29,
+   "t": 44.96,
+   "t_started": 46.93
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 1.05,
+   "t": 49.5,
+   "t_started": 51.48
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 2.36,
+   "t": 52.81,
+   "t_started": 56.06
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 0.03,
+   "t": 58.26,
+   "t_started": 59.48
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 0.89,
+   "t": 62.16,
+   "t_started": 63.95
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 2.87,
+   "t": 67.44,
+   "t_started": 71.26
+  },
+  {
+   "who": "b-base-kill22",
+   "mode": "kill",
+   "down_s": 1.22,
+   "t": 73.19,
+   "t_started": 75.75
+  },
+  {
+   "who": "b-base-kill22",
+   "mode": "kill",
+   "down_s": 1.6,
+   "t": 79.48,
+   "t_started": 82.34
+  },
+  {
+   "who": "b-base-kill22",
+   "mode": "kill",
+   "down_s": 0.12,
+   "t": 83.6,
+   "t_started": 84.61
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 1.69,
+   "t": 86.36,
+   "t_started": 89.16
+  },
+  {
+   "who": "a-base-kill22",
+   "mode": "kill",
+   "down_s": 1.37,
+   "t": 91.55,
+   "t_started": 94.39
+  },
+  {
+   "who": "b-base-kill22",
+   "mode": "kill",
+   "down_s": 2.21,
+   "t": 97.2,
+   "t_started": 99.69
+  }
+ ],
+ "messages": [
+  {
+   "t_send": 0.72,
+   "i": 0,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 0",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 2.86,
+   "i": 1,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 1",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 4.35,
+   "i": 2,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 2",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 6.55,
+   "i": 3,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 3",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 8.58,
+   "i": 4,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 4 thanks",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 10.28,
+   "i": 5,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 5",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 12.09,
+   "i": 6,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 6",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 14.2,
+   "i": 7,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 7",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 16.44,
+   "i": 8,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 8",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 18.53,
+   "i": 9,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 9 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": false
+  },
+  {
+   "t_send": 20.5,
+   "i": 10,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 10",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 23.56,
+   "i": 11,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 11",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 25.94,
+   "i": 12,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 12",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 28.11,
+   "i": 13,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 13",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 29.53,
+   "i": 14,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 14 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": false
+  },
+  {
+   "t_send": 31.06,
+   "i": 15,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 15",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 32.56,
+   "i": 16,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 16",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 34.82,
+   "i": 17,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 17",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 36.64,
+   "i": 18,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 18",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 38.55,
+   "i": 19,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 19 thanks",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 40.83,
+   "i": 20,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 20",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 42.37,
+   "i": 21,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 21",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 44.42,
+   "i": 22,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 22",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 45.39,
+   "i": 23,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 23",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 47.17,
+   "i": 24,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 24 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": false
+  },
+  {
+   "t_send": 48.71,
+   "i": 25,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 25",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 50.48,
+   "i": 26,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 26",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 52.31,
+   "i": 27,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 27",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 53.84,
+   "i": 28,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 28",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 55.95,
+   "i": 29,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 29 thanks",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 59.19,
+   "i": 30,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 30",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 60.96,
+   "i": 31,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 31",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 62.52,
+   "i": 32,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 32",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 64.37,
+   "i": 33,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 33",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 66.09,
+   "i": 34,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 34 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": false
+  },
+  {
+   "t_send": 67.65,
+   "i": 35,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 35",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 69.04,
+   "i": 36,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 36",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 71.11,
+   "i": 37,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 37",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 73.55,
+   "i": 38,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 38",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 75.52,
+   "i": 39,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 39 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": false
+  },
+  {
+   "t_send": 77.68,
+   "i": 40,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 40",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 79.68,
+   "i": 41,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 41",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 82.04,
+   "i": 42,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 42",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 84.13,
+   "i": 43,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 43",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 86.55,
+   "i": 44,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 44 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": false
+  },
+  {
+   "t_send": 88.71,
+   "i": 45,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 45",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 91.08,
+   "i": 46,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 46",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 92.82,
+   "i": 47,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 47",
+   "dispatcher_up_at_send": false,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": false,
+   "outcome": null,
+   "receipt_done": false
+  },
+  {
+   "t_send": 95.14,
+   "i": 48,
+   "to": "b-base-kill22",
+   "body": "lw base-kill22 msg 48",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "replied",
+   "receipt_done": false
+  },
+  {
+   "t_send": 96.74,
+   "i": 49,
+   "to": "a-base-kill22",
+   "body": "lw base-kill22 msg 49 thanks",
+   "dispatcher_up_at_send": true,
+   "send_ok": true,
+   "in_log": true,
+   "claimed": true,
+   "outcome": "no-reply",
+   "receipt_done": false
+  }
+ ],
+ "summary": {
+  "sent": 50,
+  "in_log": 50,
+  "consumed": 34,
+  "never_woken": 16,
+  "claimed_not_finished": 0,
+  "sent_while_dispatcher_down": 12,
+  "never_woken_while_down": 12,
+  "never_woken_while_up": 4,
+  "restarts": 23,
+  "sender_saw_success": 50,
+  "duplicate_replies": 0,
+  "receipts_done": 0,
+  "outcomes": {
+   "replied": 27,
+   "null": 16,
+   "no-reply": 7
+  }
+ },
+ "stub_calls": 61
+}

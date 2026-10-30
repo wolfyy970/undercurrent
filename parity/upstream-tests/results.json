@@ -1,0 +1,2555 @@
+{
+  "generatedAt": "2026-10-27T16:54:11.133Z",
+  "suites": [
+    {
+      "suite": "test_recap.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 30,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 30,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_recap_context_upgrade.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 30,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 30,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_recap_render_cache.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 34,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 34,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_rollup_supersession_prompt.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 18,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 18,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_rollup_namer_limits.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "TEST-METHODOLOGY MISMATCH, not a port bug (6 of 40) — the suite observes the citation lookup through Bash-only instruments: a `head` shim on PATH that logs/deletes the candidate on `head -c 32769` (READ_LOG, DELETE_CANDIDATE) and `bash -x` xtrace counting `printf -v f ` lines. The port reads candidates with fs.openSync/readSync and has no head subprocess or xtrace, so the shim never fires (the 'deleted candidate' check sees the file still there, READ_LOG stays empty, probes counts 0). The same bounds are pinned on the port itself by test/recap-namer-limits.test.ts (128-probe cap and one open per candidate counted via a wrapped fs.openSync, corrupt/oversized/hidden candidates, 20%/4096 byte cap, tiny budget) and byte-for-byte against the real Bash by parity/recap adversarial group `namers`.",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 34,
+        "failed": 6,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 40,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL: test ! -f <TMP>/tmp.4XpZmgp2JW/trajs/aabb1390-root/rollups/t1/000000000090-000000000100.json",
+        "FAIL: test 1 -eq 0",
+        "FAIL: test        0 -gt 0",
+        "FAIL: test 0 -gt 0",
+        "FAIL: test 0 -gt 0",
+        "FAIL: test 0 -eq 128"
+      ]
+    },
+    {
+      "suite": "test_rollup_namer_read_half.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 10,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 10,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_rollup_refusal.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 26,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 26,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_context.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 29,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 29,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_llm_adapter.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 20,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 20,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_llm_openai_compatible.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "TEST-METHODOLOGY MISMATCH, not a port bug — this suite mocks the network by stubbing a `curl` binary on PATH; the port's bin/llm.mjs calls Node's native `fetch()` directly (src/llm.ts:92) and never shells out to curl (PARITY.md Deviations: \"llm transport-failure wording ... there is no curl\"). The stub is never invoked, so every request that should have been intercepted instead makes a REAL connection attempt to 127.0.0.1:9, which Node's fetch (undici) refuses outright — port 9 is on the fetch-spec's forbidden-port list (`ERR_UNDICI ... bad port`), where curl has no such restriction. No assertion here exercises port-owned logic; the whole suite needs a fetch-level interceptor (e.g. undici MockAgent) to be a valid oracle for the port, which is out of scope for this runner (no src/*.ts or harness edits).",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 9,
+        "failed": 12,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 21,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL keyless call succeeds via LLM_PROVIDER=openai-compatible — llm: error: request failed: bad port",
+        "FAIL request went to LLM_API_URL",
+        "FAIL unknown model gets the provider's 16384 default cap",
+        "FAIL LLM_API_KEY is sent as Authorization: Bearer — llm: error: request failed: bad port",
+        "FAIL auth config file is mode 600 — mode: ",
+        "FAIL auth config escapes quoted values",
+        "FAIL SHELLM_API_URL works as the URL fallback — llm: error: request failed: bad port",
+        "FAIL --provider openai-compatible works — llm: error: request failed: bad port",
+        "FAIL non-streaming path answers — llm: error: API error (HTTP 000)",
+        "FAIL -t overrides the default cap",
+        "FAIL known model (gpt-5) keeps its 128000 table cap",
+        "FAIL keyed provider (openai) sends its key via the config file, not argv"
+      ]
+    },
+    {
+      "suite": "test_llm_provider_env.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "TEST-METHODOLOGY MISMATCH, not a port bug (all 6) — same curl-stub interception gap as test_llm_openai_compatible.sh, now visible in a sharper form since the llm-providers lane ported the anthropic/gemini/opencode(Zen)/adapter wire paths (PARITY.md Gaps table's llm anthropic/gemini/opencode-zen/adapter rows are closed): 2 of the 6 failures (\"--provider overrides LLM_PROVIDER\", \"claude-* still detected as anthropic\") show the port's fetch() correctly reaching the real https://api.anthropic.com and getting back a genuine `invalid x-api-key` rejection with the suite's fake key — proof the provider dispatch is right, just unobservable through $CURL_ARGS since curl is never invoked. \"vendor/model still detected as openrouter\" likewise reaches real https://openrouter.ai (`Missing Authentication header`). The remaining 3 (\"LLM_PROVIDER=openai reaches an unrecognized model name\", \"request went to the configured endpoint\", \"env LLM_PROVIDER wins over a name it contradicts\") fail the same way test_llm_openai_compatible.sh's do — a real connection attempt to 127.0.0.1:9 that fetch (undici) refuses as a forbidden port, or a $CURL_ARGS grep that stays empty because curl was never invoked. All 6 make a real outbound network attempt as a side effect of the mismatch, not by design; this suite needs a fetch-level interceptor (undici MockAgent) to be a valid port oracle — out of scope for this runner.",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 4,
+        "failed": 6,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 10,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL LLM_PROVIDER=openai reaches an unrecognized model name — llm: warning: LLM_API_URL overrides the default openai endpoint (requests go to 127.0.0.1:9)",
+        "FAIL request went to the configured endpoint",
+        "FAIL --provider overrides LLM_PROVIDER — llm: error: request failed: connect timeout after 10s (LLM_CONNECT_TIMEOUT)",
+        "FAIL claude-* still detected as anthropic — llm: error: API error: invalid x-api-key",
+        "FAIL vendor/model still detected as openrouter — llm: error: API error: Missing Authentication header",
+        "FAIL env LLM_PROVIDER wins over a name it contradicts — llm: warning: LLM_PROVIDER=openai overrides detected provider 'anthropic' for model 'claude-sonnet-4-5'"
+      ]
+    },
+    {
+      "suite": "test_llm_retry.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "TEST-METHODOLOGY MISMATCH, not a port bug — all 52 failures. This entire suite's subject (transient-retry behavior) is driven by controlling curl's per-call exit code/output via $CURL_MODE_FILE; since the port never invokes curl (fetch-based, see test_llm_openai_compatible.sh note), none of the retry/health-marker/ledger assertions exercise the port's actual retry logic — they all fail at the same first real-network-attempt step. This suite cannot validate the port's retry behavior without a fetch-level interceptor.",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 21,
+        "failed": 54,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 75,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL stream retry succeeds",
+        "FAIL stream output correct",
+        "FAIL three curl calls",
+        "FAIL three attempts then give up",
+        "FAIL original error preserved",
+        "FAIL refusal not retried",
+        "FAIL refusal named on stderr",
+        "FAIL retries=0 fails immediately",
+        "FAIL single call with retries=0",
+        "FAIL partial output delivered",
+        "FAIL no retry after emission",
+        "FAIL non-stream retry succeeds",
+        "FAIL two calls (500 then 200)",
+        "FAIL 400 not retried",
+        "FAIL 400 message surfaced",
+        "FAIL marker: ok=false, http 400",
+        "FAIL marker: 400 classified other",
+        "FAIL marker: 402 -> kind credit",
+        "FAIL marker: message kept",
+        "FAIL marker: 429 'quota' -> kind rate (code beats words)",
+        "FAIL marker: success -> ok=true",
+        "FAIL marker: streamed credit error -> kind credit (no http code)",
+        "FAIL marker: streamed success -> ok=true",
+        "FAIL 200-with-error retried",
+        "FAIL two calls (error then ok)",
+        "FAIL finish_reason error retried",
+        "FAIL finish_reason msg surfaced",
+        "FAIL truncated output succeeds",
+        "FAIL truncated text delivered",
+        "FAIL truncation not retried",
+        "FAIL truncation warned on stderr",
+        "FAIL stream truncation succeeds",
+        "FAIL stream truncated text intact",
+        "FAIL stream truncation not retried",
+        "FAIL stream truncation warned",
+        "FAIL non-stream ws-body retried",
+        "FAIL two calls (ws then ok)",
+        "FAIL ws-body msg surfaced",
+        "FAIL stream ws-body retried",
+        "FAIL stream two calls (ws then ok)",
+        "FAIL empty stream retried",
+        "FAIL empty stream msg surfaced",
+        "FAIL non-stream empty retried",
+        "FAIL empty is whitespace error",
+        "FAIL ledger: streamed call appends",
+        "FAIL ledger: tokens + model + provider",
+        "FAIL ledger: caller usage file still written",
+        "FAIL ledger: identity dir gets its own ledger",
+        "FAIL ledger: identity stamped",
+        "FAIL ledger: home ledger untouched",
+        "FAIL ledger: LLM_RUN_ID recorded",
+        "FAIL ledger: failure appends nothing",
+        "FAIL ledger: no usage chunk -> no line",
+        "FAIL ledger: LLM_USAGE_LEDGER=/dev/null disables"
+      ]
+    },
+    {
+      "suite": "test_llm_openrouter_routing.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "TEST-METHODOLOGY MISMATCH, not a port bug — all 14 failures (upstream sync 1b, Lane 3, 015d081/cf9e0ab). Same curl-stub interception gap as test_llm_openai_compatible.sh: this suite's stub `curl` copies the `-d@FILE`/`@FILE` payload aside to $PAYLOAD_OUT and answers with a canned SSE stream; the port's fetch()-based bin/llm.mjs never invokes curl, so $PAYLOAD_OUT is never written and every `q()` jq read against it returns empty (\"got \" in the FAIL lines) — including \"no knobs: payload carries no provider block\", which is trivially true of an empty file and would pass for the WRONG reason even if the file existed. The one exit-based failure (\"an --or-* flag does not fail a non-OpenRouter call\") is the same real-network-attempt side effect documented for test_llm_provider_env.sh: with no LLM_API_URL override in this suite's env, the port's fetch reaches the real https://api.openai.com with the suite's fake key and gets a real rejection, exit 1, where the stub would have answered 200. This suite needs a fetch-level interceptor to be a valid port oracle, same as its siblings — out of scope for this runner. The port's actual OpenRouter-routing behavior IS independently proven: parity/llm/run-parity.mjs's `or-routing` scenario group (25 cases, mirroring every assertion in this suite 1:1) runs both the real Bash and the port against a real local HTTP server and diffs the request JSON byte-for-byte — 25/25 PARITY, 0 port bugs (see PARITY.md's Upstream sync 1b section).",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 6,
+        "failed": 14,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 20,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL no knobs: payload carries no provider block — got ",
+        "FAIL --or-only pins provider.only — got ",
+        "FAIL --or-only leaves allow_fallbacks alone — got ",
+        "FAIL slug list is downcased, trimmed and de-blanked — got ",
+        "FAIL --or-data-collection deny is passed through — got ",
+        "FAIL --or-zdr requests zero-data-retention endpoints — got ",
+        "FAIL LLM_OR_ZDR accepts true/yes/on/1 in any case — not honoured: true yes on 1 TRUE On",
+        "FAIL LLM_OR_ZDR accepts false/no/0/empty as off — still on for: 'false' 'no' '0' 'FALSE' ''",
+        "FAIL all three knobs compose into one provider block — got ",
+        "FAIL LLM_OR_ONLY is honoured like --or-only — got ",
+        "FAIL a .env in the working directory supplies the knobs — got ",
+        "FAIL an explicitly named openrouter provider takes the knobs — got ",
+        "FAIL an --or-* flag does not fail a non-OpenRouter call — exit 1",
+        "FAIL an --or-* flag adds no provider block for another provider — got "
+      ]
+    },
+    {
+      "suite": "test_retrieval_thinker.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch thinkers/retrieval/step replaced with a wrapper exec'ing the port's bin/retrieval-step.mjs (upstream hardcodes $REPO/thinkers/retrieval/step, not a bin/ path, so no env override exists to hook — same technique, just a different file)"
+      ],
+      "port": {
+        "passed": 17,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 17,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_key_var_resolution.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "Both failures are the curl-stub TEST-METHODOLOGY MISMATCH (see test_llm_openai_compatible.sh) — the LLM_MAX_TOKENS/.env checks read the payload curl was called with, which the port's fetch-based bin/llm.mjs never produces. The suite's other 12 checks (tools/headlong-init key-variable resolution) pass identically on both sides: headlong-init is not a ported tool, so this scratch run exercises the same real upstream Bash as the control there — no differential, as expected.",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 12,
+        "failed": 2,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 14,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL bin/llm: LLM_MAX_TOKENS from the environment reaches the request",
+        "FAIL bin/llm: .env stdout stays out of the values it loads"
+      ]
+    },
+    {
+      "suite": "test_mem_frontmatter.sh",
+      "cls": "bash-artifact",
+      "note": "sed-extracts frontmatter_field() out of bin/mem's own source text and evals it — bin/mem in the port is a Node trampoline with no such function body",
+      "rootCause": "BASH-ARTIFACT DEPENDENCY, not a port bug — `sed -n '/^frontmatter_field()/,/^}/p' \"$REPO/bin/mem\"` matches zero lines against the port's bin/mem (a 3-line Node trampoline, see bin/mem source), so `eval` defines nothing and every subsequent `frontmatter_field` call is `command not found` (empty result, all 5 remaining checks fail the same way — the 6th, \"missing field returns empty\", coincidentally still passes since empty was the expected answer there too).",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 1,
+        "failed": 5,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 6,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL quoted summary stripped — got: []",
+        "FAIL quoted importance stripped — got: []",
+        "FAIL quoted type stripped — got: []",
+        "FAIL unquoted summary unchanged — got: []",
+        "FAIL unquoted importance unchanged — got: []"
+      ]
+    },
+    {
+      "suite": "test_redact_sensitive.sh",
+      "cls": "bash-artifact",
+      "note": "sed-extracts redact_sensitive() out of bin/shellm's own source text and evals it — bin/shellm is not ported (shellm runs in-process as src/shellm.ts), so the scratch copy keeps the real upstream bin/shellm verbatim and this suite is unaffected by the port either way",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 44,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 44,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_responder_idempotency.sh",
+      "cls": "no-port-cli",
+      "note": "sources thinkers/_lib/common.sh directly and calls its _responder_already_handled() shell function — the responder is in-process in the port (dispatcher/monolith), never exposed as a bin/ CLI",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 13,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 13,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_monolith_backoff.sh",
+      "cls": "no-port-cli",
+      "note": "drives thinkers/monolith/step (a Bash script) directly with a stubbed shellm on PATH — the port's monolith loop is in-process (src/monolith.ts), not a standalone thinkers/monolith/step-equivalent CLI",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 21,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 21,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_prompt_file.sh",
+      "cls": "no-port-cli",
+      "note": "drives bin/shellm end to end (copied to a toolbin, with its own llm stub) — shellm's inner loop is in-process in the port (src/shellm.ts), not shipped as a standalone bin/shellm CLI",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 4,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 4,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_var_secrets.sh",
+      "cls": "no-port-cli",
+      "note": "drives bin/shellm end to end (--var forwarding, argv/ps hygiene) — same as test_prompt_file.sh, shellm is not a standalone port CLI",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 12,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 12,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_inactivity_beacon.sh",
+      "cls": "no-port-cli",
+      "note": "drives bin/shellm end to end AND relies on a NESTED `shellm` invocation from inside the exec'd block (SHELLM_ENV=local, its own llm stub) to exercise the activity-beacon cases — same class as test_prompt_file.sh, but doubly so: not only is shellm's inner loop in-process here (src/shellm.ts), there is no standalone `shellm` CLI on the port's bin/ PATH at all for the model's bash to invoke recursively, so the nested-run cases (2 and 3) have no port-side analogue to construct even in principle. The idle-vs-max TIMING mechanism this suite exercises IS ported (bug #33: execWithInactivityWatchdog, src/sandbox.ts) and proven directly against real subprocesses in test/sandbox-watchdog.test.ts and test/shellm.test.ts (a beacon-touching-but-output-silent block substitutes for a nested run, since the beacon file's contract is host-side and sandbox-agnostic, not shellm-specific) — this suite's role here is oracle-only, confirming this port's watchdog test expectations against the real upstream mechanism, not proving port behavior via a differential",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 5,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 5,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_shellm_empty_response_retry.sh",
+      "cls": "bash-artifact",
+      "note": "sed-extracts call_llm() out of bin/shellm's own source text and evals it — same as test_redact_sensitive.sh, bin/shellm is not ported as a file (shellm's loop is in-process, src/shellm.ts runShellm); the port's equivalent behavior (8ba520b/136f32b) is proven instead by test/shellm.test.ts's runShellm retry-loop cases, built from running this exact suite against NEW upstream bin/shellm directly",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 14,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 14,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_shellm_retry_feedback.sh",
+      "cls": "no-port-cli",
+      "note": "drives bin/shellm end to end (copied to a toolbin, with its own llm stub) — same as test_prompt_file.sh; the port's equivalent (136f32b's messages-file/rawfile/noise-filter/cap behavior) is proven by test/shellm.test.ts, built from running this suite against NEW upstream bin/shellm directly",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 8,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 8,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_env_image_identity.sh",
+      "cls": "bash-artifact",
+      "note": "sed-extracts env_metadata_matches()/env_metadata_mismatch_message()/_resume_docker_image() out of bin/shellm's own source text and evals them — same as test_redact_sensitive.sh. NOT PORTED (see PARITY.md Gaps, upstream sync 1b, 0925168): this port's sandbox-runtime.ts creates one Docker container per step and always tears it down in steprun.ts's `finally` — there is no persistent named-env registry (SHELLM_ENVS_DIR, env_find_running, --docker-image reuse) for a wrong-image reattach to happen to, and no standalone `shellm` CLI with --env/--docker-image/resume flags at all; the hazard this commit fixes does not exist in the port's architecture",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 12,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 12,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_thinker_tool_coupling.sh",
+      "cls": "no-port-cli",
+      "note": "sources thinkers/_lib/common.sh directly and calls _build_shellm_flags() — same class as test_responder_idempotency.sh. The CHATRC half of 30561e9 IS ported (src/steprun.ts buildIdentityConfig, test/steprun.test.ts's CHATRC case); the --bin tool-list half does not apply — this port's sandbox mounts the WHOLE checkout read-only (see PARITY.md's sandbox bind-mount-scope deviation), so every bin/ tool including focus/recap was already reachable before this lane, unlike upstream's per-tool --bin mount list",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 9,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 9,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_chat_history_index.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 34,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 34,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_recent_stream_filter.sh",
+      "cls": "no-port-cli",
+      "note": "sources thinkers/_lib/common.sh directly and calls its _recent_stream() shell function — the recent-stream projection is in-process in the port (src/recentStream.ts), never exposed as a bin/ CLI",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 23,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 23,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_responder_metrics.sh",
+      "cls": "no-port-cli",
+      "note": "drives thinkers/responder/step (a Bash script) directly with a stubbed llm on PATH — the responder is in-process in the port (src/responder.ts, invoked via bin/thinker-step.mjs on a different stdin/env contract), not a standalone thinkers/responder/step-equivalent CLI",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 17,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 17,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_responder_deferral.sh",
+      "cls": "no-port-cli",
+      "note": "drives thinkers/responder/step AND thinkers/monolith/step directly as Bash scripts — both are in-process in the port (src/responder.ts, src/monolith.ts)",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 52,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 52,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_responder_person_notes.sh",
+      "cls": "no-port-cli",
+      "note": "drives thinkers/responder/step directly — in-process in the port (src/responder.ts)",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 12,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 12,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_responder_thread_context.sh",
+      "cls": "no-port-cli",
+      "note": "drives thinkers/responder/step directly — in-process in the port (src/responder.ts)",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 7,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 7,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_mem_add_flags.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 13,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 13,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_mem_edit_flags.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 13,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 13,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_mem_flag_summary_warning.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 22,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 22,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_mem_redaction.sh",
+      "cls": "bash-artifact",
+      "note": "`sed '$d' bin/mem` then SOURCES the tool's own Bash text and calls main() in-process — bin/mem in the port is a Node trampoline, there is no Bash to source. The same ~170 cases (24 shape rules, env VALUE rule, PEM, 25 card layouts, add AND edit, stdin AND argv) are covered byte-for-byte by parity/mem (real bin/mem vs port) and test/memRedact.test.ts",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 7,
+        "failed": 106,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 171,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL ordinary add/stdin write",
+        "FAIL ordinary add/argument write",
+        "FAIL ordinary setup",
+        "FAIL ordinary setup",
+        "FAIL years add/stdin write",
+        "FAIL years add/argument write",
+        "FAIL years setup",
+        "FAIL years setup",
+        "FAIL timestamp add/stdin write",
+        "FAIL timestamp add/argument write",
+        "FAIL timestamp setup",
+        "FAIL timestamp setup",
+        "FAIL credit-date add/stdin write",
+        "FAIL credit-date add/argument write",
+        "FAIL credit-date setup",
+        "FAIL credit-date setup",
+        "FAIL visa-dates add/stdin write",
+        "FAIL visa-dates add/argument write",
+        "FAIL visa-dates setup",
+        "FAIL visa-dates setup",
+        "FAIL cards add/stdin write",
+        "FAIL cards add/argument write",
+        "FAIL cards setup",
+        "FAIL cards setup",
+        "FAIL card-followed-by-code add/stdin write",
+        "FAIL card-followed-by-code add/argument write",
+        "FAIL card-followed-by-code setup",
+        "FAIL card-followed-by-code setup",
+        "FAIL adjacent-cards add/stdin write",
+        "FAIL adjacent-cards add/argument write",
+        "FAIL adjacent-cards setup",
+        "FAIL adjacent-cards setup",
+        "FAIL card-layouts add/stdin write",
+        "FAIL card-layouts add/argument write",
+        "FAIL card-layouts setup",
+        "FAIL card-layouts setup",
+        "FAIL invalid-card add/stdin write",
+        "FAIL invalid-card add/argument write",
+        "FAIL invalid-card setup",
+        "FAIL invalid-card setup",
+        "FAIL long-number add/stdin write",
+        "FAIL long-number add/argument write",
+        "FAIL long-number setup",
+        "FAIL long-number setup",
+        "FAIL embedded-number add/stdin write",
+        "FAIL embedded-number add/argument write",
+        "FAIL embedded-number setup",
+        "FAIL embedded-number setup",
+        "FAIL github add/stdin write",
+        "FAIL github add/argument write",
+        "FAIL github setup",
+        "FAIL github setup",
+        "FAIL env-value add/stdin write",
+        "FAIL env-value add/argument write",
+        "FAIL env-value setup",
+        "FAIL env-value setup",
+        "FAIL formats add/stdin write",
+        "FAIL formats add/argument write",
+        "FAIL formats setup",
+        "FAIL formats setup",
+        "FAIL more-formats add/stdin write",
+        "FAIL more-formats add/argument write",
+        "FAIL more-formats setup",
+        "FAIL more-formats setup",
+        "FAIL structured add/stdin write",
+        "FAIL structured add/argument write",
+        "FAIL structured setup",
+        "FAIL structured setup",
+        "FAIL yaml add/stdin write",
+        "FAIL yaml add/argument write",
+        "FAIL yaml setup",
+        "FAIL yaml setup",
+        "FAIL json add/stdin write",
+        "FAIL json add/argument write",
+        "FAIL json setup",
+        "FAIL json setup",
+        "FAIL pem add/stdin write",
+        "FAIL pem add/argument write",
+        "FAIL pem setup",
+        "FAIL pem setup",
+        "FAIL inline-pem add/stdin write",
+        "FAIL inline-pem add/argument write",
+        "FAIL inline-pem setup",
+        "FAIL inline-pem setup",
+        "FAIL single-line-pem add/stdin write",
+        "FAIL single-line-pem add/argument write",
+        "FAIL single-line-pem setup",
+        "FAIL single-line-pem setup",
+        "FAIL two-pem add/stdin write",
+        "FAIL two-pem add/argument write",
+        "FAIL two-pem setup",
+        "FAIL two-pem setup",
+        "FAIL incomplete setup",
+        "FAIL nested setup",
+        "FAIL wrong-footer setup",
+        "FAIL explicit slug redacted",
+        "FAIL incomplete slug preserves file",
+        "FAIL argv add/stdin write",
+        "FAIL argv add/argument write",
+        "FAIL argv setup",
+        "FAIL argv setup",
+        "FAIL large-body add/stdin write",
+        "FAIL large-body add/argument write",
+        "FAIL large-body setup",
+        "FAIL large-body setup",
+        "FAIL subprocess failure preserves file"
+      ]
+    },
+    {
+      "suite": "test_mem_summary_derivation.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 21,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 21,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_mem_search.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 18,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 18,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_mem_search_adapter_bound.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_mem_search_orphan.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_traj_append_lock.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 5,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 5,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_traj_cycle_reads.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_traj_formatted_filter.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 26,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 26,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_traj_redaction.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "TEST-METHODOLOGY MISMATCH, not a port bug (all 9 — 3 modes x 3 checks) — the suite's final block puts stub `jq`/`sed` binaries first on PATH that emit unsafe/invalid output (or nothing) and exit non-zero, to prove the Bash append writes NOTHING when its jq/sed sanitizer subprocess fails. The port's redactor (src/trajRedact.mjs) is an in-process pure function with no subprocess to sabotage, so the injected failure never happens and the append succeeds (correctly, redacted). The invariant the block protects — redaction runs before any blob spill or lock/append, so a failed sanitizer cannot leak or half-write — holds structurally (appendStep redacts before spilling; covered by test/trajSync.test.ts and parity/traj traj-redact). The other 64 checks (every shape rule, env-VALUE rule, PEM, Docker auth, key redaction, blobs) pass 64/64.",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 64,
+        "failed": 9,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 73,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL exit: sanitizer failure is reported",
+        "FAIL exit: JSONL remains unchanged",
+        "FAIL exit: no blob or temporary payload is created",
+        "FAIL invalid: sanitizer failure is reported",
+        "FAIL invalid: JSONL remains unchanged",
+        "FAIL invalid: no blob or temporary payload is created",
+        "FAIL empty: sanitizer failure is reported",
+        "FAIL empty: JSONL remains unchanged",
+        "FAIL empty: no blob or temporary payload is created"
+      ]
+    },
+    {
+      "suite": "test_traj_search.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 81,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 81,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_traj_search_concat.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 13,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 13,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_chat_index_concurrent.sh",
+      "cls": "bash-artifact",
+      "note": "pauses a real reader by putting a `stat` shim ahead of the real one on PATH: the Bash updater forks `stat` right after its offset read, which is the gate. The port reads file sizes in-process (fs.statSync), so there is no subprocess to intercept and the reader never reaches the gate (port: 'FAIL reader did not reach the offset boundary', control passes). The property itself (racing updaters index each message once, lock released, offset == trajectory size) is proven by test/chat-history-index-concurrent.test.ts, which races real bin/chat.mjs processes",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL reader did not reach the offset boundary"
+      ]
+    },
+    {
+      "suite": "test_chat_index_lock.sh",
+      "cls": "bash-artifact",
+      "note": "same `stat`-shim gate as test_chat_index_concurrent.sh: the python driver waits for the Bash updater to fork `stat`, then SIGTERM/SIGKILLs the process group and checks takeover. Against the port the updater finishes before any gate exists ('updater exited before the gate'). The behaviors it asserts (live holder keeps the lock, takeover of a dead holder's lock with the notice, trim of an interrupted update's partial rows, fresh ownerless lock left alone, old ownerless lock taken over, offline reset) are covered by test/chatGuards.test.ts and by the parity/chat sync-e-index scenarios, which diff real Bash against the port on lock, trim, rebuild and index-reset state",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_chat_index_rebuild.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 22,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 22,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_chat_json_action_guard.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_chat_sent.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 39,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 39,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_chat_target_validation.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 19,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 19,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_llm_json_schema.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "TEST-METHODOLOGY MISMATCH, not a port bug (all 6) — same curl-stub interception gap as test_llm_openai_compatible.sh: the suite reads the payload file its stub `curl` was handed ($PAYLOAD_OUT), which the port's fetch()-based bin/llm.mjs never produces, so every jq read returns empty (\"got \"). The behavior IS proven independently: parity/llm/run-parity.mjs's `jsonschema` group (response_format on openai-compatible/openrouter/non-stream+system, ignore-with-warning on anthropic/gemini, file-not-found, invalid JSON) diffs the request JSON byte-for-byte against the real bin/llm over a real local HTTP server, and test/llmProviderSync.test.ts pins the payload shape.",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 2,
+        "failed": 6,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 8,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL no flag: no response_format in the payload — got ",
+        "FAIL --json-schema sets response_format.type json_schema — got ",
+        "FAIL the schema is strict — got ",
+        "FAIL the file's schema is carried verbatim — got ",
+        "FAIL the rest of the payload is unchanged",
+        "FAIL the reply text streams through untouched — got "
+      ]
+    },
+    {
+      "suite": "test_contrib_opencode.sh",
+      "cls": "no-port-cli",
+      "note": "drives contrib/opencode/tests/run.sh — contrib/ is not carried by the port (PORTING.md); the control run needs the opencode CLI and times out here",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 127,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 267,
+        "failed": 0,
+        "exitCode": null,
+        "timedOut": true
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_skill_compiler.sh",
+      "cls": "no-port-cli",
+      "note": "drives contrib/skill-compiler/skill-compiler — contrib/ is not carried by the port (PORTING.md); not copied into the scratch tree",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 127,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_skill_compiler_install.sh",
+      "cls": "no-port-cli",
+      "note": "drives contrib/skill-compiler install — contrib/ is not carried by the port (PORTING.md); not copied into the scratch tree",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_deploy_update.sh",
+      "cls": "no-port-cli",
+      "note": "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) — the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 47,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_split_bridge_env.sh",
+      "cls": "no-port-cli",
+      "note": "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) — the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 2,
+        "failed": 17,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 19,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL moves the two live token lines",
+        "FAIL .env no longer holds the tokens",
+        "FAIL .env.bridge holds them",
+        "FAIL alert token seeded",
+        "FAIL seed comment",
+        "FAIL .env.bridge is mode 600",
+        "FAIL backup written",
+        "FAIL second run is a no-op",
+        "FAIL alert token not duplicated",
+        "FAIL rotated token replaces",
+        "FAIL app token survives",
+        "FAIL existing alert token kept",
+        "FAIL missing .env exits 0",
+        "FAIL slack bridge unit loads .env.bridge",
+        "FAIL thinkers-death-alert posts with HEADLONG_ALERT_TOKEN",
+        "FAIL thinkers-failure-alert posts with HEADLONG_ALERT_TOKEN",
+        "FAIL thinkers-silence-alert posts with HEADLONG_ALERT_TOKEN"
+      ]
+    },
+    {
+      "suite": "test_thinkers_sandbox.sh",
+      "cls": "no-port-cli",
+      "note": "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) — the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 2,
+        "failed": 21,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 23,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL render: whole filesystem read-only",
+        "FAIL render: home and temp dirs writable",
+        "FAIL render: app checkout read-only",
+        "FAIL render: identity dir writable",
+        "FAIL render: bridge tokens unreadable",
+        "FAIL render: single [Service] section",
+        "FAIL install: default writes the drop-in",
+        "FAIL install: second run unchanged",
+        "FAIL status: on present",
+        "FAIL install: flag off removes",
+        "FAIL install: off unchanged",
+        "FAIL status: off absent",
+        "FAIL install: quoted 1 re-installs",
+        "FAIL install: 'off' is off",
+        "FAIL install: environment overrides .env",
+        "FAIL install: stale drop-in rewritten",
+        "FAIL render: HEADLONG_IDENTITIES_DIR",
+        "FAIL render: app still read-only",
+        "FAIL render: env override for root",
+        "FAIL render: linked .identities resolves",
+        "FAIL update.sh and setup.sh install the drop-in"
+      ]
+    },
+    {
+      "suite": "test_thinkers_silence_alert.sh",
+      "cls": "no-port-cli",
+      "note": "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) — the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 5,
+        "failed": 29,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 34,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL stale trajectory posts the alert — posts=0 ",
+        "FAIL marker written",
+        "FAIL posts to the alert channel",
+        "FAIL second tick is silent — posts=0",
+        "FAIL fresh trajectory posts the recovery — posts=0 ",
+        "FAIL healthy tick is silent",
+        "FAIL dead dispatcher is not a silence",
+        "FAIL deliberate stop is not a silence",
+        "FAIL missing config degrades to the fallback log — rc=127",
+        "FAIL re-posts after the repost interval — posts=0 ",
+        "FAIL inside the repost interval it is silent — posts=0",
+        "FAIL unwritable marker does not block the post — posts=0",
+        "FAIL marker falls back to tmpfs",
+        "FAIL recovery finds the fallback marker — posts=0",
+        "FAIL disk over the threshold posts the alert — posts=0 ",
+        "FAIL disk marker written",
+        "FAIL disk alert does not repeat inside the interval — posts=0",
+        "FAIL 88% is not yet a recovery — posts=0",
+        "FAIL disk under the threshold posts the recovery — posts=0 ",
+        "FAIL locked trajectory: group access restored — dir=700 file=600",
+        "FAIL locked trajectory posts the alert with the old modes — posts=0 ",
+        "FAIL perm marker written",
+        "FAIL locked again inside the interval: repaired, no second post — dir=700 posts=0",
+        "FAIL locked again past the interval: posts again — posts=0",
+        "FAIL healthy permissions: silent, marker dropped — posts=0",
+        "FAIL old index lock alert — posts=0",
+        "FAIL index alert repeats",
+        "FAIL index alert did not repost",
+        "FAIL index recovery marker"
+      ]
+    },
+    {
+      "suite": "test_thinkers_tmp_reaper.sh",
+      "cls": "no-port-cli",
+      "note": "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) — the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 6,
+        "failed": 17,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 23,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL exits 0 — rc=127 bash: <TMP>/uptests-xN7sqB/deploy/thinkers-tmp-reaper.sh: No such file or directory",
+        "FAIL big stale file reaped",
+        "FAIL small stale tmp.* reaped",
+        "FAIL stale shellm-run dir reaped",
+        "FAIL stale shellm-exec dir reaped",
+        "FAIL summary line counts what went — bash: <TMP>/uptests-xN7sqB/deploy/thinkers-tmp-reaper.sh: No such file or directory",
+        "FAIL quiet when there is nothing to reap — rc=127 bash: <TMP>/uptests-xN7sqB/deploy/thinkers-tmp-reaper.sh: No such file or directory",
+        "FAIL missing root exits 0",
+        "FAIL refuses the root directory — rc=127 bash: <TMP>/uptests-xN7sqB/deploy/thinkers-tmp-reaper.sh: No such file or directory",
+        "FAIL refuses HOME — rc=127 bash: <TMP>/uptests-xN7sqB/deploy/thinkers-tmp-reaper.sh: No such file or directory",
+        "FAIL refuses a system dir — rc=127 bash: <TMP>/uptests-xN7sqB/deploy/thinkers-tmp-reaper.sh: No such file or directory",
+        "FAIL refuses an ancestor of HOME even inside the temp tree — bash: <TMP>/uptests-xN7sqB/deploy/thinkers-tmp-reaper.sh: No such file or directory",
+        "FAIL prefix-only HOME match does not block",
+        "FAIL refuses a symlink to / — rc=127 bash: <TMP>/uptests-xN7sqB/deploy/thinkers-tmp-reaper.sh: No such file or directory",
+        "FAIL stale run dir holding a symlink is removed",
+        "FAIL name with a space reaped",
+        "FAIL name with a newline reaped"
+      ]
+    },
+    {
+      "suite": "test_metrics_busy_overlap.sh",
+      "cls": "no-port-cli",
+      "note": "exercises deploy/ (systemd drop-ins, installers, alert and metrics scripts) which the port does not carry (PORTING.md: deploy is out of scope) — the scratch copy runs upstream's own Bash against itself, so a port==control result would be vacuous and a port failure only means the files are absent (this one loads deploy/scripts/audel-metrics from Python)",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_run_all_identity_env.sh",
+      "cls": "no-port-cli",
+      "note": "tests the upstream suite runner tests/run-all.sh itself (env hygiene); the port's runner is parity/upstream-tests/run.mjs, so there is no port surface to point it at",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_run_all_shards.sh",
+      "cls": "no-port-cli",
+      "note": "tests the upstream suite runner tests/run-all.sh itself (TEST_SHARD slicing); the port's runner is parity/upstream-tests/run.mjs, so there is no port surface to point it at",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_explore_report_argv.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_monolith_request_model.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 9,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 9,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_monolith_run_capture.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 7,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 7,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_monolith_wake_sections.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": "HARNESS ARTIFACT, not a port bug — the one failure ('the runtime line names the checked-out commit') is thinkers/monolith/step's own Bash (`git -C $REPO rev-parse` for the `Runtime: headlong <sha>` line); this runner's lightweight scratch copy has no `.git` (same limitation documented for test_status.sh's 'clone'), while the control runs inside the real upstream checkout. The port's own runtime line is covered by test/monolith.test.ts and the context parity harness.",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 34,
+        "failed": 1,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 35,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL runtime line present"
+      ]
+    },
+    {
+      "suite": "test_oversized_argv_records.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_prompt_redaction.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 37,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 37,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_runtime_boundary_line.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 6,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 6,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_scheduled_goals.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 28,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 28,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_send_window_dedup_matrix.sh",
+      "cls": "portable",
+      "note": null,
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_extract_code_notice.sh",
+      "cls": "bash-artifact",
+      "note": "sed-extracts script_parses()/strip_markup_suffix()/normalize_toolcall_markup()/extract_code() out of bin/shellm's own source text and evals them — bin/shellm is not ported as a file. The port's equivalents (src/extract.ts) are proven by parity/extract/run-parity.mjs (82 cases diffed byte-for-byte against those very Bash functions) and test/extractToolcall.test.ts (this suite's cases, executed through bash -c)",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 65,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 65,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_shellm_prompt_markup.sh",
+      "cls": "bash-artifact",
+      "note": "sed-extracts usage_text()/build_system_prompt() out of bin/shellm's own source text — the port's prompt is the src/assets/shellm-system-prompt.txt asset; the same two positive and four negative assertions are made on it in test/shellmPrompt.test.ts",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 6,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 6,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_shellm_run_tmpdir.sh",
+      "cls": "no-port-cli",
+      "note": "drives bin/shellm end to end (copied to a toolbin, with its own llm stub) — shellm's loop is in-process in the port; the per-run TMPDIR is proven by test/shellm.test.ts's runShellm TMPDIR case",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 5,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 5,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_output_size_watchdog.sh",
+      "cls": "no-port-cli",
+      "note": "drives bin/shellm end to end (llm stub, SHELLM_MAX_OUTPUT_SIZE / SHELLM_MAX_EXEC_TIME) — shellm's loop is in-process in the port; the same scenarios are proven against real subprocesses in test/sandbox-output-wall.test.ts and test/shellm.test.ts. The suite's progress-echo flood cap ('lines not shown') has no port analogue: the port echoes exec output post-hoc, not live (PARITY.md gap)",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_exec_termination.sh",
+      "cls": "bash-artifact",
+      "note": "sed-extracts _kill_exec_tree()/_supervise_exec()/execute_code() out of bin/shellm's own source text — the STOP→KILL process-tree walk is Bash job-control mechanics with no TS analogue; the port's watchdog kills the child's process group (TERM, then KILL after 2 s) and test/sandbox-output-wall.test.ts asserts the producer is dead before exec returns",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 2,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 2,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_responder_card_redaction.sh",
+      "cls": "no-port-cli",
+      "note": "drives thinkers/responder/step (a Bash script) with stubbed llm and chat — the responder is in-process in the port (src/responder.ts). The same cases (reply, observations, deferral request, failure exits, benign numbers, person notes) are pinned by test/responder-sync.test.ts and test/responder-notes.test.ts, and the whole step is run against the real Bash by parity/responder/run-parity.mjs (card scenarios + _redact_card byte-for-byte on a corpus)",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 41,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 41,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    },
+    {
+      "suite": "test_responder_reply_guard.sh",
+      "cls": "no-port-cli",
+      "note": "drives thinkers/responder/step directly with a stubbed llm — in-process in the port (src/responder.ts). Raw action object, tool-call markup, broken/cut-off structured objects, the DEFER shapes and the stale-trigger guard are pinned by test/responder-sync.test.ts and run against the real Bash step by parity/responder/run-parity.mjs",
+      "rootCause": null,
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)"
+      ],
+      "port": {
+        "passed": 49,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 49,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": []
+    }
+  ],
+  "daemon": [
+    {
+      "suite": "test_thinkers_pending.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 16,
+        "failed": 1,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 19,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL feeder respawn: feeder running before kill"
+      ],
+      "rootCause": "DOCUMENTED DEVIATION, not a new bug — the single failure ('feeder respawn: feeder running before kill') is the very first assertion in test_feeder_respawn, which pgreps for a literal `tail -n 0 -F <trajfile>` process (upstream's feeder implementation). The port's feeder (src/feeder.ts) is an IN-PROCESS fs.watch replacement with no such subprocess at all — already documented in PARITY.md ('feeder … in-process replacement for `tail -F | dispatch.fifo`'). The check bails via an early `return` on the pgrep miss, so the remaining 3 checks in that one test function (respawn-after-kill, respawn-logged, dispatch-after-respawn) never run — accounting for the suite's 19 control vs 17 port denominator, on top of the 1 explicit FAIL."
+    },
+    {
+      "suite": "test_thinkers_wake_at.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 19,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 19,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [],
+      "rootCause": null
+    },
+    {
+      "suite": "test_thinkers_drain.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 20,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 20,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [],
+      "rootCause": null
+    },
+    {
+      "suite": "test_status.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 23,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL status.sh PATTERNS == headlong-killall PATTERNS",
+        "FAIL uninstall.sh PATTERNS == headlong-killall PATTERNS",
+        "FAIL dash pattern: killall == status.sh",
+        "FAIL dash pattern: killall == uninstall.sh",
+        "FAIL clone"
+      ],
+      "rootCause": "MIXED, three distinct causes, none a port BEHAVIOR bug. (a) 2 assertions ('status.sh PATTERNS == headlong-killall PATTERNS', both 'dash pattern: killall == status.sh/uninstall.sh') `sed`-extract tools/headlong-killall's OWN BASH SOURCE TEXT (its `PATTERNS=(...)`/`DASH_PAT=` array literals) and compare it against status.sh/uninstall.sh's embedded copies — a pure source-text-equality check with no subprocess involved. Substituting tools/headlong-killall with a one-line Node-dispatching wrapper (`exec node .../headlong-killall.mjs \"$@\"`, no PATTERNS array to extract) makes these fail by construction — same class as the existing test_mem_frontmatter.sh bash-artifact-dependency row. (b) the 'clone' failure: the 'install:' block runs `git clone -q --local \"$REPO\" \"$APP\"`, but this runner's lightweight scratch copy (tests/bin/thinkers/tools[/deploy] only, following the SAME technique every other suite in this file uses) never copies a `.git` directory at all, so the scratch root is not a git repository and the clone fails outright — the script's own `|| { bad \"clone\"; exit 1; }` then aborts the ENTIRE suite immediately, which is why port shows 'exit=1 (no pass/fail line)' instead of a real N/M count; every downstream assertion (18 of them) never runs as a result. This is a limitation of this runner's scratch-copy technique for the one suite that happens to `git clone` its own REPO variable, not a port behavior bug — a full git-backed scratch checkout would cost copying the ~360MB upstream tree (web/, tui/) per run and was judged not worth it for this lane."
+    },
+    {
+      "suite": "test_thinker_set_coupling.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 6,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 6,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [],
+      "rootCause": null
+    },
+    {
+      "suite": "test_identity_sync_thinkers.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 26,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL identity new alpha"
+      ],
+      "rootCause": "DOCUMENTED GAP, not a port bug — every failure is `identity sync-thinkers` returning an unrecognized-subcommand error (the port's bin/identity.mjs / src/identity.ts). PARITY.md's identity row already documents the scope: '`identity new` only (`import` is Slice C … out of this lane)' — `sync-thinkers` is a THIRD subcommand, never requested by this lane's task (sub, headlong-killall, thinkers enable/disable) and not implemented at all."
+    },
+    {
+      "suite": "test_unit_name_couplings.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 7,
+        "failed": 1,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 8,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL found the cgroup comparison in bin/thinkers — expected a [[ \"$my_cg\" == *\"<unit>@...\"* ]] test"
+      ],
+      "rootCause": "BASH-ARTIFACT DEPENDENCY, not a port bug — the single failure ('found the cgroup comparison in bin/thinkers — expected a [[ \"$my_cg\" == *\"<unit>@...\"* ]] test') `grep`s bin/thinkers' OWN SOURCE TEXT for a specific comparison idiom. Substituting bin/thinkers with the port's one-line Node-dispatching wrapper removes that text entirely — same class as the test_status.sh PATTERNS checks and the pre-existing test_mem_frontmatter.sh row."
+    },
+    {
+      "suite": "test_thinker_env_fallback.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [],
+      "rootCause": null
+    },
+    {
+      "suite": "test_dispatcher_single_owner.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL the shim crash fires between the claim and the send - no crash flag, shim log: ",
+        "FAIL the crash swallows the send, nothing dispatches - record count 1",
+        "FAIL the crash leaves the claim receipt behind as evidence - claims=0",
+        "FAIL the dispatcher dies after the send with its receipt still on disk - no crash flag, shim log: "
+      ],
+      "rootCause": "BASH-ARTIFACT DEPENDENCY, not a port bug — the four failures are the two cases that inject the crash through a shim on the dispatcher's PATH (an `mv` shim that does `kill -9 $PPID` the moment the claim lands in run/claimed/, and an `rm` shim that does it when the sent receipt is about to be removed). The port's dispatcher renames and unlinks with fs calls inside one Node process: no `mv`/`rm` child ever runs, so the shim never fires ('no crash flag, shim log: ' is empty) and the downstream record/receipt checks have nothing to observe. The same two windows (die after the claim, die after the send with the receipt still on disk) are exercised on the port side by THINKERS_TEST_DIE_AFTER_CLAIM and the dieHook in test/dispatcherReceipts.test.ts. The flock lifetime-lock cases are skipped upstream-style on this host (no flock(1) on macOS), and the port has no flock analogue by design — ownership is the 16-byte token plus a pid-alive guard (PARITY.md, lane f)."
+    },
+    {
+      "suite": "test_dispatcher_cleanup.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 7,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [],
+      "rootCause": null
+    },
+    {
+      "suite": "test_killall_brokers.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": null,
+        "failed": null,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [],
+      "rootCause": null
+    },
+    {
+      "suite": "test_thinkers_fifo_location.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 6,
+        "failed": 1,
+        "exitCode": 1,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 7,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [
+        "FAIL fifo_path names a fifo under /tmp — got ''"
+      ],
+      "rootCause": "DOCUMENTED DEVIATION, not a port bug — the one failure ('fifo_path names a fifo under /tmp') asserts upstream's FIFO: the Bash dispatcher feeds steps through a named pipe whose path it records in run/fifo_path. The port's feeder is in-process (src/feeder.ts, fs.watch), there is no FIFO and no fifo_path pointer, and steps still reach the thinker ('a new step is dispatched' passes). The three behaviors that DO carry over are ported and pass: a leftover run/dispatch.fifo from a Bash-engine run is removed at start, nothing is created inside the identity dir, and stop never follows a rewritten fifo_path."
+    },
+    {
+      "suite": "test_thinkers_trajectory_swap.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 10,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 10,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [],
+      "rootCause": null
+    },
+    {
+      "suite": "test_thinkers_stuck_step.sh",
+      "status": "run",
+      "adaptations": [
+        "scratch bin/{chat,context,llm,mem,recap,retrieval-step,skills,traj} replaced with bash wrappers exec'ing the port's bin/<tool>.mjs (bin/shellm, bin/shellm-docker, bin/sub, bin/thinkers left as real upstream Bash — not ported)",
+        "scratch bin/thinkers, tools/identity, tools/headlong-killall replaced with wrappers exec'ing the port's bin/{thinkers,identity,headlong-killall}.mjs"
+      ],
+      "port": {
+        "passed": 15,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "control": {
+        "passed": 15,
+        "failed": 0,
+        "exitCode": 0,
+        "timedOut": false
+      },
+      "upstreamRed": [],
+      "portOnlyFailures": [],
+      "rootCause": null
+    }
+  ],
+  "installer": [
+    {
+      "suite": "test_sandbox_gate.sh",
+      "cls": "portable",
+      "status": "pending",
+      "reason": "not attempted (pass --installer to enable)",
+      "foundUpstream": true
+    },
+    {
+      "suite": "test_uninstall.sh",
+      "cls": "portable",
+      "status": "pending",
+      "reason": "not attempted (pass --installer to enable)",
+      "foundUpstream": true
+    },
+    {
+      "suite": "smoke_install.sh",
+      "cls": "portable",
+      "status": "pending",
+      "reason": "not attempted (pass --installer to enable)",
+      "foundUpstream": true
+    },
+    {
+      "suite": "test_local_llm_setup.sh",
+      "cls": "bash-artifact",
+      "status": "pending",
+      "reason": "not attempted (pass --installer to enable)",
+      "foundUpstream": true
+    },
+    {
+      "suite": "test_install_secret_argv.sh",
+      "cls": "bash-artifact",
+      "status": "pending",
+      "reason": "not attempted (pass --installer to enable)",
+      "foundUpstream": true
+    },
+    {
+      "suite": "test_installer_prompt_defaults.sh",
+      "cls": "bash-artifact",
+      "status": "pending",
+      "reason": "not attempted (pass --installer to enable)",
+      "foundUpstream": true
+    }
+  ]
+}
