@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-05
+
+### Added
+
+- Public read-only `getIdentityActivity` API reports verified executing thinker steps, including responder work,
+  without exposing private run-state files or counting idle, queued, scheduled or recently finished work as active.
+- Public `verifyExecutionRoot` certificate lets embedders retain an execution-equivalent source archive already
+  mounted in a live sandbox, while using the current API for environment resolution and activity. It checks exact
+  execution inputs/configuration, permits only embedding API/release-version differences, and revalidates before use.
+
 ## [0.1.1] - 2026-11-05
 
 ### Added
@@ -49,6 +59,7 @@ First release under the name Undercurrent (formerly the working name headlong-ts
 
 - Known gaps and deliberate deviations from upstream are listed in `PARITY.md` and `docs/GUIDE.md` ("Known gaps").
 
-[Unreleased]: https://github.com/wolfyy970/undercurrent/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/wolfyy970/undercurrent/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/wolfyy970/undercurrent/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/wolfyy970/undercurrent/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/wolfyy970/undercurrent/releases/tag/v0.1.0

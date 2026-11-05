@@ -18,6 +18,7 @@ import { FORWARDED_ENV_KEYS as FORWARDED_ENV_KEYS_INTERNAL } from "./sandbox-run
 import { extractCode as extractCodeInternal, type ExtractedCode } from "./extract.ts";
 import { indexUpdate, queryHistory, type IndexedMessage } from "./messageIndex.ts";
 import { resetIdentitySandbox as resetIdentitySandboxInternal } from "./sandbox-reset.ts";
+import { certifiedExecutionEnv, getIdentityActivity as getIdentityActivityInternal, verifyExecutionRoot as verifyExecutionRootInternal, type IdentityActivity, type IdentityActivityOptions, type VerifiedExecutionRoot } from "./activity.ts";
 
 /** Semver of this interface. Breaking changes bump the minor while 0.x. */
 export const API_VERSION = "0.1.0";
@@ -30,8 +31,9 @@ export const API_VERSION = "0.1.0";
  * The environment `identity activate` would export for `identityDir` (IDENTITY_NAME, IDENTITY_DIR, TRAJ_DIR, TRAJ_ID,
  * MEM_DIR, ...), layered over `base` (default: process.env) and the identity's `.env`.
  */
-export function resolveIdentityEnv(identityDir: string, opts: { base?: Record<string, string | undefined> } = {}): Record<string, string> {
-  return resolveIdentityEnvInternal(identityDir, opts.base ? { base: opts.base } : {});
+export function resolveIdentityEnv(identityDir: string, opts: { base?: Record<string, string | undefined>; executionRoot?: VerifiedExecutionRoot } = {}): Record<string, string> {
+  const env = resolveIdentityEnvInternal(identityDir, opts.base ? { base: opts.base } : {});
+  return opts.executionRoot === undefined ? env : certifiedExecutionEnv(env, opts.executionRoot);
 }
 
 /** Environment variable names the engine forwards into a wake's shell. An embedder that must keep a credential away from a mind strips these. */
@@ -40,6 +42,22 @@ export const FORWARDED_ENV_KEYS: readonly string[] = FORWARDED_ENV_KEYS_INTERNAL
 /** The identity's run-state directory (dispatcher.pid, active_thinkers, wake cursors). */
 export function runDir(identityDir: string): string {
   return runDirOf(identityDir);
+}
+
+/**
+ * Read-only snapshot of verified executing thinker steps (including responder work).
+ * Enabled thinkers, pending wakes and recent trajectory writes do not imply activity.
+ * Missing/dead dispatchers, stale PIDs or unavailable process inspection return idle.
+ * This is conservative observation, not a synchronization or drain primitive.
+ */
+export function getIdentityActivity(identityDir: string, opts: IdentityActivityOptions = {}): IdentityActivity {
+  return getIdentityActivityInternal(identityDir, opts);
+}
+export type { IdentityActivity, IdentityActivityOptions, VerifiedExecutionRoot };
+
+/** A process-local, revalidated certificate that a retained archive executes the same source CLI code as this release. */
+export function verifyExecutionRoot(candidateRoot: string): VerifiedExecutionRoot | null {
+  return verifyExecutionRootInternal(candidateRoot);
 }
 
 /**
