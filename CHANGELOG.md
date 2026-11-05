@@ -8,6 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-05
+
+### Added
+
+- Public `resetIdentitySandbox` API for embedders changing an identity's sandbox mounts after draining its work.
+  The engine verifies container ownership before removal and preserves metadata when Docker or ownership is uncertain.
+
 ## [0.1.0] - 2026-10-29
 
 First release under the name Undercurrent (formerly the working name headlong-ts).
@@ -42,5 +49,6 @@ First release under the name Undercurrent (formerly the working name headlong-ts
 
 - Known gaps and deliberate deviations from upstream are listed in `PARITY.md` and `docs/GUIDE.md` ("Known gaps").
 
-[Unreleased]: https://github.com/wolfyy970/undercurrent/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/wolfyy970/undercurrent/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/wolfyy970/undercurrent/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/wolfyy970/undercurrent/releases/tag/v0.1.0

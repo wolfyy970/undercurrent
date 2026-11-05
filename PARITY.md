@@ -3550,13 +3550,13 @@ Source: a $0 scripted differential (same state, same 53-step wake, identical rep
 
 ## Port extensions for embedders (2026-10-29)
 
-One addition with no upstream counterpart. It leaves every upstream input unchanged (all existing differential and unit tests pass
-unchanged); it only acts on names upstream never produces.
+Opt-in additions with no upstream counterpart. Existing upstream inputs retain their behavior; the extensions below apply only when an embedder explicitly uses them.
 
 Not here, by design: DeepSeek's DSML tool-call text. Provider-specific markup stays out of the engine; an embedder that needs it rewrites it to a ```bash fence in its own provider proxy, so `src/extract.ts` stays upstream's `normalize_toolcall_markup` unchanged.
 
 | Extension | Upstream | Port | Why | Evidence |
 |---|---|---|---|---|
+| **Identity sandbox reset** `resetIdentitySandbox` | Container cleanup is coupled to identity deletion or private sandbox metadata | A public API removes only the drained identity's recorded container and sandbox metadata, after checking canonical state paths, container ID, engine-generated name and exact read-write identity bind; uncertain ownership/removal throws | Embedders can change sandbox mounts without reading or deleting engine-private files or destroying the identity. Ordinary wake and environment behavior is unchanged. | `test/sandbox-reset.test.ts` (verified removal, already-removed confirmation, ownership/path rejection, failure preservation and conditional real Docker case); `test/api.test.ts` (public export) |
 | **Team-room routing names** `room~<room>~<sender>` and `room~<room>` | A bridge packs place into the routing name: `slack-<user>-<channel>-<thread_ts>` gives person key `slack:<user>` and thread key `slack-thread:<channel>-<ts>` (`bin/chat` `_PERSON_KEY_JQ`/`_person_key`/`_thread_key`, lines 440-460; `thinkers/responder/step` history + thread union) | `src/personMemory.ts` `TEAM_ROOM_RE`: person key = the sender, thread key = `room:<room>`; the responder's existing history + thread union (`src/responder.ts` `queryHistory`, `buildConvoSel`) then shows a room reply every post in that room, other bots' and the mind's own | An embedder delivered room posts from the plain sender id, so a mind answering in a room saw only the asker's lines ("Atlas's activity suggestion isn't in this thread", real DeepSeek run 2026-10-29). `~` because room and bot ids may contain `-` | `test/teamRooms.test.ts` (keys; a room reply's turns include the other bot's post and the mind's own, not another room's, trigger once) |
 
 ## Replay seam removal and K1-K3 (2026-10-29, branch feat/no-replay-seam)

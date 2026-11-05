@@ -7,8 +7,8 @@
 // `--add-host host.docker.internal:host-gateway` to the container it starts
 // (bin/shellm:216-221, 1026-1034, 2659-2662/2679-2680/2712).
 //
-// This test is the end-to-end proof: a real HTTP listener bound to THIS
-// host's 127.0.0.1, a real container started by `selectSandbox` (mode:
+// This test is the end-to-end proof: a real HTTP listener on THIS
+// host, a real container started by `selectSandbox` (mode:
 // "docker"), and a `curl "$LLM_API_URL"` run INSIDE that container via the
 // same `applyDockerApiUrlRewrite` hunk steprun.ts's `runStep` applies.
 //
@@ -43,7 +43,12 @@ async function startHostListener(): Promise<{ url: string; port: number; hits: n
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("host-reached");
   });
-  await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
+  // Linux's host-gateway reaches the bridge interface, not host loopback.
+  // Expose this test-only listener there too; Docker Desktop/Colima can
+  // forward to loopback on macOS. The input URL stays 127.0.0.1 so the
+  // rewrite and the negative container-loopback assertion remain real.
+  const listenAddress = process.platform === "linux" ? "0.0.0.0" : "127.0.0.1";
+  await new Promise<void>((resolve) => server.listen(0, listenAddress, resolve));
   const port = (server.address() as { port: number }).port;
   return {
     url: `http://127.0.0.1:${port}`,
@@ -60,7 +65,7 @@ afterEach(() => {
 
 describe.skipIf(!DAEMON)("selectSandbox + applyDockerApiUrlRewrite — REAL docker round trip (bug #70)", () => {
   it(
-    "an in-container curl reaches a host-loopback listener via the rewritten LLM_API_URL and the --add-host alias",
+    "an in-container curl reaches a host listener via the rewritten LLM_API_URL and the --add-host alias",
     async () => {
       const listener = await startHostListener();
       const identityDir = fs.mkdtempSync(path.join(os.tmpdir(), "b70-identity-"));

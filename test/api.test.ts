@@ -20,7 +20,7 @@ function identity() {
 describe("public api", () => {
   it("exports only the documented surface", () => {
     expect(Object.keys(api).sort()).toEqual(
-      ["API_VERSION", "FORWARDED_ENV_KEYS", "RESPONDER_NOTES_MAX", "appendHistory", "appendStep", "chatHistory", "deliverMessage", "extractCode", "findDelivery", "memoryId", "notesPrompt", "readPersonNote", "resolveIdentityEnv", "rootTrajFile", "runDir", "wakeCursorOffset", "writePersonNote"].sort(),
+      ["API_VERSION", "FORWARDED_ENV_KEYS", "RESPONDER_NOTES_MAX", "appendHistory", "appendStep", "chatHistory", "deliverMessage", "extractCode", "findDelivery", "memoryId", "notesPrompt", "readPersonNote", "resetIdentitySandbox", "resolveIdentityEnv", "rootTrajFile", "runDir", "wakeCursorOffset", "writePersonNote"].sort(),
     );
     expect(api.FORWARDED_ENV_KEYS).toEqual([...FORWARDED_ENV_KEYS]);
   });

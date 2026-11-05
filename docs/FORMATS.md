@@ -16,7 +16,18 @@ an identity directory.
 | `run/` (anything else) | Run state, wake ledger and read cursors. | never; use `appendHistory` / `wakeCursorOffset` |
 | `trajectories/<id>-root/trajectory.jsonl` | The identity's stream (below). | read; write via `appendStep`, `appendHistory`, `deliverMessage` |
 | `messages.jsonl` | Message index, rebuilt from the trajectory. | never write |
+| `.shellm/` | Engine sandbox state, including recorded container metadata. | never read or write; use `resetIdentitySandbox` in `src/api.ts` after draining the identity |
 | `team/`, `.embedder/` | Reserved for the embedding application; the engine never reads or writes them. | free |
+
+## Sandbox lifecycle
+
+`resetIdentitySandbox(identityDir, envName, { env?, dockerPath? })` removes the recorded container only after verifying
+its engine-generated name and exact read-write identity bind, then removes its metadata. When recorded state exists the
+identity path must be canonical; existing state paths and files must not be symlinks. Stop/drain the identity's dispatcher and steps and prevent
+concurrent state changes before calling. Failures preserve metadata and throw; an already-removed container is accepted
+only when Docker successfully confirms its absence. With no recorded sandbox it is a no-op: callers revoking folder access
+must separately refuse to proceed if unrecorded containers still mount that identity. Explicit `env` supplies the Docker
+context and PATH; `dockerPath` defaults to `docker`. No other identity data is changed.
 
 ## Trajectory steps
 
