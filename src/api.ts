@@ -17,6 +17,7 @@ import { redactKeys } from "./responderRedact.ts";
 import { FORWARDED_ENV_KEYS as FORWARDED_ENV_KEYS_INTERNAL } from "./sandbox-runtime.ts";
 import { extractCode as extractCodeInternal, type ExtractedCode } from "./extract.ts";
 import { indexUpdate, queryHistory, type IndexedMessage } from "./messageIndex.ts";
+import { resetIdentitySandbox as resetIdentitySandboxInternal } from "./sandbox-reset.ts";
 
 /** Semver of this interface. Breaking changes bump the minor while 0.x. */
 export const API_VERSION = "0.1.0";
@@ -39,6 +40,15 @@ export const FORWARDED_ENV_KEYS: readonly string[] = FORWARDED_ENV_KEYS_INTERNAL
 /** The identity's run-state directory (dispatcher.pid, active_thinkers, wake cursors). */
 export function runDir(identityDir: string): string {
   return runDirOf(identityDir);
+}
+
+/**
+ * Remove this identity's recorded Docker sandbox and its engine-owned metadata. Drain its dispatcher and steps first,
+ * and prevent concurrent state changes. Recorded state requires a canonical identity path; uncertain ownership/removal throws.
+ * With no recorded sandbox this is a no-op, not discovery of containers whose metadata was lost.
+ */
+export function resetIdentitySandbox(identityDir: string, envName: string, opts: { env?: Record<string, string | undefined>; dockerPath?: string } = {}): void {
+  resetIdentitySandboxInternal(identityDir, envName, opts);
 }
 
 // ---------------------------------------------------------------------------------------------------------------
