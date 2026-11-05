@@ -1,6 +1,6 @@
 {
   "name": "undercurrent",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "Undercurrent: an unofficial, best-effort TypeScript port of Headlong (laude-institute/headlong). Dispatcher + two-thinker (monolith + responder) topology over one stream. Not affiliated with the Headlong authors.",
   "license": "Apache-2.0",
