@@ -223,21 +223,39 @@ function diffArtifactTrees({ origRunDir, portRunDir, origMemDir, portMemDir, ori
 }
 
 // ---------------------------------------------------------------------------
-// PARITY.md-citation lookup — heuristic: a keyword-substring hit in
-// PARITY.md is surfaced as a candidate citation for a human to confirm, not
-// an authoritative classification. A miss just means "not found", not
+// PARITY.md + docs/parity/* citation lookup — heuristic: a keyword-substring
+// hit is surfaced as a candidate citation for a human to confirm, not an
+// authoritative classification. A miss just means "not found", not
 // "definitely a port bug" — see classifyDivergence's own doc comment.
+// PORT-NOTE: PARITY evidence was split under docs/parity/ for GitHub rendering
+// (v0.1.3); lookup must search the overview and the linked detail pages.
 // ---------------------------------------------------------------------------
 
 function buildDocLookup(parityMdPath) {
-  const text = fs.existsSync(parityMdPath) ? fs.readFileSync(parityMdPath, "utf8") : "";
-  const lines = text.split("\n");
+  const files = [];
+  if (fs.existsSync(parityMdPath)) {
+    files.push({ file: "PARITY.md", text: fs.readFileSync(parityMdPath, "utf8") });
+  }
+  const parityDir = path.join(path.dirname(parityMdPath), "docs", "parity");
+  if (fs.existsSync(parityDir)) {
+    for (const name of fs.readdirSync(parityDir).sort()) {
+      if (!name.endsWith(".md")) continue;
+      const full = path.join(parityDir, name);
+      files.push({
+        file: path.posix.join("docs/parity", name),
+        text: fs.readFileSync(full, "utf8"),
+      });
+    }
+  }
+  const indexed = files.map(({ file, text }) => ({ file, lines: text.split("\n") }));
   return function docLookup(key) {
     const needle = key.split(/[:.]/).pop();
     if (!needle) return null;
-    for (let i = 0; i < lines.length; i++) {
-      if (lines[i].includes(needle)) {
-        return { file: "PARITY.md", line: i + 1, excerpt: lines[i].trim().slice(0, 200) };
+    for (const { file, lines } of indexed) {
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].includes(needle)) {
+          return { file, line: i + 1, excerpt: lines[i].trim().slice(0, 200) };
+        }
       }
     }
     return null;

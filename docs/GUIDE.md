@@ -272,6 +272,7 @@ parity/         differential-parity harnesses + captured results vs. the origina
 web/            web control plane (vendored viewer + TS data layer + control API)
 tui/            upstream's Rust terminal UI, vendored verbatim (kept native — see PARITY.md)
 SPEC.md         trace-grounded specification (cites the upstream Bash line by line)
-PARITY.md       what is ported, verified, stubbed, or deliberately different
+PARITY.md       concise parity status map (detail under docs/parity/)
+docs/parity/    module evidence, deviations, gaps, and historical sync notes
 PORTING.md      how this port was built and tested
 ```
