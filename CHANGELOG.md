@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-11-06
+
+### Changed
+
+- Split `PARITY.md` into a concise overview plus linked detail pages under `docs/parity/` so
+  GitHub can render the parity documentation. Claims, gaps, and deliberate deviations are
+  preserved; history pages are marked historical. Live Slack/Telegram bridge legs remain deferred.
+
 ## [0.1.2] - 2026-11-05
 
 ### Added
@@ -59,7 +67,8 @@ First release under the name Undercurrent (formerly the working name headlong-ts
 
 - Known gaps and deliberate deviations from upstream are listed in `PARITY.md` and `docs/GUIDE.md` ("Known gaps").
 
-[Unreleased]: https://github.com/wolfyy970/undercurrent/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/wolfyy970/undercurrent/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/wolfyy970/undercurrent/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/wolfyy970/undercurrent/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/wolfyy970/undercurrent/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/wolfyy970/undercurrent/releases/tag/v0.1.0
