@@ -29,6 +29,9 @@ jobs:
       # Docker-backed tests skip on their own when no daemon answers; the parity harnesses need an upstream
       # checkout and are not run here. test/scrub.test.ts (personal data) runs as part of this.
       - run: pnpm test
+        env:
+          # The fleet runs jobs in containers; the tests exercise the host-side paths.
+          HEADLONG_ASSUME_HOST: "1"
   secrets:
     runs-on: test-infra-2-undercurrent
     timeout-minutes: 10
