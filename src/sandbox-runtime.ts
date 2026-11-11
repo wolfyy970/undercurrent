@@ -218,6 +218,7 @@ const DEFAULT_DOCKER_IMAGE = "node:24-bookworm";
 
 function insideDockerContainer(): boolean {
   try {
+    if (process.env["HEADLONG_ASSUME_HOST"] === "1") return false;
     return fs.existsSync("/.dockerenv");
   } catch {
     return false;

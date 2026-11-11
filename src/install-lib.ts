@@ -96,6 +96,8 @@ export function requireDeps(deps: string[], env: Record<string, string>, platfor
 // ---------------------------------------------------------------------------
 
 function inContainer(): boolean {
+  // HEADLONG_ASSUME_HOST=1: CI that itself runs in a container still tests the host-side paths.
+  if (process.env["HEADLONG_ASSUME_HOST"] === "1") return false;
   return fs.existsSync("/.dockerenv") || fs.existsSync("/run/.containerenv");
 }
 

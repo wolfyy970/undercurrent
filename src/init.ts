@@ -1348,7 +1348,7 @@ async function runHeadlongInitInner(argv: string[], env: Record<string, string>,
   if (env["HEADLONG_NO_TTY"] === "1") hasTTY = false;
   const p: Prompter = { hasTTY, io };
 
-  let inContainer = fs.existsSync("/.dockerenv") || fs.existsSync("/run/.containerenv");
+  let inContainer = process.env["HEADLONG_ASSUME_HOST"] !== "1" && (fs.existsSync("/.dockerenv") || fs.existsSync("/run/.containerenv"));
   if (env["HEADLONG_FAKE_CONTAINER"] === "1") inContainer = true;
   if (inContainer && !env["HEADLONG_WEB_ARGS"]) env["HEADLONG_WEB_ARGS"] = "--host 0.0.0.0";
 
