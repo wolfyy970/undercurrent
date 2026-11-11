@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: test-infra-2-undercurrent
     timeout-minutes: 30
     steps:
       # Actions are pinned to full commit SHAs (the tag is in the comment); Dependabot proposes updates.
@@ -28,7 +28,7 @@ jobs:
       # checkout and are not run here. test/scrub.test.ts (personal data) runs as part of this.
       - run: pnpm test
   secrets:
-    runs-on: ubuntu-latest
+    runs-on: test-infra-2-undercurrent
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
